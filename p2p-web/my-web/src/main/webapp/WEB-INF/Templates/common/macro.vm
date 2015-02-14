@@ -1,0 +1,12 @@
+#macro(WWW_HOME_URL)http://localhost/web/#end
+#macro(IMAGE_URL)http://image.fanyajr.com/#end
+#macro(I_ROOT_URL)http://localhost/i/account/summary#end
+#macro(I_INVEST_ROOT_URL)http://localhost/i/invest/summary#end
+#macro(I_INVEST_DETAIL_URL)http://localhost/i/invest/summary#end
+#macro(I_INVEST_COLLECT_URL)http://localhost/i/invest/collect#end
+#macro(PASSPORT_ROOT_URL)http://localhost/passport/#end
+#macro(PROD_ROOT_URL)http://localhost/product/#end
+#macro(TRANSFER_ROOT_URL)http://localhost/transfer/#end
+#macro(HELP_ROOT_URL)http://localhost/help/#end
+#macro(ABOUT_ROOT_URL)http://localhost/about/#end
+#macro(JQGRID_DEFAULT_SETTINGS)datatype: "json", rownumbers: true, rownumWidth: 40, shrinkToFit: true, forceFit: true, autowidth: true, height: "100%", scrollOffset: 0#end

@@ -1,0 +1,2 @@
+#macro(IMAGE_URL)http://image.fanyajr.com/#end
+#macro(JQGRID_DEFAULT_SETTINGS)datatype: "json", rownumbers: true, rownumWidth: 40, shrinkToFit: true, forceFit: true, autowidth: true, height: "100%", scrollOffset: 0#end

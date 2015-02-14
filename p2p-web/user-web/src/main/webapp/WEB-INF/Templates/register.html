@@ -1,0 +1,44 @@
+#parse("./common/header.html")
+    <div class="row">
+        <div class="col-sm-4 col-md-8 col-lg-9">
+        </div>
+        <div class="col-sm-8 col-md-4 col-lg-3">
+            <form  role="form">
+                <div class="input-group form-group">
+                    <span class="glyphicon glyphicon-envelope input-group-addon"></span>
+                    <input type="text" name="email" class="form-control" placeholder="邮箱">
+                    <span class="input-group-addon"></span>
+                </div>
+                <div class="input-group form-group">
+                    <span class="glyphicon glyphicon-phone input-group-addon"></span>
+                    <input type="text" name="mobile" class="form-control" placeholder="手机号">
+                    <span class="input-group-addon"></span>
+                </div>
+                <div class="input-group form-group">
+                    <span class="glyphicon glyphicon-eye-open input-group-addon"></span>
+                    <input type="text" name="captcha" class="form-control" placeholder="验证码">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">发送</button>
+                    </span>
+                </div>
+                <div class="input-group form-group">
+                    <span class="glyphicon glyphicon-lock input-group-addon"></span>
+                    <input type="password" name="password" class="form-control" placeholder="密码8位数字和字母组合">
+                    <span class="input-group-addon"></span>
+                </div>
+                <div class="form-group">
+                    <p>创建账户，代表我同意并接受泛亚金融<a href="#">注册协议</a>, <a href="#">商业借款协议</a>和<a href="#">个人借款协议</a></p>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-primary">注册</button>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox-inline">
+                        已有账号，请
+                    </div>
+                    <a class="forget-password-link" href="/user/login" target="_self">登录</a>
+                </div>
+            </form>
+        </div>
+    </div>
+#parse("./common/footer.html")
