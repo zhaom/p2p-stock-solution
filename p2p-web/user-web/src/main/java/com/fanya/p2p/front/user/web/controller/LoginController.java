@@ -3,8 +3,6 @@ package com.fanya.p2p.front.user.web.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 
 import com.fanya.p2p.front.user.utils.Constants;
-import com.solution.p2p.core.common.entity.SysUser;
-import com.solution.p2p.core.common.service.UserService;
 import com.solution.p2p.core.common.utils.SignUtil;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;

@@ -5,7 +5,6 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.fanya.p2p.common.remote.PermissionContext;
 import com.fanya.p2p.common.remote.RemoteServiceInterface;
 import com.fanya.p2p.front.user.utils.Constants;
-import com.solution.p2p.core.common.service.AuthorizationService;
 import com.solution.p2p.core.common.utils.SignUtil;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.SessionDAO;

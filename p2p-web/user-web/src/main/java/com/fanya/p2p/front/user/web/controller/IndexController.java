@@ -1,19 +1,12 @@
 package com.fanya.p2p.front.user.web.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.fanya.p2p.front.user.utils.Constants;
 import com.fanya.p2p.front.user.web.bind.annotation.CurrentUser;
-import com.solution.p2p.core.common.entity.SysUser;
-import com.solution.p2p.core.common.service.AuthorizationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
-import java.util.Set;
 
 /**
  * <p>User: Zhang Kaitao

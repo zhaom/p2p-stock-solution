@@ -1,9 +1,6 @@
 package com.fanya.p2p.front.user.realm;
 
 import com.fanya.p2p.front.user.utils.Constants;
-import com.solution.p2p.core.common.entity.SysUser;
-import com.solution.p2p.core.common.service.AuthorizationService;
-import com.solution.p2p.core.common.service.UserService;
 import com.solution.p2p.core.common.utils.SignUtil;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

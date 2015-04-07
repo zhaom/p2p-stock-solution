@@ -1,6 +1,5 @@
 package com.solution.p2p.core.common.service;
 
-import com.solution.p2p.core.common.entity.SysUser;
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;

@@ -3,11 +3,9 @@ package com.fanya.p2p.front.user.web.shiro.filter;
 import com.alibaba.dubbo.config.annotation.Reference;
 
 import com.fanya.p2p.front.user.utils.Constants;
-import com.solution.p2p.core.common.service.UserService;
 import com.solution.p2p.core.common.utils.SignUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.PathMatchingFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;

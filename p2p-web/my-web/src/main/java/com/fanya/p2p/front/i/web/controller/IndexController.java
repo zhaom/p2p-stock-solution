@@ -1,11 +1,6 @@
 package com.fanya.p2p.front.i.web.controller;
 
 import com.fanya.p2p.front.i.web.service.AccountServiceLocal;
-import com.solution.p2p.core.common.entity.SysUser;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

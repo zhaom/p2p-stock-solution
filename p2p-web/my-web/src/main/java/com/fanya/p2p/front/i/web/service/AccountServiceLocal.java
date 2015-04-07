@@ -1,9 +1,6 @@
 package com.fanya.p2p.front.i.web.service;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.fanya.p2p.front.i.web.utils.Constants;
-import com.solution.p2p.core.common.entity.CapitalAccount;
-import com.solution.p2p.core.common.service.AccountService;
 import com.solution.p2p.core.common.utils.ServiceResult;
 import com.solution.p2p.core.common.utils.SignUtil;
 
