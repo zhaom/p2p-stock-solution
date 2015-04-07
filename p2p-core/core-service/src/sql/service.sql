@@ -1,4 +1,4 @@
-drop table if exists bid;
+﻿drop table if exists bid;
 drop table if exists member_bid_request;
 drop table if exists bid_refund;
 drop table if exists bid_refund_distribute;
@@ -93,10 +93,10 @@ create table if not exists bid_refund_distribute(
 create table if not exists production(
   id bigint auto_increment not null comment 'id',
   name varchar(50) not null comment '产品名称',
-  guaranty_category int not null comment '抵押分类',
-  life_duration_category int not null comment '存续周期分类',
-  collect_duration_category int not null comment '募集周期分类',
-  loan_amount_category int not null comment '借款金额分类',
+  guaranty_category int not null comment '抵押分类',                                --  【股票|债权|期货持仓|外汇持仓|...】
+  life_duration_category int not null comment '存续周期分类',                      --  【按天配资|按月配资】
+  collect_duration_category int not null comment '募集周期分类',                  --  【按天募集|按小时募集】
+  loan_amount_category int not null comment '借款金额分类',                        --   【超小额|小额|普通额|大额】
   l_interest_category int not null comment '计息分类',
   l_service_fee_category int not null comment '服务费分类',
   l_pay_category int not null comment '支付分类',
@@ -154,13 +154,14 @@ create table if not exists interest_category(
   limit_min_interest_rate decimal(18,9) not null comment '利率下限',
   limit_max_interest_rate decimal(18,9) not null comment '利率下限',
   prefer_interest_rate decimal(18,9) not null comment '默认利率',
+  interest_rate_unit int not null comment '计息时间单位',                                         --    【自然日|交易日|月|年|一次性】
   int_diff_time int not null comment '计息开始时间与募集结束时间偏差',
   diff_unit int not null comment '时间偏差单位',
   refund_int_diff_time_limit int not null comment '返息时间偏差限定',
   refund_int_first int not null comment '是否首先返息',
   refund_cycle_duration int not null comment '返息周期单周期长度',
   refund_cycle_duration_unit int not null comment '返息周期单周期长度单位',
-  refund_int_times int not null comment '返息次数',
+  refund_int_times int not null comment '返息次数',                                                --  【一次性|多次】
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id)
@@ -172,6 +173,7 @@ create table if not exists service_fee_category(
   limit_min_service_fee_rate decimal(18,9) not null comment '服务费率下限',
   limit_max_service_fee_rate decimal(18,9) not null comment '服务费率上限',
   prefer_service_fee_rate decimal(18,9) not null comment '默认服务费率',
+  service_fee_rate_unit int not null comment '服务费率时间单位',                                 --    【自然日|交易日|月|年|一次性】
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id)
@@ -180,9 +182,8 @@ create table if not exists service_fee_category(
 create table if not exists pay_category(
   int bigint auto_increment not null comment 'id',
   name varchar(50) not null comment '名称',
-  limit_usable_amount int not null comment '是否限定只有现金可用余额可用',
-  all_usable int not null comment '是否所有余额可以使用',
-  limit_usable_account_type varchar(200) not null comment '限定可用的账户种类',
+  limit_amount_type int not null comment '限定账户',                                   --  【所有账户都用|限定为指定的账户类型|只现金账户余额可用】
+  account_types varchar(200) not null comment '指定可用的账户种类',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id)
@@ -191,9 +192,8 @@ create table if not exists pay_category(
 create table if not exists member_category(
   int bigint auto_increment not null comment 'id',
   name varchar(50) not null comment '名称',
-  limit_vip_mamber int not null comment '是否限定vip会员',
-  limit_new_member int not null comment '是否限定新会员',
-  limit_member_type varchar(200) not null comment '限定的会员类型',
+  limit_mamber_type int not null comment '限定会员类型',                                   --  【所有会员都可以|限定vip会员|限定新会员|特定指定类型的会员】
+  member_types varchar(200) not null comment '限定的会员类型',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id)
@@ -205,6 +205,7 @@ create table if not exists channel_category(
   web_bid int not null comment '网站',
   mobile_bid int not null comment '移动端',
   limit_event_bid int not null comment '限定活动',
+  event_bids varchar(200) not null comment '指定的活动',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id)
