@@ -102,6 +102,38 @@ public class Constants {
     public static final int MEMBER_ACCOUNT_DATA_VERSION_DEFAULT = 10000;
 
 
+    // 记账响应码[成功|失败]
+    public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_SUCCESS = 100000;
+    public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_FAILED = 100001;
+    // 周期单位
+    public static final int BID_LIFE_DURATION_UNIT_DAY = 20000;
+    public static final int BID_LIFE_DURATION_UNIT_MONTH = 20001;
+    // 利率单位
+    public static final int BID_INTEREST_RATE_UNIT_DAY = 20100;
+    public static final int BID_INTEREST_RATE_UNIT_MONTH = 20101;
+    public static final int BID_INTEREST_RATE_UNIT_YEAR = 20102;
+    public static final int BID_INTEREST_RATE_UNIT_ONCE = 20103;
+
+    // 标状态
+    public static final int BID_STATUS_CREATED = 30000;
+    public static final int BID_STATUS_WAIT_RELEASE = 30001;
+    public static final int BID_STATUS_ONLINE = 30002;
+    public static final int BID_STATUS_REFUND = 30003;
+    public static final int BID_STATUS_ENDED = 30004;
+    public static final int BID_STATUS_CANCELED = 30005;
+    // 还款状态
+    public static final int BID_REFUND_STATUS_WAITING = 40000;
+    public static final int BID_REFUND_STATUS_REFUNDED = 40001;
+    public static final int BID_REFUND_STATUS_OVER_DUE = 40002;
+    public static final int BID_REFUND_STATUS_OVER_DUE_REFUNDED = 40004;
+    public static final int BID_REFUND_STATUS_PRE_REFUNDED = 40005;
+
+    // 分发状态
+    public static final int MEMBER_BID_DISTRIBUTE_STATUS_WAITING = 50000;
+    public static final int MEMBER_BID_DISTRIBUTE_STATUS_OVER_DUE = 50001;
+    public static final int MEMBER_BID_DISTRIBUTE_STATUS_DISTRIBUTED = 50002;
+    public static final int MEMBER_BID_DISTRIBUTE_STATUS_PRE_DISTIBUTED = 50003;
+    public static final int MEMBER_BID_DISTRIBUTE_STATUS_COMPENSATED = 50004;
 
 
 
