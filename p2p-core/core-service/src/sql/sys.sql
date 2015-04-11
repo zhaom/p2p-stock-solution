@@ -8,14 +8,15 @@ drop table if exists sys_role;
 
 create table sys_dict (
   id bigint auto_increment not null comment 'id',
-  o_value int not null comment '选项值',
-  o_name varchar(20) not null comment '选项名',
+  value int not null comment '选项值',
+  name varchar(20) not null comment '选项名',
   category varchar(20) not null comment '选项类别',
   category_name varchar(20) not null comment '类别名',
+  sort int not null comment '排序项',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
-  key(o_value)
+  key(value)
 ) charset=utf8 ENGINE=InnoDB comment '系统字典表';
 
 create table sys_user (

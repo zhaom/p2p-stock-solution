@@ -1,23 +1,25 @@
 drop table if exists member;
 drop table if exists member_auth_status;
-drop table if exists member_account_balance;
-drop table if exists member_accounting;
-drop table if exists member_accounting_transaction;
-drop table if exists member_stock_account;
+drop table if exists member_account;
+drop table if exists member_account_item;
+drop table if exists member_account_flow;
+drop table if exists member_account_finance_rpt;
+drop table if exists member_account_transaction;
+-- drop table if exists member_stock_account;
 
 
-create table member (
+create table if not exists member (
   id bigint auto_increment not null comment 'id',
   uname varchar(50) not null comment '用户名',
   email varchar(50) not null comment '邮箱',
   mobile varchar(15) not null comment '手机',
   password char(48) not null comment '登录密码',
-  trade_password char(48) not null comment '交易密码',
-  real_name varchar(100) not null comment '真实名称',
-  type int not null comment '类别【个人|企业】',
-  locked int not null comment '是否锁定【是|否】',
-  code bigint not null comment '会员代码',
-  nickname varchar(50) not null comment '昵称',
+  trade_password char(48) comment '交易密码',
+  real_name varchar(50) comment '真实名称',
+  type int not null comment '类别【个人10|企业30】',
+  locked int not null comment '是否锁定【是1|否0】',
+  code bigint comment '会员代码',
+  nickname varchar(50) comment '昵称',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key(id),
@@ -28,61 +30,149 @@ create table member (
 
 create table member_auth_status (
   id bigint auto_increment not null comment 'id',
-  m_id bigint not null comment '会员id',
-  type int not null comment '类型【实名认证|身份证上传|绑定手机|邮箱绑定|昵称|手持身份证上传|提款密码|银行卡管理|登录密码|短信通知|自动投标|个人信息|注册时间】',
+  member_id bigint not null comment '会员id',
+  type int not null comment '类型【实名认证100|身份证上传|绑定手机|邮箱绑定|昵称|手持身份证上传|提款密码|银行卡管理|登录密码|短信通知|自动投标|个人信息|注册时间112】',
   status_value varchar(200) not null comment '分类型的值',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
-  key(m_id, type)
+  key(member_id, type)
 ) charset=utf8 ENGINE=InnoDB comment '会员认证状态表';
 
-create table member_account_balance (
+create table member_account (
   id bigint auto_increment not null comment 'id',
-  m_id bigint not null comment '会员id',
-  type int not null comment '账户类型【现金账户|积分账户|红包账户|权益金账户|各个冻结】',
-  amount bigint not null comment '金额',
-  -- frozen_amount bigint not null comment '冻结金额',
+  member_id bigint not null comment '会员id',
+  name varchar(50) not null comment '账户名称',
+  type int not null comment '账户类型【个人基本账户|企业基本户|企业服务费账户|手续费账户】',
+  set_no int not null comment '账套号',
+  data_version int not null comment '账户数据版本',
+  direction int not null comment '余额方向【贷记|借记】',
+  amount bigint not null comment '账户余额',
+  frozen_amount bigint not null comment '冻结金额',
   unit int not null comment '单位',
+  state int not null comment '账户状态【创建|可用|止付|冻结|销户】',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
-  key(m_id,type)
-) charset=utf8 ENGINE=InnoDB comment '会员账户平衡表';
+  key(member_id,type)
+) charset=utf8 ENGINE=InnoDB comment '会员账户表';
 
-create table member_accounting(
-  id bigint auto_increment not null comment 'id',
-  m_id bigint not null comment '会员id',
-  type int not null comment '账户类型',
-  from_date datetime not null comment '账期开始时间',
-  thru_date datetime not null comment '账期结束时间',
-  from_amount bigint not null comment '期初额',
-  thru_amount bigint not null comment '期末额',
+create table member_account_item (
+  id bigint AUTO_INCREMENT not null comment 'id',
+  member_id bigint not null comment '会员id',
+  member_account_id bigint not null comment '账户id',
+  item_type int not null comment '成分类型',
+  data_version int not null comment '数据版本',
+  amount bigint not null comment '余额',
+  frozen_amount bigint not null comment '冻结',
+  unit int not null comment '单位',
+  available int not null comment '是否有效【是|否】',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
-  key(m_id, type, from_date)
+  key(member_account_id,item_type),
+  key(member_id,item_type)
+) charset=utf8 ENGINE=InnoDB comment '会员账户余额成分表';
+
+create table if not exists member_account_flow (
+  id bigint auto_increment not null comment '收支流水id',
+  member_account_id bigint not null comment '账户id',
+  member_id bigint not null comment '会员id',
+  member_account_item_id bigint not null comment '成份id',
+  mat_id bigint not null comment '记账凭证id',
+  mat_date date not null comment '记账日期',
+  mat_service_code int not null comment '记账服务码',
+  finance_op_type int not null comment '账务操作类型',
+  amount bigint not null comment '记账金额',
+  thawed_amount bigint comment '已解冻金额',
+  unit int not null comment '操作币种/单位',
+  mat_summary varchar(200) comment '记账摘要',
+  trade_type int comment '交易类型',
+  trade_seq_no bigint comment '交易流水号',
+  pay_seq_no bigint comment '支付流水号',
+  thru_frozen_amount bigint not null comment '期末冻结金额',
+  thru_amount bigint not null comment '期末余额',
+  biz_member_id varchar(50) comment '企业会员号',
+  biz_app_date varchar(20) comment '企业平台日期',
+  biz_order_no varchar(50) comment '企业订单号',
+  pay_method int not null comment '支付工具',
+  bank_code varchar(50) comment '机构编码',
+  bank_biz_code varchar(50) comment '机构给平台的商户号',
+  bank_accept_date varchar(20) comment '机构受理日期',
+  bank_accept_seq_no varchar(50) comment '机构接收的请求号',
+  bank_rep_seq_no varchar(50) comment '机构的返回流水号',
+  balance_account_type int comment '对账类型',
+  up_balance_account_flag int comment '上方对账标志',
+  down_balance_account_flag int comment '下方对账标志',
+  member_account_flow_ext varchar(200) comment '扩展字段',
+  remark varchar(200) comment '备注',
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+  update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+  primary key (id),
+  key(member_account_id),
+  key(member_id)
+) charset=utf8 ENGINE=InnoDB comment '会员账户流水表';
+
+create table member_account_finance_rpt(
+  id bigint auto_increment not null comment 'id',
+  finance_rpt_time_type int not null comment '时间类型【年|月|周|日】',
+  finance_time  varchar(8) not null comment '时间【YYYY|YYYYMM|YYYYMMDD】',
+  member_id bigint not null comment '会员id',
+  member_account_id bigint not null comment '账户id',
+  member_account_name bigint not null comment '账户名',
+  member_account_type int not null comment '账户类型',
+  set_no int not null comment '账套号',
+  direction int not null comment '余额方向【贷记|借记】',
+  from_amount bigint not null comment '期初额',
+  from_frozen_amount bigint not null comment '期初冻结额',
+  thru_amount bigint not null comment '期末额',
+  thru_frozen_amount bigint not null comment '期末冻结额',
+  total_income_count int not null comment '总收入笔数',
+  total_income_amount bigint not null comment '总收入金额',
+  total_expend_count int not null comment '总支出笔数',
+  total_expend_amount bigint not null comment '总支出金额',
+  total_frozen_count int not null comment '总冻结笔数',
+  total_frozen_amount bigint not null comment '总冻结金额',
+  total_thaw_count int not null comment '总解冻笔数',
+  total_thaw_amount bigint not null comment '总解冻金额',
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+  update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+  primary key (id),
+  key(member_id),
+  key(finance_time),
+  key(member_account_id, member_account_type)
 ) charset=utf8 ENGINE=InnoDB comment '会员账户会计表';
 
-create table member_accounting_transaction(
+create table member_account_transaction(
   id bigint auto_increment not null comment 'id',
-  from_m_id bigint not null comment '源会员',
-  to_m_id bigint not null comment '目标会员',
-  from_ma_id bigint not null comment '来源账户',
-  to_ma_id bigint not null comment '目标账户',
-  type int not null comment '业务类型',
-  amount bigint not null comment '发生额',
-  unit int not null comment '单位',
+  req_app varchar(50) not null comment '请求模块',
+  req_time datetime not null comment '请求时间',
+  req_seq_no bigint not null comment '请求流水号',
+  tran_no char(18) not null comment '记账凭证号',
+  old_tran_no char(18) comment '原记账凭证号',
+  mat_date date not null comment '记账日',
+  mat_req_method int not null comment '记账接口访问模式',
+  mat_op_state int not null comment '记账操作状态',
+  trade_type int comment '交易类型',
+  trade_date date comment '交易日',
+  trade_seq_no bigint comment '交易流水号',
+  pay_seq_no bigint comment '支付流水号',
+  mat_item_info varchar(400) not null comment '记账明细信息',
+  mat_rep_code int not null comment '记账响应码',
+  mat_item_result varchar(400) not null comment '记账明细结果信息',
+  mat_ext varchar(400) comment '扩展字段',
+  mat_remark varchar(400) comment '备注',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
-  key(from_m_id, type),
-  key(to_m_id, type)
-) charset=utf8 ENGINE=InnoDB comment '入账事务表';
-
+  key(tran_no,old_tran_no),
+  key(mat_date),
+  key(trade_date)
+) charset=utf8 ENGINE=InnoDB comment '记账事务表';
+/**
 create table member_stock_account(
   id bigint auto_increment not null comment 'id',
-  m_id bigint not null comment '会员id',
+  member_id bigint not null comment '会员id',
   type int not null comment '账户类型',
   from_date datetime not null comment '设立时间',
   thru_date datetime not null comment '清户时间',
@@ -101,10 +191,10 @@ create table member_stock_account(
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
-  key(m_id, type, from_date),
+  key(member_id, type, from_date),
   key(stock_code),
   key(account_name)
 ) charset=utf8 ENGINE=InnoDB comment '会员股票账户表';
 
-
+**/
 
