@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/p2p-core/core-service/src/sql/party.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/p2p-core/core-service/src/sql/service.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/p2p-core/core-service/src/sql/sys.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/p2p-core/core-service/src/sql/sys_area.sql" dialect="MySQL" />
+  </component>
+</project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/cashier-web/cashier-web.iml" filepath="$PROJECT_DIR$/p2p-web/cashier-web/cashier-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-core/core-common/core-common.iml" filepath="$PROJECT_DIR$/p2p-core/core-common/core-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-core/core-service/core-service.iml" filepath="$PROJECT_DIR$/p2p-core/core-service/core-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/home-web/home-web.iml" filepath="$PROJECT_DIR$/p2p-web/home-web/home-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/invest-web/invest-web.iml" filepath="$PROJECT_DIR$/p2p-web/invest-web/invest-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/my-web/my-web.iml" filepath="$PROJECT_DIR$/p2p-web/my-web/my-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-core/p2p-core.iml" filepath="$PROJECT_DIR$/p2p-core/p2p-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-stock-solution.iml" filepath="$PROJECT_DIR$/p2p-stock-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/p2p-web.iml" filepath="$PROJECT_DIR$/p2p-web/p2p-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/prod-web/prod-web.iml" filepath="$PROJECT_DIR$/p2p-web/prod-web/prod-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/user-client-common/user-client-common.iml" filepath="$PROJECT_DIR$/p2p-web/user-client-common/user-client-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/user-web/user-web.iml" filepath="$PROJECT_DIR$/p2p-web/user-web/user-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p2p-web/web-common/web-common.iml" filepath="$PROJECT_DIR$/p2p-web/web-common/web-common.iml" />
+    </modules>
+  </component>
+</project>

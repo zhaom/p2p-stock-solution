@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="invest-web:war exploded">
+    <output-path>$PROJECT_DIR$/p2p-web/invest-web/target/invest-web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="invest-web" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="D:\ideaSpace\p2p-stock-solution\p2p-web\invest-web\target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="invest-web/web/Web" />
+    </root>
+  </artifact>
+</component>

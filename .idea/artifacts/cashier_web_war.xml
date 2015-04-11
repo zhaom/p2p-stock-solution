@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cashier-web:war">
+    <output-path>$PROJECT_DIR$/p2p-web/cashier-web/target</output-path>
+    <root id="archive" name="cashier-web.war">
+      <element id="artifact" artifact-name="cashier-web:war exploded" />
+    </root>
+  </artifact>
+</component>

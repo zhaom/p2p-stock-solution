@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="prod-web:war exploded">
+    <output-path>$PROJECT_DIR$/p2p-web/prod-web/target/prod-web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="prod-web" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="D:\ideaSpace\p2p-stock-solution\p2p-web\prod-web\target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="prod-web/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="user-web:war">
+    <output-path>$PROJECT_DIR$/p2p-web/user-web/target</output-path>
+    <root id="archive" name="passport.war">
+      <element id="artifact" artifact-name="user-web:war exploded" />
+    </root>
+  </artifact>
+</component>

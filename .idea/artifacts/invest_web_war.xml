@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="invest-web:war">
+    <output-path>$PROJECT_DIR$/p2p-web/invest-web/target</output-path>
+    <root id="archive" name="invest-web.war">
+      <element id="artifact" artifact-name="invest-web:war exploded" />
+    </root>
+  </artifact>
+</component>

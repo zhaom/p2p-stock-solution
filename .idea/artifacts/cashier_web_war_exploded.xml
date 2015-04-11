@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="cashier-web:war exploded">
+    <output-path>$PROJECT_DIR$/p2p-web/cashier-web/target/cashier-web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="cashier-web" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="D:\ideaSpace\p2p-stock-solution\p2p-web\cashier-web\target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="cashier-web/web/Web" />
+    </root>
+  </artifact>
+</component>
