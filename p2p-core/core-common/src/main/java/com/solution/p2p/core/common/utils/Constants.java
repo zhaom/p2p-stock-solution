@@ -77,6 +77,18 @@ public class Constants {
     public static final int MEMBER_ACCOUNT_OP_STATUS_SUCCESS = 802;
     public static final int MEMBER_ACCOUNT_OP_STATUS_FAILED = 803;
 
+    // 系统操作类型【登录850|退出|充值|提现|转让|修改密码|找回密码|银行卡操作857】
+    public static final int SYS_OP_TYPE_LOGIN = 850;
+    public static final int SYS_OP_TYPE_LOGOUT = 851;
+    public static final int SYS_OP_TYPE_RECHARGE = 852;
+    public static final int SYS_OP_TYPE_WITHDRAW = 853;
+    public static final int SYS_OP_TYPE_TRANSFER = 854;
+    public static final int SYS_OP_TYPE_CHANGEPASSWORD = 855;
+    public static final int SYS_OP_TYPE_BACKPASSWORD = 856;
+    public static final int SYS_OP_TYPE_ABOUT_CARD = 857;
+
+
+
     // 记账接口访问模式[普通记账|手工记账|重复记账|冲正记账]
     public static final int MEMBER_ACCOUNT_REQ_METHOD_NORMAL = 900;
     public static final int MEMBER_ACCOUNT_REQ_METHOD_MANUAL = 901;
@@ -98,17 +110,32 @@ public class Constants {
     public static final int MEMBER_ACCOUNT_TYPE_ENTERPRISE_TRANSFER_FACTORAGE = 3007;
     public static final int MEMBER_ACCOUNT_TYPE_ENTERPRISE_EVENT_PRINCIPAL = 3008;
 
+    // 财务报表时间类型【年4003|月|周|日4000】
+    public static final int MEMBER_ACCOUNT_FINANCE_RPT_TIME_TYPE_DAY = 4000;
+    public static final int MEMBER_ACCOUNT_FINANCE_RPT_TIME_TYPE_WEEK = 4001;
+    public static final int MEMBER_ACCOUNT_FINANCE_RPT_TIME_TYPE_MONTH = 4002;
+    public static final int MEMBER_ACCOUNT_FINANCE_RPT_TIME_TYPE_YEAR = 4003;
+
+
+    // 操盘账户类型【按月付费|按天付费|炒股大赛|免费体验】
+    public static final int MEMBER_STOCK_ACCOUNT_TYPE_MONTH = 5000;
+    public static final int MEMBER_STOCK_ACCOUNT_TYPE_DAY = 5001;
+    public static final int MEMBER_STOCK_ACCOUNT_TYPE_MATCH = 5002;
+    public static final int MEMBER_STOCK_ACCOUNT_TYPE_FREE = 5003;
+
+    // 资源类型【菜单6000|按钮|tab页6002】
+    public static final int SYS_RESOURCE_TYPE_MENU = 6000;
+    public static final int SYS_RESOURCE_TYPE_BUTTON = 6001;
+    public static final int SYS_RESOURCE_TYPE_TAB = 6002;
+
     // DATA_VERSION 数据版本
     public static final int MEMBER_ACCOUNT_DATA_VERSION_DEFAULT = 10000;
 
 
-    // 记账响应码[成功|失败]
-    public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_SUCCESS = 100000;
-    public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_FAILED = 100001;
-    // 周期单位
+    // 周期单位[日20000|月20001]
     public static final int BID_LIFE_DURATION_UNIT_DAY = 20000;
     public static final int BID_LIFE_DURATION_UNIT_MONTH = 20001;
-    // 利率单位
+    // 利率单位【日20100|月|年|一次性20103】
     public static final int BID_INTEREST_RATE_UNIT_DAY = 20100;
     public static final int BID_INTEREST_RATE_UNIT_MONTH = 20101;
     public static final int BID_INTEREST_RATE_UNIT_YEAR = 20102;
@@ -135,6 +162,9 @@ public class Constants {
     public static final int MEMBER_BID_DISTRIBUTE_STATUS_PRE_DISTIBUTED = 50003;
     public static final int MEMBER_BID_DISTRIBUTE_STATUS_COMPENSATED = 50004;
 
+    // 记账响应码[成功|失败]
+    public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_SUCCESS = 100000;
+    public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_FAILED = 200000;
 
 
 }

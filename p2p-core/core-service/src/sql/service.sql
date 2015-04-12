@@ -24,7 +24,7 @@ create table if not exists bid(
   collect_amount bigint not null comment '配资金额',
   collected_amount bigint not null comment '已经募集金额',
   life_duration int not null comment '配资周期',
-  life_duration_unit int not null comment '周期单位',
+  life_duration_unit int not null comment '周期单位[日20000|月20001]',
   collect_interest_rate decimal(18,9) not null comment '配资利率',
   collect_interest_rate_unit int not null comment '配资利率单位',
   request_interest_rate decimal(18,9) not null comment '投标利率',

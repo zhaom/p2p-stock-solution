@@ -25,7 +25,7 @@ create table sys_user (
   uname varchar(50) not null comment '登录名',
   password char(48) not null comment '密码',
   real_name varchar(50) not null comment '姓名',
-  locked int not null comment '是否锁定【是|否】',
+  locked int not null comment '是否锁定【是1|否0】',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key(id)
@@ -36,7 +36,7 @@ create table sys_app (
   name varchar(50) not null comment '应用名称',
   app_key varchar(50) not null comment '应用的key',
   app_secret varchar(100) not null comment '应用的密钥',
-  available int not null comment '是否可用【是|否】',
+  available int not null comment '是否可用【是1|否0】',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key(id)
@@ -56,7 +56,7 @@ create table sys_org (
   name varchar(100) not null comment '机构名称',
   parent_id bigint not null comment '上级机构id',
   parent_ids varchar(100) not null comment '级联上级id组',
-  available int not null comment '是否存在【是|否】',
+  available int not null comment '是否存在【是1|否0】',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key(id)
@@ -65,12 +65,12 @@ create table sys_org (
 create table sys_resource (
   id bigint auto_increment not null comment 'id',
   name varchar(100) not null comment '名称',
-  type int not null comment '类型【菜单|按钮|tab页】',
+  type int not null comment '资源类型【菜单6000|按钮|tab页6002】',
   url varchar(200) not null comment 'url',
   parent_id bigint not null comment '上级资源id',
   parent_ids varchar(100) not null comment '级联上级资源id组',
   permission varchar(100) not null comment '需要权限',
-  available int not null comment '是否可用【是|否】',
+  available int not null comment '是否可用【是1|否0】',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key(id)
@@ -80,7 +80,7 @@ create table sys_role (
   id bigint auto_increment not null comment 'id',
   role_name varchar(100) not null comment '角色名',
   resource_ids varchar(100) not null comment '资源组',
-  available int not null comment '是否可用【是|否】',
+  available int not null comment '是否可用【是1|否0】',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key(id)
@@ -88,10 +88,10 @@ create table sys_role (
 
 create table sys_op_log (
   id bigint auto_increment not null comment 'id',
-  op_type int not null comment '操作类型【登录|充值|提现|转让|修改密码|找回密码|】',
+  op_type int not null comment '系统操作类型【登录850|退出|充值|提现|转让|修改密码|找回密码|银行卡操作857】',
   content varchar(100) not null comment '操作内容',
   operator_id bigint not null comment '操作人',
-  is_member_op int not null comment '是否会员自己操作【】',
+  is_member_op int not null comment '是否会员自己操作【是1|否0】',
   m_id bigint not null comment '相关会员，会员自助操作时为自己',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
