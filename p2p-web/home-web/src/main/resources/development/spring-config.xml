@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <context:property-placeholder location="classpath:resources.properties,classpath:memcached.properties"/>
+
+    <bean id="IndexController"
+          class="com.fanya.p2p.front.i.web.controller.IndexController"
+          lazy-init="false"
+          scope="singleton">
+        <property name="accountServiceLocal" ref="accountServiceLocal"/>
+    </bean>
+
+    <bean id="accountServiceLocal"
+          class="com.fanya.p2p.front.i.web.service.AccountServiceLocal"
+          lazy-init="false"
+          scope="singleton">
+        <property name="accountService" ref="accountService"/>
+    </bean>
+
+    <import resource="classpath:spring-config-dubbo-consumer.xml"/>
+</beans>

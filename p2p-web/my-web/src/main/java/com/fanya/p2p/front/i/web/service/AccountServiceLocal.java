@@ -1,6 +1,8 @@
 package com.fanya.p2p.front.i.web.service;
 
 import com.fanya.p2p.front.i.web.utils.Constants;
+import com.solution.p2p.core.common.entity.MemberAccount;
+import com.solution.p2p.core.common.service.AccountService;
 import com.solution.p2p.core.common.utils.ServiceResult;
 import com.solution.p2p.core.common.utils.SignUtil;
 
@@ -22,27 +24,27 @@ public class AccountServiceLocal  {
     }
 
 
-    public CapitalAccount createAccountByInvest(CapitalAccount capitalAccount) {
+    public MemberAccount createAccountByInvest(MemberAccount memberAccount) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
 
-    public CapitalAccount createAccountByLoan(CapitalAccount capitalAccount) {
+    public MemberAccount createAccountByLoan(MemberAccount capitalAccount) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
 
-    public CapitalAccount findOne(Long aLong) {
+    public MemberAccount findOne(Long aLong) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public List<CapitalAccount> listUserAccount(Long userId) {
-        ServiceResult<List<CapitalAccount>> serviceResult = accountService.listUserAccount(userId, Constants.APP_KEY, SignUtil.signParams(userId, Constants.APP_KEY, Constants.APP_SECURITY));
+    public List<MemberAccount> listUserAccount(Long userId) {
+        ServiceResult<List<MemberAccount>> serviceResult = accountService.listUserAccount(userId, Constants.APP_KEY, SignUtil.signParams(userId, Constants.APP_KEY, Constants.APP_SECURITY));
         return serviceResult.getValue();
     }
 
 
-    public CapitalAccount updateAccount(CapitalAccount capitalAccount) {
+    public MemberAccount updateAccount(MemberAccount capitalAccount) {
         return null;
     }
 }

@@ -1,0 +1,54 @@
+#parse("./common/head.html")
+<div class="row">
+    <div class="col-sm-3 col-md-6 col-lg-8">
+        <ul class="nav navbar-nav  hidden-sm hidden-xs">
+            <li><span class="navbar-text">官方QQ群:139139139</span></li>
+        </ul>
+    </div>
+    <div class="col-sm-9 col-md-6 col-lg-4">
+        #if($shiro.isGuest())
+        <ul id="nonLoginBar" class="nav navbar-nav navbar-right navbar-sm hidden-sm hidden-xs">
+            <li><a id="login-panel" href="#PASSPORT_ROOT_URL()login" rel="nofollow">登录</a></li>
+            <li><a id="create-account" href="#PASSPORT_ROOT_URL()register" class="btn btn-sm" rel="nofollow">注册账户</a></li>
+        </ul>
+        #end
+        #if($shiro.isUser())
+        <ul id="loginBar" class="nav navbar-nav navbar-right navbar-sm hidden-sm hidden-xs">
+            <li><a id="account-panel" href="#I_ROOT_URL()" rel="nofollow">我的账户</a></li>
+            <li><a id="logined-panel" href="#I_ROOT_URL()" rel="nofollow">欢迎【$shiro.getPrincipal()】</a></li>
+            <li><a id="logout-panel" href="#PASSPORT_ROOT_URL()logout" class="btn btn-sm" >退出</a></li>
+        </ul>
+        #end
+    </div>
+</div>
+<div class="row">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand hidden-sm hidden-xs" href="#WWW_HOME_URL()">泛亚</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="hidden-sm hidden-xs"><a href="#PROD_ROOT_URL()">我要投资</a></li>
+                <li class="hidden-sm hidden-xs"><a href="#TRANSFER_ROOT_URL()">转让中心</a></li>
+                <li class="hidden-sm hidden-xs"><a href="#HELP_ROOT_URL()">需要帮助</a></li>
+                <li class="hidden-sm hidden-xs"><a href="#ABOUT_ROOT_URL()">关于我们</a></li>
+                <li class="dropdown hidden-md hidden-lg">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#WWW_HOME_URL()">
+                        泛亚<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#PROD_ROOT_URL()">我要投资</a></li>
+                        <li><a href="#I_ROOT_URL()">我的账户</a></li>
+                        <li><a href="#">我的投资</a></li>
+                        <li><a href="#">我的资金</a></li>
+                        <li><a href="#">充值</a></li>
+                        <li><a href="#">提现</a></li>
+                        <li><a href="#">我的积分</a></li>
+                        <li><a href="#">我的金币</a></li>
+                        <li><a href="#HELP_ROOT_URL()">需要帮助</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

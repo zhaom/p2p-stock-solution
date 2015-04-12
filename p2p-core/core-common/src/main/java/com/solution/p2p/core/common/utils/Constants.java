@@ -7,18 +7,21 @@ public class Constants {
     // 通用是否
     public static final int COMMON_YES = 1;
     public static final int COMMON_NO = 0;
+    // insert into sys_dict(value,name,category,category_name,sort) values(1,'是','common_yes_or_no','是否',1),(0,'否','common_yes_or_no','是否',2);
     // 会员类型【个人|企业】
     public static final int MEMBER_TYEP_PERSON = 10;
     public static final int MEMBER_TYEP_ENTERPRISE = 30;
+    // insert into sys_dict(value,name,category,category_name,sort) values(10,'个人','member_type','会员类型',1),(30,'企业','common_yes_or_no','会员类型',2);
     // direction 贷记 借记
     public static final int MEMBER_ACCOUNT_DIR_CREDIT = 50;
     public static final int MEMBER_ACCOUNT_DIR_DEBT = 51;
-
+    // insert into sys_dict(value,name,category,category_name,sort) values(50,'贷记','member_account_dir','记账方向',1),(52,'借记','member_account_dir','记账方向',2);
     // unit 人民币分
     public static final int MEMBER_ACCOUNT_AMOUNT_UNIT_CNYCENT = 60;
+    // insert into sys_dict(value,name,category,category_name,sort) values(60,'人民币分','money_unit','金额单位',1);
     // set_no
     public static final int MEMBER_ACCOUNT_SET_NO_DEFAULT = 90;
-
+    // insert into sys_dict(value,name,category,category_name,sort) values(90,'90套账','set_no','账套号',1);
     // 【实名认证|身份证上传|绑定手机|邮箱绑定|昵称|手持身份证上传|提款密码|银行卡管理|登录密码|短信通知|自动投标|个人信息|注册时间】
     public static final int MEMBER_AUTH_STATUS_TYPE_REAL_NAME = 100;
     public static final int MEMBER_AUTH_STATUS_TYPE_IDCARD_UPLOAD = 101;
@@ -33,19 +36,21 @@ public class Constants {
     public static final int MEMBER_AUTH_STATUS_TYPE_AUTO_INVEST = 110;
     public static final int MEMBER_AUTH_STATUS_TYPE_END_PROFILE = 111;
     public static final int MEMBER_AUTH_STATUS_TYPE_VALID_REG_TIME = 112;
-
+    // insert into sys_dict(value,name,category,category_name,sort) values(100,'实名认证','member_auth','会员安全设置',10),(101,'身份证上传','member_auth','会员安全设置',20),(102,'绑定手机','member_auth','会员安全设置',30),(103,'邮箱绑定','member_auth','会员安全设置',40),(104,'昵称','member_auth','会员安全设置',50),(105,'手持身份证上传','member_auth','会员安全设置',60),
+    //(106,'提款密码','member_auth','会员安全设置',70),(107,'银行卡管理','member_auth','会员安全设置',80),(108,'登录密码','member_auth','会员安全设置',90),(109,'短信通知','member_auth','会员安全设置',100),(110,'自动投标','member_auth','会员安全设置',110),(111,'个人信息','member_auth','会员安全设置',120),(112,'注册时间','member_auth','会员安全设置',130);
     //  账户状态【创建|可用|止付|冻结|销户】
     public static final int MEMBER_ACCOUNT_STATE_CREATED = 200;
     public static final int MEMBER_ACCOUNT_STATE_USABLE = 201;
     public static final int MEMBER_ACCOUNT_STATE_STOP_PAY = 202;
     public static final int MEMBER_ACCOUNT_STATE_FROZEN = 203;
     public static final int MEMBER_ACCOUNT_STATE_CLOSED = 204;
-
-    // 成分类型[本金|利息|收费]
+    // insert into sys_dict(value,name,category,category_name,sort) values(200,'创建','member_account_status','账户状态',10),(201,'可用','member_account_status','账户状态',20),(202,'止付','member_account_status','账户状态',30),(203,'冻结','member_account_status','账户状态',40),(204,'销户','member_account_status','账户状态',50);
+    // 成分类型[本金|利息|收费|盈亏]
     public static final int MEMBER_ACCOUNT_ITEM_TYPE_PRINCIPAL = 300;
     public static final int MEMBER_ACCOUNT_ITEM_TYPE_INTEREST = 301;
     public static final int MEMBER_ACCOUNT_ITEM_TYPE_FEE = 302;
-
+    public static final int MEMBER_ACCOUNT_ITEM_TYPE_PROFIT = 303;
+    // insert into sys_dict(value,name,category,category_name,sort) values(300,'本金','member_account_item_type','成分类型',10),(301,'利息','member_account_item_type','成分类型',20),(302,'收费','member_account_item_type','成分类型',30),(303,'盈亏','member_account_item_type','成分类型',40)；
     //   账务操作类型[收入|支出|冻结|解冻|成份冻结|成份解冻]
     public static final int MEMBER_ACCOUNT_FINANCE_OP_TYPE_INCOME = 400;
     public static final int MEMBER_ACCOUNT_FINANCE_OP_TYPE_PAY = 401;
@@ -167,4 +172,5 @@ public class Constants {
     public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_FAILED = 200000;
 
 
+    public static final String CURRENT_USER = "loginMember";
 }

@@ -17,7 +17,7 @@ CREATE TABLE `sys_area` (
   KEY `sys_area_parent_id` (`parent_id`) USING BTREE,
   KEY `sys_area_parent_ids` (`parent_ids`) USING BTREE,
   KEY `sys_area_del_flag` (`del_flag`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=494 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='区域表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='区域表';
 
 
 LOCK TABLES `sys_area` WRITE;

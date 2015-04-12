@@ -1,6 +1,7 @@
 package com.fanya.p2p.front.user.realm;
 
 import com.fanya.p2p.front.user.utils.Constants;
+import com.solution.p2p.core.common.service.MemberService;
 import com.solution.p2p.core.common.utils.SignUtil;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -16,13 +17,10 @@ public class UserRealm extends AuthorizingRealm {
 
     private static Logger logger = LoggerFactory.getLogger(UserRealm.class);
 
-    private UserService userService;
+    private MemberService memberService;
 
     private AuthorizationService authorizationService;
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
 
     public void setAuthorizationService(AuthorizationService authorizationService) {
         this.authorizationService = authorizationService;

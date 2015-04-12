@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+	<!-- application start -->
+	<tool>
+		<key>math</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.MathTool</class>
+	</tool>
+	<tool>
+		<key>shiro</key>
+		<scope>application</scope>
+		<class>org.apache.shiro.web.support.velocity.Permission</class>
+	</tool>
+	<!--tool>
+		<key>mergeResource</key>
+		<scope>application</scope>
+		<class>com.zhubao.b2b.web.utils.MergeResource</class>
+	</tool-->
+	<!-- application end -->
+
+	<!-- request start
+	<tool>
+		<key>cookie</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.view.CookieTool</class>
+	</tool>
+	 -->
+	<!-- request end -->
+</toolbox>

@@ -1,4 +1,4 @@
-package com.fanya.p2p.front.i.web.controller;
+package com.fanya.p2p.front.home.web.controller;
 
 import com.solution.p2p.core.common.entity.Member;
 import com.solution.p2p.core.common.utils.Constants;

@@ -1,6 +1,7 @@
 package com.fanya.p2p.front.i.web.controller;
 
 import com.fanya.p2p.front.i.web.service.AccountServiceLocal;
+import com.solution.p2p.core.common.entity.Member;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class IndexController extends AbstractController{
     @RequestMapping("/summary")
     public String summary(HttpServletRequest httpServletRequest, Model model) {
         logger.debug("request account summary, user [{}]",httpServletRequest.getAttribute("user"));
-        SysUser sysUser = getLoginUser();
+        Member sysUser = getLoginMember();
 
         return "index";
     }
