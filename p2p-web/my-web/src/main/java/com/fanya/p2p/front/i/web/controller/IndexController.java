@@ -2,6 +2,7 @@ package com.fanya.p2p.front.i.web.controller;
 
 import com.fanya.p2p.front.i.web.service.AccountServiceLocal;
 import com.solution.p2p.core.common.entity.Member;
+import com.solution.p2p.core.common.utils.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping("/account")
 public class IndexController extends AbstractController{
 
 
@@ -26,9 +26,15 @@ public class IndexController extends AbstractController{
         this.accountServiceLocal = accountServiceLocal;
     }
 
+    /**
+     * 账户总览 == 账户设置
+     * @param httpServletRequest
+     * @param model
+     * @return
+     */
     @RequestMapping("/summary")
     public String summary(HttpServletRequest httpServletRequest, Model model) {
-        logger.debug("request account summary, user [{}]",httpServletRequest.getAttribute("user"));
+        logger.debug("request account summary, user [{}]",httpServletRequest.getAttribute(Constants.CURRENT_USER));
         Member sysUser = getLoginMember();
 
         return "index";
