@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.solution.p2p.core.dao.MemberAccountFinanceRptMapper" >
+  <resultMap id="BaseResultMap" type="com.solution.p2p.core.common.entity.MemberAccountFinanceRpt" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="finance_rpt_time_type" property="financeRptTimeType" jdbcType="INTEGER" />
+    <result column="finance_time" property="financeTime" jdbcType="VARCHAR" />
+    <result column="m_id" property="mId" jdbcType="BIGINT" />
+    <result column="member_account_id" property="memberAccountId" jdbcType="BIGINT" />
+    <result column="member_account_name" property="memberAccountName" jdbcType="BIGINT" />
+    <result column="member_account_type" property="memberAccountType" jdbcType="INTEGER" />
+    <result column="set_no" property="setNo" jdbcType="INTEGER" />
+    <result column="direction" property="direction" jdbcType="INTEGER" />
+    <result column="from_amount" property="fromAmount" jdbcType="BIGINT" />
+    <result column="from_frozen_amount" property="fromFrozenAmount" jdbcType="BIGINT" />
+    <result column="thru_amount" property="thruAmount" jdbcType="BIGINT" />
+    <result column="thru_frozen_amount" property="thruFrozenAmount" jdbcType="BIGINT" />
+    <result column="total_income_count" property="totalIncomeCount" jdbcType="INTEGER" />
+    <result column="total_income_amount" property="totalIncomeAmount" jdbcType="BIGINT" />
+    <result column="total_expend_count" property="totalExpendCount" jdbcType="INTEGER" />
+    <result column="total_expend_amount" property="totalExpendAmount" jdbcType="BIGINT" />
+    <result column="total_frozen_count" property="totalFrozenCount" jdbcType="INTEGER" />
+    <result column="total_frozen_amount" property="totalFrozenAmount" jdbcType="BIGINT" />
+    <result column="total_thaw_count" property="totalThawCount" jdbcType="INTEGER" />
+    <result column="total_thaw_amount" property="totalThawAmount" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, finance_rpt_time_type, finance_time, m_id, member_account_id, member_account_name, 
+    member_account_type, set_no, direction, from_amount, from_frozen_amount, thru_amount, 
+    thru_frozen_amount, total_income_count, total_income_amount, total_expend_count, 
+    total_expend_amount, total_frozen_count, total_frozen_amount, total_thaw_count, total_thaw_amount, 
+    create_time, update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRptExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from member_account_finance_rpt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from member_account_finance_rpt
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from member_account_finance_rpt
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRptExample" >
+    delete from member_account_finance_rpt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRpt" >
+    insert into member_account_finance_rpt (id, finance_rpt_time_type, finance_time, 
+      m_id, member_account_id, member_account_name, 
+      member_account_type, set_no, direction, 
+      from_amount, from_frozen_amount, thru_amount, 
+      thru_frozen_amount, total_income_count, total_income_amount, 
+      total_expend_count, total_expend_amount, total_frozen_count, 
+      total_frozen_amount, total_thaw_count, total_thaw_amount, 
+      create_time, update_time)
+    values (#{id,jdbcType=BIGINT}, #{financeRptTimeType,jdbcType=INTEGER}, #{financeTime,jdbcType=VARCHAR}, 
+      #{mId,jdbcType=BIGINT}, #{memberAccountId,jdbcType=BIGINT}, #{memberAccountName,jdbcType=BIGINT}, 
+      #{memberAccountType,jdbcType=INTEGER}, #{setNo,jdbcType=INTEGER}, #{direction,jdbcType=INTEGER}, 
+      #{fromAmount,jdbcType=BIGINT}, #{fromFrozenAmount,jdbcType=BIGINT}, #{thruAmount,jdbcType=BIGINT}, 
+      #{thruFrozenAmount,jdbcType=BIGINT}, #{totalIncomeCount,jdbcType=INTEGER}, #{totalIncomeAmount,jdbcType=BIGINT}, 
+      #{totalExpendCount,jdbcType=INTEGER}, #{totalExpendAmount,jdbcType=BIGINT}, #{totalFrozenCount,jdbcType=INTEGER}, 
+      #{totalFrozenAmount,jdbcType=BIGINT}, #{totalThawCount,jdbcType=INTEGER}, #{totalThawAmount,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRpt" >
+    insert into member_account_finance_rpt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="financeRptTimeType != null" >
+        finance_rpt_time_type,
+      </if>
+      <if test="financeTime != null" >
+        finance_time,
+      </if>
+      <if test="mId != null" >
+        m_id,
+      </if>
+      <if test="memberAccountId != null" >
+        member_account_id,
+      </if>
+      <if test="memberAccountName != null" >
+        member_account_name,
+      </if>
+      <if test="memberAccountType != null" >
+        member_account_type,
+      </if>
+      <if test="setNo != null" >
+        set_no,
+      </if>
+      <if test="direction != null" >
+        direction,
+      </if>
+      <if test="fromAmount != null" >
+        from_amount,
+      </if>
+      <if test="fromFrozenAmount != null" >
+        from_frozen_amount,
+      </if>
+      <if test="thruAmount != null" >
+        thru_amount,
+      </if>
+      <if test="thruFrozenAmount != null" >
+        thru_frozen_amount,
+      </if>
+      <if test="totalIncomeCount != null" >
+        total_income_count,
+      </if>
+      <if test="totalIncomeAmount != null" >
+        total_income_amount,
+      </if>
+      <if test="totalExpendCount != null" >
+        total_expend_count,
+      </if>
+      <if test="totalExpendAmount != null" >
+        total_expend_amount,
+      </if>
+      <if test="totalFrozenCount != null" >
+        total_frozen_count,
+      </if>
+      <if test="totalFrozenAmount != null" >
+        total_frozen_amount,
+      </if>
+      <if test="totalThawCount != null" >
+        total_thaw_count,
+      </if>
+      <if test="totalThawAmount != null" >
+        total_thaw_amount,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="financeRptTimeType != null" >
+        #{financeRptTimeType,jdbcType=INTEGER},
+      </if>
+      <if test="financeTime != null" >
+        #{financeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mId != null" >
+        #{mId,jdbcType=BIGINT},
+      </if>
+      <if test="memberAccountId != null" >
+        #{memberAccountId,jdbcType=BIGINT},
+      </if>
+      <if test="memberAccountName != null" >
+        #{memberAccountName,jdbcType=BIGINT},
+      </if>
+      <if test="memberAccountType != null" >
+        #{memberAccountType,jdbcType=INTEGER},
+      </if>
+      <if test="setNo != null" >
+        #{setNo,jdbcType=INTEGER},
+      </if>
+      <if test="direction != null" >
+        #{direction,jdbcType=INTEGER},
+      </if>
+      <if test="fromAmount != null" >
+        #{fromAmount,jdbcType=BIGINT},
+      </if>
+      <if test="fromFrozenAmount != null" >
+        #{fromFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="thruAmount != null" >
+        #{thruAmount,jdbcType=BIGINT},
+      </if>
+      <if test="thruFrozenAmount != null" >
+        #{thruFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalIncomeCount != null" >
+        #{totalIncomeCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalIncomeAmount != null" >
+        #{totalIncomeAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalExpendCount != null" >
+        #{totalExpendCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalExpendAmount != null" >
+        #{totalExpendAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalFrozenCount != null" >
+        #{totalFrozenCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalFrozenAmount != null" >
+        #{totalFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalThawCount != null" >
+        #{totalThawCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalThawAmount != null" >
+        #{totalThawAmount,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRptExample" resultType="java.lang.Integer" >
+    select count(*) from member_account_finance_rpt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update member_account_finance_rpt
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.financeRptTimeType != null" >
+        finance_rpt_time_type = #{record.financeRptTimeType,jdbcType=INTEGER},
+      </if>
+      <if test="record.financeTime != null" >
+        finance_time = #{record.financeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mId != null" >
+        m_id = #{record.mId,jdbcType=BIGINT},
+      </if>
+      <if test="record.memberAccountId != null" >
+        member_account_id = #{record.memberAccountId,jdbcType=BIGINT},
+      </if>
+      <if test="record.memberAccountName != null" >
+        member_account_name = #{record.memberAccountName,jdbcType=BIGINT},
+      </if>
+      <if test="record.memberAccountType != null" >
+        member_account_type = #{record.memberAccountType,jdbcType=INTEGER},
+      </if>
+      <if test="record.setNo != null" >
+        set_no = #{record.setNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.direction != null" >
+        direction = #{record.direction,jdbcType=INTEGER},
+      </if>
+      <if test="record.fromAmount != null" >
+        from_amount = #{record.fromAmount,jdbcType=BIGINT},
+      </if>
+      <if test="record.fromFrozenAmount != null" >
+        from_frozen_amount = #{record.fromFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="record.thruAmount != null" >
+        thru_amount = #{record.thruAmount,jdbcType=BIGINT},
+      </if>
+      <if test="record.thruFrozenAmount != null" >
+        thru_frozen_amount = #{record.thruFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="record.totalIncomeCount != null" >
+        total_income_count = #{record.totalIncomeCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalIncomeAmount != null" >
+        total_income_amount = #{record.totalIncomeAmount,jdbcType=BIGINT},
+      </if>
+      <if test="record.totalExpendCount != null" >
+        total_expend_count = #{record.totalExpendCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalExpendAmount != null" >
+        total_expend_amount = #{record.totalExpendAmount,jdbcType=BIGINT},
+      </if>
+      <if test="record.totalFrozenCount != null" >
+        total_frozen_count = #{record.totalFrozenCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalFrozenAmount != null" >
+        total_frozen_amount = #{record.totalFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="record.totalThawCount != null" >
+        total_thaw_count = #{record.totalThawCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalThawAmount != null" >
+        total_thaw_amount = #{record.totalThawAmount,jdbcType=BIGINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update member_account_finance_rpt
+    set id = #{record.id,jdbcType=BIGINT},
+      finance_rpt_time_type = #{record.financeRptTimeType,jdbcType=INTEGER},
+      finance_time = #{record.financeTime,jdbcType=VARCHAR},
+      m_id = #{record.mId,jdbcType=BIGINT},
+      member_account_id = #{record.memberAccountId,jdbcType=BIGINT},
+      member_account_name = #{record.memberAccountName,jdbcType=BIGINT},
+      member_account_type = #{record.memberAccountType,jdbcType=INTEGER},
+      set_no = #{record.setNo,jdbcType=INTEGER},
+      direction = #{record.direction,jdbcType=INTEGER},
+      from_amount = #{record.fromAmount,jdbcType=BIGINT},
+      from_frozen_amount = #{record.fromFrozenAmount,jdbcType=BIGINT},
+      thru_amount = #{record.thruAmount,jdbcType=BIGINT},
+      thru_frozen_amount = #{record.thruFrozenAmount,jdbcType=BIGINT},
+      total_income_count = #{record.totalIncomeCount,jdbcType=INTEGER},
+      total_income_amount = #{record.totalIncomeAmount,jdbcType=BIGINT},
+      total_expend_count = #{record.totalExpendCount,jdbcType=INTEGER},
+      total_expend_amount = #{record.totalExpendAmount,jdbcType=BIGINT},
+      total_frozen_count = #{record.totalFrozenCount,jdbcType=INTEGER},
+      total_frozen_amount = #{record.totalFrozenAmount,jdbcType=BIGINT},
+      total_thaw_count = #{record.totalThawCount,jdbcType=INTEGER},
+      total_thaw_amount = #{record.totalThawAmount,jdbcType=BIGINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRpt" >
+    update member_account_finance_rpt
+    <set >
+      <if test="financeRptTimeType != null" >
+        finance_rpt_time_type = #{financeRptTimeType,jdbcType=INTEGER},
+      </if>
+      <if test="financeTime != null" >
+        finance_time = #{financeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mId != null" >
+        m_id = #{mId,jdbcType=BIGINT},
+      </if>
+      <if test="memberAccountId != null" >
+        member_account_id = #{memberAccountId,jdbcType=BIGINT},
+      </if>
+      <if test="memberAccountName != null" >
+        member_account_name = #{memberAccountName,jdbcType=BIGINT},
+      </if>
+      <if test="memberAccountType != null" >
+        member_account_type = #{memberAccountType,jdbcType=INTEGER},
+      </if>
+      <if test="setNo != null" >
+        set_no = #{setNo,jdbcType=INTEGER},
+      </if>
+      <if test="direction != null" >
+        direction = #{direction,jdbcType=INTEGER},
+      </if>
+      <if test="fromAmount != null" >
+        from_amount = #{fromAmount,jdbcType=BIGINT},
+      </if>
+      <if test="fromFrozenAmount != null" >
+        from_frozen_amount = #{fromFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="thruAmount != null" >
+        thru_amount = #{thruAmount,jdbcType=BIGINT},
+      </if>
+      <if test="thruFrozenAmount != null" >
+        thru_frozen_amount = #{thruFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalIncomeCount != null" >
+        total_income_count = #{totalIncomeCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalIncomeAmount != null" >
+        total_income_amount = #{totalIncomeAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalExpendCount != null" >
+        total_expend_count = #{totalExpendCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalExpendAmount != null" >
+        total_expend_amount = #{totalExpendAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalFrozenCount != null" >
+        total_frozen_count = #{totalFrozenCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalFrozenAmount != null" >
+        total_frozen_amount = #{totalFrozenAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalThawCount != null" >
+        total_thaw_count = #{totalThawCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalThawAmount != null" >
+        total_thaw_amount = #{totalThawAmount,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRpt" >
+    update member_account_finance_rpt
+    set finance_rpt_time_type = #{financeRptTimeType,jdbcType=INTEGER},
+      finance_time = #{financeTime,jdbcType=VARCHAR},
+      m_id = #{mId,jdbcType=BIGINT},
+      member_account_id = #{memberAccountId,jdbcType=BIGINT},
+      member_account_name = #{memberAccountName,jdbcType=BIGINT},
+      member_account_type = #{memberAccountType,jdbcType=INTEGER},
+      set_no = #{setNo,jdbcType=INTEGER},
+      direction = #{direction,jdbcType=INTEGER},
+      from_amount = #{fromAmount,jdbcType=BIGINT},
+      from_frozen_amount = #{fromFrozenAmount,jdbcType=BIGINT},
+      thru_amount = #{thruAmount,jdbcType=BIGINT},
+      thru_frozen_amount = #{thruFrozenAmount,jdbcType=BIGINT},
+      total_income_count = #{totalIncomeCount,jdbcType=INTEGER},
+      total_income_amount = #{totalIncomeAmount,jdbcType=BIGINT},
+      total_expend_count = #{totalExpendCount,jdbcType=INTEGER},
+      total_expend_amount = #{totalExpendAmount,jdbcType=BIGINT},
+      total_frozen_count = #{totalFrozenCount,jdbcType=INTEGER},
+      total_frozen_amount = #{totalFrozenAmount,jdbcType=BIGINT},
+      total_thaw_count = #{totalThawCount,jdbcType=INTEGER},
+      total_thaw_amount = #{totalThawAmount,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

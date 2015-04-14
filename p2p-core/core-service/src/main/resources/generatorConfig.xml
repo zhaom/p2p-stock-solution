@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+    <!--数据库驱动jar
+    <classPathEntry location="E:\mysql-connector-java-5.1.7-bin.jar" />
+    -->
+    <context id="StockTables" targetRuntime="MyBatis3">
+        <!--去除注释  -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.1.205:3306/ssssss"
+                        userId="mysql"
+                        password="123456">
+        </jdbcConnection>
+        <!--默认false
+           Java type resolver will always use java.math.BigDecimal if the database column is of type DECIMAL or NUMERIC.
+         -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--生成实体类 指定包名 以及生成的地址 （可以自定义地址，但是路径不存在不会自动创建  使用Maven生成在target目录下，会自动创建） -->
+        <javaModelGenerator targetPackage="com.solution.p2p.core.common.entity" targetProject="MAVEN">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--生成SQLMAP文件 -->
+        <sqlMapGenerator targetPackage="com.solution.p2p.core.mapper"  targetProject="MAVEN">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!--生成Dao文件 可以配置 type="XMLMAPPER"生成xml的dao实现 type="SPRING"生成spring的 context id="DB2Tables" 修改targetRuntime="MyBatis3"  -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.solution.p2p.core.dao" targetProject="MAVEN">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等-->
+        <table tableName="MEMBER" domainObjectName="Member" />
+        <table tableName="bid" domainObjectName="Bid" />
+        <table tableName="bid_refund_info" domainObjectName="BidRefundInfo" />
+        <table tableName="hdb_bank_info" domainObjectName="HdbBankInfo" />
+        <table tableName="member_account" domainObjectName="MemberAccount" />
+        <table tableName="member_account_finance_rpt" domainObjectName="MemberAccountFinanceRpt" />
+        <table tableName="member_account_flow" domainObjectName="MemberAccountFlow" />
+        <table tableName="member_account_item" domainObjectName="MemberAccountItem" />
+        <table tableName="member_account_transaction" domainObjectName="MemberAccountTransaction" />
+        <table tableName="member_auth_status" domainObjectName="MemberAuthStatus" />
+        <table tableName="member_bid_distribute" domainObjectName="MemberBidDistribute" />
+        <table tableName="member_bid_request" domainObjectName="MemberBidRequest" />
+        <table tableName="member_stock_account" domainObjectName="MemberStockAccount" />
+        <table tableName="product" domainObjectName="Product" />
+        <table tableName="product_amount_category" domainObjectName="ProductAmountCategory" />
+        <table tableName="product_channel_category" domainObjectName="ProductChannelCategory" />
+        <table tableName="product_duration_category" domainObjectName="ProductDurationCategory" />
+        <table tableName="product_guaranty_category" domainObjectName="ProductGuarantyCategory" />
+        <table tableName="product_interest_category" domainObjectName="ProductInterestCategory" />
+        <table tableName="product_member_category" domainObjectName="ProductMemberCategory" />
+        <table tableName="product_pay_category" domainObjectName="ProductPayCategory" />
+        <table tableName="product_service_fee_category" domainObjectName="ProductServiceFeeCategory" />
+
+        <table tableName="sys_app" domainObjectName="SysApp" />
+        <table tableName="sys_area" domainObjectName="SysArea" />
+        <table tableName="sys_dict" domainObjectName="SysDict" />
+        <table tableName="sys_op_log" domainObjectName="SysOpLog" />
+        <table tableName="sys_org" domainObjectName="SysOrg" />
+        <table tableName="sys_resource" domainObjectName="SysResource" />
+        <table tableName="sys_role" domainObjectName="SysRole" />
+        <table tableName="sys_user" domainObjectName="SysUser" />
+        <table tableName="sys_user_app_roles" domainObjectName="SysUserAppRoles" />
+
+    </context>
+</generatorConfiguration>

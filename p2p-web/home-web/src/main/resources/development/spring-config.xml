@@ -26,5 +26,5 @@
         <property name="accountService" ref="accountService"/>
     </bean>
 
-    <import resource="classpath:spring-config-dubbo-consumer.xml"/>
+    <import resource="classpath:spring-development.config-dubbo-consumer.xml"/>
 </beans>

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.solution.p2p.core.dao.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.solution.p2p.core.common.entity.Product" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="guaranty_category" property="guarantyCategory" jdbcType="INTEGER" />
+    <result column="life_duration_category" property="lifeDurationCategory" jdbcType="INTEGER" />
+    <result column="collect_duration_category" property="collectDurationCategory" jdbcType="INTEGER" />
+    <result column="loan_amount_category" property="loanAmountCategory" jdbcType="INTEGER" />
+    <result column="l_interest_category" property="lInterestCategory" jdbcType="INTEGER" />
+    <result column="l_service_fee_category" property="lServiceFeeCategory" jdbcType="INTEGER" />
+    <result column="l_pay_category" property="lPayCategory" jdbcType="INTEGER" />
+    <result column="l_member_category" property="lMemberCategory" jdbcType="INTEGER" />
+    <result column="b_interest_category" property="bInterestCategory" jdbcType="INTEGER" />
+    <result column="b_service_fee_category" property="bServiceFeeCategory" jdbcType="INTEGER" />
+    <result column="b_amount_category" property="bAmountCategory" jdbcType="INTEGER" />
+    <result column="b_pay_category" property="bPayCategory" jdbcType="INTEGER" />
+    <result column="b_member_category" property="bMemberCategory" jdbcType="INTEGER" />
+    <result column="channel_category" property="channelCategory" jdbcType="INTEGER" />
+    <result column="available" property="available" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, name, guaranty_category, life_duration_category, collect_duration_category, loan_amount_category, 
+    l_interest_category, l_service_fee_category, l_pay_category, l_member_category, b_interest_category, 
+    b_service_fee_category, b_amount_category, b_pay_category, b_member_category, channel_category, 
+    available, create_time, update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.ProductExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.solution.p2p.core.common.entity.ProductExample" >
+    delete from product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.solution.p2p.core.common.entity.Product" >
+    insert into product (id, name, guaranty_category, 
+      life_duration_category, collect_duration_category, 
+      loan_amount_category, l_interest_category, 
+      l_service_fee_category, l_pay_category, l_member_category, 
+      b_interest_category, b_service_fee_category, 
+      b_amount_category, b_pay_category, b_member_category, 
+      channel_category, available, create_time, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{guarantyCategory,jdbcType=INTEGER}, 
+      #{lifeDurationCategory,jdbcType=INTEGER}, #{collectDurationCategory,jdbcType=INTEGER}, 
+      #{loanAmountCategory,jdbcType=INTEGER}, #{lInterestCategory,jdbcType=INTEGER}, 
+      #{lServiceFeeCategory,jdbcType=INTEGER}, #{lPayCategory,jdbcType=INTEGER}, #{lMemberCategory,jdbcType=INTEGER}, 
+      #{bInterestCategory,jdbcType=INTEGER}, #{bServiceFeeCategory,jdbcType=INTEGER}, 
+      #{bAmountCategory,jdbcType=INTEGER}, #{bPayCategory,jdbcType=INTEGER}, #{bMemberCategory,jdbcType=INTEGER}, 
+      #{channelCategory,jdbcType=INTEGER}, #{available,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.Product" >
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="guarantyCategory != null" >
+        guaranty_category,
+      </if>
+      <if test="lifeDurationCategory != null" >
+        life_duration_category,
+      </if>
+      <if test="collectDurationCategory != null" >
+        collect_duration_category,
+      </if>
+      <if test="loanAmountCategory != null" >
+        loan_amount_category,
+      </if>
+      <if test="lInterestCategory != null" >
+        l_interest_category,
+      </if>
+      <if test="lServiceFeeCategory != null" >
+        l_service_fee_category,
+      </if>
+      <if test="lPayCategory != null" >
+        l_pay_category,
+      </if>
+      <if test="lMemberCategory != null" >
+        l_member_category,
+      </if>
+      <if test="bInterestCategory != null" >
+        b_interest_category,
+      </if>
+      <if test="bServiceFeeCategory != null" >
+        b_service_fee_category,
+      </if>
+      <if test="bAmountCategory != null" >
+        b_amount_category,
+      </if>
+      <if test="bPayCategory != null" >
+        b_pay_category,
+      </if>
+      <if test="bMemberCategory != null" >
+        b_member_category,
+      </if>
+      <if test="channelCategory != null" >
+        channel_category,
+      </if>
+      <if test="available != null" >
+        available,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantyCategory != null" >
+        #{guarantyCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lifeDurationCategory != null" >
+        #{lifeDurationCategory,jdbcType=INTEGER},
+      </if>
+      <if test="collectDurationCategory != null" >
+        #{collectDurationCategory,jdbcType=INTEGER},
+      </if>
+      <if test="loanAmountCategory != null" >
+        #{loanAmountCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lInterestCategory != null" >
+        #{lInterestCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lServiceFeeCategory != null" >
+        #{lServiceFeeCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lPayCategory != null" >
+        #{lPayCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lMemberCategory != null" >
+        #{lMemberCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bInterestCategory != null" >
+        #{bInterestCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bServiceFeeCategory != null" >
+        #{bServiceFeeCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bAmountCategory != null" >
+        #{bAmountCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bPayCategory != null" >
+        #{bPayCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bMemberCategory != null" >
+        #{bMemberCategory,jdbcType=INTEGER},
+      </if>
+      <if test="channelCategory != null" >
+        #{channelCategory,jdbcType=INTEGER},
+      </if>
+      <if test="available != null" >
+        #{available,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.solution.p2p.core.common.entity.ProductExample" resultType="java.lang.Integer" >
+    select count(*) from product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update product
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guarantyCategory != null" >
+        guaranty_category = #{record.guarantyCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.lifeDurationCategory != null" >
+        life_duration_category = #{record.lifeDurationCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.collectDurationCategory != null" >
+        collect_duration_category = #{record.collectDurationCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.loanAmountCategory != null" >
+        loan_amount_category = #{record.loanAmountCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.lInterestCategory != null" >
+        l_interest_category = #{record.lInterestCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.lServiceFeeCategory != null" >
+        l_service_fee_category = #{record.lServiceFeeCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.lPayCategory != null" >
+        l_pay_category = #{record.lPayCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.lMemberCategory != null" >
+        l_member_category = #{record.lMemberCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.bInterestCategory != null" >
+        b_interest_category = #{record.bInterestCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.bServiceFeeCategory != null" >
+        b_service_fee_category = #{record.bServiceFeeCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.bAmountCategory != null" >
+        b_amount_category = #{record.bAmountCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.bPayCategory != null" >
+        b_pay_category = #{record.bPayCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.bMemberCategory != null" >
+        b_member_category = #{record.bMemberCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.channelCategory != null" >
+        channel_category = #{record.channelCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.available != null" >
+        available = #{record.available,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update product
+    set id = #{record.id,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      guaranty_category = #{record.guarantyCategory,jdbcType=INTEGER},
+      life_duration_category = #{record.lifeDurationCategory,jdbcType=INTEGER},
+      collect_duration_category = #{record.collectDurationCategory,jdbcType=INTEGER},
+      loan_amount_category = #{record.loanAmountCategory,jdbcType=INTEGER},
+      l_interest_category = #{record.lInterestCategory,jdbcType=INTEGER},
+      l_service_fee_category = #{record.lServiceFeeCategory,jdbcType=INTEGER},
+      l_pay_category = #{record.lPayCategory,jdbcType=INTEGER},
+      l_member_category = #{record.lMemberCategory,jdbcType=INTEGER},
+      b_interest_category = #{record.bInterestCategory,jdbcType=INTEGER},
+      b_service_fee_category = #{record.bServiceFeeCategory,jdbcType=INTEGER},
+      b_amount_category = #{record.bAmountCategory,jdbcType=INTEGER},
+      b_pay_category = #{record.bPayCategory,jdbcType=INTEGER},
+      b_member_category = #{record.bMemberCategory,jdbcType=INTEGER},
+      channel_category = #{record.channelCategory,jdbcType=INTEGER},
+      available = #{record.available,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.solution.p2p.core.common.entity.Product" >
+    update product
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantyCategory != null" >
+        guaranty_category = #{guarantyCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lifeDurationCategory != null" >
+        life_duration_category = #{lifeDurationCategory,jdbcType=INTEGER},
+      </if>
+      <if test="collectDurationCategory != null" >
+        collect_duration_category = #{collectDurationCategory,jdbcType=INTEGER},
+      </if>
+      <if test="loanAmountCategory != null" >
+        loan_amount_category = #{loanAmountCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lInterestCategory != null" >
+        l_interest_category = #{lInterestCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lServiceFeeCategory != null" >
+        l_service_fee_category = #{lServiceFeeCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lPayCategory != null" >
+        l_pay_category = #{lPayCategory,jdbcType=INTEGER},
+      </if>
+      <if test="lMemberCategory != null" >
+        l_member_category = #{lMemberCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bInterestCategory != null" >
+        b_interest_category = #{bInterestCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bServiceFeeCategory != null" >
+        b_service_fee_category = #{bServiceFeeCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bAmountCategory != null" >
+        b_amount_category = #{bAmountCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bPayCategory != null" >
+        b_pay_category = #{bPayCategory,jdbcType=INTEGER},
+      </if>
+      <if test="bMemberCategory != null" >
+        b_member_category = #{bMemberCategory,jdbcType=INTEGER},
+      </if>
+      <if test="channelCategory != null" >
+        channel_category = #{channelCategory,jdbcType=INTEGER},
+      </if>
+      <if test="available != null" >
+        available = #{available,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.solution.p2p.core.common.entity.Product" >
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      guaranty_category = #{guarantyCategory,jdbcType=INTEGER},
+      life_duration_category = #{lifeDurationCategory,jdbcType=INTEGER},
+      collect_duration_category = #{collectDurationCategory,jdbcType=INTEGER},
+      loan_amount_category = #{loanAmountCategory,jdbcType=INTEGER},
+      l_interest_category = #{lInterestCategory,jdbcType=INTEGER},
+      l_service_fee_category = #{lServiceFeeCategory,jdbcType=INTEGER},
+      l_pay_category = #{lPayCategory,jdbcType=INTEGER},
+      l_member_category = #{lMemberCategory,jdbcType=INTEGER},
+      b_interest_category = #{bInterestCategory,jdbcType=INTEGER},
+      b_service_fee_category = #{bServiceFeeCategory,jdbcType=INTEGER},
+      b_amount_category = #{bAmountCategory,jdbcType=INTEGER},
+      b_pay_category = #{bPayCategory,jdbcType=INTEGER},
+      b_member_category = #{bMemberCategory,jdbcType=INTEGER},
+      channel_category = #{channelCategory,jdbcType=INTEGER},
+      available = #{available,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

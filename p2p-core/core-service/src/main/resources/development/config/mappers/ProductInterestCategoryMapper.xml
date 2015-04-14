@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.solution.p2p.core.dao.ProductInterestCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.solution.p2p.core.common.entity.ProductInterestCategory" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="limit_min_interest_rate" property="limitMinInterestRate" jdbcType="DECIMAL" />
+    <result column="limit_max_interest_rate" property="limitMaxInterestRate" jdbcType="DECIMAL" />
+    <result column="prefer_interest_rate" property="preferInterestRate" jdbcType="DECIMAL" />
+    <result column="interest_rate_unit" property="interestRateUnit" jdbcType="INTEGER" />
+    <result column="int_diff_time" property="intDiffTime" jdbcType="INTEGER" />
+    <result column="diff_unit" property="diffUnit" jdbcType="INTEGER" />
+    <result column="refund_int_diff_time_limit" property="refundIntDiffTimeLimit" jdbcType="INTEGER" />
+    <result column="refund_int_first" property="refundIntFirst" jdbcType="INTEGER" />
+    <result column="refund_cycle_duration" property="refundCycleDuration" jdbcType="INTEGER" />
+    <result column="refund_cycle_duration_unit" property="refundCycleDurationUnit" jdbcType="INTEGER" />
+    <result column="refund_int_times" property="refundIntTimes" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, name, limit_min_interest_rate, limit_max_interest_rate, prefer_interest_rate, 
+    interest_rate_unit, int_diff_time, diff_unit, refund_int_diff_time_limit, refund_int_first, 
+    refund_cycle_duration, refund_cycle_duration_unit, refund_int_times, create_time, 
+    update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.ProductInterestCategoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from product_interest_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from product_interest_category
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from product_interest_category
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.solution.p2p.core.common.entity.ProductInterestCategoryExample" >
+    delete from product_interest_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.solution.p2p.core.common.entity.ProductInterestCategory" >
+    insert into product_interest_category (id, name, limit_min_interest_rate, 
+      limit_max_interest_rate, prefer_interest_rate, 
+      interest_rate_unit, int_diff_time, diff_unit, 
+      refund_int_diff_time_limit, refund_int_first, 
+      refund_cycle_duration, refund_cycle_duration_unit, 
+      refund_int_times, create_time, update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{limitMinInterestRate,jdbcType=DECIMAL}, 
+      #{limitMaxInterestRate,jdbcType=DECIMAL}, #{preferInterestRate,jdbcType=DECIMAL}, 
+      #{interestRateUnit,jdbcType=INTEGER}, #{intDiffTime,jdbcType=INTEGER}, #{diffUnit,jdbcType=INTEGER}, 
+      #{refundIntDiffTimeLimit,jdbcType=INTEGER}, #{refundIntFirst,jdbcType=INTEGER}, 
+      #{refundCycleDuration,jdbcType=INTEGER}, #{refundCycleDurationUnit,jdbcType=INTEGER}, 
+      #{refundIntTimes,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.ProductInterestCategory" >
+    insert into product_interest_category
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="limitMinInterestRate != null" >
+        limit_min_interest_rate,
+      </if>
+      <if test="limitMaxInterestRate != null" >
+        limit_max_interest_rate,
+      </if>
+      <if test="preferInterestRate != null" >
+        prefer_interest_rate,
+      </if>
+      <if test="interestRateUnit != null" >
+        interest_rate_unit,
+      </if>
+      <if test="intDiffTime != null" >
+        int_diff_time,
+      </if>
+      <if test="diffUnit != null" >
+        diff_unit,
+      </if>
+      <if test="refundIntDiffTimeLimit != null" >
+        refund_int_diff_time_limit,
+      </if>
+      <if test="refundIntFirst != null" >
+        refund_int_first,
+      </if>
+      <if test="refundCycleDuration != null" >
+        refund_cycle_duration,
+      </if>
+      <if test="refundCycleDurationUnit != null" >
+        refund_cycle_duration_unit,
+      </if>
+      <if test="refundIntTimes != null" >
+        refund_int_times,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="limitMinInterestRate != null" >
+        #{limitMinInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="limitMaxInterestRate != null" >
+        #{limitMaxInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="preferInterestRate != null" >
+        #{preferInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="interestRateUnit != null" >
+        #{interestRateUnit,jdbcType=INTEGER},
+      </if>
+      <if test="intDiffTime != null" >
+        #{intDiffTime,jdbcType=INTEGER},
+      </if>
+      <if test="diffUnit != null" >
+        #{diffUnit,jdbcType=INTEGER},
+      </if>
+      <if test="refundIntDiffTimeLimit != null" >
+        #{refundIntDiffTimeLimit,jdbcType=INTEGER},
+      </if>
+      <if test="refundIntFirst != null" >
+        #{refundIntFirst,jdbcType=INTEGER},
+      </if>
+      <if test="refundCycleDuration != null" >
+        #{refundCycleDuration,jdbcType=INTEGER},
+      </if>
+      <if test="refundCycleDurationUnit != null" >
+        #{refundCycleDurationUnit,jdbcType=INTEGER},
+      </if>
+      <if test="refundIntTimes != null" >
+        #{refundIntTimes,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.solution.p2p.core.common.entity.ProductInterestCategoryExample" resultType="java.lang.Integer" >
+    select count(*) from product_interest_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update product_interest_category
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.limitMinInterestRate != null" >
+        limit_min_interest_rate = #{record.limitMinInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.limitMaxInterestRate != null" >
+        limit_max_interest_rate = #{record.limitMaxInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.preferInterestRate != null" >
+        prefer_interest_rate = #{record.preferInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.interestRateUnit != null" >
+        interest_rate_unit = #{record.interestRateUnit,jdbcType=INTEGER},
+      </if>
+      <if test="record.intDiffTime != null" >
+        int_diff_time = #{record.intDiffTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.diffUnit != null" >
+        diff_unit = #{record.diffUnit,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundIntDiffTimeLimit != null" >
+        refund_int_diff_time_limit = #{record.refundIntDiffTimeLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundIntFirst != null" >
+        refund_int_first = #{record.refundIntFirst,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundCycleDuration != null" >
+        refund_cycle_duration = #{record.refundCycleDuration,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundCycleDurationUnit != null" >
+        refund_cycle_duration_unit = #{record.refundCycleDurationUnit,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundIntTimes != null" >
+        refund_int_times = #{record.refundIntTimes,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update product_interest_category
+    set id = #{record.id,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      limit_min_interest_rate = #{record.limitMinInterestRate,jdbcType=DECIMAL},
+      limit_max_interest_rate = #{record.limitMaxInterestRate,jdbcType=DECIMAL},
+      prefer_interest_rate = #{record.preferInterestRate,jdbcType=DECIMAL},
+      interest_rate_unit = #{record.interestRateUnit,jdbcType=INTEGER},
+      int_diff_time = #{record.intDiffTime,jdbcType=INTEGER},
+      diff_unit = #{record.diffUnit,jdbcType=INTEGER},
+      refund_int_diff_time_limit = #{record.refundIntDiffTimeLimit,jdbcType=INTEGER},
+      refund_int_first = #{record.refundIntFirst,jdbcType=INTEGER},
+      refund_cycle_duration = #{record.refundCycleDuration,jdbcType=INTEGER},
+      refund_cycle_duration_unit = #{record.refundCycleDurationUnit,jdbcType=INTEGER},
+      refund_int_times = #{record.refundIntTimes,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.solution.p2p.core.common.entity.ProductInterestCategory" >
+    update product_interest_category
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="limitMinInterestRate != null" >
+        limit_min_interest_rate = #{limitMinInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="limitMaxInterestRate != null" >
+        limit_max_interest_rate = #{limitMaxInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="preferInterestRate != null" >
+        prefer_interest_rate = #{preferInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="interestRateUnit != null" >
+        interest_rate_unit = #{interestRateUnit,jdbcType=INTEGER},
+      </if>
+      <if test="intDiffTime != null" >
+        int_diff_time = #{intDiffTime,jdbcType=INTEGER},
+      </if>
+      <if test="diffUnit != null" >
+        diff_unit = #{diffUnit,jdbcType=INTEGER},
+      </if>
+      <if test="refundIntDiffTimeLimit != null" >
+        refund_int_diff_time_limit = #{refundIntDiffTimeLimit,jdbcType=INTEGER},
+      </if>
+      <if test="refundIntFirst != null" >
+        refund_int_first = #{refundIntFirst,jdbcType=INTEGER},
+      </if>
+      <if test="refundCycleDuration != null" >
+        refund_cycle_duration = #{refundCycleDuration,jdbcType=INTEGER},
+      </if>
+      <if test="refundCycleDurationUnit != null" >
+        refund_cycle_duration_unit = #{refundCycleDurationUnit,jdbcType=INTEGER},
+      </if>
+      <if test="refundIntTimes != null" >
+        refund_int_times = #{refundIntTimes,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.solution.p2p.core.common.entity.ProductInterestCategory" >
+    update product_interest_category
+    set name = #{name,jdbcType=VARCHAR},
+      limit_min_interest_rate = #{limitMinInterestRate,jdbcType=DECIMAL},
+      limit_max_interest_rate = #{limitMaxInterestRate,jdbcType=DECIMAL},
+      prefer_interest_rate = #{preferInterestRate,jdbcType=DECIMAL},
+      interest_rate_unit = #{interestRateUnit,jdbcType=INTEGER},
+      int_diff_time = #{intDiffTime,jdbcType=INTEGER},
+      diff_unit = #{diffUnit,jdbcType=INTEGER},
+      refund_int_diff_time_limit = #{refundIntDiffTimeLimit,jdbcType=INTEGER},
+      refund_int_first = #{refundIntFirst,jdbcType=INTEGER},
+      refund_cycle_duration = #{refundCycleDuration,jdbcType=INTEGER},
+      refund_cycle_duration_unit = #{refundCycleDurationUnit,jdbcType=INTEGER},
+      refund_int_times = #{refundIntTimes,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

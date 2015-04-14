@@ -17,7 +17,7 @@
     <context:property-placeholder location="classpath:resources.properties,classpath:memcached.properties"/>
     <!--
     <bean id="propertyPlaceholderConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+          class="org.springframework.beans.factory.development.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath:jdbc.properties</value>

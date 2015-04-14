@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.solution.p2p.core.dao.MemberAccountTransactionMapper" >
+  <resultMap id="BaseResultMap" type="com.solution.p2p.core.common.entity.MemberAccountTransaction" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="req_app" property="reqApp" jdbcType="VARCHAR" />
+    <result column="req_time" property="reqTime" jdbcType="TIMESTAMP" />
+    <result column="req_seq_no" property="reqSeqNo" jdbcType="BIGINT" />
+    <result column="tran_no" property="tranNo" jdbcType="CHAR" />
+    <result column="old_tran_no" property="oldTranNo" jdbcType="CHAR" />
+    <result column="mat_date" property="matDate" jdbcType="DATE" />
+    <result column="mat_req_method" property="matReqMethod" jdbcType="INTEGER" />
+    <result column="mat_op_state" property="matOpState" jdbcType="INTEGER" />
+    <result column="trade_type" property="tradeType" jdbcType="INTEGER" />
+    <result column="trade_date" property="tradeDate" jdbcType="DATE" />
+    <result column="trade_seq_no" property="tradeSeqNo" jdbcType="BIGINT" />
+    <result column="pay_seq_no" property="paySeqNo" jdbcType="BIGINT" />
+    <result column="mat_item_info" property="matItemInfo" jdbcType="VARCHAR" />
+    <result column="mat_rep_code" property="matRepCode" jdbcType="INTEGER" />
+    <result column="mat_item_result" property="matItemResult" jdbcType="VARCHAR" />
+    <result column="mat_ext" property="matExt" jdbcType="VARCHAR" />
+    <result column="mat_remark" property="matRemark" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, req_app, req_time, req_seq_no, tran_no, old_tran_no, mat_date, mat_req_method, 
+    mat_op_state, trade_type, trade_date, trade_seq_no, pay_seq_no, mat_item_info, mat_rep_code, 
+    mat_item_result, mat_ext, mat_remark, create_time, update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransactionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from member_account_transaction
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from member_account_transaction
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from member_account_transaction
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransactionExample" >
+    delete from member_account_transaction
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransaction" >
+    insert into member_account_transaction (id, req_app, req_time, 
+      req_seq_no, tran_no, old_tran_no, 
+      mat_date, mat_req_method, mat_op_state, 
+      trade_type, trade_date, trade_seq_no, 
+      pay_seq_no, mat_item_info, mat_rep_code, 
+      mat_item_result, mat_ext, mat_remark, 
+      create_time, update_time)
+    values (#{id,jdbcType=BIGINT}, #{reqApp,jdbcType=VARCHAR}, #{reqTime,jdbcType=TIMESTAMP}, 
+      #{reqSeqNo,jdbcType=BIGINT}, #{tranNo,jdbcType=CHAR}, #{oldTranNo,jdbcType=CHAR}, 
+      #{matDate,jdbcType=DATE}, #{matReqMethod,jdbcType=INTEGER}, #{matOpState,jdbcType=INTEGER}, 
+      #{tradeType,jdbcType=INTEGER}, #{tradeDate,jdbcType=DATE}, #{tradeSeqNo,jdbcType=BIGINT}, 
+      #{paySeqNo,jdbcType=BIGINT}, #{matItemInfo,jdbcType=VARCHAR}, #{matRepCode,jdbcType=INTEGER}, 
+      #{matItemResult,jdbcType=VARCHAR}, #{matExt,jdbcType=VARCHAR}, #{matRemark,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransaction" >
+    insert into member_account_transaction
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="reqApp != null" >
+        req_app,
+      </if>
+      <if test="reqTime != null" >
+        req_time,
+      </if>
+      <if test="reqSeqNo != null" >
+        req_seq_no,
+      </if>
+      <if test="tranNo != null" >
+        tran_no,
+      </if>
+      <if test="oldTranNo != null" >
+        old_tran_no,
+      </if>
+      <if test="matDate != null" >
+        mat_date,
+      </if>
+      <if test="matReqMethod != null" >
+        mat_req_method,
+      </if>
+      <if test="matOpState != null" >
+        mat_op_state,
+      </if>
+      <if test="tradeType != null" >
+        trade_type,
+      </if>
+      <if test="tradeDate != null" >
+        trade_date,
+      </if>
+      <if test="tradeSeqNo != null" >
+        trade_seq_no,
+      </if>
+      <if test="paySeqNo != null" >
+        pay_seq_no,
+      </if>
+      <if test="matItemInfo != null" >
+        mat_item_info,
+      </if>
+      <if test="matRepCode != null" >
+        mat_rep_code,
+      </if>
+      <if test="matItemResult != null" >
+        mat_item_result,
+      </if>
+      <if test="matExt != null" >
+        mat_ext,
+      </if>
+      <if test="matRemark != null" >
+        mat_remark,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="reqApp != null" >
+        #{reqApp,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTime != null" >
+        #{reqTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reqSeqNo != null" >
+        #{reqSeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="tranNo != null" >
+        #{tranNo,jdbcType=CHAR},
+      </if>
+      <if test="oldTranNo != null" >
+        #{oldTranNo,jdbcType=CHAR},
+      </if>
+      <if test="matDate != null" >
+        #{matDate,jdbcType=DATE},
+      </if>
+      <if test="matReqMethod != null" >
+        #{matReqMethod,jdbcType=INTEGER},
+      </if>
+      <if test="matOpState != null" >
+        #{matOpState,jdbcType=INTEGER},
+      </if>
+      <if test="tradeType != null" >
+        #{tradeType,jdbcType=INTEGER},
+      </if>
+      <if test="tradeDate != null" >
+        #{tradeDate,jdbcType=DATE},
+      </if>
+      <if test="tradeSeqNo != null" >
+        #{tradeSeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="paySeqNo != null" >
+        #{paySeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="matItemInfo != null" >
+        #{matItemInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="matRepCode != null" >
+        #{matRepCode,jdbcType=INTEGER},
+      </if>
+      <if test="matItemResult != null" >
+        #{matItemResult,jdbcType=VARCHAR},
+      </if>
+      <if test="matExt != null" >
+        #{matExt,jdbcType=VARCHAR},
+      </if>
+      <if test="matRemark != null" >
+        #{matRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransactionExample" resultType="java.lang.Integer" >
+    select count(*) from member_account_transaction
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update member_account_transaction
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.reqApp != null" >
+        req_app = #{record.reqApp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reqTime != null" >
+        req_time = #{record.reqTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.reqSeqNo != null" >
+        req_seq_no = #{record.reqSeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="record.tranNo != null" >
+        tran_no = #{record.tranNo,jdbcType=CHAR},
+      </if>
+      <if test="record.oldTranNo != null" >
+        old_tran_no = #{record.oldTranNo,jdbcType=CHAR},
+      </if>
+      <if test="record.matDate != null" >
+        mat_date = #{record.matDate,jdbcType=DATE},
+      </if>
+      <if test="record.matReqMethod != null" >
+        mat_req_method = #{record.matReqMethod,jdbcType=INTEGER},
+      </if>
+      <if test="record.matOpState != null" >
+        mat_op_state = #{record.matOpState,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradeType != null" >
+        trade_type = #{record.tradeType,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradeDate != null" >
+        trade_date = #{record.tradeDate,jdbcType=DATE},
+      </if>
+      <if test="record.tradeSeqNo != null" >
+        trade_seq_no = #{record.tradeSeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="record.paySeqNo != null" >
+        pay_seq_no = #{record.paySeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="record.matItemInfo != null" >
+        mat_item_info = #{record.matItemInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.matRepCode != null" >
+        mat_rep_code = #{record.matRepCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.matItemResult != null" >
+        mat_item_result = #{record.matItemResult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.matExt != null" >
+        mat_ext = #{record.matExt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.matRemark != null" >
+        mat_remark = #{record.matRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update member_account_transaction
+    set id = #{record.id,jdbcType=BIGINT},
+      req_app = #{record.reqApp,jdbcType=VARCHAR},
+      req_time = #{record.reqTime,jdbcType=TIMESTAMP},
+      req_seq_no = #{record.reqSeqNo,jdbcType=BIGINT},
+      tran_no = #{record.tranNo,jdbcType=CHAR},
+      old_tran_no = #{record.oldTranNo,jdbcType=CHAR},
+      mat_date = #{record.matDate,jdbcType=DATE},
+      mat_req_method = #{record.matReqMethod,jdbcType=INTEGER},
+      mat_op_state = #{record.matOpState,jdbcType=INTEGER},
+      trade_type = #{record.tradeType,jdbcType=INTEGER},
+      trade_date = #{record.tradeDate,jdbcType=DATE},
+      trade_seq_no = #{record.tradeSeqNo,jdbcType=BIGINT},
+      pay_seq_no = #{record.paySeqNo,jdbcType=BIGINT},
+      mat_item_info = #{record.matItemInfo,jdbcType=VARCHAR},
+      mat_rep_code = #{record.matRepCode,jdbcType=INTEGER},
+      mat_item_result = #{record.matItemResult,jdbcType=VARCHAR},
+      mat_ext = #{record.matExt,jdbcType=VARCHAR},
+      mat_remark = #{record.matRemark,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransaction" >
+    update member_account_transaction
+    <set >
+      <if test="reqApp != null" >
+        req_app = #{reqApp,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTime != null" >
+        req_time = #{reqTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reqSeqNo != null" >
+        req_seq_no = #{reqSeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="tranNo != null" >
+        tran_no = #{tranNo,jdbcType=CHAR},
+      </if>
+      <if test="oldTranNo != null" >
+        old_tran_no = #{oldTranNo,jdbcType=CHAR},
+      </if>
+      <if test="matDate != null" >
+        mat_date = #{matDate,jdbcType=DATE},
+      </if>
+      <if test="matReqMethod != null" >
+        mat_req_method = #{matReqMethod,jdbcType=INTEGER},
+      </if>
+      <if test="matOpState != null" >
+        mat_op_state = #{matOpState,jdbcType=INTEGER},
+      </if>
+      <if test="tradeType != null" >
+        trade_type = #{tradeType,jdbcType=INTEGER},
+      </if>
+      <if test="tradeDate != null" >
+        trade_date = #{tradeDate,jdbcType=DATE},
+      </if>
+      <if test="tradeSeqNo != null" >
+        trade_seq_no = #{tradeSeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="paySeqNo != null" >
+        pay_seq_no = #{paySeqNo,jdbcType=BIGINT},
+      </if>
+      <if test="matItemInfo != null" >
+        mat_item_info = #{matItemInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="matRepCode != null" >
+        mat_rep_code = #{matRepCode,jdbcType=INTEGER},
+      </if>
+      <if test="matItemResult != null" >
+        mat_item_result = #{matItemResult,jdbcType=VARCHAR},
+      </if>
+      <if test="matExt != null" >
+        mat_ext = #{matExt,jdbcType=VARCHAR},
+      </if>
+      <if test="matRemark != null" >
+        mat_remark = #{matRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransaction" >
+    update member_account_transaction
+    set req_app = #{reqApp,jdbcType=VARCHAR},
+      req_time = #{reqTime,jdbcType=TIMESTAMP},
+      req_seq_no = #{reqSeqNo,jdbcType=BIGINT},
+      tran_no = #{tranNo,jdbcType=CHAR},
+      old_tran_no = #{oldTranNo,jdbcType=CHAR},
+      mat_date = #{matDate,jdbcType=DATE},
+      mat_req_method = #{matReqMethod,jdbcType=INTEGER},
+      mat_op_state = #{matOpState,jdbcType=INTEGER},
+      trade_type = #{tradeType,jdbcType=INTEGER},
+      trade_date = #{tradeDate,jdbcType=DATE},
+      trade_seq_no = #{tradeSeqNo,jdbcType=BIGINT},
+      pay_seq_no = #{paySeqNo,jdbcType=BIGINT},
+      mat_item_info = #{matItemInfo,jdbcType=VARCHAR},
+      mat_rep_code = #{matRepCode,jdbcType=INTEGER},
+      mat_item_result = #{matItemResult,jdbcType=VARCHAR},
+      mat_ext = #{matExt,jdbcType=VARCHAR},
+      mat_remark = #{matRemark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
