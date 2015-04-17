@@ -14,6 +14,8 @@ public class BasicServiceImpl {
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
+    private boolean isServiceSign = false;
+
     private SignService signService;
 
     public void setSignService(SignService signService) {

@@ -1,14 +1,9 @@
-package com.fanya.p2p.common.core;
+package com.fanya.p2p.front.user.client;
 
 import org.apache.shiro.web.util.SavedRequest;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-3-14
- * <p>Version: 1.0
- */
 public class ClientSavedRequest extends SavedRequest {
     private String scheme;
     private String domain;

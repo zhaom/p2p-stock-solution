@@ -1,9 +1,8 @@
 package com.fanya.p2p.front.user.web.shiro.filter;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-
 import com.fanya.p2p.front.user.utils.Constants;
-import com.solution.p2p.core.common.utils.SignUtil;
+import com.solution.p2p.core.common.service.MemberService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 
@@ -18,17 +17,17 @@ import javax.servlet.ServletResponse;
 public class SysUserFilter extends PathMatchingFilter {
 
     @Reference
-    private UserService userService;
+    private MemberService memberService;
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    public void setUserService(MemberService memberService) {
+        this.memberService = memberService;
     }
 
     @Override
     protected boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
 
         String username = (String)SecurityUtils.getSubject().getPrincipal();
-        request.setAttribute(Constants.CURRENT_USER, userService.findByUsername(username,Constants.APP_KEY, SignUtil.signParams(username, Constants.APP_KEY, Constants.APP_SECURITY)).getValue());
+        request.setAttribute(Constants.CURRENT_USER, memberService.findByUsername(username, Constants.APP_KEY, "changqianmingyuguang").getValue());
         return true;
     }
 }

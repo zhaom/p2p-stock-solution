@@ -1,6 +1,5 @@
 package com.fanya.p2p.front.user.client;
 
-import com.fanya.p2p.common.core.ClientSavedRequest;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;

@@ -1,7 +1,8 @@
 package com.fanya.p2p.front.user.client;
 
-import com.fanya.p2p.common.remote.PermissionContext;
-import com.fanya.p2p.common.remote.RemoteServiceInterface;
+import com.solution.p2p.core.common.service.AuthorizationService;
+import com.solution.p2p.core.common.utils.Constants;
+import com.solution.p2p.core.common.utils.PermissionContext;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -10,17 +11,16 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-/**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-3-13
- * <p>Version: 1.0
- */
+
 public class ClientRealm extends AuthorizingRealm {
-    private RemoteServiceInterface remoteService;
+
+    private AuthorizationService authorizationService;
     private String appKey;
-    public void setRemoteService(RemoteServiceInterface remoteService) {
-        this.remoteService = remoteService;
+
+    public void setAuthorizationService(AuthorizationService authorizationService) {
+        this.authorizationService = authorizationService;
     }
+
     public void setAppKey(String appKey) {
         this.appKey = appKey;
     }
@@ -28,7 +28,7 @@ public class ClientRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         String username = (String) principals.getPrimaryPrincipal();
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        PermissionContext context = remoteService.getPermissions(appKey, username);
+        PermissionContext context = authorizationService.findPermissions(Constants.SERVER_APP_KEY,username, appKey,"changqianmingyuguang").getValue();
         authorizationInfo.setRoles(context.getRoles());
         authorizationInfo.setStringPermissions(context.getPermissions());
         return authorizationInfo;

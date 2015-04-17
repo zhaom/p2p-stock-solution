@@ -1,9 +1,8 @@
 package com.fanya.p2p.front.user.web.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
-
 import com.fanya.p2p.front.user.utils.Constants;
-import com.solution.p2p.core.common.utils.SignUtil;
+import com.solution.p2p.core.common.entity.Member;
+import com.solution.p2p.core.common.service.MemberService;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.slf4j.Logger;
@@ -19,18 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-2-15
- * <p>Version: 1.0
- */
+
 @Controller
 public class LoginController {
 
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-    @Reference
-    private UserService userService;
+    private MemberService memberService;
 
     @RequestMapping(value = "/login")
     public String showLoginForm(HttpServletRequest req, Model model) {
@@ -53,10 +47,10 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String doRegister(SysUser user, String smsCode, RedirectAttributes redirectAttributes){
+    public String doRegister(Member member, String smsCode, RedirectAttributes redirectAttributes){
         logger.debug("do register");
         //TODO：处理手机验证码
-        userService.createUser(user, Constants.APP_KEY, SignUtil.signParams(user, Constants.APP_KEY, Constants.APP_SECURITY));
+        memberService.createUser(member, Constants.APP_KEY, "changqianmingyuguang");
         redirectAttributes.addFlashAttribute("msg", "注册成功，请登录");
         return "login";
     }
@@ -66,8 +60,8 @@ public class LoginController {
     Map<String,Boolean> doRegisterValidate(String content){
         logger.debug("validate content :[{}]", content);
         Map<String, Boolean> result = new HashMap<String, Boolean>();
-        SysUser sysUser = userService.findByUsername(content, Constants.APP_KEY, SignUtil.signParams(content, Constants.APP_KEY, Constants.APP_SECURITY)).getValue();
-        if(sysUser != null){
+        Member member = memberService.findByUsername(content, Constants.APP_KEY, "changqianmingyuguang").getValue();
+        if(member != null){
             result.put("valid", false);
         }else {
             result.put("valid", true);
@@ -83,7 +77,7 @@ public class LoginController {
     @RequestMapping(value = "/password-reset",method = RequestMethod.POST)
     public String doPasswordReset(String mobile, String smsCode, String newPassword, RedirectAttributes redirectAttributes){
         logger.debug("do password reset for mobile:[{}]", mobile);
-        userService.resetPassword(mobile, newPassword, Constants.APP_KEY, SignUtil.signParams(mobile, Constants.APP_KEY, Constants.APP_SECURITY));
+        memberService.resetPassword(mobile, newPassword, Constants.APP_KEY, "changqianmingyuguang");
         return "redirect:/logout";
     }
 

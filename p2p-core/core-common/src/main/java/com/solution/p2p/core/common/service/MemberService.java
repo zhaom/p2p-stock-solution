@@ -1,5 +1,8 @@
 package com.solution.p2p.core.common.service;
 
+import com.solution.p2p.core.common.entity.Member;
+import com.solution.p2p.core.common.utils.ServiceResult;
+
 /**
  * Created with IntelliJ IDEA.
  * User: JohnKee
@@ -8,4 +11,11 @@ package com.solution.p2p.core.common.service;
  * To change this template use File | Settings | File Templates.
  */
 public interface MemberService {
+
+    ServiceResult<Integer> createUser(Member member, String appKey, String signature);
+
+    ServiceResult<Member> findByUsername(String content, String appKey, String signature);
+
+    ServiceResult<Integer> resetPassword(String mobile, String newPassword, String appKey, String signature);
+
 }

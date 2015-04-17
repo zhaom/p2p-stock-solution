@@ -15,35 +15,22 @@
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:development/resources.properties</value>
-                <value>classpath:development/log4j.properties</value>
-                <value>classpath:development/memcached.properties</value>
+                <value>classpath:resources.properties</value>
+                <value>classpath:log4j.properties</value>
+                <value>classpath:memcached.properties</value>
             </list>
         </property>
         <property name="ignoreResourceNotFound" value="true" />
     </bean>
-    <!--
-    <bean id="memcachedClient" class="net.spy.memcached.MemcachedClient">
-        <constructor-arg index="0">
-            <list>
-                <bean class="java.net.InetSocketAddress">
-                    <constructor-arg index="0" value="${memcached.0.host}" />
-                    <constructor-arg index="1" value="${memcached.0.port}" />
-                </bean>
-            </list>
-        </constructor-arg>
-    </bean>
-     -->
+
     <!-- 扫描注解Bean -->
     <context:annotation-config />
-    <context:component-scan base-package="com.solution.p2p.core"/>
+    <context:component-scan base-package="com.solution.p2p.core.service"/>
 
     <!-- 开启AOP监听 只对当前配置文件有效  -->
     <aop:aspectj-autoproxy expose-proxy="true"/>
 
-
     <!-- 数据源 -->
-    <!--see https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_DruidDataSource%E5%8F%82%E8%80%83%E9%85%8D%E7%BD%AE-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 基本属性 url、user、password -->
         <property name="url" value="${connection.url}"/>
@@ -83,21 +70,16 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
           p:dataSource-ref="dataSourceProxy"
-          p:configLocation="classpath:development/config/mybatis-config.xml"
-          p:mapperLocations="classpath:development/config/mappers/*.xml" />
+          p:configLocation="classpath:config/mybatis-config.xml"
+          p:mapperLocations="classpath:config/mappers/*.xml" />
 
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory" />
         <constructor-arg index="1" value="BATCH" />
     </bean>
 
-
-    <bean id="capitalAccountMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.solution.p2p.core.account.dao.CapitalAccountMapper" />
-        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-    </bean>
-    <bean id="capitalAccountFlowMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.solution.p2p.core.account.dao.CapitalAccountFlowMapper" />
+    <bean id="memberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.solution.p2p.core.dao.MemberMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
@@ -117,13 +99,5 @@
         <aop:advisor id="txAdvisor" advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
 
-
-    <bean id="accountService" class="com.solution.p2p.core.account.service.AccountServiceImpl">
-        <property name="capitalAccountMapper" ref="capitalAccountMapper"/>
-        <property name="capitalAccountFlowMapper" ref="capitalAccountFlowMapper"/>
-    </bean>
-    <bean id="accountFlowService" class="com.solution.p2p.core.account.service.AccountFlowServiceImpl">
-        <property name="capitalAccountFlowMapper" ref="capitalAccountFlowMapper"/>
-    </bean>
 
 </beans>

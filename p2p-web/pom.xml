@@ -17,7 +17,6 @@
         <module>prod-web</module>
         <module>cashier-web</module>
         <module>invest-web</module>
-        <module>web-common</module>
     </modules>
 
     <dependencyManagement>

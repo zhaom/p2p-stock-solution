@@ -134,7 +134,7 @@ public class Constants {
     public static final int SYS_RESOURCE_TYPE_TAB = 6002;
 
     // DATA_VERSION 数据版本
-    public static final int MEMBER_ACCOUNT_DATA_VERSION_DEFAULT = 10000;
+    // public static final int MEMBER_ACCOUNT_DATA_VERSION_DEFAULT = 10000;
 
 
     // 周期单位[日20000|月20001]
@@ -171,6 +171,11 @@ public class Constants {
     public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_SUCCESS = 100000;
     public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_FAILED = 200000;
 
+    //应用里边的错误码
+    public static final int ERROR_CODE_SERVICE_DATA_NOT_FOUND = 500404;
+    public static final int ERROR_CODE_SERVICE_DATA_DEPULATE = 500405;
+
 
     public static final String CURRENT_USER = "loginMember";
+    public static final String SERVER_APP_KEY = "645ba616-370a-43a8-a8e0-993e7a590cf0";
 }

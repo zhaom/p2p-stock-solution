@@ -19,10 +19,9 @@
         </dependency>
         <dependency>
             <groupId>com.solution.p2p.web</groupId>
-            <artifactId>web-common</artifactId>
+            <artifactId>user-client-common</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -63,11 +62,12 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
 
-
+<!--
         <dependency>
             <groupId>org.apache.shiro.web</groupId>
             <artifactId>velocity-support</artifactId>
         </dependency>
+    -->
         <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>

@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class ServiceResult<E> implements Serializable{
 
-    private boolean isSuccess;
+    private boolean isSuccess = true;
 
     private int errorCode;
 

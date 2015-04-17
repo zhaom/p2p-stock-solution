@@ -34,8 +34,9 @@
     </bean>
 
     <bean class="com.fanya.p2p.front.user.spring.SpringUtils"/>
-    <bean class="com.fanya.p2p.common.service.PasswordHelper"/>
 
-    <import resource="classpath:spring-development.config-shiro.xml"/>
-    <import resource="classpath:spring-development.config-dubbo-consumer.xml"/>
+    <import resource="classpath:spring-config-shiro.xml"/>
+
+    <import resource="classpath:spring-config-dubbo-consumer.xml"/>
+
 </beans>

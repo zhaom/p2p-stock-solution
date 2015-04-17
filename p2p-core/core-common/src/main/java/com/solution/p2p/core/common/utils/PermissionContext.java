@@ -1,10 +1,10 @@
-package com.fanya.p2p.common.remote;
+package com.solution.p2p.core.common.utils;
 
 import java.io.Serializable;
 import java.util.Set;
 
 /**
- * <p>User: Zhang Kaitao
+ * <p>User:
  * <p>Date: 14-3-13
  * <p>Version: 1.0
  */
