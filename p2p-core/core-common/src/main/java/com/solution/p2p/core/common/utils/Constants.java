@@ -133,6 +133,12 @@ public class Constants {
     public static final int SYS_RESOURCE_TYPE_BUTTON = 6001;
     public static final int SYS_RESOURCE_TYPE_TAB = 6002;
 
+    // 消息类型【公告|通知|消息|新闻】
+    public static final int SYS_MSG_TYPE_BROADCAST = 6101;
+    public static final int SYS_MSG_TYPE_NOTICE = 6102;
+    public static final int SYS_MSG_TYPE_PRIVATE_MSG = 6103;
+    public static final int SYS_MSG_TYPE_NEWS = 6104;
+
     // DATA_VERSION 数据版本
     // public static final int MEMBER_ACCOUNT_DATA_VERSION_DEFAULT = 10000;
 
@@ -170,6 +176,8 @@ public class Constants {
     // 记账响应码[成功|失败]
     public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_SUCCESS = 100000;
     public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_FAILED = 200000;
+
+
 
     //应用里边的错误码
     public static final int ERROR_CODE_SERVICE_DATA_NOT_FOUND = 500404;

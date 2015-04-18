@@ -41,11 +41,38 @@ create table if not exists bid(
   key(m_id)
 ) charset=utf8 ENGINE=InnoDB comment '标信息表';
 
+create table if not exists transfer_bid(
+  id bigint auto_increment not null comment 'id',
+  b_id bigint auto_increment not null comment '标id',
+  code char(16) not null comment '标编码',
+  prod_id bigint not null comment '产品编码',
+  name varchar(50) not null comment '标名称',
+  m_id bigint not null comment '借款人id',
+  tran_m_id bigint not null comment '转让人',
+  trans_amount bigint not null comment '转让金额',
+  transed_amount bigint not null comment '已经转让金额',
+  trans_interest_rate decimal(18,9) not null comment '转让利率',
+  collect_interest_rate_unit int not null comment '配资利率单位',
+  request_interest_rate decimal(18,9) not null comment '投标利率',
+  request_interest_rate_unit int not null comment '投标利率单位',
+  trans_from_time datetime not null comment '转让开始时间',
+  trans_thru_time datetime not null comment '转让截止时间',
+  trans_success_time datetime comment '成标时间',
+  trans_status int not null comment '转让状态',
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+  update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+  primary key (id),
+  key(code),
+  key(prod_id),
+  key(m_id)
+) charset=utf8 ENGINE=InnoDB comment '标信息表';
+
 create table if not exists member_bid_request(
   id bigint auto_increment not null comment 'id',
   m_id bigint not null comment '会员id',
   b_id bigint not null comment '标id',
   amount bigint not null comment '投标金额',
+  status int not null comment '投标状态',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
@@ -53,10 +80,26 @@ create table if not exists member_bid_request(
   key(b_id)
 ) charset=utf8 ENGINE=InnoDB comment '会员投标表';
 
+create table if not exists member_transfer_bid_request(
+  id bigint auto_increment not null comment 'id',
+  m_id_from bigint not null comment '转让会员',
+  m_id_to bigint not null comment '买入会员',
+  b_id bigint not null comment '标id',
+  amount bigint not null comment '金额',
+  trans_status int not null comment '转让状态',
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+  update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+  primary key (id),
+  key(m_id_from),
+  key(m_id_to,trans_status),
+  key(b_id)
+) charset=utf8 ENGINE=InnoDB comment '会员投标转让表';
+
 create table if not exists bid_refund_info (
   id bigint auto_increment not null comment 'id',
   m_id bigint not null comment '会员id',
   b_id bigint not null comment '标id',
+  issue char(5) not null comment '期数',
   scheduled_refund_time datetime not null comment '应还款日',
   real_refund_time datetime comment '实际还款日',
   refund_flow_id char(16) comment '还款流水号',
@@ -77,6 +120,7 @@ create table if not exists member_bid_distribute(
   id bigint auto_increment not null comment 'id',
   m_id bigint not null comment '会员id',
   b_id bigint not null comment '标id',
+  issue char(5) not null comment '期数',
   request_amount bigint not null comment '投标金额',
   scheduled_dist_time datetime not null comment '应分发时间',
   scheduled_dist_principal bigint not null comment '应分发本金',

@@ -98,3 +98,20 @@ create table sys_op_log (
   primary key (id),
   key(m_id, op_type, create_time)
 ) charset=utf8 ENGINE=InnoDB comment '系统操作日志表';
+
+CREATE TABLE if not exists sys_msg (
+  id bigint NOT NULL AUTO_INCREMENT COMMENT '标识ID',
+  type int not null comment '消息类型【公告|通知|消息|新闻】',
+  title varchar(100) DEFAULT NULL COMMENT '标题（发布标题）',
+  content varchar(4000) COMMENT '内容（发布内容）',
+  publish_date datetime DEFAULT NULL COMMENT '发布时间',
+  is_publish int DEFAULT NULL COMMENT '是否发布【是1|否0】',
+  from_uid bigint DEFAULT NULL COMMENT '发布人',
+  to_uid bigint default null comment '接收人',
+  pic_url varchar(200) DEFAULT NULL COMMENT '图片',
+  is_read int DEFAULT NULL COMMENT '是否已读【是1|否0】',
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+  update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+  PRIMARY KEY (id),
+  key(type,to_uid)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统消息表';
