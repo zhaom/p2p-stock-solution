@@ -83,6 +83,7 @@
         <table tableName="member_transfer_bid_request" domainObjectName="MemberTransferBidRequest" />
         <table tableName="member_bid_distribute" domainObjectName="MemberBidDistribute" />
         <table tableName="sys_msg" domainObjectName="SysMsg" />
+        <table tableName="enterprise_reg_info" domainObjectName="EnterpriseRegInfo" />
 
     </context>
 </generatorConfiguration>

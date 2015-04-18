@@ -39,6 +39,30 @@ create table if not exists member_auth_status (
   key(m_id, type)
 ) charset=utf8 ENGINE=InnoDB comment '会员认证状态表';
 
+create table if not exists enterprise_reg_info (
+  id bigint auto_increment not null comment 'id',
+  m_id bigint not null comment '会员id',
+  enterprise_name varchar(100) not null comment '企业名称',
+  enterprise_reg_no varchar(20) not null comment '营业执照注册号',
+  enterprise_reg_addr varchar(200) not null comment '营业执照所在地',
+  enterprise_duration datetime not null comment '营业期限',
+  enterprise_addr varchar(200) not null comment '常用地址',
+  enterprise_tel varchar(20) not null comment '联系电话',
+  enterprise_reg_pic varchar(100) not null comment '营业执照副本',
+  enterprise_org_code varchar(20) not null comment '组织机构代码',
+  enterprise_biz_scope varchar(400) comment '营业范围',
+  enterprise_reg_amount varchar(20) comment '注册资金',
+  enterprise_fax varchar(20) comment '传真',
+  enterprise_legal_real_name varchar(50) not null comment '法人真实姓名',
+  enterprise_legal_id_card varchar(18) not null comment '法人身份证号',
+  enterprise_id_pic_front varchar(100) not null comment '法人身份证正面照',
+  enterprise_id_pic_back varchar(100) not null comment '法人身份证反面照',
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+  update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+  primary key (id),
+  key(m_id)
+) charset=utf8 ENGINE=InnoDB comment '企业会员认证信息表';
+
 create table if not exists member_account (
   id bigint auto_increment not null comment 'id',
   m_id bigint not null comment '会员id',
