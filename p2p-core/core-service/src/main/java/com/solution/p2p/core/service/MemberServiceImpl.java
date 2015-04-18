@@ -57,4 +57,9 @@ public class MemberServiceImpl extends BasicServiceImpl implements MemberService
     public ServiceResult<Integer> resetPassword(String mobile, String newPassword, String appKey, String signature) {
         return null;
     }
+
+    @Override
+    public ServiceResult<Integer> resetTradePassword(String mobile, String newPassword, String appKey, String signature) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

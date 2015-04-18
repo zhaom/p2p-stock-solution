@@ -85,5 +85,6 @@
         <table tableName="sys_msg" domainObjectName="SysMsg" />
         <table tableName="enterprise_reg_info" domainObjectName="EnterpriseRegInfo" />
 
+
     </context>
 </generatorConfiguration>

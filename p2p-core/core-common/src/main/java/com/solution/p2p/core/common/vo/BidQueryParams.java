@@ -28,7 +28,9 @@ public class BidQueryParams {
 
     private Integer lifeDurationUnit;
 
-    private Integer status;
+    private Integer bidStatus;
+
+    private Integer collectPayStatus;
 
     private String orderBy = "request_interest_rate desc";
 
@@ -48,11 +50,15 @@ public class BidQueryParams {
         if(mId > 0){
             criteria.andMIdEqualTo(mId);
         }
+        //TODO:modify refer example
         if(lifeDuration > 0){
             criteria.andLifeDurationEqualTo(lifeDuration).andLifeDurationUnitEqualTo(lifeDurationUnit);
         }
-        if(status>0){
-            criteria.andStatusEqualTo(status);
+        if(bidStatus>0){
+            criteria.andStatusEqualTo(bidStatus);
+        }
+        if(collectPayStatus > 0){
+            criteria.andStatusEqualTo(collectPayStatus);
         }
 
         return bidExample;
@@ -106,12 +112,20 @@ public class BidQueryParams {
         this.lifeDurationUnit = lifeDurationUnit;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getBidStatus() {
+        return bidStatus;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setBidStatus(Integer bidStatus) {
+        this.bidStatus = bidStatus;
+    }
+
+    public Integer getCollectPayStatus() {
+        return collectPayStatus;
+    }
+
+    public void setCollectPayStatus(Integer collectPayStatus) {
+        this.collectPayStatus = collectPayStatus;
     }
 
     public String getOrderBy() {

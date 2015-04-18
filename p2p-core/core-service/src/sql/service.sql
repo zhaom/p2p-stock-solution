@@ -32,7 +32,13 @@ create table if not exists bid(
   collect_from_time datetime not null comment '募资开始时间',
   collect_thru_time datetime not null comment '募资截止时间',
   bid_success_time datetime comment '成标时间',
-  status int not null comment '状态',
+  bid_status int not null comment '状态【初始|待支付|募集中|已满额|还款中|已还清|已平仓|已流标】',
+  collect_pay_status int not null comment '支付状态【待支付|部分支付|已支付】',
+  requirement_service_fee bigint not  null comment '服务费',
+  requirement_management_fee bigint not null comment '管理费',
+  requirement_other_fee bigint not null comment '其它费用',
+  split_profit int not null comment '是否分收益[是|否]',
+  split_ratio int not null comment '分成比例',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
@@ -72,7 +78,7 @@ create table if not exists member_bid_request(
   m_id bigint not null comment '会员id',
   b_id bigint not null comment '标id',
   amount bigint not null comment '投标金额',
-  status int not null comment '投标状态',
+  request_status int not null comment '投标状态',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
@@ -256,6 +262,24 @@ create table if not exists product_channel_category(
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id)
 ) charset=utf8 ENGINE=InnoDB comment '产品渠道分类定义表';
+
+
+create table if not exists bid_stock_account(
+  id bigint auto_increment not null comment 'id',
+  b_id bigint not null comment '标id',
+  m_id bigint not null comment '借款人id',
+  m_stock_account_id bigint not null comment '股票账户',
+  from_time datetime not null comment '关联开始时间',
+  thru_time datetime not null comment '关联结束时间',
+  status int not null comment '状态【初始|待支付|部分支付|已全部支付】',
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+  update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+  primary key (id),
+  key(prod_id),
+  key(m_id)
+) charset=utf8 ENGINE=InnoDB comment '配资标与股票账户关联表';
+
+
 
 
 

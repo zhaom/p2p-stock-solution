@@ -1,6 +1,7 @@
 package com.solution.p2p.core.common.service;
 
 import com.solution.p2p.core.common.entity.Bid;
+import com.solution.p2p.core.common.utils.Pagination;
 import com.solution.p2p.core.common.utils.ServiceResult;
 import com.solution.p2p.core.common.vo.BidQueryParams;
 
@@ -15,8 +16,26 @@ import java.util.List;
  */
 public interface BidService {
 
-    ServiceResult<List<Bid>> listBid(BidQueryParams bidQueryParams, int pageIndex, int pageSize, String appKey, String signature);
+    /**
+     * 分页列出满足条件的标
+     * @param bidQueryParams
+     * @param pageIndex
+     * @param pageSize
+     * @param appKey
+     * @param signature
+     * @return
+     */
+    ServiceResult<Pagination<Bid>> listBid(BidQueryParams bidQueryParams, int pageIndex, int pageSize, String appKey, String signature);
 
+    /**
+     * 查询单个标的详情
+     * @param id
+     * @param appKey
+     * @param signature
+     * @return
+     */
     ServiceResult<Bid> getBid(Long id, String appKey, String signature);
+
+
 
 }
