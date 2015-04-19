@@ -77,7 +77,6 @@
 
                      -->
 
-        <table tableName="transfer_bid" domainObjectName="TransferBid" />
         <table tableName="bid_refund_info" domainObjectName="BidRefundInfo" />
         <table tableName="member_bid_request" domainObjectName="MemberBidRequest" />
         <table tableName="member_transfer_bid_request" domainObjectName="MemberTransferBidRequest" />

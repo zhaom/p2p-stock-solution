@@ -36,4 +36,14 @@ public interface BidRequestFacadeService {
      * @return
      */
     ServiceResult<Integer> bidDistribute(Long bid, Long mriId);
+
+    /**
+     * 是否可转让
+     * @param mid
+     * @param memberBidRequestId
+     * @param appKey
+     * @param signature
+     * @return
+     */
+    ServiceResult<Integer> preTransferBid(Long mid, Long memberBidRequestId, String appKey, String signature);
 }

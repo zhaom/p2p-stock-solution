@@ -23,7 +23,6 @@ public interface BidFacadeService {
      */
     ServiceResult<Integer> preCreateBid(Long mid, Long productId, String appKey, String signature);
 
-
     /**
      * 配资申请
      * @param bid
@@ -32,6 +31,15 @@ public interface BidFacadeService {
      * @return
      */
     ServiceResult<Bid> createCollectBid(Bid bid, String appKey, String signature);
+
+    /**
+     * 转让申请
+     * @param bid
+     * @param appKey
+     * @param signature
+     * @return
+     */
+    ServiceResult<Bid> createTransferBid(Bid bid, String appKey, String signature);
 
     /**
      * 配资保证金支付、配资服务费等支付，不处理支付的逻辑，只处理支付时对标的处理
