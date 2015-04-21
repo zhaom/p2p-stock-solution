@@ -40,7 +40,23 @@ public class Bid {
 
     private Date bidSuccessTime;
 
-    private Integer status;
+    private Integer bidStatus;
+
+    private Integer collectPayStatus;
+
+    private Long requirementServiceFee;
+
+    private Long requirementManagementFee;
+
+    private Long requirementOtherFee;
+
+    private Integer isSplitProfit;
+
+    private Integer splitRatio;
+
+    private Integer isTransfer;
+
+    private Long transferParentId;
 
     private Date createTime;
 
@@ -190,12 +206,76 @@ public class Bid {
         this.bidSuccessTime = bidSuccessTime;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getBidStatus() {
+        return bidStatus;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setBidStatus(Integer bidStatus) {
+        this.bidStatus = bidStatus;
+    }
+
+    public Integer getCollectPayStatus() {
+        return collectPayStatus;
+    }
+
+    public void setCollectPayStatus(Integer collectPayStatus) {
+        this.collectPayStatus = collectPayStatus;
+    }
+
+    public Long getRequirementServiceFee() {
+        return requirementServiceFee;
+    }
+
+    public void setRequirementServiceFee(Long requirementServiceFee) {
+        this.requirementServiceFee = requirementServiceFee;
+    }
+
+    public Long getRequirementManagementFee() {
+        return requirementManagementFee;
+    }
+
+    public void setRequirementManagementFee(Long requirementManagementFee) {
+        this.requirementManagementFee = requirementManagementFee;
+    }
+
+    public Long getRequirementOtherFee() {
+        return requirementOtherFee;
+    }
+
+    public void setRequirementOtherFee(Long requirementOtherFee) {
+        this.requirementOtherFee = requirementOtherFee;
+    }
+
+    public Integer getIsSplitProfit() {
+        return isSplitProfit;
+    }
+
+    public void setIsSplitProfit(Integer isSplitProfit) {
+        this.isSplitProfit = isSplitProfit;
+    }
+
+    public Integer getSplitRatio() {
+        return splitRatio;
+    }
+
+    public void setSplitRatio(Integer splitRatio) {
+        this.splitRatio = splitRatio;
+    }
+
+    public Integer getIsTransfer() {
+        return isTransfer;
+    }
+
+    public void setIsTransfer(Integer isTransfer) {
+        this.isTransfer = isTransfer;
+    }
+
+    public Long getTransferParentId() {
+        return transferParentId;
+    }
+
+    public void setTransferParentId(Long transferParentId) {
+        this.transferParentId = transferParentId;
     }
 
     public Date getCreateTime() {

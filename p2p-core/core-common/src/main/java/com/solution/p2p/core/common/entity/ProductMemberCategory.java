@@ -7,7 +7,7 @@ public class ProductMemberCategory {
 
     private String name;
 
-    private Integer limitMamberType;
+    private Integer mamberLimitType;
 
     private String memberTypes;
 
@@ -31,12 +31,12 @@ public class ProductMemberCategory {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getLimitMamberType() {
-        return limitMamberType;
+    public Integer getMamberLimitType() {
+        return mamberLimitType;
     }
 
-    public void setLimitMamberType(Integer limitMamberType) {
-        this.limitMamberType = limitMamberType;
+    public void setMamberLimitType(Integer mamberLimitType) {
+        this.mamberLimitType = mamberLimitType;
     }
 
     public String getMemberTypes() {

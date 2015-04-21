@@ -11,6 +11,8 @@ public class SysOpLog {
 
     private Long operatorId;
 
+    private Long relateId;
+
     private Integer isMemberOp;
 
     private Long mId;
@@ -49,6 +51,14 @@ public class SysOpLog {
 
     public void setOperatorId(Long operatorId) {
         this.operatorId = operatorId;
+    }
+
+    public Long getRelateId() {
+        return relateId;
+    }
+
+    public void setRelateId(Long relateId) {
+        this.relateId = relateId;
     }
 
     public Integer getIsMemberOp() {

@@ -9,6 +9,8 @@ public class MemberBidDistribute {
 
     private Long bId;
 
+    private String issue;
+
     private Long requestAmount;
 
     private Date scheduledDistTime;
@@ -51,6 +53,14 @@ public class MemberBidDistribute {
 
     public void setbId(Long bId) {
         this.bId = bId;
+    }
+
+    public String getIssue() {
+        return issue;
+    }
+
+    public void setIssue(String issue) {
+        this.issue = issue == null ? null : issue.trim();
     }
 
     public Long getRequestAmount() {

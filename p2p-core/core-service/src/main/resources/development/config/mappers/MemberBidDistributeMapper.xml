@@ -5,6 +5,7 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="m_id" property="mId" jdbcType="BIGINT" />
     <result column="b_id" property="bId" jdbcType="BIGINT" />
+    <result column="issue" property="issue" jdbcType="CHAR" />
     <result column="request_amount" property="requestAmount" jdbcType="BIGINT" />
     <result column="scheduled_dist_time" property="scheduledDistTime" jdbcType="TIMESTAMP" />
     <result column="scheduled_dist_principal" property="scheduledDistPrincipal" jdbcType="BIGINT" />
@@ -75,9 +76,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, m_id, b_id, request_amount, scheduled_dist_time, scheduled_dist_principal, scheduled_dist_interest, 
-    scheduled_dist_revenue, real_dist_time, real_dist_amount, dist_status, create_time, 
-    update_time
+    id, m_id, b_id, issue, request_amount, scheduled_dist_time, scheduled_dist_principal, 
+    scheduled_dist_interest, scheduled_dist_revenue, real_dist_time, real_dist_amount, 
+    dist_status, create_time, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.MemberBidDistributeExample" >
     select
@@ -110,13 +111,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberBidDistribute" >
-    insert into member_bid_distribute (id, m_id, b_id, request_amount, 
-      scheduled_dist_time, scheduled_dist_principal, 
+    insert into member_bid_distribute (id, m_id, b_id, issue, 
+      request_amount, scheduled_dist_time, scheduled_dist_principal, 
       scheduled_dist_interest, scheduled_dist_revenue, 
       real_dist_time, real_dist_amount, dist_status, 
       create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{bId,jdbcType=BIGINT}, #{requestAmount,jdbcType=BIGINT}, 
-      #{scheduledDistTime,jdbcType=TIMESTAMP}, #{scheduledDistPrincipal,jdbcType=BIGINT}, 
+    values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{bId,jdbcType=BIGINT}, #{issue,jdbcType=CHAR}, 
+      #{requestAmount,jdbcType=BIGINT}, #{scheduledDistTime,jdbcType=TIMESTAMP}, #{scheduledDistPrincipal,jdbcType=BIGINT}, 
       #{scheduledDistInterest,jdbcType=BIGINT}, #{scheduledDistRevenue,jdbcType=BIGINT}, 
       #{realDistTime,jdbcType=TIMESTAMP}, #{realDistAmount,jdbcType=BIGINT}, #{distStatus,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
@@ -132,6 +133,9 @@
       </if>
       <if test="bId != null" >
         b_id,
+      </if>
+      <if test="issue != null" >
+        issue,
       </if>
       <if test="requestAmount != null" >
         request_amount,
@@ -173,6 +177,9 @@
       </if>
       <if test="bId != null" >
         #{bId,jdbcType=BIGINT},
+      </if>
+      <if test="issue != null" >
+        #{issue,jdbcType=CHAR},
       </if>
       <if test="requestAmount != null" >
         #{requestAmount,jdbcType=BIGINT},
@@ -224,6 +231,9 @@
       <if test="record.bId != null" >
         b_id = #{record.bId,jdbcType=BIGINT},
       </if>
+      <if test="record.issue != null" >
+        issue = #{record.issue,jdbcType=CHAR},
+      </if>
       <if test="record.requestAmount != null" >
         request_amount = #{record.requestAmount,jdbcType=BIGINT},
       </if>
@@ -264,6 +274,7 @@
     set id = #{record.id,jdbcType=BIGINT},
       m_id = #{record.mId,jdbcType=BIGINT},
       b_id = #{record.bId,jdbcType=BIGINT},
+      issue = #{record.issue,jdbcType=CHAR},
       request_amount = #{record.requestAmount,jdbcType=BIGINT},
       scheduled_dist_time = #{record.scheduledDistTime,jdbcType=TIMESTAMP},
       scheduled_dist_principal = #{record.scheduledDistPrincipal,jdbcType=BIGINT},
@@ -286,6 +297,9 @@
       </if>
       <if test="bId != null" >
         b_id = #{bId,jdbcType=BIGINT},
+      </if>
+      <if test="issue != null" >
+        issue = #{issue,jdbcType=CHAR},
       </if>
       <if test="requestAmount != null" >
         request_amount = #{requestAmount,jdbcType=BIGINT},
@@ -324,6 +338,7 @@
     update member_bid_distribute
     set m_id = #{mId,jdbcType=BIGINT},
       b_id = #{bId,jdbcType=BIGINT},
+      issue = #{issue,jdbcType=CHAR},
       request_amount = #{requestAmount,jdbcType=BIGINT},
       scheduled_dist_time = #{scheduledDistTime,jdbcType=TIMESTAMP},
       scheduled_dist_principal = #{scheduledDistPrincipal,jdbcType=BIGINT},

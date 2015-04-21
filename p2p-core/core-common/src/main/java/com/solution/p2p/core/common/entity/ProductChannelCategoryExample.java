@@ -1,6 +1,8 @@
 package com.solution.p2p.core.common.entity;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class ProductChannelCategoryExample {
     protected String orderByClause;
@@ -11,12 +13,6 @@ public class ProductChannelCategoryExample {
 
     public ProductChannelCategoryExample() {
         oredCriteria = new ArrayList<Criteria>();
-    }
-
-    protected ProductChannelCategoryExample(ProductChannelCategoryExample example) {
-        this.orderByClause = example.orderByClause;
-        this.oredCriteria = example.oredCriteria;
-        this.distinct = example.distinct;
     }
 
     public void setOrderByClause(String orderByClause) {
@@ -69,83 +65,44 @@ public class ProductChannelCategoryExample {
     }
 
     protected abstract static class GeneratedCriteria {
-        protected List<String> criteriaWithoutValue;
-
-        protected List<Map<String, Object>> criteriaWithSingleValue;
-
-        protected List<Map<String, Object>> criteriaWithListValue;
-
-        protected List<Map<String, Object>> criteriaWithBetweenValue;
+        protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
             super();
-            criteriaWithoutValue = new ArrayList<String>();
-            criteriaWithSingleValue = new ArrayList<Map<String, Object>>();
-            criteriaWithListValue = new ArrayList<Map<String, Object>>();
-            criteriaWithBetweenValue = new ArrayList<Map<String, Object>>();
+            criteria = new ArrayList<Criterion>();
         }
 
         public boolean isValid() {
-            return criteriaWithoutValue.size() > 0
-                || criteriaWithSingleValue.size() > 0
-                || criteriaWithListValue.size() > 0
-                || criteriaWithBetweenValue.size() > 0;
+            return criteria.size() > 0;
         }
 
-        public List<String> getCriteriaWithoutValue() {
-            return criteriaWithoutValue;
+        public List<Criterion> getAllCriteria() {
+            return criteria;
         }
 
-        public List<Map<String, Object>> getCriteriaWithSingleValue() {
-            return criteriaWithSingleValue;
-        }
-
-        public List<Map<String, Object>> getCriteriaWithListValue() {
-            return criteriaWithListValue;
-        }
-
-        public List<Map<String, Object>> getCriteriaWithBetweenValue() {
-            return criteriaWithBetweenValue;
+        public List<Criterion> getCriteria() {
+            return criteria;
         }
 
         protected void addCriterion(String condition) {
             if (condition == null) {
                 throw new RuntimeException("Value for condition cannot be null");
             }
-            criteriaWithoutValue.add(condition);
+            criteria.add(new Criterion(condition));
         }
 
         protected void addCriterion(String condition, Object value, String property) {
             if (value == null) {
                 throw new RuntimeException("Value for " + property + " cannot be null");
             }
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("condition", condition);
-            map.put("value", value);
-            criteriaWithSingleValue.add(map);
-        }
-
-        protected void addCriterion(String condition, List<? extends Object> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("condition", condition);
-            map.put("values", values);
-            criteriaWithListValue.add(map);
+            criteria.add(new Criterion(condition, value));
         }
 
         protected void addCriterion(String condition, Object value1, Object value2, String property) {
             if (value1 == null || value2 == null) {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
-            List<Object> list = new ArrayList<Object>();
-            list.add(value1);
-            list.add(value2);
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("condition", condition);
-            map.put("values", list);
-            criteriaWithBetweenValue.add(map);
+            criteria.add(new Criterion(condition, value1, value2));
         }
 
         public Criteria andIdIsNull() {
@@ -398,63 +355,123 @@ public class ProductChannelCategoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidIsNull() {
-            addCriterion("limit_event_bid is null");
+        public Criteria andWechatBidIsNull() {
+            addCriterion("wechat_bid is null");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidIsNotNull() {
-            addCriterion("limit_event_bid is not null");
+        public Criteria andWechatBidIsNotNull() {
+            addCriterion("wechat_bid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidEqualTo(Integer value) {
-            addCriterion("limit_event_bid =", value, "limitEventBid");
+        public Criteria andWechatBidEqualTo(Integer value) {
+            addCriterion("wechat_bid =", value, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidNotEqualTo(Integer value) {
-            addCriterion("limit_event_bid <>", value, "limitEventBid");
+        public Criteria andWechatBidNotEqualTo(Integer value) {
+            addCriterion("wechat_bid <>", value, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidGreaterThan(Integer value) {
-            addCriterion("limit_event_bid >", value, "limitEventBid");
+        public Criteria andWechatBidGreaterThan(Integer value) {
+            addCriterion("wechat_bid >", value, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("limit_event_bid >=", value, "limitEventBid");
+        public Criteria andWechatBidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("wechat_bid >=", value, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidLessThan(Integer value) {
-            addCriterion("limit_event_bid <", value, "limitEventBid");
+        public Criteria andWechatBidLessThan(Integer value) {
+            addCriterion("wechat_bid <", value, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidLessThanOrEqualTo(Integer value) {
-            addCriterion("limit_event_bid <=", value, "limitEventBid");
+        public Criteria andWechatBidLessThanOrEqualTo(Integer value) {
+            addCriterion("wechat_bid <=", value, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidIn(List<Integer> values) {
-            addCriterion("limit_event_bid in", values, "limitEventBid");
+        public Criteria andWechatBidIn(List<Integer> values) {
+            addCriterion("wechat_bid in", values, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidNotIn(List<Integer> values) {
-            addCriterion("limit_event_bid not in", values, "limitEventBid");
+        public Criteria andWechatBidNotIn(List<Integer> values) {
+            addCriterion("wechat_bid not in", values, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidBetween(Integer value1, Integer value2) {
-            addCriterion("limit_event_bid between", value1, value2, "limitEventBid");
+        public Criteria andWechatBidBetween(Integer value1, Integer value2) {
+            addCriterion("wechat_bid between", value1, value2, "wechatBid");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEventBidNotBetween(Integer value1, Integer value2) {
-            addCriterion("limit_event_bid not between", value1, value2, "limitEventBid");
+        public Criteria andWechatBidNotBetween(Integer value1, Integer value2) {
+            addCriterion("wechat_bid not between", value1, value2, "wechatBid");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeIsNull() {
+            addCriterion("event_bid_limit_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeIsNotNull() {
+            addCriterion("event_bid_limit_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeEqualTo(Integer value) {
+            addCriterion("event_bid_limit_type =", value, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeNotEqualTo(Integer value) {
+            addCriterion("event_bid_limit_type <>", value, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeGreaterThan(Integer value) {
+            addCriterion("event_bid_limit_type >", value, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("event_bid_limit_type >=", value, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeLessThan(Integer value) {
+            addCriterion("event_bid_limit_type <", value, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("event_bid_limit_type <=", value, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeIn(List<Integer> values) {
+            addCriterion("event_bid_limit_type in", values, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeNotIn(List<Integer> values) {
+            addCriterion("event_bid_limit_type not in", values, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeBetween(Integer value1, Integer value2) {
+            addCriterion("event_bid_limit_type between", value1, value2, "eventBidLimitType");
+            return (Criteria) this;
+        }
+
+        public Criteria andEventBidLimitTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("event_bid_limit_type not between", value1, value2, "eventBidLimitType");
             return (Criteria) this;
         }
 
@@ -653,6 +670,92 @@ public class ProductChannelCategoryExample {
 
         protected Criteria() {
             super();
+        }
+    }
+
+    public static class Criterion {
+        private String condition;
+
+        private Object value;
+
+        private Object secondValue;
+
+        private boolean noValue;
+
+        private boolean singleValue;
+
+        private boolean betweenValue;
+
+        private boolean listValue;
+
+        private String typeHandler;
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
+        protected Criterion(String condition) {
+            super();
+            this.condition = condition;
+            this.typeHandler = null;
+            this.noValue = true;
+        }
+
+        protected Criterion(String condition, Object value, String typeHandler) {
+            super();
+            this.condition = condition;
+            this.value = value;
+            this.typeHandler = typeHandler;
+            if (value instanceof List<?>) {
+                this.listValue = true;
+            } else {
+                this.singleValue = true;
+            }
+        }
+
+        protected Criterion(String condition, Object value) {
+            this(condition, value, null);
+        }
+
+        protected Criterion(String condition, Object value, Object secondValue, String typeHandler) {
+            super();
+            this.condition = condition;
+            this.value = value;
+            this.secondValue = secondValue;
+            this.typeHandler = typeHandler;
+            this.betweenValue = true;
+        }
+
+        protected Criterion(String condition, Object value, Object secondValue) {
+            this(condition, value, secondValue, null);
         }
     }
 }

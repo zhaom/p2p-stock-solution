@@ -11,7 +11,9 @@ public class ProductChannelCategory {
 
     private Integer mobileBid;
 
-    private Integer limitEventBid;
+    private Integer wechatBid;
+
+    private Integer eventBidLimitType;
 
     private String eventBids;
 
@@ -51,12 +53,20 @@ public class ProductChannelCategory {
         this.mobileBid = mobileBid;
     }
 
-    public Integer getLimitEventBid() {
-        return limitEventBid;
+    public Integer getWechatBid() {
+        return wechatBid;
     }
 
-    public void setLimitEventBid(Integer limitEventBid) {
-        this.limitEventBid = limitEventBid;
+    public void setWechatBid(Integer wechatBid) {
+        this.wechatBid = wechatBid;
+    }
+
+    public Integer getEventBidLimitType() {
+        return eventBidLimitType;
+    }
+
+    public void setEventBidLimitType(Integer eventBidLimitType) {
+        this.eventBidLimitType = eventBidLimitType;
     }
 
     public String getEventBids() {

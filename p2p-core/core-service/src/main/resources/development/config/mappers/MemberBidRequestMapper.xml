@@ -6,6 +6,8 @@
     <result column="m_id" property="mId" jdbcType="BIGINT" />
     <result column="b_id" property="bId" jdbcType="BIGINT" />
     <result column="amount" property="amount" jdbcType="BIGINT" />
+    <result column="request_status" property="requestStatus" jdbcType="INTEGER" />
+    <result column="failed_reason" property="failedReason" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -68,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, m_id, b_id, amount, create_time, update_time
+    id, m_id, b_id, amount, request_status, failed_reason, create_time, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.MemberBidRequestExample" >
     select
@@ -102,9 +104,11 @@
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberBidRequest" >
     insert into member_bid_request (id, m_id, b_id, amount, 
-      create_time, update_time)
+      request_status, failed_reason, create_time, 
+      update_time)
     values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{bId,jdbcType=BIGINT}, #{amount,jdbcType=BIGINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+      #{requestStatus,jdbcType=INTEGER}, #{failedReason,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberBidRequest" >
     insert into member_bid_request
@@ -120,6 +124,12 @@
       </if>
       <if test="amount != null" >
         amount,
+      </if>
+      <if test="requestStatus != null" >
+        request_status,
+      </if>
+      <if test="failedReason != null" >
+        failed_reason,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -140,6 +150,12 @@
       </if>
       <if test="amount != null" >
         #{amount,jdbcType=BIGINT},
+      </if>
+      <if test="requestStatus != null" >
+        #{requestStatus,jdbcType=INTEGER},
+      </if>
+      <if test="failedReason != null" >
+        #{failedReason,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -170,6 +186,12 @@
       <if test="record.amount != null" >
         amount = #{record.amount,jdbcType=BIGINT},
       </if>
+      <if test="record.requestStatus != null" >
+        request_status = #{record.requestStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.failedReason != null" >
+        failed_reason = #{record.failedReason,jdbcType=VARCHAR},
+      </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -187,6 +209,8 @@
       m_id = #{record.mId,jdbcType=BIGINT},
       b_id = #{record.bId,jdbcType=BIGINT},
       amount = #{record.amount,jdbcType=BIGINT},
+      request_status = #{record.requestStatus,jdbcType=INTEGER},
+      failed_reason = #{record.failedReason,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -205,6 +229,12 @@
       <if test="amount != null" >
         amount = #{amount,jdbcType=BIGINT},
       </if>
+      <if test="requestStatus != null" >
+        request_status = #{requestStatus,jdbcType=INTEGER},
+      </if>
+      <if test="failedReason != null" >
+        failed_reason = #{failedReason,jdbcType=VARCHAR},
+      </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -219,6 +249,8 @@
     set m_id = #{mId,jdbcType=BIGINT},
       b_id = #{bId,jdbcType=BIGINT},
       amount = #{amount,jdbcType=BIGINT},
+      request_status = #{requestStatus,jdbcType=INTEGER},
+      failed_reason = #{failedReason,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

@@ -19,6 +19,7 @@
     <result column="alarm_amount" property="alarmAmount" jdbcType="BIGINT" />
     <result column="forced_liquidation_amount" property="forcedLiquidationAmount" jdbcType="BIGINT" />
     <result column="last_value_time" property="lastValueTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -83,7 +84,7 @@
   <sql id="Base_Column_List" >
     id, m_id, type, from_date, thru_date, account_name, stock_code, usable_amount, cash_amount, 
     cash_fund_amount, financed_amount, interest_amount, interest_payed, stock_market_value, 
-    alarm_amount, forced_liquidation_amount, last_value_time, create_time, update_time
+    alarm_amount, forced_liquidation_amount, last_value_time, status, create_time, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.MemberStockAccountExample" >
     select
@@ -122,14 +123,16 @@
       cash_fund_amount, financed_amount, interest_amount, 
       interest_payed, stock_market_value, alarm_amount, 
       forced_liquidation_amount, last_value_time, 
-      create_time, update_time)
+      status, create_time, update_time
+      )
     values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, 
       #{fromDate,jdbcType=TIMESTAMP}, #{thruDate,jdbcType=TIMESTAMP}, #{accountName,jdbcType=VARCHAR}, 
       #{stockCode,jdbcType=VARCHAR}, #{usableAmount,jdbcType=BIGINT}, #{cashAmount,jdbcType=BIGINT}, 
       #{cashFundAmount,jdbcType=BIGINT}, #{financedAmount,jdbcType=BIGINT}, #{interestAmount,jdbcType=BIGINT}, 
       #{interestPayed,jdbcType=BIGINT}, #{stockMarketValue,jdbcType=BIGINT}, #{alarmAmount,jdbcType=BIGINT}, 
       #{forcedLiquidationAmount,jdbcType=BIGINT}, #{lastValueTime,jdbcType=TIMESTAMP}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+      #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberStockAccount" >
     insert into member_stock_account
@@ -184,6 +187,9 @@
       </if>
       <if test="lastValueTime != null" >
         last_value_time,
+      </if>
+      <if test="status != null" >
+        status,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -243,6 +249,9 @@
       </if>
       <if test="lastValueTime != null" >
         #{lastValueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -312,6 +321,9 @@
       <if test="record.lastValueTime != null" >
         last_value_time = #{record.lastValueTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -342,6 +354,7 @@
       alarm_amount = #{record.alarmAmount,jdbcType=BIGINT},
       forced_liquidation_amount = #{record.forcedLiquidationAmount,jdbcType=BIGINT},
       last_value_time = #{record.lastValueTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -399,6 +412,9 @@
       <if test="lastValueTime != null" >
         last_value_time = #{lastValueTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -426,6 +442,7 @@
       alarm_amount = #{alarmAmount,jdbcType=BIGINT},
       forced_liquidation_amount = #{forcedLiquidationAmount,jdbcType=BIGINT},
       last_value_time = #{lastValueTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

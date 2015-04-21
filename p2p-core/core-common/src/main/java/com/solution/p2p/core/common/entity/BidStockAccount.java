@@ -2,18 +2,18 @@ package com.solution.p2p.core.common.entity;
 
 import java.util.Date;
 
-public class MemberBidRequest {
+public class BidStockAccount {
     private Long id;
-
-    private Long mId;
 
     private Long bId;
 
-    private Long amount;
+    private Long mId;
 
-    private Integer requestStatus;
+    private Long mStockAccountId;
 
-    private String failedReason;
+    private Date fromTime;
+
+    private Date thruTime;
 
     private Date createTime;
 
@@ -27,14 +27,6 @@ public class MemberBidRequest {
         this.id = id;
     }
 
-    public Long getmId() {
-        return mId;
-    }
-
-    public void setmId(Long mId) {
-        this.mId = mId;
-    }
-
     public Long getbId() {
         return bId;
     }
@@ -43,28 +35,36 @@ public class MemberBidRequest {
         this.bId = bId;
     }
 
-    public Long getAmount() {
-        return amount;
+    public Long getmId() {
+        return mId;
     }
 
-    public void setAmount(Long amount) {
-        this.amount = amount;
+    public void setmId(Long mId) {
+        this.mId = mId;
     }
 
-    public Integer getRequestStatus() {
-        return requestStatus;
+    public Long getmStockAccountId() {
+        return mStockAccountId;
     }
 
-    public void setRequestStatus(Integer requestStatus) {
-        this.requestStatus = requestStatus;
+    public void setmStockAccountId(Long mStockAccountId) {
+        this.mStockAccountId = mStockAccountId;
     }
 
-    public String getFailedReason() {
-        return failedReason;
+    public Date getFromTime() {
+        return fromTime;
     }
 
-    public void setFailedReason(String failedReason) {
-        this.failedReason = failedReason == null ? null : failedReason.trim();
+    public void setFromTime(Date fromTime) {
+        this.fromTime = fromTime;
+    }
+
+    public Date getThruTime() {
+        return thruTime;
+    }
+
+    public void setThruTime(Date thruTime) {
+        this.thruTime = thruTime;
     }
 
     public Date getCreateTime() {

@@ -20,7 +20,15 @@
     <result column="collect_from_time" property="collectFromTime" jdbcType="TIMESTAMP" />
     <result column="collect_thru_time" property="collectThruTime" jdbcType="TIMESTAMP" />
     <result column="bid_success_time" property="bidSuccessTime" jdbcType="TIMESTAMP" />
-    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="bid_status" property="bidStatus" jdbcType="INTEGER" />
+    <result column="collect_pay_status" property="collectPayStatus" jdbcType="INTEGER" />
+    <result column="requirement_service_fee" property="requirementServiceFee" jdbcType="BIGINT" />
+    <result column="requirement_management_fee" property="requirementManagementFee" jdbcType="BIGINT" />
+    <result column="requirement_other_fee" property="requirementOtherFee" jdbcType="BIGINT" />
+    <result column="is_split_profit" property="isSplitProfit" jdbcType="INTEGER" />
+    <result column="split_ratio" property="splitRatio" jdbcType="INTEGER" />
+    <result column="is_transfer" property="isTransfer" jdbcType="INTEGER" />
+    <result column="transfer_parent_id" property="transferParentId" jdbcType="BIGINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -86,7 +94,9 @@
     id, code, prod_id, name, m_id, guaranty_amount, collect_times, collect_amount, collected_amount, 
     life_duration, life_duration_unit, collect_interest_rate, collect_interest_rate_unit, 
     request_interest_rate, request_interest_rate_unit, collect_from_time, collect_thru_time, 
-    bid_success_time, status, create_time, update_time
+    bid_success_time, bid_status, collect_pay_status, requirement_service_fee, requirement_management_fee, 
+    requirement_other_fee, is_split_profit, split_ratio, is_transfer, transfer_parent_id, 
+    create_time, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.BidExample" >
     select
@@ -125,16 +135,24 @@
       life_duration, life_duration_unit, collect_interest_rate, 
       collect_interest_rate_unit, request_interest_rate, 
       request_interest_rate_unit, collect_from_time, 
-      collect_thru_time, bid_success_time, status, 
-      create_time, update_time)
+      collect_thru_time, bid_success_time, bid_status, 
+      collect_pay_status, requirement_service_fee, 
+      requirement_management_fee, requirement_other_fee, 
+      is_split_profit, split_ratio, is_transfer, 
+      transfer_parent_id, create_time, update_time
+      )
     values (#{id,jdbcType=BIGINT}, #{code,jdbcType=CHAR}, #{prodId,jdbcType=BIGINT}, 
       #{name,jdbcType=VARCHAR}, #{mId,jdbcType=BIGINT}, #{guarantyAmount,jdbcType=BIGINT}, 
       #{collectTimes,jdbcType=INTEGER}, #{collectAmount,jdbcType=BIGINT}, #{collectedAmount,jdbcType=BIGINT}, 
       #{lifeDuration,jdbcType=INTEGER}, #{lifeDurationUnit,jdbcType=INTEGER}, #{collectInterestRate,jdbcType=DECIMAL}, 
       #{collectInterestRateUnit,jdbcType=INTEGER}, #{requestInterestRate,jdbcType=DECIMAL}, 
       #{requestInterestRateUnit,jdbcType=INTEGER}, #{collectFromTime,jdbcType=TIMESTAMP}, 
-      #{collectThruTime,jdbcType=TIMESTAMP}, #{bidSuccessTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+      #{collectThruTime,jdbcType=TIMESTAMP}, #{bidSuccessTime,jdbcType=TIMESTAMP}, #{bidStatus,jdbcType=INTEGER}, 
+      #{collectPayStatus,jdbcType=INTEGER}, #{requirementServiceFee,jdbcType=BIGINT}, 
+      #{requirementManagementFee,jdbcType=BIGINT}, #{requirementOtherFee,jdbcType=BIGINT}, 
+      #{isSplitProfit,jdbcType=INTEGER}, #{splitRatio,jdbcType=INTEGER}, #{isTransfer,jdbcType=INTEGER}, 
+      #{transferParentId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.Bid" >
     insert into bid
@@ -193,8 +211,32 @@
       <if test="bidSuccessTime != null" >
         bid_success_time,
       </if>
-      <if test="status != null" >
-        status,
+      <if test="bidStatus != null" >
+        bid_status,
+      </if>
+      <if test="collectPayStatus != null" >
+        collect_pay_status,
+      </if>
+      <if test="requirementServiceFee != null" >
+        requirement_service_fee,
+      </if>
+      <if test="requirementManagementFee != null" >
+        requirement_management_fee,
+      </if>
+      <if test="requirementOtherFee != null" >
+        requirement_other_fee,
+      </if>
+      <if test="isSplitProfit != null" >
+        is_split_profit,
+      </if>
+      <if test="splitRatio != null" >
+        split_ratio,
+      </if>
+      <if test="isTransfer != null" >
+        is_transfer,
+      </if>
+      <if test="transferParentId != null" >
+        transfer_parent_id,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -258,8 +300,32 @@
       <if test="bidSuccessTime != null" >
         #{bidSuccessTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
+      <if test="bidStatus != null" >
+        #{bidStatus,jdbcType=INTEGER},
+      </if>
+      <if test="collectPayStatus != null" >
+        #{collectPayStatus,jdbcType=INTEGER},
+      </if>
+      <if test="requirementServiceFee != null" >
+        #{requirementServiceFee,jdbcType=BIGINT},
+      </if>
+      <if test="requirementManagementFee != null" >
+        #{requirementManagementFee,jdbcType=BIGINT},
+      </if>
+      <if test="requirementOtherFee != null" >
+        #{requirementOtherFee,jdbcType=BIGINT},
+      </if>
+      <if test="isSplitProfit != null" >
+        #{isSplitProfit,jdbcType=INTEGER},
+      </if>
+      <if test="splitRatio != null" >
+        #{splitRatio,jdbcType=INTEGER},
+      </if>
+      <if test="isTransfer != null" >
+        #{isTransfer,jdbcType=INTEGER},
+      </if>
+      <if test="transferParentId != null" >
+        #{transferParentId,jdbcType=BIGINT},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -332,8 +398,32 @@
       <if test="record.bidSuccessTime != null" >
         bid_success_time = #{record.bidSuccessTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.status != null" >
-        status = #{record.status,jdbcType=INTEGER},
+      <if test="record.bidStatus != null" >
+        bid_status = #{record.bidStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.collectPayStatus != null" >
+        collect_pay_status = #{record.collectPayStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.requirementServiceFee != null" >
+        requirement_service_fee = #{record.requirementServiceFee,jdbcType=BIGINT},
+      </if>
+      <if test="record.requirementManagementFee != null" >
+        requirement_management_fee = #{record.requirementManagementFee,jdbcType=BIGINT},
+      </if>
+      <if test="record.requirementOtherFee != null" >
+        requirement_other_fee = #{record.requirementOtherFee,jdbcType=BIGINT},
+      </if>
+      <if test="record.isSplitProfit != null" >
+        is_split_profit = #{record.isSplitProfit,jdbcType=INTEGER},
+      </if>
+      <if test="record.splitRatio != null" >
+        split_ratio = #{record.splitRatio,jdbcType=INTEGER},
+      </if>
+      <if test="record.isTransfer != null" >
+        is_transfer = #{record.isTransfer,jdbcType=INTEGER},
+      </if>
+      <if test="record.transferParentId != null" >
+        transfer_parent_id = #{record.transferParentId,jdbcType=BIGINT},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -366,7 +456,15 @@
       collect_from_time = #{record.collectFromTime,jdbcType=TIMESTAMP},
       collect_thru_time = #{record.collectThruTime,jdbcType=TIMESTAMP},
       bid_success_time = #{record.bidSuccessTime,jdbcType=TIMESTAMP},
-      status = #{record.status,jdbcType=INTEGER},
+      bid_status = #{record.bidStatus,jdbcType=INTEGER},
+      collect_pay_status = #{record.collectPayStatus,jdbcType=INTEGER},
+      requirement_service_fee = #{record.requirementServiceFee,jdbcType=BIGINT},
+      requirement_management_fee = #{record.requirementManagementFee,jdbcType=BIGINT},
+      requirement_other_fee = #{record.requirementOtherFee,jdbcType=BIGINT},
+      is_split_profit = #{record.isSplitProfit,jdbcType=INTEGER},
+      split_ratio = #{record.splitRatio,jdbcType=INTEGER},
+      is_transfer = #{record.isTransfer,jdbcType=INTEGER},
+      transfer_parent_id = #{record.transferParentId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -427,8 +525,32 @@
       <if test="bidSuccessTime != null" >
         bid_success_time = #{bidSuccessTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
+      <if test="bidStatus != null" >
+        bid_status = #{bidStatus,jdbcType=INTEGER},
+      </if>
+      <if test="collectPayStatus != null" >
+        collect_pay_status = #{collectPayStatus,jdbcType=INTEGER},
+      </if>
+      <if test="requirementServiceFee != null" >
+        requirement_service_fee = #{requirementServiceFee,jdbcType=BIGINT},
+      </if>
+      <if test="requirementManagementFee != null" >
+        requirement_management_fee = #{requirementManagementFee,jdbcType=BIGINT},
+      </if>
+      <if test="requirementOtherFee != null" >
+        requirement_other_fee = #{requirementOtherFee,jdbcType=BIGINT},
+      </if>
+      <if test="isSplitProfit != null" >
+        is_split_profit = #{isSplitProfit,jdbcType=INTEGER},
+      </if>
+      <if test="splitRatio != null" >
+        split_ratio = #{splitRatio,jdbcType=INTEGER},
+      </if>
+      <if test="isTransfer != null" >
+        is_transfer = #{isTransfer,jdbcType=INTEGER},
+      </if>
+      <if test="transferParentId != null" >
+        transfer_parent_id = #{transferParentId,jdbcType=BIGINT},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -458,7 +580,15 @@
       collect_from_time = #{collectFromTime,jdbcType=TIMESTAMP},
       collect_thru_time = #{collectThruTime,jdbcType=TIMESTAMP},
       bid_success_time = #{bidSuccessTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=INTEGER},
+      bid_status = #{bidStatus,jdbcType=INTEGER},
+      collect_pay_status = #{collectPayStatus,jdbcType=INTEGER},
+      requirement_service_fee = #{requirementServiceFee,jdbcType=BIGINT},
+      requirement_management_fee = #{requirementManagementFee,jdbcType=BIGINT},
+      requirement_other_fee = #{requirementOtherFee,jdbcType=BIGINT},
+      is_split_profit = #{isSplitProfit,jdbcType=INTEGER},
+      split_ratio = #{splitRatio,jdbcType=INTEGER},
+      is_transfer = #{isTransfer,jdbcType=INTEGER},
+      transfer_parent_id = #{transferParentId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

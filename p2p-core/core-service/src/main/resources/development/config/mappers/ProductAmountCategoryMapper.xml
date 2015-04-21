@@ -4,9 +4,9 @@
   <resultMap id="BaseResultMap" type="com.solution.p2p.core.common.entity.ProductAmountCategory" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="limit_min_amount" property="limitMinAmount" jdbcType="INTEGER" />
-    <result column="limit_max_amount" property="limitMaxAmount" jdbcType="INTEGER" />
-    <result column="limit_step_amount" property="limitStepAmount" jdbcType="INTEGER" />
+    <result column="limit_min_amount" property="limitMinAmount" jdbcType="BIGINT" />
+    <result column="limit_max_amount" property="limitMaxAmount" jdbcType="BIGINT" />
+    <result column="limit_step_amount" property="limitStepAmount" jdbcType="BIGINT" />
     <result column="amount_unit" property="amountUnit" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -107,8 +107,8 @@
     insert into product_amount_category (id, name, limit_min_amount, 
       limit_max_amount, limit_step_amount, amount_unit, 
       create_time, update_time)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{limitMinAmount,jdbcType=INTEGER}, 
-      #{limitMaxAmount,jdbcType=INTEGER}, #{limitStepAmount,jdbcType=INTEGER}, #{amountUnit,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{limitMinAmount,jdbcType=BIGINT}, 
+      #{limitMaxAmount,jdbcType=BIGINT}, #{limitStepAmount,jdbcType=BIGINT}, #{amountUnit,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.ProductAmountCategory" >
@@ -147,13 +147,13 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="limitMinAmount != null" >
-        #{limitMinAmount,jdbcType=INTEGER},
+        #{limitMinAmount,jdbcType=BIGINT},
       </if>
       <if test="limitMaxAmount != null" >
-        #{limitMaxAmount,jdbcType=INTEGER},
+        #{limitMaxAmount,jdbcType=BIGINT},
       </if>
       <if test="limitStepAmount != null" >
-        #{limitStepAmount,jdbcType=INTEGER},
+        #{limitStepAmount,jdbcType=BIGINT},
       </if>
       <if test="amountUnit != null" >
         #{amountUnit,jdbcType=INTEGER},
@@ -182,13 +182,13 @@
         name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.limitMinAmount != null" >
-        limit_min_amount = #{record.limitMinAmount,jdbcType=INTEGER},
+        limit_min_amount = #{record.limitMinAmount,jdbcType=BIGINT},
       </if>
       <if test="record.limitMaxAmount != null" >
-        limit_max_amount = #{record.limitMaxAmount,jdbcType=INTEGER},
+        limit_max_amount = #{record.limitMaxAmount,jdbcType=BIGINT},
       </if>
       <if test="record.limitStepAmount != null" >
-        limit_step_amount = #{record.limitStepAmount,jdbcType=INTEGER},
+        limit_step_amount = #{record.limitStepAmount,jdbcType=BIGINT},
       </if>
       <if test="record.amountUnit != null" >
         amount_unit = #{record.amountUnit,jdbcType=INTEGER},
@@ -208,9 +208,9 @@
     update product_amount_category
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
-      limit_min_amount = #{record.limitMinAmount,jdbcType=INTEGER},
-      limit_max_amount = #{record.limitMaxAmount,jdbcType=INTEGER},
-      limit_step_amount = #{record.limitStepAmount,jdbcType=INTEGER},
+      limit_min_amount = #{record.limitMinAmount,jdbcType=BIGINT},
+      limit_max_amount = #{record.limitMaxAmount,jdbcType=BIGINT},
+      limit_step_amount = #{record.limitStepAmount,jdbcType=BIGINT},
       amount_unit = #{record.amountUnit,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -225,13 +225,13 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="limitMinAmount != null" >
-        limit_min_amount = #{limitMinAmount,jdbcType=INTEGER},
+        limit_min_amount = #{limitMinAmount,jdbcType=BIGINT},
       </if>
       <if test="limitMaxAmount != null" >
-        limit_max_amount = #{limitMaxAmount,jdbcType=INTEGER},
+        limit_max_amount = #{limitMaxAmount,jdbcType=BIGINT},
       </if>
       <if test="limitStepAmount != null" >
-        limit_step_amount = #{limitStepAmount,jdbcType=INTEGER},
+        limit_step_amount = #{limitStepAmount,jdbcType=BIGINT},
       </if>
       <if test="amountUnit != null" >
         amount_unit = #{amountUnit,jdbcType=INTEGER},
@@ -248,9 +248,9 @@
   <update id="updateByPrimaryKey" parameterType="com.solution.p2p.core.common.entity.ProductAmountCategory" >
     update product_amount_category
     set name = #{name,jdbcType=VARCHAR},
-      limit_min_amount = #{limitMinAmount,jdbcType=INTEGER},
-      limit_max_amount = #{limitMaxAmount,jdbcType=INTEGER},
-      limit_step_amount = #{limitStepAmount,jdbcType=INTEGER},
+      limit_min_amount = #{limitMinAmount,jdbcType=BIGINT},
+      limit_max_amount = #{limitMaxAmount,jdbcType=BIGINT},
+      limit_step_amount = #{limitStepAmount,jdbcType=BIGINT},
       amount_unit = #{amountUnit,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

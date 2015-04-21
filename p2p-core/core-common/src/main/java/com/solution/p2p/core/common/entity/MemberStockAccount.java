@@ -37,6 +37,8 @@ public class MemberStockAccount {
 
     private Date lastValueTime;
 
+    private Integer status;
+
     private Date createTime;
 
     private Date updateTime;
@@ -175,6 +177,14 @@ public class MemberStockAccount {
 
     public void setLastValueTime(Date lastValueTime) {
         this.lastValueTime = lastValueTime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Date getCreateTime() {

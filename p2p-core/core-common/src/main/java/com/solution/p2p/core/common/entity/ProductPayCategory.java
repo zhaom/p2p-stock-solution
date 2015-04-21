@@ -7,7 +7,7 @@ public class ProductPayCategory {
 
     private String name;
 
-    private Integer limitAmountType;
+    private Integer amountLimitType;
 
     private String accountTypes;
 
@@ -31,12 +31,12 @@ public class ProductPayCategory {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getLimitAmountType() {
-        return limitAmountType;
+    public Integer getAmountLimitType() {
+        return amountLimitType;
     }
 
-    public void setLimitAmountType(Integer limitAmountType) {
-        this.limitAmountType = limitAmountType;
+    public void setAmountLimitType(Integer amountLimitType) {
+        this.amountLimitType = amountLimitType;
     }
 
     public String getAccountTypes() {

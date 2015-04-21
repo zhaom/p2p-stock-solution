@@ -5,8 +5,6 @@ import com.solution.p2p.core.common.utils.Pagination;
 import com.solution.p2p.core.common.utils.ServiceResult;
 import com.solution.p2p.core.common.vo.BidQueryParams;
 
-import java.util.List;
-
 /**
  * Created with IntelliJ IDEA.
  * User: JohnKee

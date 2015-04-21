@@ -1,5 +1,6 @@
 drop table if exists member;
 drop table if exists member_auth_status;
+drop table if exists enterprise_reg_info;
 drop table if exists member_account;
 drop table if exists member_account_item;
 drop table if exists member_account_flow;
@@ -69,7 +70,7 @@ create table if not exists member_account (
   name varchar(50) not null comment '账户名称',
   type int not null comment '账户类型【个人基本账户1001|个人保证金|个人欠款|个人活动本金户|企业基本户|企业服务费账户|充值手续费账户|风险金|取现账户|取现手续费|转让手续费|企业活动本金账户3008】',
   set_no int not null comment '账套号90',
-  data_version int not null comment '账户数据版本10000',
+  data_version int not null comment '账户数据版本,事务使用',
   direction int not null comment '余额方向【贷记50|借记51】',
   amount bigint not null comment '账户余额',
   frozen_amount bigint not null comment '冻结金额',
@@ -106,7 +107,7 @@ create table if not exists member_account_flow (
   mat_id bigint not null comment '记账凭证id',
   mat_date date not null comment '记账日期',
   mat_service_code int comment '记账服务码(暂时空)',
-  finance_op_type int not null comment '账务操作类型[收入|支出400|冻结|解冻|成份冻结|成份解冻405]',
+  finance_op_type int not null comment '账务操作类型[收入400|支出|冻结|解冻|成份冻结|成份解冻405]',
   amount bigint not null comment '记账金额',
   thawed_amount bigint comment '已解冻金额',
   unit int not null comment '单位【人民币分60】',
@@ -197,7 +198,7 @@ create table if not exists member_account_transaction(
 create table if not exists member_stock_account(
   id bigint auto_increment not null comment 'id',
   m_id bigint not null comment '会员id',
-  type int not null comment '账户类型【按月付费|按天付费|炒股大赛|免费体验】',
+  type int not null comment '账户类型【按月付费5000|按天付费|炒股大赛|免费体验5003】',
   from_date datetime not null comment '设立时间',
   thru_date datetime not null comment '清户时间',
   account_name varchar(20) not null comment '账户名',
@@ -212,10 +213,11 @@ create table if not exists member_stock_account(
   alarm_amount bigint not null comment '预警金额',
   forced_liquidation_amount bigint not null comment '强制平仓金额',
   last_value_time datetime not null comment '最新评估时间',
+  status int not null comment '股票账户状态【新建5010|操盘中|已清盘5012】',
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
   primary key (id),
-  key(m_id, type, from_date),
+  key(m_id, type, from_date, thru_date),
   key(stock_code),
   key(account_name)
 ) charset=utf8 ENGINE=InnoDB comment '会员股票账户表';

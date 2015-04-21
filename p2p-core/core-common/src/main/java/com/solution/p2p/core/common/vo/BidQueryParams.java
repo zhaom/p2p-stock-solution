@@ -3,10 +3,6 @@ package com.solution.p2p.core.common.vo;
 import com.solution.p2p.core.common.entity.BidExample;
 import org.springframework.util.StringUtils;
 
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-
 /**
  * Created with IntelliJ IDEA.
  * User: JohnKee

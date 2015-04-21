@@ -1,6 +1,8 @@
 package com.solution.p2p.core.common.entity;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class BidRefundInfoExample {
     protected String orderByClause;
@@ -11,12 +13,6 @@ public class BidRefundInfoExample {
 
     public BidRefundInfoExample() {
         oredCriteria = new ArrayList<Criteria>();
-    }
-
-    protected BidRefundInfoExample(BidRefundInfoExample example) {
-        this.orderByClause = example.orderByClause;
-        this.oredCriteria = example.oredCriteria;
-        this.distinct = example.distinct;
     }
 
     public void setOrderByClause(String orderByClause) {
@@ -69,83 +65,44 @@ public class BidRefundInfoExample {
     }
 
     protected abstract static class GeneratedCriteria {
-        protected List<String> criteriaWithoutValue;
-
-        protected List<Map<String, Object>> criteriaWithSingleValue;
-
-        protected List<Map<String, Object>> criteriaWithListValue;
-
-        protected List<Map<String, Object>> criteriaWithBetweenValue;
+        protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
             super();
-            criteriaWithoutValue = new ArrayList<String>();
-            criteriaWithSingleValue = new ArrayList<Map<String, Object>>();
-            criteriaWithListValue = new ArrayList<Map<String, Object>>();
-            criteriaWithBetweenValue = new ArrayList<Map<String, Object>>();
+            criteria = new ArrayList<Criterion>();
         }
 
         public boolean isValid() {
-            return criteriaWithoutValue.size() > 0
-                || criteriaWithSingleValue.size() > 0
-                || criteriaWithListValue.size() > 0
-                || criteriaWithBetweenValue.size() > 0;
+            return criteria.size() > 0;
         }
 
-        public List<String> getCriteriaWithoutValue() {
-            return criteriaWithoutValue;
+        public List<Criterion> getAllCriteria() {
+            return criteria;
         }
 
-        public List<Map<String, Object>> getCriteriaWithSingleValue() {
-            return criteriaWithSingleValue;
-        }
-
-        public List<Map<String, Object>> getCriteriaWithListValue() {
-            return criteriaWithListValue;
-        }
-
-        public List<Map<String, Object>> getCriteriaWithBetweenValue() {
-            return criteriaWithBetweenValue;
+        public List<Criterion> getCriteria() {
+            return criteria;
         }
 
         protected void addCriterion(String condition) {
             if (condition == null) {
                 throw new RuntimeException("Value for condition cannot be null");
             }
-            criteriaWithoutValue.add(condition);
+            criteria.add(new Criterion(condition));
         }
 
         protected void addCriterion(String condition, Object value, String property) {
             if (value == null) {
                 throw new RuntimeException("Value for " + property + " cannot be null");
             }
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("condition", condition);
-            map.put("value", value);
-            criteriaWithSingleValue.add(map);
-        }
-
-        protected void addCriterion(String condition, List<? extends Object> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("condition", condition);
-            map.put("values", values);
-            criteriaWithListValue.add(map);
+            criteria.add(new Criterion(condition, value));
         }
 
         protected void addCriterion(String condition, Object value1, Object value2, String property) {
             if (value1 == null || value2 == null) {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
-            List<Object> list = new ArrayList<Object>();
-            list.add(value1);
-            list.add(value2);
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("condition", condition);
-            map.put("values", list);
-            criteriaWithBetweenValue.add(map);
+            criteria.add(new Criterion(condition, value1, value2));
         }
 
         public Criteria andIdIsNull() {
@@ -325,6 +282,76 @@ public class BidRefundInfoExample {
 
         public Criteria andBIdNotBetween(Long value1, Long value2) {
             addCriterion("b_id not between", value1, value2, "bId");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueIsNull() {
+            addCriterion("issue is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueIsNotNull() {
+            addCriterion("issue is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueEqualTo(String value) {
+            addCriterion("issue =", value, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueNotEqualTo(String value) {
+            addCriterion("issue <>", value, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueGreaterThan(String value) {
+            addCriterion("issue >", value, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueGreaterThanOrEqualTo(String value) {
+            addCriterion("issue >=", value, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueLessThan(String value) {
+            addCriterion("issue <", value, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueLessThanOrEqualTo(String value) {
+            addCriterion("issue <=", value, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueLike(String value) {
+            addCriterion("issue like", value, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueNotLike(String value) {
+            addCriterion("issue not like", value, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueIn(List<String> values) {
+            addCriterion("issue in", values, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueNotIn(List<String> values) {
+            addCriterion("issue not in", values, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueBetween(String value1, String value2) {
+            addCriterion("issue between", value1, value2, "issue");
+            return (Criteria) this;
+        }
+
+        public Criteria andIssueNotBetween(String value1, String value2) {
+            addCriterion("issue not between", value1, value2, "issue");
             return (Criteria) this;
         }
 
@@ -1003,6 +1030,92 @@ public class BidRefundInfoExample {
 
         protected Criteria() {
             super();
+        }
+    }
+
+    public static class Criterion {
+        private String condition;
+
+        private Object value;
+
+        private Object secondValue;
+
+        private boolean noValue;
+
+        private boolean singleValue;
+
+        private boolean betweenValue;
+
+        private boolean listValue;
+
+        private String typeHandler;
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
+        protected Criterion(String condition) {
+            super();
+            this.condition = condition;
+            this.typeHandler = null;
+            this.noValue = true;
+        }
+
+        protected Criterion(String condition, Object value, String typeHandler) {
+            super();
+            this.condition = condition;
+            this.value = value;
+            this.typeHandler = typeHandler;
+            if (value instanceof List<?>) {
+                this.listValue = true;
+            } else {
+                this.singleValue = true;
+            }
+        }
+
+        protected Criterion(String condition, Object value) {
+            this(condition, value, null);
+        }
+
+        protected Criterion(String condition, Object value, Object secondValue, String typeHandler) {
+            super();
+            this.condition = condition;
+            this.value = value;
+            this.secondValue = secondValue;
+            this.typeHandler = typeHandler;
+            this.betweenValue = true;
+        }
+
+        protected Criterion(String condition, Object value, Object secondValue) {
+            this(condition, value, secondValue, null);
         }
     }
 }

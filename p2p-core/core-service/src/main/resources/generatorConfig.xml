@@ -41,8 +41,10 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
-        <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等
-        <table tableName="MEMBER" domainObjectName="Member" />
+        <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等 -->
+
+        <table tableName="member" domainObjectName="Member" />
+        <table tableName="enterprise_reg_info" domainObjectName="EnterpriseRegInfo" />
         <table tableName="bid" domainObjectName="Bid" />
         <table tableName="bid_refund_info" domainObjectName="BidRefundInfo" />
         <table tableName="hdb_bank_info" domainObjectName="HdbBankInfo" />
@@ -55,6 +57,7 @@
         <table tableName="member_bid_distribute" domainObjectName="MemberBidDistribute" />
         <table tableName="member_bid_request" domainObjectName="MemberBidRequest" />
         <table tableName="member_stock_account" domainObjectName="MemberStockAccount" />
+        <table tableName="bid_stock_account" domainObjectName="BidStockAccount" />
         <table tableName="product" domainObjectName="Product" />
         <table tableName="product_amount_category" domainObjectName="ProductAmountCategory" />
         <table tableName="product_channel_category" domainObjectName="ProductChannelCategory" />
@@ -74,16 +77,7 @@
         <table tableName="sys_role" domainObjectName="SysRole" />
         <table tableName="sys_user" domainObjectName="SysUser" />
         <table tableName="sys_user_app_roles" domainObjectName="SysUserAppRoles" />
-
-                     -->
-
-        <table tableName="bid_refund_info" domainObjectName="BidRefundInfo" />
-        <table tableName="member_bid_request" domainObjectName="MemberBidRequest" />
-        <table tableName="member_transfer_bid_request" domainObjectName="MemberTransferBidRequest" />
-        <table tableName="member_bid_distribute" domainObjectName="MemberBidDistribute" />
         <table tableName="sys_msg" domainObjectName="SysMsg" />
-        <table tableName="enterprise_reg_info" domainObjectName="EnterpriseRegInfo" />
-
 
     </context>
 </generatorConfiguration>

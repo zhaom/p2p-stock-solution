@@ -7,11 +7,11 @@ public class ProductAmountCategory {
 
     private String name;
 
-    private Integer limitMinAmount;
+    private Long limitMinAmount;
 
-    private Integer limitMaxAmount;
+    private Long limitMaxAmount;
 
-    private Integer limitStepAmount;
+    private Long limitStepAmount;
 
     private Integer amountUnit;
 
@@ -35,27 +35,27 @@ public class ProductAmountCategory {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getLimitMinAmount() {
+    public Long getLimitMinAmount() {
         return limitMinAmount;
     }
 
-    public void setLimitMinAmount(Integer limitMinAmount) {
+    public void setLimitMinAmount(Long limitMinAmount) {
         this.limitMinAmount = limitMinAmount;
     }
 
-    public Integer getLimitMaxAmount() {
+    public Long getLimitMaxAmount() {
         return limitMaxAmount;
     }
 
-    public void setLimitMaxAmount(Integer limitMaxAmount) {
+    public void setLimitMaxAmount(Long limitMaxAmount) {
         this.limitMaxAmount = limitMaxAmount;
     }
 
-    public Integer getLimitStepAmount() {
+    public Long getLimitStepAmount() {
         return limitStepAmount;
     }
 
-    public void setLimitStepAmount(Integer limitStepAmount) {
+    public void setLimitStepAmount(Long limitStepAmount) {
         this.limitStepAmount = limitStepAmount;
     }
 

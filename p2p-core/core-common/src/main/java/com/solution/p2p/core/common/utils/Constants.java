@@ -16,8 +16,29 @@ public class Constants {
     public static final int MEMBER_ACCOUNT_DIR_CREDIT = 50;
     public static final int MEMBER_ACCOUNT_DIR_DEBT = 51;
     // insert into sys_dict(value,name,category,category_name,sort) values(50,'贷记','member_account_dir','记账方向',1),(52,'借记','member_account_dir','记账方向',2);
-    // unit 人民币分
-    public static final int MEMBER_ACCOUNT_AMOUNT_UNIT_CNYCENT = 60;
+    // 金额单位【人民币分|人民币元】
+    public static final int AMOUNT_UNIT_CNYCENT = 60;
+    public static final int AMOUNT_UNIT_CNYYUAN = 61;
+    // 时间周期单位【自然日|交易日|自然月|自然年|一次性】
+    public static final int DURATION_UNIT_DAY = 65;
+    public static final int DURATION_UNIT_TRADE_DAY = 66;
+    public static final int DURATION_UNIT_MONTH = 67;
+    public static final int DURATION_UNIT_YEAR = 68;
+    public static final int DURATION_UNIT_ONCE = 69;
+
+    // 支付限定账户【所有账户都用75|限定为指定的账户类型|指定的账户类型禁止|只现金账户余额可用78】
+    public static final int PAY_LIMIT_AMOUNT_TYPE_ALL_CAN = 75;
+    public static final int PAY_LIMIT_AMOUNT_TYPE_SPECIAL_CAN = 76;
+    public static final int PAY_LIMIT_AMOUNT_TYPE_SPECIAL_CANNOT = 77;
+    public static final int PAY_LIMIT_AMOUNT_TYPE_MONEY_ONLY = 78;
+
+    // 限定会员类型【所有会员都可以80|限定vip会员|限定新会员|特定指定类型的会员|禁止指定会员84】
+    public static final int MEMBER_LIMIT_TYPE_ALL_CAN = 80;
+    public static final int MEMBER_LIMIT_TYPE_VIP_CAN = 81;
+    public static final int MEMBER_LIMIT_TYPE_NEW_CAN = 82;
+    public static final int MEMBER_LIMIT_TYPE_SPECIAL_CAN = 83;
+    public static final int MEMBER_LIMIT_TYPE_SPECIAL_CANNOT = 84;
+
     // insert into sys_dict(value,name,category,category_name,sort) values(60,'人民币分','money_unit','金额单位',1);
     // set_no
     public static final int MEMBER_ACCOUNT_SET_NO_DEFAULT = 90;
@@ -128,6 +149,11 @@ public class Constants {
     public static final int MEMBER_STOCK_ACCOUNT_TYPE_MATCH = 5002;
     public static final int MEMBER_STOCK_ACCOUNT_TYPE_FREE = 5003;
 
+    // 股票账户状态【新建5010|操盘中|已清盘5012】
+    public static final int MEMBER_STOCK_ACCOUNT_STATUS_INIT = 5010;
+    public static final int MEMBER_STOCK_ACCOUNT_STATUS_OPERATING = 5011;
+    public static final int MEMBER_STOCK_ACCOUNT_STATUS_CLEAR = 5012;
+
     // 资源类型【菜单6000|按钮|tab页6002】
     public static final int SYS_RESOURCE_TYPE_MENU = 6000;
     public static final int SYS_RESOURCE_TYPE_BUTTON = 6001;
@@ -143,30 +169,36 @@ public class Constants {
     // public static final int MEMBER_ACCOUNT_DATA_VERSION_DEFAULT = 10000;
 
 
-    // 周期单位[日20000|月20001]
-    public static final int BID_LIFE_DURATION_UNIT_DAY = 20000;
-    public static final int BID_LIFE_DURATION_UNIT_MONTH = 20001;
-    // 利率单位【日20100|月|年|一次性20103】
-    public static final int BID_INTEREST_RATE_UNIT_DAY = 20100;
-    public static final int BID_INTEREST_RATE_UNIT_MONTH = 20101;
-    public static final int BID_INTEREST_RATE_UNIT_YEAR = 20102;
-    public static final int BID_INTEREST_RATE_UNIT_ONCE = 20103;
-
-    // 标状态
-    public static final int BID_STATUS_CREATED = 30000;
+    // 标状态【初始|募集中|已满额|还款中|已还清|已强制平仓还清|已流标】
+    public static final int BID_STATUS_INIT = 30000;
     public static final int BID_STATUS_WAIT_RELEASE = 30001;
     public static final int BID_STATUS_ONLINE = 30002;
-    public static final int BID_STATUS_REFUND = 30003;
-    public static final int BID_STATUS_ENDED = 30004;
-    public static final int BID_STATUS_CANCELED = 30005;
-    // 还款状态
+    public static final int BID_STATUS_COLLECT_SUCCESS = 30003;
+    public static final int BID_STATUS_REFUNDING = 30004;
+    public static final int BID_STATUS_REFUNDED = 30005;
+    public static final int BID_STATUS_FORCED_LIQUIDATION = 30006;
+    public static final int BID_STATUS_FAILED = 30007;
+
+    // 标支付状态【待支付|部分支付|已支付】
+    public static final int BID_COLLECT_PAY_STATUS_NONE = 30100;
+    public static final int BID_COLLECT_PAY_STATUS_PATIAL_PAYED = 30101;
+    public static final int BID_COLLECT_PAY_STATUS_PAYED = 30102;
+
+    // 还款状态【待还款40000|已还款|已逾期|逾期已还款|已提前还款|确认坏账40006】
     public static final int BID_REFUND_STATUS_WAITING = 40000;
     public static final int BID_REFUND_STATUS_REFUNDED = 40001;
     public static final int BID_REFUND_STATUS_OVER_DUE = 40002;
     public static final int BID_REFUND_STATUS_OVER_DUE_REFUNDED = 40004;
     public static final int BID_REFUND_STATUS_PRE_REFUNDED = 40005;
+    public static final int BID_REFUND_STATUS_PRE_BAD_DEBT = 40006;
 
-    // 分发状态
+    // 投标状态【未支付|已支付|成功|失败】
+    public static final int MBR_REQUEST_STATUS_NOPAY = 40100;
+    public static final int MBR_REQUEST_STATUS_PAYED = 40101;
+    public static final int MBR_REQUEST_STATUS_SUCCESS = 40102;
+    public static final int MBR_REQUEST_STATUS_FAILED = 40103;
+
+    // 分发状态【待分发50000|已逾期|已分发|提前分发|坏账已补偿50004】
     public static final int MEMBER_BID_DISTRIBUTE_STATUS_WAITING = 50000;
     public static final int MEMBER_BID_DISTRIBUTE_STATUS_OVER_DUE = 50001;
     public static final int MEMBER_BID_DISTRIBUTE_STATUS_DISTRIBUTED = 50002;

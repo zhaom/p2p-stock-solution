@@ -9,6 +9,8 @@ public class BidRefundInfo {
 
     private Long bId;
 
+    private String issue;
+
     private Date scheduledRefundTime;
 
     private Date realRefundTime;
@@ -53,6 +55,14 @@ public class BidRefundInfo {
 
     public void setbId(Long bId) {
         this.bId = bId;
+    }
+
+    public String getIssue() {
+        return issue;
+    }
+
+    public void setIssue(String issue) {
+        this.issue = issue == null ? null : issue.trim();
     }
 
     public Date getScheduledRefundTime() {

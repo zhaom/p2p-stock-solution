@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.solution.p2p.core.dao.EnterpriseRegInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.solution.p2p.core.common.entity.EnterpriseRegInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="m_id" property="mId" jdbcType="BIGINT" />
+    <result column="enterprise_name" property="enterpriseName" jdbcType="VARCHAR" />
+    <result column="enterprise_reg_no" property="enterpriseRegNo" jdbcType="VARCHAR" />
+    <result column="enterprise_reg_addr" property="enterpriseRegAddr" jdbcType="VARCHAR" />
+    <result column="enterprise_duration" property="enterpriseDuration" jdbcType="TIMESTAMP" />
+    <result column="enterprise_addr" property="enterpriseAddr" jdbcType="VARCHAR" />
+    <result column="enterprise_tel" property="enterpriseTel" jdbcType="VARCHAR" />
+    <result column="enterprise_reg_pic" property="enterpriseRegPic" jdbcType="VARCHAR" />
+    <result column="enterprise_org_code" property="enterpriseOrgCode" jdbcType="VARCHAR" />
+    <result column="enterprise_biz_scope" property="enterpriseBizScope" jdbcType="VARCHAR" />
+    <result column="enterprise_reg_amount" property="enterpriseRegAmount" jdbcType="VARCHAR" />
+    <result column="enterprise_fax" property="enterpriseFax" jdbcType="VARCHAR" />
+    <result column="enterprise_legal_real_name" property="enterpriseLegalRealName" jdbcType="VARCHAR" />
+    <result column="enterprise_legal_id_card" property="enterpriseLegalIdCard" jdbcType="VARCHAR" />
+    <result column="enterprise_id_pic_front" property="enterpriseIdPicFront" jdbcType="VARCHAR" />
+    <result column="enterprise_id_pic_back" property="enterpriseIdPicBack" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, m_id, enterprise_name, enterprise_reg_no, enterprise_reg_addr, enterprise_duration, 
+    enterprise_addr, enterprise_tel, enterprise_reg_pic, enterprise_org_code, enterprise_biz_scope, 
+    enterprise_reg_amount, enterprise_fax, enterprise_legal_real_name, enterprise_legal_id_card, 
+    enterprise_id_pic_front, enterprise_id_pic_back, create_time, update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from enterprise_reg_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from enterprise_reg_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from enterprise_reg_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfoExample" >
+    delete from enterprise_reg_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfo" >
+    insert into enterprise_reg_info (id, m_id, enterprise_name, 
+      enterprise_reg_no, enterprise_reg_addr, enterprise_duration, 
+      enterprise_addr, enterprise_tel, enterprise_reg_pic, 
+      enterprise_org_code, enterprise_biz_scope, 
+      enterprise_reg_amount, enterprise_fax, enterprise_legal_real_name, 
+      enterprise_legal_id_card, enterprise_id_pic_front, 
+      enterprise_id_pic_back, create_time, update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{enterpriseName,jdbcType=VARCHAR}, 
+      #{enterpriseRegNo,jdbcType=VARCHAR}, #{enterpriseRegAddr,jdbcType=VARCHAR}, #{enterpriseDuration,jdbcType=TIMESTAMP}, 
+      #{enterpriseAddr,jdbcType=VARCHAR}, #{enterpriseTel,jdbcType=VARCHAR}, #{enterpriseRegPic,jdbcType=VARCHAR}, 
+      #{enterpriseOrgCode,jdbcType=VARCHAR}, #{enterpriseBizScope,jdbcType=VARCHAR}, 
+      #{enterpriseRegAmount,jdbcType=VARCHAR}, #{enterpriseFax,jdbcType=VARCHAR}, #{enterpriseLegalRealName,jdbcType=VARCHAR}, 
+      #{enterpriseLegalIdCard,jdbcType=VARCHAR}, #{enterpriseIdPicFront,jdbcType=VARCHAR}, 
+      #{enterpriseIdPicBack,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfo" >
+    insert into enterprise_reg_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mId != null" >
+        m_id,
+      </if>
+      <if test="enterpriseName != null" >
+        enterprise_name,
+      </if>
+      <if test="enterpriseRegNo != null" >
+        enterprise_reg_no,
+      </if>
+      <if test="enterpriseRegAddr != null" >
+        enterprise_reg_addr,
+      </if>
+      <if test="enterpriseDuration != null" >
+        enterprise_duration,
+      </if>
+      <if test="enterpriseAddr != null" >
+        enterprise_addr,
+      </if>
+      <if test="enterpriseTel != null" >
+        enterprise_tel,
+      </if>
+      <if test="enterpriseRegPic != null" >
+        enterprise_reg_pic,
+      </if>
+      <if test="enterpriseOrgCode != null" >
+        enterprise_org_code,
+      </if>
+      <if test="enterpriseBizScope != null" >
+        enterprise_biz_scope,
+      </if>
+      <if test="enterpriseRegAmount != null" >
+        enterprise_reg_amount,
+      </if>
+      <if test="enterpriseFax != null" >
+        enterprise_fax,
+      </if>
+      <if test="enterpriseLegalRealName != null" >
+        enterprise_legal_real_name,
+      </if>
+      <if test="enterpriseLegalIdCard != null" >
+        enterprise_legal_id_card,
+      </if>
+      <if test="enterpriseIdPicFront != null" >
+        enterprise_id_pic_front,
+      </if>
+      <if test="enterpriseIdPicBack != null" >
+        enterprise_id_pic_back,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="mId != null" >
+        #{mId,jdbcType=BIGINT},
+      </if>
+      <if test="enterpriseName != null" >
+        #{enterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseRegNo != null" >
+        #{enterpriseRegNo,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseRegAddr != null" >
+        #{enterpriseRegAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseDuration != null" >
+        #{enterpriseDuration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterpriseAddr != null" >
+        #{enterpriseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseTel != null" >
+        #{enterpriseTel,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseRegPic != null" >
+        #{enterpriseRegPic,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseOrgCode != null" >
+        #{enterpriseOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseBizScope != null" >
+        #{enterpriseBizScope,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseRegAmount != null" >
+        #{enterpriseRegAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseFax != null" >
+        #{enterpriseFax,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseLegalRealName != null" >
+        #{enterpriseLegalRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseLegalIdCard != null" >
+        #{enterpriseLegalIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseIdPicFront != null" >
+        #{enterpriseIdPicFront,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseIdPicBack != null" >
+        #{enterpriseIdPicBack,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfoExample" resultType="java.lang.Integer" >
+    select count(*) from enterprise_reg_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update enterprise_reg_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.mId != null" >
+        m_id = #{record.mId,jdbcType=BIGINT},
+      </if>
+      <if test="record.enterpriseName != null" >
+        enterprise_name = #{record.enterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseRegNo != null" >
+        enterprise_reg_no = #{record.enterpriseRegNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseRegAddr != null" >
+        enterprise_reg_addr = #{record.enterpriseRegAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseDuration != null" >
+        enterprise_duration = #{record.enterpriseDuration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.enterpriseAddr != null" >
+        enterprise_addr = #{record.enterpriseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseTel != null" >
+        enterprise_tel = #{record.enterpriseTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseRegPic != null" >
+        enterprise_reg_pic = #{record.enterpriseRegPic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseOrgCode != null" >
+        enterprise_org_code = #{record.enterpriseOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseBizScope != null" >
+        enterprise_biz_scope = #{record.enterpriseBizScope,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseRegAmount != null" >
+        enterprise_reg_amount = #{record.enterpriseRegAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseFax != null" >
+        enterprise_fax = #{record.enterpriseFax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseLegalRealName != null" >
+        enterprise_legal_real_name = #{record.enterpriseLegalRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseLegalIdCard != null" >
+        enterprise_legal_id_card = #{record.enterpriseLegalIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseIdPicFront != null" >
+        enterprise_id_pic_front = #{record.enterpriseIdPicFront,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseIdPicBack != null" >
+        enterprise_id_pic_back = #{record.enterpriseIdPicBack,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update enterprise_reg_info
+    set id = #{record.id,jdbcType=BIGINT},
+      m_id = #{record.mId,jdbcType=BIGINT},
+      enterprise_name = #{record.enterpriseName,jdbcType=VARCHAR},
+      enterprise_reg_no = #{record.enterpriseRegNo,jdbcType=VARCHAR},
+      enterprise_reg_addr = #{record.enterpriseRegAddr,jdbcType=VARCHAR},
+      enterprise_duration = #{record.enterpriseDuration,jdbcType=TIMESTAMP},
+      enterprise_addr = #{record.enterpriseAddr,jdbcType=VARCHAR},
+      enterprise_tel = #{record.enterpriseTel,jdbcType=VARCHAR},
+      enterprise_reg_pic = #{record.enterpriseRegPic,jdbcType=VARCHAR},
+      enterprise_org_code = #{record.enterpriseOrgCode,jdbcType=VARCHAR},
+      enterprise_biz_scope = #{record.enterpriseBizScope,jdbcType=VARCHAR},
+      enterprise_reg_amount = #{record.enterpriseRegAmount,jdbcType=VARCHAR},
+      enterprise_fax = #{record.enterpriseFax,jdbcType=VARCHAR},
+      enterprise_legal_real_name = #{record.enterpriseLegalRealName,jdbcType=VARCHAR},
+      enterprise_legal_id_card = #{record.enterpriseLegalIdCard,jdbcType=VARCHAR},
+      enterprise_id_pic_front = #{record.enterpriseIdPicFront,jdbcType=VARCHAR},
+      enterprise_id_pic_back = #{record.enterpriseIdPicBack,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfo" >
+    update enterprise_reg_info
+    <set >
+      <if test="mId != null" >
+        m_id = #{mId,jdbcType=BIGINT},
+      </if>
+      <if test="enterpriseName != null" >
+        enterprise_name = #{enterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseRegNo != null" >
+        enterprise_reg_no = #{enterpriseRegNo,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseRegAddr != null" >
+        enterprise_reg_addr = #{enterpriseRegAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseDuration != null" >
+        enterprise_duration = #{enterpriseDuration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterpriseAddr != null" >
+        enterprise_addr = #{enterpriseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseTel != null" >
+        enterprise_tel = #{enterpriseTel,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseRegPic != null" >
+        enterprise_reg_pic = #{enterpriseRegPic,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseOrgCode != null" >
+        enterprise_org_code = #{enterpriseOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseBizScope != null" >
+        enterprise_biz_scope = #{enterpriseBizScope,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseRegAmount != null" >
+        enterprise_reg_amount = #{enterpriseRegAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseFax != null" >
+        enterprise_fax = #{enterpriseFax,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseLegalRealName != null" >
+        enterprise_legal_real_name = #{enterpriseLegalRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseLegalIdCard != null" >
+        enterprise_legal_id_card = #{enterpriseLegalIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseIdPicFront != null" >
+        enterprise_id_pic_front = #{enterpriseIdPicFront,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseIdPicBack != null" >
+        enterprise_id_pic_back = #{enterpriseIdPicBack,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfo" >
+    update enterprise_reg_info
+    set m_id = #{mId,jdbcType=BIGINT},
+      enterprise_name = #{enterpriseName,jdbcType=VARCHAR},
+      enterprise_reg_no = #{enterpriseRegNo,jdbcType=VARCHAR},
+      enterprise_reg_addr = #{enterpriseRegAddr,jdbcType=VARCHAR},
+      enterprise_duration = #{enterpriseDuration,jdbcType=TIMESTAMP},
+      enterprise_addr = #{enterpriseAddr,jdbcType=VARCHAR},
+      enterprise_tel = #{enterpriseTel,jdbcType=VARCHAR},
+      enterprise_reg_pic = #{enterpriseRegPic,jdbcType=VARCHAR},
+      enterprise_org_code = #{enterpriseOrgCode,jdbcType=VARCHAR},
+      enterprise_biz_scope = #{enterpriseBizScope,jdbcType=VARCHAR},
+      enterprise_reg_amount = #{enterpriseRegAmount,jdbcType=VARCHAR},
+      enterprise_fax = #{enterpriseFax,jdbcType=VARCHAR},
+      enterprise_legal_real_name = #{enterpriseLegalRealName,jdbcType=VARCHAR},
+      enterprise_legal_id_card = #{enterpriseLegalIdCard,jdbcType=VARCHAR},
+      enterprise_id_pic_front = #{enterpriseIdPicFront,jdbcType=VARCHAR},
+      enterprise_id_pic_back = #{enterpriseIdPicBack,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
