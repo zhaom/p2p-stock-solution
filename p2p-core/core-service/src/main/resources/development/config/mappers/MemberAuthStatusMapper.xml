@@ -101,19 +101,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberAuthStatus" >
-    insert into member_auth_status (id, m_id, type, 
-      status_value, create_time, update_time
-      )
-    values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, 
-      #{statusValue,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into member_auth_status (m_id, type, status_value, 
+      create_time, update_time)
+    values (#{mId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{statusValue,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberAuthStatus" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into member_auth_status
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="mId != null" >
         m_id,
       </if>
@@ -131,9 +132,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="mId != null" >
         #{mId,jdbcType=BIGINT},
       </if>

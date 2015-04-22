@@ -111,23 +111,26 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberBidDistribute" >
-    insert into member_bid_distribute (id, m_id, b_id, issue, 
-      request_amount, scheduled_dist_time, scheduled_dist_principal, 
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into member_bid_distribute (m_id, b_id, issue, request_amount, 
+      scheduled_dist_time, scheduled_dist_principal, 
       scheduled_dist_interest, scheduled_dist_revenue, 
       real_dist_time, real_dist_amount, dist_status, 
       create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{bId,jdbcType=BIGINT}, #{issue,jdbcType=CHAR}, 
-      #{requestAmount,jdbcType=BIGINT}, #{scheduledDistTime,jdbcType=TIMESTAMP}, #{scheduledDistPrincipal,jdbcType=BIGINT}, 
+    values (#{mId,jdbcType=BIGINT}, #{bId,jdbcType=BIGINT}, #{issue,jdbcType=CHAR}, #{requestAmount,jdbcType=BIGINT}, 
+      #{scheduledDistTime,jdbcType=TIMESTAMP}, #{scheduledDistPrincipal,jdbcType=BIGINT}, 
       #{scheduledDistInterest,jdbcType=BIGINT}, #{scheduledDistRevenue,jdbcType=BIGINT}, 
       #{realDistTime,jdbcType=TIMESTAMP}, #{realDistAmount,jdbcType=BIGINT}, #{distStatus,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberBidDistribute" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into member_bid_distribute
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="mId != null" >
         m_id,
       </if>
@@ -169,9 +172,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="mId != null" >
         #{mId,jdbcType=BIGINT},
       </if>

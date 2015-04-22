@@ -99,17 +99,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.SysUserAppRoles" >
-    insert into sys_user_app_roles (id, user_id, app_id, 
-      role_ids)
-    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{appId,jdbcType=BIGINT}, 
-      #{roleIds,jdbcType=VARCHAR})
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_user_app_roles (user_id, app_id, role_ids
+      )
+    values (#{userId,jdbcType=BIGINT}, #{appId,jdbcType=BIGINT}, #{roleIds,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.SysUserAppRoles" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into sys_user_app_roles
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="userId != null" >
         user_id,
       </if>
@@ -121,9 +124,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="userId != null" >
         #{userId,jdbcType=BIGINT},
       </if>

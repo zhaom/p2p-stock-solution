@@ -102,19 +102,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.SysOrg" >
-    insert into sys_org (id, name, parent_id, 
-      parent_ids, available, create_time, 
-      update_time)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, 
-      #{parentIds,jdbcType=VARCHAR}, #{available,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_org (name, parent_id, parent_ids, 
+      available, create_time, update_time
+      )
+    values (#{name,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{parentIds,jdbcType=VARCHAR}, 
+      #{available,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.SysOrg" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into sys_org
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="name != null" >
         name,
       </if>
@@ -135,9 +138,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>

@@ -105,21 +105,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.ProductChannelCategory" >
-    insert into product_channel_category (id, name, web_bid, 
-      mobile_bid, wechat_bid, event_bid_limit_type, 
-      event_bids, create_time, update_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{webBid,jdbcType=INTEGER}, 
-      #{mobileBid,jdbcType=INTEGER}, #{wechatBid,jdbcType=INTEGER}, #{eventBidLimitType,jdbcType=INTEGER}, 
-      #{eventBids,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into product_channel_category (name, web_bid, mobile_bid, 
+      wechat_bid, event_bid_limit_type, event_bids, 
+      create_time, update_time)
+    values (#{name,jdbcType=VARCHAR}, #{webBid,jdbcType=INTEGER}, #{mobileBid,jdbcType=INTEGER}, 
+      #{wechatBid,jdbcType=INTEGER}, #{eventBidLimitType,jdbcType=INTEGER}, #{eventBids,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.ProductChannelCategory" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into product_channel_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="name != null" >
         name,
       </if>
@@ -146,9 +147,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>

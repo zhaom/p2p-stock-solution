@@ -122,7 +122,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRpt" >
-    insert into member_account_finance_rpt (id, finance_rpt_time_type, finance_time, 
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into member_account_finance_rpt (finance_rpt_time_type, finance_time, 
       m_id, member_account_id, member_account_name, 
       member_account_type, set_no, direction, 
       from_amount, from_frozen_amount, thru_amount, 
@@ -130,7 +133,7 @@
       total_expend_count, total_expend_amount, total_frozen_count, 
       total_frozen_amount, total_thaw_count, total_thaw_amount, 
       create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{financeRptTimeType,jdbcType=INTEGER}, #{financeTime,jdbcType=VARCHAR}, 
+    values (#{financeRptTimeType,jdbcType=INTEGER}, #{financeTime,jdbcType=VARCHAR}, 
       #{mId,jdbcType=BIGINT}, #{memberAccountId,jdbcType=BIGINT}, #{memberAccountName,jdbcType=BIGINT}, 
       #{memberAccountType,jdbcType=INTEGER}, #{setNo,jdbcType=INTEGER}, #{direction,jdbcType=INTEGER}, 
       #{fromAmount,jdbcType=BIGINT}, #{fromFrozenAmount,jdbcType=BIGINT}, #{thruAmount,jdbcType=BIGINT}, 
@@ -140,11 +143,11 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberAccountFinanceRpt" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into member_account_finance_rpt
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="financeRptTimeType != null" >
         finance_rpt_time_type,
       </if>
@@ -213,9 +216,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="financeRptTimeType != null" >
         #{financeRptTimeType,jdbcType=INTEGER},
       </if>

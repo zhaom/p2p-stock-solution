@@ -117,29 +117,30 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberStockAccount" >
-    insert into member_stock_account (id, m_id, type, 
-      from_date, thru_date, account_name, 
-      stock_code, usable_amount, cash_amount, 
-      cash_fund_amount, financed_amount, interest_amount, 
-      interest_payed, stock_market_value, alarm_amount, 
-      forced_liquidation_amount, last_value_time, 
-      status, create_time, update_time
-      )
-    values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, 
-      #{fromDate,jdbcType=TIMESTAMP}, #{thruDate,jdbcType=TIMESTAMP}, #{accountName,jdbcType=VARCHAR}, 
-      #{stockCode,jdbcType=VARCHAR}, #{usableAmount,jdbcType=BIGINT}, #{cashAmount,jdbcType=BIGINT}, 
-      #{cashFundAmount,jdbcType=BIGINT}, #{financedAmount,jdbcType=BIGINT}, #{interestAmount,jdbcType=BIGINT}, 
-      #{interestPayed,jdbcType=BIGINT}, #{stockMarketValue,jdbcType=BIGINT}, #{alarmAmount,jdbcType=BIGINT}, 
-      #{forcedLiquidationAmount,jdbcType=BIGINT}, #{lastValueTime,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into member_stock_account (m_id, type, from_date, 
+      thru_date, account_name, stock_code, 
+      usable_amount, cash_amount, cash_fund_amount, 
+      financed_amount, interest_amount, interest_payed, 
+      stock_market_value, alarm_amount, forced_liquidation_amount, 
+      last_value_time, status, create_time, 
+      update_time)
+    values (#{mId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{fromDate,jdbcType=TIMESTAMP}, 
+      #{thruDate,jdbcType=TIMESTAMP}, #{accountName,jdbcType=VARCHAR}, #{stockCode,jdbcType=VARCHAR}, 
+      #{usableAmount,jdbcType=BIGINT}, #{cashAmount,jdbcType=BIGINT}, #{cashFundAmount,jdbcType=BIGINT}, 
+      #{financedAmount,jdbcType=BIGINT}, #{interestAmount,jdbcType=BIGINT}, #{interestPayed,jdbcType=BIGINT}, 
+      #{stockMarketValue,jdbcType=BIGINT}, #{alarmAmount,jdbcType=BIGINT}, #{forcedLiquidationAmount,jdbcType=BIGINT}, 
+      #{lastValueTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberStockAccount" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into member_stock_account
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="mId != null" >
         m_id,
       </if>
@@ -199,9 +200,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="mId != null" >
         #{mId,jdbcType=BIGINT},
       </if>

@@ -105,21 +105,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.HdbBankInfo" >
-    insert into hdb_bank_info (id, bank_name, bank_code, 
-      branch_name, status, province_code, 
-      province_name, city_code, city_name
-      )
-    values (#{id,jdbcType=BIGINT}, #{bankName,jdbcType=VARCHAR}, #{bankCode,jdbcType=BIGINT}, 
-      #{branchName,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{provinceCode,jdbcType=INTEGER}, 
-      #{provinceName,jdbcType=VARCHAR}, #{cityCode,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}
-      )
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into hdb_bank_info (bank_name, bank_code, branch_name, 
+      status, province_code, province_name, 
+      city_code, city_name)
+    values (#{bankName,jdbcType=VARCHAR}, #{bankCode,jdbcType=BIGINT}, #{branchName,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{provinceCode,jdbcType=INTEGER}, #{provinceName,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.HdbBankInfo" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into hdb_bank_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="bankName != null" >
         bank_name,
       </if>
@@ -146,9 +147,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="bankName != null" >
         #{bankName,jdbcType=VARCHAR},
       </if>

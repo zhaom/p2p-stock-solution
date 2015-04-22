@@ -108,21 +108,24 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.SysArea" >
-    insert into sys_area (id, parent_id, parent_ids, 
-      code, name, type, create_by, 
-      create_date, update_by, update_date, 
-      remarks, del_flag)
-    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{parentIds,jdbcType=VARCHAR}, 
-      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{createBy,jdbcType=BIGINT}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, #{updateDate,jdbcType=TIMESTAMP}, 
-      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR})
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_area (parent_id, parent_ids, code, 
+      name, type, create_by, create_date, 
+      update_by, update_date, remarks, 
+      del_flag)
+    values (#{parentId,jdbcType=BIGINT}, #{parentIds,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{createBy,jdbcType=BIGINT}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=BIGINT}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.SysArea" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into sys_area
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="parentId != null" >
         parent_id,
       </if>
@@ -158,9 +161,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="parentId != null" >
         #{parentId,jdbcType=BIGINT},
       </if>

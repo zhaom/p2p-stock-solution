@@ -104,21 +104,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.ProductServiceFeeCategory" >
-    insert into product_service_fee_category (id, name, limit_min_service_fee_rate, 
-      limit_max_service_fee_rate, prefer_service_fee_rate, 
-      service_fee_rate_unit, create_time, update_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{limitMinServiceFeeRate,jdbcType=DECIMAL}, 
-      #{limitMaxServiceFeeRate,jdbcType=DECIMAL}, #{preferServiceFeeRate,jdbcType=DECIMAL}, 
-      #{serviceFeeRateUnit,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into product_service_fee_category (name, limit_min_service_fee_rate, limit_max_service_fee_rate, 
+      prefer_service_fee_rate, service_fee_rate_unit, 
+      create_time, update_time)
+    values (#{name,jdbcType=VARCHAR}, #{limitMinServiceFeeRate,jdbcType=DECIMAL}, #{limitMaxServiceFeeRate,jdbcType=DECIMAL}, 
+      #{preferServiceFeeRate,jdbcType=DECIMAL}, #{serviceFeeRateUnit,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.ProductServiceFeeCategory" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into product_service_fee_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="name != null" >
         name,
       </if>
@@ -142,9 +143,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>

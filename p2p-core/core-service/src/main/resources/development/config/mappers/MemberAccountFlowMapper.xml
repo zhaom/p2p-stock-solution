@@ -133,37 +133,40 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberAccountFlow" >
-    insert into member_account_flow (id, member_account_id, m_id, 
-      member_account_item_id, mat_id, mat_date, 
-      mat_service_code, finance_op_type, amount, 
-      thawed_amount, unit, mat_summary, 
-      trade_type, trade_seq_no, pay_seq_no, 
-      thru_frozen_amount, thru_amount, biz_member_id, 
-      biz_app_date, biz_order_no, pay_method, 
-      bank_code, bank_biz_code, bank_accept_date, 
-      bank_accept_seq_no, bank_rep_seq_no, balance_type, 
-      up_balance_flag, down_balance_flag, member_account_flow_ext, 
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into member_account_flow (member_account_id, m_id, member_account_item_id, 
+      mat_id, mat_date, mat_service_code, 
+      finance_op_type, amount, thawed_amount, 
+      unit, mat_summary, trade_type, 
+      trade_seq_no, pay_seq_no, thru_frozen_amount, 
+      thru_amount, biz_member_id, biz_app_date, 
+      biz_order_no, pay_method, bank_code, 
+      bank_biz_code, bank_accept_date, bank_accept_seq_no, 
+      bank_rep_seq_no, balance_type, up_balance_flag, 
+      down_balance_flag, member_account_flow_ext, 
       remark, create_time, update_time
       )
-    values (#{id,jdbcType=BIGINT}, #{memberAccountId,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, 
-      #{memberAccountItemId,jdbcType=BIGINT}, #{matId,jdbcType=BIGINT}, #{matDate,jdbcType=DATE}, 
-      #{matServiceCode,jdbcType=INTEGER}, #{financeOpType,jdbcType=INTEGER}, #{amount,jdbcType=BIGINT}, 
-      #{thawedAmount,jdbcType=BIGINT}, #{unit,jdbcType=INTEGER}, #{matSummary,jdbcType=VARCHAR}, 
-      #{tradeType,jdbcType=INTEGER}, #{tradeSeqNo,jdbcType=BIGINT}, #{paySeqNo,jdbcType=BIGINT}, 
-      #{thruFrozenAmount,jdbcType=BIGINT}, #{thruAmount,jdbcType=BIGINT}, #{bizMemberId,jdbcType=VARCHAR}, 
-      #{bizAppDate,jdbcType=VARCHAR}, #{bizOrderNo,jdbcType=VARCHAR}, #{payMethod,jdbcType=INTEGER}, 
-      #{bankCode,jdbcType=VARCHAR}, #{bankBizCode,jdbcType=VARCHAR}, #{bankAcceptDate,jdbcType=VARCHAR}, 
-      #{bankAcceptSeqNo,jdbcType=VARCHAR}, #{bankRepSeqNo,jdbcType=VARCHAR}, #{balanceType,jdbcType=INTEGER}, 
-      #{upBalanceFlag,jdbcType=INTEGER}, #{downBalanceFlag,jdbcType=INTEGER}, #{memberAccountFlowExt,jdbcType=VARCHAR}, 
+    values (#{memberAccountId,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{memberAccountItemId,jdbcType=BIGINT}, 
+      #{matId,jdbcType=BIGINT}, #{matDate,jdbcType=DATE}, #{matServiceCode,jdbcType=INTEGER}, 
+      #{financeOpType,jdbcType=INTEGER}, #{amount,jdbcType=BIGINT}, #{thawedAmount,jdbcType=BIGINT}, 
+      #{unit,jdbcType=INTEGER}, #{matSummary,jdbcType=VARCHAR}, #{tradeType,jdbcType=INTEGER}, 
+      #{tradeSeqNo,jdbcType=BIGINT}, #{paySeqNo,jdbcType=BIGINT}, #{thruFrozenAmount,jdbcType=BIGINT}, 
+      #{thruAmount,jdbcType=BIGINT}, #{bizMemberId,jdbcType=VARCHAR}, #{bizAppDate,jdbcType=VARCHAR}, 
+      #{bizOrderNo,jdbcType=VARCHAR}, #{payMethod,jdbcType=INTEGER}, #{bankCode,jdbcType=VARCHAR}, 
+      #{bankBizCode,jdbcType=VARCHAR}, #{bankAcceptDate,jdbcType=VARCHAR}, #{bankAcceptSeqNo,jdbcType=VARCHAR}, 
+      #{bankRepSeqNo,jdbcType=VARCHAR}, #{balanceType,jdbcType=INTEGER}, #{upBalanceFlag,jdbcType=INTEGER}, 
+      #{downBalanceFlag,jdbcType=INTEGER}, #{memberAccountFlowExt,jdbcType=VARCHAR}, 
       #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberAccountFlow" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into member_account_flow
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="memberAccountId != null" >
         member_account_id,
       </if>
@@ -262,9 +265,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="memberAccountId != null" >
         #{memberAccountId,jdbcType=BIGINT},
       </if>

@@ -103,19 +103,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.SysUser" >
-    insert into sys_user (id, org_id, uname, 
-      password, real_name, locked, 
-      create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{orgId,jdbcType=BIGINT}, #{uname,jdbcType=VARCHAR}, 
-      #{password,jdbcType=CHAR}, #{realName,jdbcType=VARCHAR}, #{locked,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_user (org_id, uname, password, 
+      real_name, locked, create_time, 
+      update_time)
+    values (#{orgId,jdbcType=BIGINT}, #{uname,jdbcType=VARCHAR}, #{password,jdbcType=CHAR}, 
+      #{realName,jdbcType=VARCHAR}, #{locked,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.SysUser" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="orgId != null" >
         org_id,
       </if>
@@ -139,9 +142,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="orgId != null" >
         #{orgId,jdbcType=BIGINT},
       </if>

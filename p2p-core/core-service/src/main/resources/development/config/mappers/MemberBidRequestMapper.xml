@@ -103,19 +103,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberBidRequest" >
-    insert into member_bid_request (id, m_id, b_id, amount, 
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into member_bid_request (m_id, b_id, amount, 
       request_status, failed_reason, create_time, 
       update_time)
-    values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{bId,jdbcType=BIGINT}, #{amount,jdbcType=BIGINT}, 
+    values (#{mId,jdbcType=BIGINT}, #{bId,jdbcType=BIGINT}, #{amount,jdbcType=BIGINT}, 
       #{requestStatus,jdbcType=INTEGER}, #{failedReason,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberBidRequest" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into member_bid_request
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="mId != null" >
         m_id,
       </if>
@@ -139,9 +142,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="mId != null" >
         #{mId,jdbcType=BIGINT},
       </if>

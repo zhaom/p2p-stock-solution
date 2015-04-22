@@ -104,21 +104,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.SysOpLog" >
-    insert into sys_op_log (id, op_type, content, 
-      operator_id, relate_id, is_member_op, 
-      m_id, create_time, update_time
-      )
-    values (#{id,jdbcType=BIGINT}, #{opType,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
-      #{operatorId,jdbcType=BIGINT}, #{relateId,jdbcType=BIGINT}, #{isMemberOp,jdbcType=INTEGER}, 
-      #{mId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_op_log (op_type, content, operator_id, 
+      relate_id, is_member_op, m_id, 
+      create_time, update_time)
+    values (#{opType,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{operatorId,jdbcType=BIGINT}, 
+      #{relateId,jdbcType=BIGINT}, #{isMemberOp,jdbcType=INTEGER}, #{mId,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.SysOpLog" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into sys_op_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="opType != null" >
         op_type,
       </if>
@@ -145,9 +146,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="opType != null" >
         #{opType,jdbcType=INTEGER},
       </if>

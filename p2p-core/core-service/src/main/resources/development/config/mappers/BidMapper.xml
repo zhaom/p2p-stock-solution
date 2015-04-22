@@ -129,10 +129,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.Bid" >
-    insert into bid (id, code, prod_id, 
-      name, m_id, guaranty_amount, 
-      collect_times, collect_amount, collected_amount, 
-      life_duration, life_duration_unit, collect_interest_rate, 
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into bid (code, prod_id, name, 
+      m_id, guaranty_amount, collect_times, 
+      collect_amount, collected_amount, life_duration, 
+      life_duration_unit, collect_interest_rate, 
       collect_interest_rate_unit, request_interest_rate, 
       request_interest_rate_unit, collect_from_time, 
       collect_thru_time, bid_success_time, bid_status, 
@@ -141,10 +144,10 @@
       is_split_profit, split_ratio, is_transfer, 
       transfer_parent_id, create_time, update_time
       )
-    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=CHAR}, #{prodId,jdbcType=BIGINT}, 
-      #{name,jdbcType=VARCHAR}, #{mId,jdbcType=BIGINT}, #{guarantyAmount,jdbcType=BIGINT}, 
-      #{collectTimes,jdbcType=INTEGER}, #{collectAmount,jdbcType=BIGINT}, #{collectedAmount,jdbcType=BIGINT}, 
-      #{lifeDuration,jdbcType=INTEGER}, #{lifeDurationUnit,jdbcType=INTEGER}, #{collectInterestRate,jdbcType=DECIMAL}, 
+    values (#{code,jdbcType=CHAR}, #{prodId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{mId,jdbcType=BIGINT}, #{guarantyAmount,jdbcType=BIGINT}, #{collectTimes,jdbcType=INTEGER}, 
+      #{collectAmount,jdbcType=BIGINT}, #{collectedAmount,jdbcType=BIGINT}, #{lifeDuration,jdbcType=INTEGER}, 
+      #{lifeDurationUnit,jdbcType=INTEGER}, #{collectInterestRate,jdbcType=DECIMAL}, 
       #{collectInterestRateUnit,jdbcType=INTEGER}, #{requestInterestRate,jdbcType=DECIMAL}, 
       #{requestInterestRateUnit,jdbcType=INTEGER}, #{collectFromTime,jdbcType=TIMESTAMP}, 
       #{collectThruTime,jdbcType=TIMESTAMP}, #{bidSuccessTime,jdbcType=TIMESTAMP}, #{bidStatus,jdbcType=INTEGER}, 
@@ -155,11 +158,11 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.Bid" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into bid
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="code != null" >
         code,
       </if>
@@ -246,9 +249,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="code != null" >
         #{code,jdbcType=CHAR},
       </if>

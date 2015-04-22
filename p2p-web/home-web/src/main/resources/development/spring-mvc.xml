@@ -15,7 +15,8 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
-    <aop:development.config proxy-target-class="true"></aop:development.config>
+    <aop:config proxy-target-class="true"></aop:config>
+
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
         <property name="securityManager" ref="securityManager"/>
     </bean>

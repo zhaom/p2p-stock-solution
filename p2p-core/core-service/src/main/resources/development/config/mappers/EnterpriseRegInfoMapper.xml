@@ -117,16 +117,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfo" >
-    insert into enterprise_reg_info (id, m_id, enterprise_name, 
-      enterprise_reg_no, enterprise_reg_addr, enterprise_duration, 
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into enterprise_reg_info (m_id, enterprise_name, enterprise_reg_no, 
+      enterprise_reg_addr, enterprise_duration, 
       enterprise_addr, enterprise_tel, enterprise_reg_pic, 
       enterprise_org_code, enterprise_biz_scope, 
       enterprise_reg_amount, enterprise_fax, enterprise_legal_real_name, 
       enterprise_legal_id_card, enterprise_id_pic_front, 
       enterprise_id_pic_back, create_time, update_time
       )
-    values (#{id,jdbcType=BIGINT}, #{mId,jdbcType=BIGINT}, #{enterpriseName,jdbcType=VARCHAR}, 
-      #{enterpriseRegNo,jdbcType=VARCHAR}, #{enterpriseRegAddr,jdbcType=VARCHAR}, #{enterpriseDuration,jdbcType=TIMESTAMP}, 
+    values (#{mId,jdbcType=BIGINT}, #{enterpriseName,jdbcType=VARCHAR}, #{enterpriseRegNo,jdbcType=VARCHAR}, 
+      #{enterpriseRegAddr,jdbcType=VARCHAR}, #{enterpriseDuration,jdbcType=TIMESTAMP}, 
       #{enterpriseAddr,jdbcType=VARCHAR}, #{enterpriseTel,jdbcType=VARCHAR}, #{enterpriseRegPic,jdbcType=VARCHAR}, 
       #{enterpriseOrgCode,jdbcType=VARCHAR}, #{enterpriseBizScope,jdbcType=VARCHAR}, 
       #{enterpriseRegAmount,jdbcType=VARCHAR}, #{enterpriseFax,jdbcType=VARCHAR}, #{enterpriseLegalRealName,jdbcType=VARCHAR}, 
@@ -135,11 +138,11 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.EnterpriseRegInfo" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into enterprise_reg_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="mId != null" >
         m_id,
       </if>
@@ -196,9 +199,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="mId != null" >
         #{mId,jdbcType=BIGINT},
       </if>

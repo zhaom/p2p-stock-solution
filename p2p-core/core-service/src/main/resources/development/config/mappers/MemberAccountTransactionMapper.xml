@@ -117,27 +117,30 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransaction" >
-    insert into member_account_transaction (id, req_app, req_time, 
-      req_seq_no, tran_no, old_tran_no, 
-      mat_date, mat_req_method, mat_op_state, 
-      trade_type, trade_date, trade_seq_no, 
-      pay_seq_no, mat_item_info, mat_rep_code, 
-      mat_item_result, mat_ext, mat_remark, 
-      create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{reqApp,jdbcType=VARCHAR}, #{reqTime,jdbcType=TIMESTAMP}, 
-      #{reqSeqNo,jdbcType=BIGINT}, #{tranNo,jdbcType=CHAR}, #{oldTranNo,jdbcType=CHAR}, 
-      #{matDate,jdbcType=DATE}, #{matReqMethod,jdbcType=INTEGER}, #{matOpState,jdbcType=INTEGER}, 
-      #{tradeType,jdbcType=INTEGER}, #{tradeDate,jdbcType=DATE}, #{tradeSeqNo,jdbcType=BIGINT}, 
-      #{paySeqNo,jdbcType=BIGINT}, #{matItemInfo,jdbcType=VARCHAR}, #{matRepCode,jdbcType=INTEGER}, 
-      #{matItemResult,jdbcType=VARCHAR}, #{matExt,jdbcType=VARCHAR}, #{matRemark,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into member_account_transaction (req_app, req_time, req_seq_no, 
+      tran_no, old_tran_no, mat_date, 
+      mat_req_method, mat_op_state, trade_type, 
+      trade_date, trade_seq_no, pay_seq_no, 
+      mat_item_info, mat_rep_code, mat_item_result, 
+      mat_ext, mat_remark, create_time, 
+      update_time)
+    values (#{reqApp,jdbcType=VARCHAR}, #{reqTime,jdbcType=TIMESTAMP}, #{reqSeqNo,jdbcType=BIGINT}, 
+      #{tranNo,jdbcType=CHAR}, #{oldTranNo,jdbcType=CHAR}, #{matDate,jdbcType=DATE}, 
+      #{matReqMethod,jdbcType=INTEGER}, #{matOpState,jdbcType=INTEGER}, #{tradeType,jdbcType=INTEGER}, 
+      #{tradeDate,jdbcType=DATE}, #{tradeSeqNo,jdbcType=BIGINT}, #{paySeqNo,jdbcType=BIGINT}, 
+      #{matItemInfo,jdbcType=VARCHAR}, #{matRepCode,jdbcType=INTEGER}, #{matItemResult,jdbcType=VARCHAR}, 
+      #{matExt,jdbcType=VARCHAR}, #{matRemark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.MemberAccountTransaction" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into member_account_transaction
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="reqApp != null" >
         req_app,
       </if>
@@ -197,9 +200,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="reqApp != null" >
         #{reqApp,jdbcType=VARCHAR},
       </if>

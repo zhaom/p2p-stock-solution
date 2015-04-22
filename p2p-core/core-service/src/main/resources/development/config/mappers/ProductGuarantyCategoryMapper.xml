@@ -104,19 +104,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.ProductGuarantyCategory" >
-    insert into product_guaranty_category (id, name, net_value_cycle, 
-      net_value_cycle_unit, alarm_percent, forced_liquidation_percent, 
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into product_guaranty_category (name, net_value_cycle, net_value_cycle_unit, 
+      alarm_percent, forced_liquidation_percent, 
       create_time, update_time)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{netValueCycle,jdbcType=INTEGER}, 
-      #{netValueCycleUnit,jdbcType=INTEGER}, #{alarmPercent,jdbcType=INTEGER}, #{forcedLiquidationPercent,jdbcType=INTEGER}, 
+    values (#{name,jdbcType=VARCHAR}, #{netValueCycle,jdbcType=INTEGER}, #{netValueCycleUnit,jdbcType=INTEGER}, 
+      #{alarmPercent,jdbcType=INTEGER}, #{forcedLiquidationPercent,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.ProductGuarantyCategory" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into product_guaranty_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="name != null" >
         name,
       </if>
@@ -140,9 +143,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>

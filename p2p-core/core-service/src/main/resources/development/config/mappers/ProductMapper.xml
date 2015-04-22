@@ -117,29 +117,30 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.solution.p2p.core.common.entity.Product" >
-    insert into product (id, name, guaranty_category, 
-      life_duration_category, collect_duration_category, 
-      loan_amount_category, l_interest_category, 
-      l_service_fee_category, l_pay_category, l_member_category, 
-      b_interest_category, b_service_fee_category, 
-      b_amount_category, b_pay_category, b_member_category, 
-      channel_category, available, create_time, 
-      update_time)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{guarantyCategory,jdbcType=INTEGER}, 
-      #{lifeDurationCategory,jdbcType=INTEGER}, #{collectDurationCategory,jdbcType=INTEGER}, 
-      #{loanAmountCategory,jdbcType=INTEGER}, #{lInterestCategory,jdbcType=INTEGER}, 
-      #{lServiceFeeCategory,jdbcType=INTEGER}, #{lPayCategory,jdbcType=INTEGER}, #{lMemberCategory,jdbcType=INTEGER}, 
-      #{bInterestCategory,jdbcType=INTEGER}, #{bServiceFeeCategory,jdbcType=INTEGER}, 
-      #{bAmountCategory,jdbcType=INTEGER}, #{bPayCategory,jdbcType=INTEGER}, #{bMemberCategory,jdbcType=INTEGER}, 
-      #{channelCategory,jdbcType=INTEGER}, #{available,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into product (name, guaranty_category, life_duration_category, 
+      collect_duration_category, loan_amount_category, 
+      l_interest_category, l_service_fee_category, 
+      l_pay_category, l_member_category, b_interest_category, 
+      b_service_fee_category, b_amount_category, b_pay_category, 
+      b_member_category, channel_category, available, 
+      create_time, update_time)
+    values (#{name,jdbcType=VARCHAR}, #{guarantyCategory,jdbcType=INTEGER}, #{lifeDurationCategory,jdbcType=INTEGER}, 
+      #{collectDurationCategory,jdbcType=INTEGER}, #{loanAmountCategory,jdbcType=INTEGER}, 
+      #{lInterestCategory,jdbcType=INTEGER}, #{lServiceFeeCategory,jdbcType=INTEGER}, 
+      #{lPayCategory,jdbcType=INTEGER}, #{lMemberCategory,jdbcType=INTEGER}, #{bInterestCategory,jdbcType=INTEGER}, 
+      #{bServiceFeeCategory,jdbcType=INTEGER}, #{bAmountCategory,jdbcType=INTEGER}, #{bPayCategory,jdbcType=INTEGER}, 
+      #{bMemberCategory,jdbcType=INTEGER}, #{channelCategory,jdbcType=INTEGER}, #{available,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.solution.p2p.core.common.entity.Product" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into product
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="name != null" >
         name,
       </if>
@@ -196,9 +197,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>

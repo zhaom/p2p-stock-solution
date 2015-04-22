@@ -43,41 +43,110 @@
 
         <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等 -->
 
-        <table tableName="member" domainObjectName="Member" />
-        <table tableName="enterprise_reg_info" domainObjectName="EnterpriseRegInfo" />
-        <table tableName="bid" domainObjectName="Bid" />
-        <table tableName="bid_refund_info" domainObjectName="BidRefundInfo" />
-        <table tableName="hdb_bank_info" domainObjectName="HdbBankInfo" />
-        <table tableName="member_account" domainObjectName="MemberAccount" />
-        <table tableName="member_account_finance_rpt" domainObjectName="MemberAccountFinanceRpt" />
-        <table tableName="member_account_flow" domainObjectName="MemberAccountFlow" />
-        <table tableName="member_account_item" domainObjectName="MemberAccountItem" />
-        <table tableName="member_account_transaction" domainObjectName="MemberAccountTransaction" />
-        <table tableName="member_auth_status" domainObjectName="MemberAuthStatus" />
-        <table tableName="member_bid_distribute" domainObjectName="MemberBidDistribute" />
-        <table tableName="member_bid_request" domainObjectName="MemberBidRequest" />
-        <table tableName="member_stock_account" domainObjectName="MemberStockAccount" />
-        <table tableName="bid_stock_account" domainObjectName="BidStockAccount" />
-        <table tableName="product" domainObjectName="Product" />
-        <table tableName="product_amount_category" domainObjectName="ProductAmountCategory" />
-        <table tableName="product_channel_category" domainObjectName="ProductChannelCategory" />
-        <table tableName="product_duration_category" domainObjectName="ProductDurationCategory" />
-        <table tableName="product_guaranty_category" domainObjectName="ProductGuarantyCategory" />
-        <table tableName="product_interest_category" domainObjectName="ProductInterestCategory" />
-        <table tableName="product_member_category" domainObjectName="ProductMemberCategory" />
-        <table tableName="product_pay_category" domainObjectName="ProductPayCategory" />
-        <table tableName="product_service_fee_category" domainObjectName="ProductServiceFeeCategory" />
+        <table tableName="member" domainObjectName="Member" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="enterprise_reg_info" domainObjectName="EnterpriseRegInfo" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="bid" domainObjectName="Bid" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="bid_refund_info" domainObjectName="BidRefundInfo" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="hdb_bank_info" domainObjectName="HdbBankInfo" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="member_account" domainObjectName="MemberAccount" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
 
-        <table tableName="sys_app" domainObjectName="SysApp" />
-        <table tableName="sys_area" domainObjectName="SysArea" />
-        <table tableName="sys_dict" domainObjectName="SysDict" />
-        <table tableName="sys_op_log" domainObjectName="SysOpLog" />
-        <table tableName="sys_org" domainObjectName="SysOrg" />
-        <table tableName="sys_resource" domainObjectName="SysResource" />
-        <table tableName="sys_role" domainObjectName="SysRole" />
-        <table tableName="sys_user" domainObjectName="SysUser" />
-        <table tableName="sys_user_app_roles" domainObjectName="SysUserAppRoles" />
-        <table tableName="sys_msg" domainObjectName="SysMsg" />
+        <table tableName="member_account_finance_rpt" domainObjectName="MemberAccountFinanceRpt" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="member_account_flow" domainObjectName="MemberAccountFlow" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="member_account_item" domainObjectName="MemberAccountItem" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="member_account_transaction" domainObjectName="MemberAccountTransaction" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="member_auth_status" domainObjectName="MemberAuthStatus" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="member_bid_distribute" domainObjectName="MemberBidDistribute" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="member_bid_request" domainObjectName="MemberBidRequest" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="member_stock_account" domainObjectName="MemberStockAccount" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="bid_stock_account" domainObjectName="BidStockAccount" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product" domainObjectName="Product" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product_amount_category" domainObjectName="ProductAmountCategory" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product_channel_category" domainObjectName="ProductChannelCategory" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product_duration_category" domainObjectName="ProductDurationCategory" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product_guaranty_category" domainObjectName="ProductGuarantyCategory" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product_interest_category" domainObjectName="ProductInterestCategory" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product_member_category" domainObjectName="ProductMemberCategory" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product_pay_category" domainObjectName="ProductPayCategory" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="product_service_fee_category" domainObjectName="ProductServiceFeeCategory" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="sys_app" domainObjectName="SysApp" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_area" domainObjectName="SysArea" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_dict" domainObjectName="SysDict" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_op_log" domainObjectName="SysOpLog" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_org" domainObjectName="SysOrg" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_resource" domainObjectName="SysResource" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_role" domainObjectName="SysRole" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_user" domainObjectName="SysUser" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_user_app_roles" domainObjectName="SysUserAppRoles" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_msg" domainObjectName="SysMsg" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
 
     </context>
 </generatorConfiguration>
