@@ -1,12 +1,14 @@
-#macro(WWW_HOME_URL)http://localhost/web/#end
-#macro(IMAGE_URL)http://image.fanyajr.com/#end
-#macro(I_ROOT_URL)http://localhost/i/account/summary#end
-#macro(I_INVEST_ROOT_URL)http://localhost/i/invest/summary#end
-#macro(I_INVEST_DETAIL_URL)http://localhost/i/invest/summary#end
-#macro(I_INVEST_COLLECT_URL)http://localhost/i/invest/collect#end
-#macro(PASSPORT_ROOT_URL)http://localhost/passport/#end
-#macro(PROD_ROOT_URL)http://localhost/product/#end
-#macro(TRANSFER_ROOT_URL)http://localhost/transfer/#end
-#macro(HELP_ROOT_URL)http://localhost/help/#end
-#macro(ABOUT_ROOT_URL)http://localhost/about/#end
+#macro(WWW_HOME_URL)http://www.niuniu.com/#end
+#macro(IMAGE_URL)http://www.niuniu.com/images#end
+#macro(I_ROOT_URL)http://www.niuniu.com/i/account/summary#end
+#macro(I_INVEST_ROOT_URL)http://www.niuniu.com/i/invest/summary#end
+#macro(I_INVEST_DETAIL_URL)http://www.niuniu.com/i/invest/summary#end
+#macro(I_INVEST_COLLECT_URL)http://www.niuniu.com/i/invest/collect#end
+#macro(PASSPORT_ROOT_URL)http://www.niuniu.com/passport/#end
+#macro(P2P_ROOT_URL)http://www.niuniu.com/p2p/#end
+#macro(COLLECT_ROOT_URL)http://www.niuniu.com/collect/#end
+#macro(EVENT_ROOT_URL)http://www.niuniu.com/event/#end
+#macro(TRANSFER_ROOT_URL)http://www.niuniu.com/transfer/#end
+#macro(HELP_ROOT_URL)http://www.niuniu.com/help/#end
+#macro(ABOUT_ROOT_URL)http://www.niuniu.com/about/#end
 #macro(JQGRID_DEFAULT_SETTINGS)datatype: "json", rownumbers: true, rownumWidth: 40, shrinkToFit: true, forceFit: true, autowidth: true, height: "100%", scrollOffset: 0#end
