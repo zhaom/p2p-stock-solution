@@ -5,6 +5,7 @@ import com.solution.p2p.core.common.entity.MemberExample;
 import com.solution.p2p.core.common.service.BasicServiceImpl;
 import com.solution.p2p.core.common.service.MemberService;
 import com.solution.p2p.core.common.utils.Constants;
+import com.solution.p2p.core.common.utils.PasswordUtil;
 import com.solution.p2p.core.common.utils.ServiceResult;
 import com.solution.p2p.core.dao.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class MemberServiceImpl extends BasicServiceImpl implements MemberService
     @Override
     public ServiceResult<Integer> createUser(Member member, String appKey, String signature) {
         ServiceResult<Integer> serviceResult = new ServiceResult<Integer>();
-        memberMapper.insert(member);
+        memberMapper.insertSelective(member);
         return serviceResult;
     }
 
@@ -54,12 +55,44 @@ public class MemberServiceImpl extends BasicServiceImpl implements MemberService
     }
 
     @Override
-    public ServiceResult<Integer> resetPassword(String mobile, String newPassword, String appKey, String signature) {
-        return null;
+    public ServiceResult<Integer> resetPassword(Long mid, String oldPassword, String newPassword, String appKey, String signature) {
+        ServiceResult<Integer> serviceResult = new ServiceResult<Integer>();
+        Member member = memberMapper.selectByPrimaryKey(mid);
+        if(member == null){
+            serviceResult.setSuccess(false);
+            serviceResult.setErrorCode(Constants.ERROR_CODE_SERVICE_DATA_NOT_FOUND);
+            serviceResult.setErrorMessage("用户名不存在！");
+        } else if(PasswordUtil.validatePassword(oldPassword, member.getPassword())){
+            member.setPassword(PasswordUtil.entryptPassword(newPassword));
+            memberMapper.updateByPrimaryKeySelective(member);
+            serviceResult.setSuccess(true);
+        } else {
+            serviceResult.setSuccess(false);
+            serviceResult.setErrorCode(Constants.ERROR_CODE_SERVICE_PASSWD_INCORRECT);
+            serviceResult.setErrorMessage("密码输入有误！");
+        }
+        return serviceResult;
     }
 
     @Override
-    public ServiceResult<Integer> resetTradePassword(String mobile, String newPassword, String appKey, String signature) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public ServiceResult<Integer> resetTradePassword(Long mid, String oldPassword, String newPassword, String appKey, String signature) {
+        ServiceResult<Integer> serviceResult = new ServiceResult<Integer>();
+        Member member = memberMapper.selectByPrimaryKey(mid);
+        if(member == null){
+            serviceResult.setSuccess(false);
+            serviceResult.setErrorCode(Constants.ERROR_CODE_SERVICE_DATA_NOT_FOUND);
+            serviceResult.setErrorMessage("用户名不存在！");
+        } else if(PasswordUtil.validatePassword(oldPassword, member.getTradePassword())){
+            member.setTradePassword(PasswordUtil.entryptPassword(newPassword));
+            memberMapper.updateByPrimaryKeySelective(member);
+            serviceResult.setSuccess(true);
+        } else {
+            serviceResult.setSuccess(false);
+            serviceResult.setErrorCode(Constants.ERROR_CODE_SERVICE_PASSWD_INCORRECT);
+            serviceResult.setErrorMessage("密码输入有误！");
+        }
+        return serviceResult;
     }
+
+
 }

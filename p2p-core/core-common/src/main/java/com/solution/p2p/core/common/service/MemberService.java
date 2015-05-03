@@ -16,7 +16,7 @@ public interface MemberService {
 
     ServiceResult<Member> findByUsername(String content, String appKey, String signature);
 
-    ServiceResult<Integer> resetPassword(String mobile, String newPassword, String appKey, String signature);
+    ServiceResult<Integer> resetPassword(Long mid, String oldPassword, String newPassword, String appKey, String signature);
 
-    ServiceResult<Integer> resetTradePassword(String mobile, String newPassword, String appKey, String signature);
+    ServiceResult<Integer> resetTradePassword(Long mid, String oldPassword, String newPassword, String appKey, String signature);
 }

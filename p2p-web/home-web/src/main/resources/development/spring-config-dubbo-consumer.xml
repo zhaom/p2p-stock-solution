@@ -13,8 +13,6 @@
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
 
     <!-- 生成远程服务代理，可以和本地bean一样使用 -->
-    <dubbo:reference id="accountService" interface="com.fanya.p2p.common.service.AccountService" />
-    <dubbo:reference id="accountFlowService" interface="com.fanya.p2p.common.service.AccountFlowService"/>
 
 
 </beans>

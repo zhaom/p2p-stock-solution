@@ -77,13 +77,19 @@
         <constructor-arg index="0" ref="sqlSessionFactory" />
         <constructor-arg index="1" value="BATCH" />
     </bean>
+    <!--
+       <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+           <property name="basePackage" value="com.solution.p2p.core.dao" />
+           <property name="annotationClass" value="org.springframework.stereotype.Repository" />
+   </bean>
+  -->
 
-    <bean id="memberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.solution.p2p.core.dao.MemberMapper" />
-        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-    </bean>
+  <bean id="memberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+      <property name="mapperInterface" value="com.solution.p2p.core.dao.MemberMapper" />
+      <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+  </bean>
 
-    <!--事务管理器配置-->
+   <!--事务管理器配置-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSourceProxy"/>
     </bean>

@@ -3,8 +3,12 @@ package com.solution.p2p.core.dao;
 import com.solution.p2p.core.common.entity.Member;
 import com.solution.p2p.core.common.entity.MemberExample;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 
 public interface MemberMapper {
     int countByExample(MemberExample example);
