@@ -1,0 +1,798 @@
+#parse("./common/header.html")
+<style>
+.h-left {
+    width: 395px;
+}
+
+.c1000 .framework {
+    border-bottom: none;
+}
+
+.framework .main {
+    background-color: #fff;
+}
+
+.framework .main .form {
+    padding: 45px 0;
+    border-bottom: none;
+}
+
+.framework .main .form .left b {
+    font-size: 15px;
+    color: #262626
+}
+
+.framework .main .form li {
+    margin-bottom: 20px
+}
+
+.framework .main .questions {
+    padding-bottom: 45px;
+}
+
+.framework .hr {
+    clear: both;
+    height: 1px;
+    border-bottom: dashed 1px #eee;
+    width: 650px;
+    margin: 10px auto 20px;
+}
+
+.framework .sidebar {
+    border-left: none;
+}
+
+.c1000 ul.step {
+    height: 45px;
+    margin: 10px 0
+}
+
+.c1000 ul.step li {
+    line-height: 45px;
+}
+
+.c1000 ul.step .on {
+    border-bottom: solid 1px #b20000;
+    height: 45px
+}
+
+.c1000 .right span {
+    color: #444;
+    margin-right: 8px;
+}
+
+.c1000 .right span input {
+    margin-top: 11px;
+}
+
+.c1000 .right .pledge {
+    padding-left: 5px;
+    width: 100px;
+    font-size: 18px;
+}
+
+.c1000 .right .pledge.yuexi {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.c1000 .right .pledge.jiekuan {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.c1000 .right span {
+    color: #444;
+    margin-right: 8px;
+}
+
+.c1000 .right span input {
+    margin-top: 11px;
+}
+
+.c1000 .right .pledge {
+    background: url(http://static.658.com/common/build/1.00/images/fb_bg.jpg) no-repeat;
+    padding-left: 50px;
+    width: 50px;
+    font-size: 18px;
+}
+
+.c1000 .right .pledge.yuexi {
+    background: url(http://image01.658.com/files/141116/14161200153278f84efe3e7fabcd5d74d4b82947600a9d.jpg) no-repeat right;
+    padding-left: 5px;
+    padding-right: 50px
+}
+
+.c1000 .right .pledge.jiekuan {
+    background: url(http://image01.658.com/files/141116/14161200587828071ef9fb3a12fdb176dc594d9f61b7c5.jpg) no-repeat right;
+    padding-left: 5px;
+    padding-right: 50px
+}
+
+.sidebar .ti {
+    height: 30px;
+    display: block;
+    line-height: 30px;
+    padding: 10px 0 10px 35px;
+    font-size: 16px;
+    border-bottom: dotted 1px #eee;
+}
+
+.framework .sidebar .badges {
+    padding-left: 25px;
+    margin-top: 20px;
+}
+
+.framework .sidebar {
+    height: 700px;
+}
+
+.sidebar .badges p {
+    width: 150px;
+    line-height: 16px
+}
+
+.framework .sidebar .badges .anquan b {
+    background-position: 0 0;
+}
+
+.framework .sidebar .badges .gongkai b {
+    background-position: 0 0;
+}
+
+.framework .sidebar .badges .tiqu b {
+    background-position: 0 0;
+}
+
+    /*v2新增样式*/
+.gpqh {
+    border-bottom: solid 2px #CCC;
+    height: 35px;
+    margin: 30px 0 0;
+}
+
+.gpqh a {
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    color: #666;
+    margin: 0 30px 0 0;
+    display: block;
+    float: left;
+    width: 110px;
+    text-align: center;
+}
+
+.gpqh a.h {
+    border-bottom: solid 2px #b20000;
+    color: #b20000
+}
+
+.huanxi {
+    border: dashed 1px #d8d6d9;
+    background-color: #fff9e3;
+    padding: 10px;
+    width: 690px
+}
+
+.framework .hr {
+    border-bottom: none;
+}
+
+.c1000 .huanxi .right {
+    width: 60px
+}
+
+.sidebar .badges b {
+    display: inline-block;
+    background: url(http://image01.658.com/files/141116/14161196876962ab3233f27412487423087e6ab62bdf94.jpg) no-repeat;
+    width: 41px;
+    height: 41px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.sidebar .badges li {
+    padding-left: 40px;
+}
+
+.sidebar .cgal {
+    width: 190px;
+    margin: 20px 32px;
+}
+
+.sidebar .cgal dl dt {
+    line-height: 27px
+}
+
+.sidebar .cgal dl dd {
+    line-height: 27px
+}
+
+.sidebar .cgal dl dd span {
+    margin: 0 10px
+}
+
+.sidebar .cgal dl dd a {
+    color: #666;
+}
+
+.sidebar ul.xts {
+    width: 191px;
+    margin: 20px 30px;
+}
+
+.sidebar ul.xts li {
+    list-style: inside;
+    padding-left: 5px;
+    margin-bottom: 1px;
+    line-height: 27px;
+}
+</style>
+
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/base.css">
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/jquery.ui.slider.min.css">
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/cool.css">
+<link rel="stylesheet" href="/css/tip-yellowsimple.css"/>
+<link rel="stylesheet" href="/css/owl.theme.css"/>
+<link rel="stylesheet" href="/css/owl.carousel.css"/>
+<script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/js/form1.js"></script>
+<script type="text/javascript" src="/js/jquery.poshytip.js"></script>
+<script type="text/javascript" src="/js/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/webox.css">
+<script src="http://image02.658.com/v2/static/js/webox.js"></script>
+<style>
+    .userData {
+        behavior: url(#default#userdata);
+    }
+
+    .webox {
+        position: absolute;
+        top: 10% !important;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('img.pop_tip').poshytip({
+            className: 'tip-yellowsimple',
+            showTimeout: 1,
+            alignTo: 'target',
+            alignX: 'center',
+            offsetY: 5,
+            allowTipHover: false,
+            fade: false,
+            slide: false
+        });
+
+        $('.gpqh a').click(function () {
+            $('#apply_money').select();
+            $('#apply_money').val('');
+            $('.gpqh a').removeClass('h');
+            $(this).addClass('h');
+            /*
+             $('.about_content_bt').nextAll().hide();
+             $('.'+$(this).attr('id')).show();*/
+        });
+
+        $('.cgal').owlCarousel({
+            items: 1,
+            autoWidth: false,
+            loop: false,
+
+        });
+
+    });
+</script>
+
+<div class="c1000">
+<ul class="step">
+    <li class="on"><i>1</i>填写融资需求</li>
+    <li><i>2</i>支付保证金</li>
+    <li><i>3</i>开始募集资金</li>
+    <li><i>4</i>领取证券账户</li>
+</ul>
+
+<div class="gpqh">
+    <a href="javascript:;" class="h" alt="1" id="Finance_financeType_0">股票投资</a>
+    <a href="javascript:;" alt="2" id="Finance_financeType_1">期货投资</a>
+</div>
+<!--framework-->
+<div class="framework" style="margin-bottom:0;">
+
+<!-- main body -->
+<div class="main">
+
+<style>
+    .labelForRadio {
+        display: inline-block;
+        width: auto;
+        float: none;
+        cursor: pointer;
+    }
+</style>
+
+<form enctype="multipart/form-data" onSubmit="return $.finance_form.submit();" style="height:650px;"
+      id="finance-form" action="/financing/apply" method="post">  <!-- a form -->
+    <ul class="form" style="height:350px;">
+
+
+        <li>
+            <div class="left">
+                <b>借款金额</b>
+            </div>
+            <div class="right">
+                <input type="text" size="10" maxlength="10" class="pledge jiekuan" id="apply_money"
+                       style="border-color: rgb(221, 221, 221);">
+                <b class="however"></b><i class="tip" style="display: inline;">借款金额范围为1万元-2000万元,
+                为1万元的倍数递增</i>
+            </div>
+        </li>
+
+        <li style="display: none;">
+            <div class="left">
+                <b>融资杠杆</b>
+            </div>
+            <div class="right">
+                <input name="Finance[financeLever]" id="Finance_financeLever" type="hidden" value="1">
+            </div>
+        </li>
+        <div class="hr"></div>
+        <li class="queue">
+            <div class="left" style="margin-right: 5px; margin-left: 79px; width: 13%;">
+                <!-- <b>配资比例<img class="pop_tip" title="用于支付，实盘资金占用费。申购成功既支付" style="float: right;margin: 10px 0 0 3px; cursor:pointer" src="http://image01.658.com/files/141116/141611975035582617e182fb86e248f8126e227ca149f3.jpg" width="16" height="16"></b> -->
+                <span style="font-size: 14px;">配资比例</span><span><img class="pop_tip"
+                                                                     title="用于支付，实盘资金占用费。申购成功既支付"
+                                                                     style="height: 16px; margin: 10px 3px; cursor:pointer"
+                                                                     src="http://image01.658.com/files/141116/141611975035582617e182fb86e248f8126e227ca149f3.jpg"
+                                                                     width="16" height="16"></span>
+            </div>
+            <div class="right grid-block" id="finance_money_right">
+
+                <!--
+                 <b id="Finance_financeMoney" class="joinInTheFun">0</b><b class="joinInTheFun">元</b>
+                 -->
+                <select id="finance_lever" name="Finance[financeLever]"
+                        style="width: 107px;height: 32px;border: solid 1px #ddd;">
+                    <option value="5">5倍</option>
+                    <option value="4">4倍</option>
+                    <option value="3">3倍</option>
+                    <option value="2">2倍</option>
+                    <option value="1">1倍</option>
+                </select><i class="tip left" style="display: inline;" id="own_money"></i>
+                <i id="Finance_financeMoney_err" class="tip left"></i>
+
+            </div>
+        </li>
+
+        <div class="hr"></div>
+        <li style='float:none;'>
+            <div class='left'><b>配资期限</b></div>
+            <div class="right" style="color: #999;"><input type='radio' name='Finance[isDeadlineMonth]'
+                                                           value="2" style="float:none;"
+                                                           checked/>按天&nbsp;<input type='radio'
+                                                                                   name='Finance[isDeadlineMonth]'
+                                                                                   value="1"
+                                                                                   style="float:none;"/> 按月
+            </div>
+        </li>
+        <li>
+            <div class="left">
+                <b>&nbsp;</b>
+            </div>
+            <div class="right">
+                <select id="Finance_financeDeadline" name="Finance[financeDeadline]"
+                        style="width: 107px;height: 32px;border: solid 1px #ddd;">
+                    <option value="2">2天</option>
+                    <option value="3">3天</option>
+                    <option value="4">4天</option>
+                    <option value="5">5天</option>
+                    <option value="6">6天</option>
+                    <option value="7">7天</option>
+                    <option value="8">8天</option>
+                    <option value="9">9天</option>
+                    <option value="10">10天</option>
+                    <option value="11">11天</option>
+                    <option value="12">12天</option>
+                    <option value="13">13天</option>
+                    <option value="14">14天</option>
+                    <option value="15">15天</option>
+                    <option value="16">16天</option>
+                    <option value="17">17天</option>
+                    <option value="18">18天</option>
+                    <option value="19">19天</option>
+                    <option value="20">20天</option>
+                    <option value="21">21天</option>
+                    <option value="22">22天</option>
+                    <option value="23">23天</option>
+                    <option value="24">24天</option>
+                    <option value="25">25天</option>
+                </select>
+                <b></b><i class="tip left" id='deadline-type'></i>
+            </div>
+        </li>
+        <div class="hr"></div>
+        <li>
+            <div class="left">
+                <b>年利率</b>
+            </div>
+            <div class="right">
+                <input size="10" maxlength="10" class="pledge yuexi" placeholder="9~18"
+                       name="Finance[annualRate]" id="Finance_annualRate" type="text"
+                       style="border-color: rgb(221, 221, 221);" value="12">
+                <i class="tip" style="display: inline;" id="calculate_rate">月利率：1%</i>
+                <span>&nbsp; 参考利率：</span><a class='cd22' href='http://list.658.com/financeList?full'
+                                            target='_blank'>19.81%</a>
+            </div>
+        </li>
+        <div class="hr"></div>
+
+        <!-- <li>
+             <div class="left">
+                 <b>盈利分成</b>
+             </div>
+             <div class="right">
+             <input size="10" maxlength="10" class="pledge yuexi" name="Finance[gainRate]" id="Finance_gainRate" type="text" style="border-color: rgb(221, 221, 221); display: none;" value="">
+             <i class="tip" style="display: inline;" id="calculate_rate"><input type="checkbox" name="gainRate" style="margin: 10px;" value="1" />盈利与投资人分成</i>
+             <b class="however2"></b>
+             </div>
+        </li>
+        <div class="hr"></div> -->
+
+        <li style="margin-bottom:0px;height: 82px;">
+            <div class="huanxi">
+                <div class="left"><b style="font-size:14px" id='rate-type'>每月还息</b></div>
+                <div class="right" id="monthly_interest" style="width: 72%;">
+                    <span style="color:#ff6600; width: 25%;">0元</span>
+                    <span>投入就计息，利息由借款人出。</span>
+                </div>
+                <br/>
+
+                <div class="left" style="margin-right: 5px; margin-left: 37px; width: 20%;">
+                    <!-- <b style="font-size:14px; height: 35px;">每月缴纳服务费<img class="pop_tip" title="用于支付，实盘资金占用费。申购成功既支付" style="float: right;margin: 11px 0 0 3px; cursor:pointer" src="http://image01.658.com/files/141116/141611975035582617e182fb86e248f8126e227ca149f3.jpg" width="16" height="16"></b> -->
+                    <span style="font-size: 14px;" id='fee-type'>每月缴纳服务费</span><span><img class="pop_tip"
+                                                                                          title="用于支付，实盘资金占用费。申购成功既支付"
+                                                                                          style="height: 16px; margin: 10px 3px; cursor:pointer"
+                                                                                          src="http://image01.658.com/files/141116/141611975035582617e182fb86e248f8126e227ca149f3.jpg"
+                                                                                          width="16"
+                                                                                          height="16"></span>
+                </div>
+                <div class="right" id="monthly_service_fee" style="width:20%;color:#ff6600">0元</div>
+                <div class="f12" style=" margin-left:-5px"><font>服务费</font><font class="cd22"
+                                                                                 id='service_rate'>(借款金额 X
+                    0.4%/每月）</font> <font>+ 账户管理费</font><font class="cd22">(200元/每月)</font></div>
+            </div>
+        </li>
+        <div class="hr"></div>
+
+
+        <input type="hidden" id="Finance_ownMoney" name="Finance[ownMoney]" class="hack" value="0">
+        <input type="hidden" id="Finance_serviceFee" name="Finance[serviceFee]" class="hack" value="0">
+        <span id="finance_type"><input value="1" type="hidden" name="Finance[financeType]"></span>
+
+        <li class="confirm" style="padding-top: 20px;">
+            <div class="left">&nbsp;
+                <input type="hidden" value="2" name="step" id="step"/></div>
+            <div class="right">
+                <input class="" id="finance-form-button" style="width:160px" type="submit" name="yt0"
+                       value="下一步"/> &#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;
+            </div>
+        </li>
+
+        <li>
+            <div class="left">&nbsp;</div>
+            <div class="right protocol" style="margin-left:18px;"><input type="checkbox"
+                                                                         style="border-color: rgb(221, 221, 221);"
+                                                                         id="agree-658terms"
+                                                                         checked="checked">同意《<a
+                    href="http://www.658.com/help?c=about&id=132" target="_blank">借款协议</a>》并遵守《<a
+                    href="http://www.658.com/help?c=about&id=3914" target="_blank">配资规则</a>》
+            </div>
+        </li>
+    </ul>
+
+
+</form>
+<!-- form -->
+
+<script>
+$.extend({
+    isN: function (o) {
+        return typeof o == "number"
+    },
+    isInt: function (o) {
+        return $.isN(o) && Math.round(o) == o
+    }
+});
+function service_rate() {
+    var finance_lever = $("#finance_lever").val();
+    var finance_type = $("input[name='Finance[financeType]']").val();
+    var type = $("input[name='Finance[isDeadlineMonth]']:checked").val();
+    var html = "";
+    if (finance_type == 2) {
+        html += "(借款金额 X 0.25%/每";
+
+        if (type == 1) {
+            html += "月）";
+        }
+        else {
+            html += "期）"
+        }
+
+        $("#service_rate").html(html);
+        return false;
+    }
+    if (finance_lever == 5) {
+        html += "(借款金额 X 0.4%/每";
+    }
+    else {
+        html += "(借款金额 X 0.25%/每";
+
+    }
+    if (type == 1) {
+        html += "月）";
+    }
+    else {
+        html += "期）"
+    }
+    $("#service_rate").html(html);
+}
+$(function () {
+
+    //服务费率
+    service_rate();
+
+    $('#rate-type').html('每期还息');
+    $('#fee-type').html('每期缴纳服务费');
+    $("input[name='Finance[isDeadlineMonth]']").change(function () {
+        var type = $(this).val();
+        var tpl1 = '<option value="1">1个月</option><option value="2">2个月</option><option value="3">3个月</option><option value="6">6个月</option><option value="12">12个月</option>';
+        var tpl2 = '';
+        var days = 25;
+        for (i = 2; i <= days; i++) {
+            tpl2 += '<option value="' + i + '">' + i + '天</option>';
+        }
+        if (type == 1) {
+            $('#rate-type').html('每月还息');
+            $('#fee-type').html('每月缴纳服务费');
+            $("#Finance_financeDeadline").html(tpl1);
+            $("#deadline-type").html('1-12个月内');
+        }
+        else if (type == 2) {
+            $('#rate-type').html('每期还息');
+            $('#fee-type').html('每期缴纳服务费');
+            $("#Finance_financeDeadline").html(tpl2);
+            $("#deadline-type").html('2-25天');
+        }
+        var apply_money = $('#apply_money').val();
+        var finance_lever = $('#finance_lever').val();
+        var own_money = Math.round(apply_money * 10000 / finance_lever, 0);
+
+        //改保证金值
+        $('#Finance_ownMoney').val(own_money);
+
+        $('#own_money').html('保证金：' + own_money + '元');
+        service_rate();
+        getCost(finance_lever, own_money);
+    });
+    $('#Finance_financeDeadline').change(function () {
+        var apply_money = $('#apply_money').val();
+        var finance_lever = $('#finance_lever').val();
+        var own_money = Math.round(apply_money * 10000 / finance_lever, 0);
+
+        //改保证金值
+        $('#Finance_ownMoney').val(own_money);
+
+        $('#own_money').html('保证金：' + own_money + '元');
+        getCost(finance_lever, own_money);
+    });
+    //init
+    $('#apply_money').val('');
+    //改借款金额
+    $('#apply_money').on('keyup blur', function () {
+        $('.fuck').remove();
+        $('.however').next().show();
+        showFunction();
+        var apply_money = $('#apply_money').val();
+        var finance_lever = $('#finance_lever').val();//顺序不能换
+        var own_money = Math.round(apply_money * 10000 / finance_lever, 0);
+        var finance_type = $("input[name='Finance[financeType]']").val();
+
+        //改保证金值
+        $('#Finance_ownMoney').val(own_money);
+
+        if (finance_lever == undefined) {
+            finance_lever = 1;
+        }
+        if (own_money == undefined) {
+            own_money = 0;
+        }
+        $('#own_money').html('保证金：' + own_money + '元');
+        getCost(finance_lever, own_money);
+        gangGan(finance_type, apply_money);
+    });
+
+    //改融资类型
+    $('#Finance_financeType_0').click(function () {
+
+// 		$('.protocol').html('<input type="checkbox" style="border-color: rgb(221, 221, 221);" id="agree-658terms" checked="checked">同意《<a href="http://www.658.com/help?c=about&id=132" target="_blank">借款协议</a>》');
+        $('#finance_type').html('<input value="1" type="hidden" name="Finance[financeType]">');
+        var finance_type = $("input[name='Finance[financeType]']").val();
+        var apply_money = $('#apply_money').val();
+        gangGan(finance_type, apply_money);
+        service_rate();
+    });
+
+    $('#Finance_financeType_1').click(function () {
+// 		$('.protocol').html('<input type="checkbox" style="border-color: rgb(221, 221, 221);" id="agree-658terms" checked="checked">同意《<a href="http://www.658.com/help?c=about&id=434" target="_blank">借款协议</a>》');
+        $('#finance_type').html('<input value="2" type="hidden" name="Finance[financeType]">');
+        var finance_type = $("input[name='Finance[financeType]']").val();
+        var apply_money = $('#apply_money').val();
+        gangGan(finance_type, apply_money);
+        service_rate();
+    });
+
+    //改杠杆
+    $('#finance_lever').change(function () {
+        service_rate();
+        var apply_money = $('#apply_money').val();
+        var finance_lever = $('#finance_lever').val();
+        var own_money = Math.round(apply_money * 10000 / finance_lever, 0);
+
+        //改保证金值
+        $('#Finance_ownMoney').val(own_money);
+
+        $('#own_money').html('保证金：' + own_money + '元');
+        getCost(finance_lever, own_money);
+    });
+
+    //改月息
+    $('#Finance_annualRate').keyup(function () {
+        showFunction();
+        var apply_money = $('#apply_money').val();
+        var finance_lever = $('#finance_lever').val();
+        var own_money = Math.round(apply_money * 10000 / finance_lever, 0);
+
+        //改保证金值
+        $('#Finance_ownMoney').val(own_money);
+
+        $('#own_money').html('保证金：' + own_money + '元');
+        getCost(finance_lever, own_money);
+    });
+
+    /**
+     * 计算利息和服务费
+     * financeLever 杠杆
+     * finance_money 实际借款金额
+     */
+    function getCost(financeLever, own_money) {
+        var finance_money = own_money * financeLever;//实际借款金额（根据这个算服务费和利息）
+        var finance_deadline = $('#Finance_financeDeadline').val();//借款期限
+        var month_rate = $('#Finance_annualRate').val() / 12;//月利率
+        var isDeadlineMonth = $("input[name='Finance[isDeadlineMonth]']:checked").val();
+        var financeType = $("input[name='Finance[financeType]']").val();
+        //利息
+        if (isDeadlineMonth == 1)
+            $('#monthly_interest span:first').html(parseFloat(month_rate * finance_money / 100).toFixed(2) + '元');
+        else if (isDeadlineMonth == 2)
+            $('#monthly_interest span:first').html(parseFloat(month_rate * finance_money * parseInt(finance_deadline) / 100 / 30).toFixed(2) + '元');
+        //服务费
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: "/financing/getServiceFee",
+            data: "finance_money=" + finance_money + "&finance_lever=" + financeLever + "&finance_deadline=" + finance_deadline + "&isDeadlineMonth=" + isDeadlineMonth + "&financeType=" + financeType,
+            success: function (data) {
+                $('#monthly_service_fee').html(parseFloat(data).toFixed(2) + '元');
+                $('#Finance_serviceFee').val(parseFloat(data).toFixed(2));
+            }
+        });
+    }
+
+    //整数验证
+    function showFunction() {
+        if (document.getElementById("apply_money")) {
+            document.getElementById("apply_money").maxLength = 10;
+            document.getElementById('apply_money').value = document.getElementById('apply_money').value.replace(/[^\d.]/g, "");
+// 		    document.getElementById('apply_money').value = document.getElementById('apply_money').value.replace("$#$").replace(/\./g,"").replace("$#$",".");
+            document.getElementById('Finance_annualRate').value = document.getElementById('Finance_annualRate').value.replace(/[^\d.]/g, '');
+            if (document.getElementById('apply_money').value > 2000) {
+                document.getElementById('apply_money').value = "";
+            }
+            if (!isNaN(document.getElementById('Finance_annualRate').value) && document.getElementById('Finance_annualRate').value < 0) {
+                document.getElementById('Finance_annualRate').value = "";
+            }
+        }
+    }
+
+    //提交前验证
+    $('#finance-form-button').click(function () {
+        var finance_type = $("input[name='Finance[financeType]']").val();
+        var apply_money = $('#apply_money').val();
+        var finance_lever = $('#finance_lever').val();
+        var own_money = Math.round(apply_money * 10000 / finance_lever, 0);
+        $('.fuck').remove();
+// 		$('#apply_money').next().next().remove();
+        if (!apply_money || apply_money == 0) {
+            $('.however').html('<i class="tip fuck" style="display: inline;"><b class="error"></b><b style="color:red;">请填写正确的金额</b></i>');
+            $('.however').next().hide();
+            return false;
+        }
+
+        // 盈利提成选中但是分成比例没填写
+        var i = $('input[name=gainRate]').is(':checked'),
+                v = $('#Finance_gainRate').val();
+        if (i) {
+            v = v * 1;
+            if (!v || v >= 100 || v < 0 || !$.isInt(v)) {
+                $('.however2').html('<i class="tip fuck" style="display: inline;"><b class="error"></b><b style="color:red;">请填写1~100之间的整数</b></i>');
+                return false;
+            }
+        }
+
+        if (!own_money || own_money <= 0) {
+            return false;
+        }
+    });
+
+    //杠杆验证
+    function gangGan(finance_type, apply_money) {
+        //配资金额不同，比例不同
+        if (finance_type == 2 && apply_money >= 0 && apply_money <= 200) {
+            var gang_gan = '<option value="10">10倍</option>' +
+                    '<option value="9">9倍</option>' +
+                    '<option value="8">8倍</option>' +
+                    '<option value="7">7倍</option>' +
+                    '<option value="6">6倍</option>' +
+                    '<option value="5">5倍</option>' +
+                    '<option value="4">4倍</option>' +
+                    '<option value="3">3倍</option>' +
+                    '<option value="2">2倍</option>' +
+                    '<option value="1">1倍</option>';
+        } else if (finance_type == 2 && apply_money > 200 && apply_money <= 1000) {
+            var gang_gan = '<option value="5">5倍</option>' +
+                    '<option value="4">4倍</option>' +
+                    '<option value="3">3倍</option>' +
+                    '<option value="2">2倍</option>' +
+                    '<option value="1">1倍</option>';
+        } else if (finance_type == 2 && apply_money > 1000) {
+            var gang_gan = '<option value="3">3倍</option>' +
+                    '<option value="2">2倍</option>' +
+                    '<option value="1">1倍</option>';
+        } else {
+            var gang_gan = '<option value="5">5倍</option>' +
+                    '<option value="4">4倍</option>' +
+                    '<option value="3">3倍</option>' +
+                    '<option value="2">2倍</option>' +
+                    '<option value="1">1倍</option>';
+        }
+        $('#finance_lever').html('');
+        $('#finance_lever').prepend(gang_gan);
+    }
+
+});
+</script>
+<script type="text/javascript">
+    $('input[name=gainRate]').on('click', function () {
+        var i = $(this).is(':checked');
+        if (i) { //盈利分成
+            $('#Finance_gainRate').show();
+            $('#Finance_gainRate').focus();
+        } else {
+            $('#Finance_gainRate').hide();
+        }
+    });
+</script>
+
+<!-- form -->
+<script>
+    $(function ($) {
+
+        $.finance_form.init();
+        $.finance_form.exec();
+    });
+
+</script>
+#parse("./common/footer.html")

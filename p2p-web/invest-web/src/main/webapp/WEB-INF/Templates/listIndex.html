@@ -1,0 +1,1303 @@
+#parse("./common/header.html")
+<div id="content">
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/investList.css">
+<script type="text/javascript" src="http://image02.658.com/v2/static2/js/layer/layer.min.js"></script>
+
+<style type="text/css">
+    .money_item_more {
+        border-top: none;
+        padding-left: 30px;
+        padding-bottom: 25px;
+        font-size: 18px;
+        color: #0066cc;;
+        text-align: center;
+        padding-top: 25px;
+    }
+
+    .money_item:hover, .money_item_more:hover {
+        background-color: #f4f3f3
+    }
+
+    .money_item .item_title {
+        color: #666;
+        font-size: 14px;
+        width: 520px;
+        padding: 0;
+        height: 40px;
+        float: left;
+        margin-top: 30px
+    }
+
+    .money_item .item_title span {
+        color: #555;
+        font-size: 20px;
+        padding: 0;
+        margin: 0
+    }
+
+    .money_item .item_time {
+        color: #a4a4a4;
+        width: 520px;
+        float: left;
+        height: 30px;
+    }
+
+        /*.list_btn_buy{ display: inline-block; height: 36px; line-height: 36px; font-size: 14px; width: 118px; transition: 0.3s background ease; text-align:center; border-radius:3px; background-color:#d22000; color:#fff; margin-top:30px; }*/
+    .list_btn_buy {
+        display: inline-block;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        width: 118px;
+        transition: 0.3s background ease;
+        text-align: center;
+        border-radius: 3px;
+        background-color: #d22000;
+        color: #fff;
+        position: absolute;
+        top: 65px;
+        right: 32px;
+    }
+
+    .list_btn_out {
+        display: inline-block;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        width: 118px;
+        transition: 0.3s background ease;
+        text-align: center;
+        border-radius: 3px;
+        background-color: #dadada;
+        color: #fff;
+        position: absolute;
+        top: 65px;
+        right: 32px;
+    }
+
+    .money_item, .money_item_more {
+        width: 688px;
+        border-bottom: 1px solid #e3e3e3;
+        border-top: none;
+        padding-left: 50px;
+        padding-bottom: 20px;
+        cursor: pointer;
+        transition: all .2s ease-in;
+        -moz-transition: all .2s ease-in;
+        -webkit-transition: all .2s ease-in;
+        -o-transition: all .2s ease-in;
+        -ms-transition: all .2s ease-in;
+        transition: all .2s ease-in;
+        float: left;
+    }
+
+    .money_item a:hover.list_btn_buy {
+        background: #ec2400;
+        border: none;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .item_detail {
+        clear: both;
+        color: #939393;
+        margin-top: 20px;
+        *margin-top: 5px !important;
+        display: block
+    }
+
+    .item_detail .rate {
+        color: #d22000;
+        font-weight: bold;
+        font-size: 20px
+    }
+
+    .item_detail p {
+        font-size: 16px;
+        padding-top: 8px;
+        color: #555
+    }
+
+    .item_detail .red {
+        color: #d22000;
+    }
+
+    .item_detail ul {
+        list-style: none
+    }
+
+    .item_detail li {
+        float: left;
+        padding-right: 50px;
+        font-size: 12px;
+    }
+
+    .chujie li {
+        float: left;
+        padding-right: 150px;
+        font-size: 12px;
+    }
+
+    .item_detail .percent_bg {
+        background-color: #dadada;
+        width: 100px;
+        height: 8px;
+        text-indent: -2000px;
+        margin-top: 13px
+    }
+
+    .item_detail .percent_active {
+        background-color: #5b99e7;
+        height: 8px;
+    }
+
+    .item_detail .percent_number {
+        margin-top: 12px;
+        float: left;
+        margin-left: 5px
+    }
+
+    .ui-page .page-list li {
+        padding-top: 30px;
+    }
+
+    .ui-page {
+        margin-top: -30px;
+    }
+
+    .ico_special {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+    .money_item {
+        position: relative;
+    }
+
+    a.list_jine {
+        position: absolute;
+        top: 45px;
+        right: 32px;
+    }
+
+    a.list_jine:hover {
+        text-decoration: none;
+    }
+
+    .item_detail_kd li {
+        padding-right: 100px;
+    }
+
+    .fl_1 {
+        font-size: 16px;
+        font-weight: normal;
+        color: #555;
+    }
+</style>
+<!--list content wrap -->
+<div class="cont-list-wrap">
+<!--ad start-->
+<!--ad end-->
+<div class="c1000 clearfix">
+<div class="cont-hd-bar clearfix">
+    <div class="hd-bar-left">
+        <p class="p-save"><i class="guara"></i>所有项目都已缴纳风险保证金<!-- ，投资人本金100%安全 -->。</p>
+        <!--                 <a class="view-bail" href="http://help.658.com/index.php?c=about&id=109" target="_blank">查看本金保证细则</a> -->
+    </div>
+    <div class="search-right">
+                    <span class="search">
+            		  <input name="financeNum" type="input" placeholder="按订单号查找">
+                      <a href="javascript:void(0)" id="rzdss">搜索</a>
+                    </span>
+    </div>
+</div>
+<div class="content-list clearfix">
+<div class="left-list-item pro-left-v1">
+<ul class="sub-select-bar clearfix">
+    <li class="cur-down">
+        <!--class="cur-up"与class="cur-down"-->
+        <a href="javascript:void(0);">发布时间<i class="down"></i></a>
+    </li>
+    <li>
+        <a href="javascript:void(0);">年息<i class="down"></i></a>
+    </li>
+    <li>
+        <a href="javascript:void(0);">借款期限<i class="down"></i></a>
+    </li>
+    <li>
+        <a href="javascript:void(0);"></a>
+    </li>
+    <!--                 <li> -->
+    <!--                   <a href="javascript:void(0);">剩余时间<i class="down"></i></a> -->
+    <!--                 </li> -->
+    <li class="chk">
+        <label>
+            <input type="checkbox"/>只显示可投项目
+        </label>
+    </li>
+</ul>
+<style type="text/css">
+    .hk .lyhk {
+        display: block;
+        position: absolute;
+        width: 57px;
+        height: 92px;
+        background: url(http://image01.658.com/658/62.png);
+        margin-left: -13px;
+    }
+
+    .hk .lyhk2 {
+        display: block;
+        position: absolute;
+        width: 57px;
+        height: 92px;
+        background: url(http://image01.658.com/658/622.png);
+        margin-left: -13px;
+    }
+
+    .hk .xshd {
+        display: block;
+        position: absolute;
+        width: 57px;
+        height: 92px;
+        background: url(http://image02.658.com/v2/658/common/images/xshd.png);
+        margin-left: -13px;
+    }
+
+    .hk .xshd2 {
+        display: block;
+        position: absolute;
+        width: 57px;
+        height: 92px;
+        background: url(http://image02.658.com/v2/658/common/images/xshd2.png);
+        margin-left: -13px;
+    }
+
+    .hk table {
+        width: 93%;
+        margin-left: 42px;
+    }
+</style>
+
+<script>
+    $(function () {
+        var nowTime = new Date();
+        var count = 0;
+        setInterval(function () {
+            $(".endtime").each(function () {
+                var obj = $(this);
+                var nMS = (parseInt(obj.attr('value')) - count) * 1000;
+                var myD = Math.floor(nMS / (1000 * 60 * 60 * 24));
+                var myH = Math.floor(nMS / (1000 * 60 * 60)) % 24;
+                var myM = Math.floor(nMS / (1000 * 60)) % 60;
+                var myS = Math.floor(nMS / 1000) % 60;
+                if (myD >= 0) {
+                    var str = myD + "天" + myH + "时" + myM + "分" + myS + "秒";
+                } else {
+                    obj.parent().parent().remove();
+                }
+                obj.html(str);
+            });
+            count++;
+        }, 1000);
+    });
+</script>
+
+<div id="yw0">
+<dl class="line3" id="list">
+
+
+<div class="money_item" index="0" fstatus="2" rate="20.01" status="1"
+     fid="http://list.658.com/financeDetail/80150505010385">
+    <div class="item_title" style="position:relative;"><span>王先生借款150万元 </span>( 市值180万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 19小时36分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：494539元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">20.01%</p></li>
+            <li>借款时间<p class="red">6天</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥494,539 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="1" fstatus="2" rate="20.00" status="1"
+     fid="http://list.658.com/financeDetail/80150505010441">
+    <div class="item_title" style="position:relative;"><span>贺先生借款200万元 </span>( 市值240万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 15小时21分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：1567657元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">20.00%</p></li>
+            <li>借款时间<p class="red">10天</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥1,567,657 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="2" fstatus="2" rate="19.65" status="1"
+     fid="http://list.658.com/financeDetail/80150505010483">
+    <div class="item_title" style="position:relative;"><span>丁先生借款50万元 </span>( 市值60万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 7小时52分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：480985元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.65%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥480,985 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="3" fstatus="2" rate="19.61" status="1"
+     fid="http://list.658.com/financeDetail/80150505010464">
+    <div class="item_title" style="position:relative;"><span>张女士借款75万元 </span>( 市值90万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 12小时45分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：382597元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.61%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥382,597 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="4" fstatus="2" rate="19.60" status="1"
+     fid="http://list.658.com/financeDetail/80150504010243">
+    <div class="item_title" style="position:relative;"><span>赵女士借款30万元 </span>( 市值36万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 17小时23分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：136307元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.60%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥136,307 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="5" fstatus="2" rate="19.60" status="1"
+     fid="http://list.658.com/financeDetail/80150505010488">
+    <div class="item_title" style="position:relative;"><span>王先生借款25万元 </span>( 市值30万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 6小时57分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：250000元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.60%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥250,000 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="6" fstatus="2" rate="19.50" status="1"
+     fid="http://list.658.com/financeDetail/80150504010236">
+    <div class="item_title" style="position:relative;"><span>吴先生借款150万元 </span>( 市值180万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 20小时49分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：1500000元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.50%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥1,500,000 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="7" fstatus="2" rate="19.39" status="1"
+     fid="http://list.658.com/financeDetail/80150505010384">
+    <div class="item_title" style="position:relative;"><span>王先生借款100万元 </span>( 市值120万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 19小时37分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：1000000元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.39%</p></li>
+            <li>借款时间<p class="red">8天</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥1,000,000 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="8" fstatus="2" rate="19.30" status="1"
+     fid="http://list.658.com/financeDetail/80150504010248">
+    <div class="item_title" style="position:relative;"><span>褚先生借款8万元 </span>( 市值9.6万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 18小时58分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：80000元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.30%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥80,000 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="9" fstatus="2" rate="19.30" status="1"
+     fid="http://list.658.com/financeDetail/80150505010460">
+    <div class="item_title" style="position:relative;"><span>白先生借款5万元 </span>( 市值6万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 14小时8分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：49995元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.30%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥49,995 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="10" fstatus="2" rate="19.18" status="1"
+     fid="http://list.658.com/financeDetail/80150504010198">
+    <div class="item_title" style="position:relative;"><span>马先生借款4万元 </span>( 市值4.8万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 1天16小时15分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：24019元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.18%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥24,019 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="money_item" index="11" fstatus="2" rate="19.17" status="1"
+     fid="http://list.658.com/financeDetail/80150504010254">
+    <div class="item_title" style="position:relative;"><span>宋先生借款10万元 </span>( 市值12万元股票做质押 )<span
+            style="position:absolute; left:360px;"><img src="http://image02.658.com/v2/658/www/images/home/rbcb_tb.png"
+                                                        width="87" height="29"/></span></div>
+
+
+    <div class="item_time">上线: 20小时36分钟</div>
+    <a class="list_jine f12 cd22" href="javascript:0;" style="display:none; ">可投：49999元</a>
+    <a class="list_btn_buy" href="javascript:void(0);">我要赚钱</a> <!---->
+
+    <div class="item_detail
+	 item_detail_kd	">
+        <ul class='clearfix'>
+            <li>年息收益<p class="rate">19.17%</p></li>
+            <li>借款时间<p>1个月</p></li>
+            <!--        <li>杠杆<p>--><!--倍</p></li>-->
+            <!-- <li>
+                <span style="display:block">进度</span>
+                            <div class="percent_bg" style="float:left;">
+                    <div class="percent_active" style="width:px"></div>
+                </div>
+                <div class="percent_number">
+                    %
+                </div>
+            </li> -->
+            <!-- <li>投资<p>人</p></li> -->
+            <li>可投<p class="rate">￥49,999 <font class="fl_1">元</font></p></li>
+        </ul>
+    </div>
+</div>
+</dl>
+<div class="ui-page clearfix">
+    <ul class="page-list clearfix" id="yw1">
+        <li class="first hidden"><a href="/financeList/index">首页</a></li>
+        <li class="previous hidden"><a href="/financeList/index">
+            <上一页
+        </a></li>
+        <li class="num-count">
+            <div class="num">
+                <strong>第&nbsp;1&nbsp;页</strong>
+                /共&nbsp;539&nbsp;页
+            </div>
+        </li>
+        <li class="next"><a href="/financeList/index?VFinance_page=2">下一页></a></li>
+        <li class="last"><a href="/financeList/index?VFinance_page=539">尾页</a></li>
+    </ul>
+</div>
+<div class="keys" style="display:none" title="/financeList">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+</div>
+</div>
+<!--右侧咨询顾问-->
+<div class="right-bar rt-bar-v1">
+<!-- add weixin start -->
+<div style="margin:10px 0px 26px 0px;">
+    <div style="width:208px; height:208px; margin-bottom:15px; padding-left:6px;">
+        <img src="http://image02.658.com/v2/658/www/images/list_app_qrcode.png" alt="">
+    </div>
+    <p style="font-size:18px; color:#333; text-align:center;  margin-bottom:15px;">扫一扫 下载<span style="color:#d22000;">658投资版</span>
+    </p>
+
+    <p style="font-size:13px; color:#a4a4a4; text-align:center;">随时随地 投标赚钱</p>
+</div>
+<div style="border-top:1px solid #e5e5e5; padding-top:15px; margin-bottom:20px;">
+<!-- add weixin end -->
+<ol class="mission-step">
+    <li>选择项目</li>
+    <li>投入金额</li>
+    <li>每期收取回报</li>
+    <li>到期收回本金</li>
+</ol>
+<ul class="adviser clearfix">
+<li class="li-td">
+    <strong class="ti">专属客服</strong>
+    <a class="more" href="#"></a>
+</li>
+<div id="yw2">
+<dl class="line3" id="list">
+<li>
+    <dl class="p-detail clearfix">
+        <dt class="photo">
+            <img src="http://image01.658.com/files/141119/141637212017106f73edb4da18e157457cef1df9e2a3a1.jpg"
+                 height="52" width="52"/>
+        </dt>
+        <dd class="name-hd">
+            <strong>刘栎</strong>
+
+            <div class="star-box">
+                                        <span class="star">
+                                            <span class="star-in" style="width:50%"></span>
+                                        </span>
+            </div>
+        </dd>
+        <dd>
+            <a target=blank
+               href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxMzA2N18xOTA2ODJfNDAwNzExMTY1OF8yXw&Site=658金融网&Menu=yes"
+               style="float:left">
+                <img border="0" SRC="http://static.658.com/common/build/1.00/images/qq_pay.png" alt="点击这里给我发消息">
+            </a>
+
+            <div class="on-chat-box">
+                <a class="wechat" href="javascript:void(0)"></a>
+
+                <div class="alt">
+                    <!-- img width="78" height="78" src="" /-->
+                    <img width="78" height="78"
+                         src="http://image01.658.com/files/141119/141637230048207245d138764cf864d60dee26f78365de.jpg"/>
+
+                    <p>微信号</p>
+                    <STRONG>18505812065</STRONG>
+
+                </div>
+            </div>
+            <div class="on-chat-box mobil">
+                <a class="mobile" href="javascript:void(0)"></a>
+
+                <div class="alt m-tel">
+                    手机
+                    <em class="tel">18505812065</em>
+                </div>
+            </div>
+        </dd>
+        <dd class="certi">
+
+        </dd>
+    </dl>
+</li>
+
+
+<li>
+    <dl class="p-detail clearfix">
+        <dt class="photo">
+            <img src="http://image01.658.com/files/150418/142935896743536805a5db4b12de29871455f80fb1eb08.png.png"
+                 height="52" width="52"/>
+        </dt>
+        <dd class="name-hd">
+            <strong>陈海青</strong>
+
+            <div class="star-box">
+                                        <span class="star">
+                                            <span class="star-in" style="width:40%"></span>
+                                        </span>
+            </div>
+        </dd>
+        <dd>
+            <a target=blank
+               href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxMzA2N18xOTA2ODJfNDAwNzExMTY1OF8yXw&Site=658金融网&Menu=yes"
+               style="float:left">
+                <img border="0" SRC="http://static.658.com/common/build/1.00/images/qq_pay.png" alt="点击这里给我发消息">
+            </a>
+
+            <div class="on-chat-box">
+                <a class="wechat" href="javascript:void(0)"></a>
+
+                <div class="alt">
+                    <!-- img width="78" height="78" src="" /-->
+                    <img width="78" height="78"
+                         src="http://image01.658.com/files/150421/142960541786373e61ae17e1bb546cb95557dc9f5090f3.png.png"/>
+
+                    <p>微信号</p>
+                    <STRONG>15057137341</STRONG>
+
+                </div>
+            </div>
+            <div class="on-chat-box mobil">
+                <a class="mobile" href="javascript:void(0)"></a>
+
+                <div class="alt m-tel">
+                    手机
+                    <em class="tel">15057137341</em>
+                </div>
+            </div>
+        </dd>
+        <dd class="certi">
+
+        </dd>
+    </dl>
+</li>
+
+
+<li>
+    <dl class="p-detail clearfix">
+        <dt class="photo">
+            <img src="http://image01.658.com/files/150418/14293601524719d937f879e3280bee2a8281fc61171133.png.png"
+                 height="52" width="52"/>
+        </dt>
+        <dd class="name-hd">
+            <strong>宋华辉</strong>
+
+            <div class="star-box">
+                                        <span class="star">
+                                            <span class="star-in" style="width:40%"></span>
+                                        </span>
+            </div>
+        </dd>
+        <dd>
+            <a target=blank
+               href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxMzA2N18xOTA2ODJfNDAwNzExMTY1OF8yXw&Site=658金融网&Menu=yes"
+               style="float:left">
+                <img border="0" SRC="http://static.658.com/common/build/1.00/images/qq_pay.png" alt="点击这里给我发消息">
+            </a>
+
+            <div class="on-chat-box">
+                <a class="wechat" href="javascript:void(0)"></a>
+
+                <div class="alt">
+                    <!-- img width="78" height="78" src="" /-->
+                    <img width="78" height="78" src=""/>
+
+                    <p>微信号</p>
+                    <STRONG>1198816015</STRONG>
+
+                </div>
+            </div>
+            <div class="on-chat-box mobil">
+                <a class="mobile" href="javascript:void(0)"></a>
+
+                <div class="alt m-tel">
+                    手机
+                    <em class="tel">15857106710</em>
+                </div>
+            </div>
+        </dd>
+        <dd class="certi">
+
+        </dd>
+    </dl>
+</li>
+
+
+<li>
+    <dl class="p-detail clearfix">
+        <dt class="photo">
+            <img src="http://image01.658.com/files/150421/14295768374777aa7b9e98382f7a1fe65b6838eebd7807.jpg.png"
+                 height="52" width="52"/>
+        </dt>
+        <dd class="name-hd">
+            <strong>陆琴</strong>
+
+            <div class="star-box">
+                                        <span class="star">
+                                            <span class="star-in" style="width:50%"></span>
+                                        </span>
+            </div>
+        </dd>
+        <dd>
+            <a target=blank
+               href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxMzA2N18xOTA2ODJfNDAwNzExMTY1OF8yXw&Site=658金融网&Menu=yes"
+               style="float:left">
+                <img border="0" SRC="http://static.658.com/common/build/1.00/images/qq_pay.png" alt="点击这里给我发消息">
+            </a>
+
+            <div class="on-chat-box">
+                <a class="wechat" href="javascript:void(0)"></a>
+
+                <div class="alt">
+                    <!-- img width="78" height="78" src="" /-->
+                    <img width="78" height="78" src=""/>
+
+                    <p>微信号</p>
+                    <STRONG>18758112057</STRONG>
+
+                </div>
+            </div>
+            <div class="on-chat-box mobil">
+                <a class="mobile" href="javascript:void(0)"></a>
+
+                <div class="alt m-tel">
+                    手机
+                    <em class="tel">18758112057</em>
+                </div>
+            </div>
+        </dd>
+        <dd class="certi">
+
+        </dd>
+    </dl>
+</li>
+
+
+<li>
+    <dl class="p-detail clearfix">
+        <dt class="photo">
+            <img src="http://image01.658.com/files/150422/14296905855408031ffd55a320b9bbc08b2dc03f000c74.png.png"
+                 height="52" width="52"/>
+        </dt>
+        <dd class="name-hd">
+            <strong>高福贵</strong>
+
+            <div class="star-box">
+                                        <span class="star">
+                                            <span class="star-in" style="width:40%"></span>
+                                        </span>
+            </div>
+        </dd>
+        <dd>
+            <a target=blank
+               href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxMzA2N18xOTA2ODJfNDAwNzExMTY1OF8yXw&Site=658金融网&Menu=yes"
+               style="float:left">
+                <img border="0" SRC="http://static.658.com/common/build/1.00/images/qq_pay.png" alt="点击这里给我发消息">
+            </a>
+
+            <div class="on-chat-box">
+                <a class="wechat" href="javascript:void(0)"></a>
+
+                <div class="alt">
+                    <!-- img width="78" height="78" src="" /-->
+                    <img width="78" height="78"
+                         src="http://image01.658.com/files/150422/142969096879069acaa6ff3c3f0d8f74d4206c46970f12.png.png"/>
+
+                    <p>微信号</p>
+                    <STRONG>18958173827</STRONG>
+
+                </div>
+            </div>
+            <div class="on-chat-box mobil">
+                <a class="mobile" href="javascript:void(0)"></a>
+
+                <div class="alt m-tel">
+                    手机
+                    <em class="tel">18958173827</em>
+                </div>
+            </div>
+        </dd>
+        <dd class="certi">
+
+        </dd>
+    </dl>
+</li>
+
+
+<li>
+    <dl class="p-detail clearfix">
+        <dt class="photo">
+            <img src="http://image01.658.com/files/150423/1429787741880865935fa102d0d398f89200e25b6b63fc.jpg.png"
+                 height="52" width="52"/>
+        </dt>
+        <dd class="name-hd">
+            <strong>王宁</strong>
+
+            <div class="star-box">
+                                        <span class="star">
+                                            <span class="star-in" style="width:50%"></span>
+                                        </span>
+            </div>
+        </dd>
+        <dd>
+            <a target=blank
+               href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxMzA2N18xOTA2ODJfNDAwNzExMTY1OF8yXw&Site=658金融网&Menu=yes"
+               style="float:left">
+                <img border="0" SRC="http://static.658.com/common/build/1.00/images/qq_pay.png" alt="点击这里给我发消息">
+            </a>
+
+            <div class="on-chat-box">
+                <a class="wechat" href="javascript:void(0)"></a>
+
+                <div class="alt">
+                    <!-- img width="78" height="78" src="" /-->
+                    <img width="78" height="78" src=""/>
+
+                    <p>微信号</p>
+                    <STRONG>abc7453230</STRONG>
+
+                </div>
+            </div>
+            <div class="on-chat-box mobil">
+                <a class="mobile" href="javascript:void(0)"></a>
+
+                <div class="alt m-tel">
+                    手机
+                    <em class="tel">13675869361</em>
+                </div>
+            </div>
+        </dd>
+        <dd class="certi">
+
+        </dd>
+    </dl>
+</li>
+
+
+</dl>
+<div class="keys" style="display:none" title="/financeList"><span>33</span><span>71</span><span>72</span><span>88</span><span>89</span><span>93</span>
+</div>
+</div>
+
+</ul>
+<!-- 2015-02-28    <div class="server-tel">-->
+<!--                    <div class="tel-box">-->
+<!--                        7×24客服热线<strong>400-7111-658</strong>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <ul class="static-text clearfix">-->
+<!--                    <li>-->
+<!--                        <em class="st-img1"></em>-->
+<!--                        <strong>专属客服</strong>-->
+<!--                        <p>全程协助解决流程中的问题</p>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <em class="st-img2"></em>-->
+<!--                        <strong>资金托管</strong>-->
+<!--                        <p>资金由贝付科技支付平台托管</p>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <em class="st-img3"></em>-->
+<!--                        <strong>1元起投</strong>-->
+<!--                        <p>让您的每一元钱都获得收益</p>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<div class="ad-new-msg">
+    <div class="new-msg-hd">
+        <strong>投资最新动态</strong>
+    </div>
+    <ul class="newest clearfix">
+        <div id="yw3">
+            <dl class="line3" id="list">
+                <li class="new">
+                    <i></i>
+                    <span class="time">07:02</span>
+                    <strong class="emp name">137******99</strong>
+                    <strong class="emp wmoney" title="1000.00">￥4,950</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">07:01</span>
+                    <strong class="emp name">181******20</strong>
+                    <strong class="emp wmoney" title="1000.00">￥1,200</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">07:00</span>
+                    <strong class="emp name">186******90</strong>
+                    <strong class="emp wmoney" title="1000.00">￥4,000</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">06:56</span>
+                    <strong class="emp name">181******20</strong>
+                    <strong class="emp wmoney" title="1000.00">￥2,000</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">06:56</span>
+                    <strong class="emp name">181******20</strong>
+                    <strong class="emp wmoney" title="1000.00">￥1,000</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">06:53</span>
+                    <strong class="emp name">135******06</strong>
+                    <strong class="emp wmoney" title="1000.00">￥7,999</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">06:50</span>
+                    <strong class="emp name">139******69</strong>
+                    <strong class="emp wmoney" title="1000.00">￥14,000</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">06:48</span>
+                    <strong class="emp name">135******06</strong>
+                    <strong class="emp wmoney" title="1000.00">￥1</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">06:46</span>
+                    <strong class="emp name">135******01</strong>
+                    <strong class="emp wmoney" title="1000.00">￥5,000</strong>
+
+                </li>
+                <li>
+                    <i></i>
+                    <span class="time">06:43</span>
+                    <strong class="emp name">186******57</strong>
+                    <strong class="emp wmoney" title="1000.00">￥5,000</strong>
+
+                </li>
+            </dl>
+            <div class="keys" style="display:none" title="/financeList">
+                <span>60150506115272</span><span>60150506115270</span><span>60150506115269</span><span>60150506115267</span><span>60150506115266</span><span>60150506115265</span><span>60150506115263</span><span>60150506115262</span><span>60150506115261</span><span>60150506115260</span>
+            </div>
+        </div>
+</div>
+
+
+<ul class="adviser newer clearfix">
+    <li class="li-td">
+        <strong class="ti">新手指引</strong>
+        <a href="http://www.658.com/help?c=help&id=122" class="more">查看更多</a>
+    </li>
+    <li>
+
+        <a href="http://www.658.com/help?c=help&id=122#b1">
+            <i class="dot">.</i>
+            项目太多，如何选择呢？
+        </a>
+    </li>
+    <li>
+        <a href="http://www.658.com/help?c=help&id=122#b4">
+            <i class="dot">.</i>
+            如何获得投资收益？
+
+        </a>
+    </li>
+    <li>
+        <a href="http://www.658.com/help?c=help&id=122#b5">
+            <i class="dot">.</i>
+            收到还款以后，可以马上再投资吗？
+
+
+        </a>
+    </li>
+    <li>
+        <a href="http://www.658.com/help?c=help&id=122#b6">
+            <i class="dot">.</i>
+            平台是如何收费的？
+
+
+        </a>
+    </li>
+    <li>
+        <a href="http://www.658.com/help?c=help&id=122#b7">
+            <i class="dot">.</i>
+            我投资以后是否立即开始计算利息？
+
+        </a>
+    </li>
+</ul>
+</div>
+</div>
+</div>
+<!--保障服务栏-->
+<div class="c1000 help1 ensure-bar">
+    <a href="#">
+        <span class="ico1"></span>
+
+        <p class="title">安心投资</p>
+
+        <p class="content">0逾期、0坏账，100%无风险</p>
+    </a>
+    <a href="#">
+        <span class="ico2"></span>
+
+        <p class="title">全程监管</p>
+
+        <p class="content">全程受全程监管，风险可控</p> <!--融资人的操盘-->
+    </a>
+    <a class="last" href="#">
+        <span class="ico3"></span>
+
+        <p class="title">1对1专属客服VIP服务</p>
+
+        <p class="content">全程专业客服指导与提醒，给您最好的服务</p>
+    </a>
+</div>
+</div>
+
+
+<script src="http://image02.658.com/v2/static/js/investList.js"></script>
+
+<script>
+    $('body').on('click', '#rzdss', function () {
+                var financeNum = $("input[name=financeNum]").val();//document.getElementsByName("financeNum")[0].value;
+                if (financeNum == null || financeNum == '') {
+                    alert("请输入您要查找的融资单号！");
+                    return false;
+                }
+                $.ajax({
+                    'type': 'POST',
+                    'data': {'financeID': financeNum, 'errType': 1},
+                    'url': '/financeList/index',
+                    'cache': true,
+                    'success': function (html) {
+                        $("#yw0").html(html)
+                    }
+                });
+                return false;
+
+            }
+    );
+    $('.money_item').live('click', function () {
+        var $this = $(this),
+                rate = $this.attr('rate'),
+                index = $this.attr('index'),
+                special_fid, max_rate;
+        //获取当前列表普通标最大标
+        $.each($('.money_item'), function (i, item) {
+            if ($(item).attr('status') == 1) {
+                special_fid = $(item).attr('fid');
+                max_rate = $(item).attr('rate');
+                return false;
+            }
+        });
+
+        var fid = $this.attr('fid'),
+                status = $this.attr('status'),
+                fstatus = $this.attr('fstatus'),
+                random = Math.round(Math.random()),
+        // info = ['最高利率的标还没满，莫错过！', '顶部有高标您投不投！'],
+                tips = '亲！请您不要这么任性，还有' + max_rate + '%的标可供您选择哦~';//info[random];
+
+        if (status != 1 || index < 5 || fid == special_fid || fstatus != 2) {
+            window.open(fid);
+            return false;
+        }
+
+        $.layer({
+            area: ['333', '161'],
+            dialog: {
+                title: '',
+                msg: tips,
+                btns: 2,
+                type: -1,
+                btn: ['不，就要投', '好，马上去'],
+                yes: function () {
+                    window.open(fid);
+                    window.location.reload();
+                }, no: function () {
+                    layer.close;
+                }
+            }
+        });
+
+        $('.xubox_botton a').css({'background': '#DBDBDB', 'color': '#555'});
+        $('.xubox_botton3').css({'background': '#ff3b3b', 'color': '#fff'});
+    });
+</script>
+</div>
+<!-- content -->
+#parse("./common/footer.html")

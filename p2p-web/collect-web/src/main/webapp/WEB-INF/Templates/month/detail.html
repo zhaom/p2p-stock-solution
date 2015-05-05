@@ -1,0 +1,696 @@
+#parse("./common/header.html")
+
+<link rel="stylesheet" href="https://img658.b0.upaiyun.com/v2/static2/css/base.css">
+<script type="text/javascript" src="https://img658.b0.upaiyun.com/v2/static2/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://img658.b0.upaiyun.com/v2/static/js/layer/layer.min.js"></script>
+<link rel="shortcut icon" href="http://image02.658.com/v2/658/common/images/favicon.ico" type="image/icon"/>
+<link rel="stylesheet"
+      href="https://img658.b0.upaiyun.com/v2/static2/css/myInvest.css">
+<link rel="stylesheet" href="https://img658.b0.upaiyun.com/v2/static2/css/acount_2015.css  ">
+<link rel="stylesheet" href="https://img658.b0.upaiyun.com/v2/static2/css/fund.css">
+
+<style type="text/css">
+    .green {
+        color: #00B100
+    }
+
+    .stock_gain {
+        background: #d22;
+        color: #fff
+    }
+
+    .stock_loss {
+        background: #009900;
+        color: #fff
+    }
+
+        /*投资详情*/
+    .steps {
+        height: 46px;
+        border-bottom: 2px solid #e6e6e6;
+        position: relative;
+    }
+
+    .steps ol {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    .steps ol li {
+        display: inline;
+        float: left;
+        width: 170px;
+        padding-left: 80px;
+        height: 46px;
+        line-height: 46px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #999;
+        font-family: "\5FAE\8F6F\96C5\9ED1", "\534E\6587\7EC6\9ED1", "\9ED1\4F53", arial;
+    }
+
+    .steps ol li i {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        margin-right: 5px;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        font-style: normal;
+        line-height: 24px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #FFF;
+        background: url(https://img658.b0.upaiyun.com/v2/658/www/images/ico-circle2.png) no-repeat 0 0;
+    }
+
+    .steps ol li.active {
+        color: #ff3b3b;
+        border-bottom: 2px solid #ff3b3b;
+    }
+
+    .steps ol li.active i {
+        background-image: url(https://img658.b0.upaiyun.com/v2/658/www/images/ico-circle1.png);
+    }
+
+    .box-yellow {
+        background-color: #fffcda;
+        border: 1px solid #ffeaaa;
+        padding: 25px 40px;
+        margin: 30px 0 10px 0px;
+        float: left;
+        width: 918px
+    }
+
+    .box-yellow h2 {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 25px
+    }
+
+    .box-yellow p {
+        font-size: 14px;
+        line-height: 120%;
+        padding: 10px 0 0 0;
+        clear: both;
+    }
+
+    .btnRed {
+        margin-top: 10px;
+    }
+
+    .btnRed a {
+        background: #eb3232;
+        transition: 0.3s background ease;
+        height: 49px;
+        line-height: 49px;
+        width: 180px;
+        color: #fff;
+        text-align: center;
+        float: left;
+        display: block;
+        border-radius: 3px;
+        font-size: 18px;
+    }
+
+    .btnRed a:hover {
+        background: #ef5b5b;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .btnWhite a {
+        background: #fff;
+        transition: 0.3s background ease;
+        height: 47px;
+        line-height: 49px;
+        width: 178px;
+        color: #333;
+        text-align: center;
+        float: left;
+        display: block;
+        border-radius: 3px;
+        font-size: 18px;
+        border: 1px solid #CCC;
+    }
+
+    .btnWhite a:hover {
+        background: #ebebeb;
+        text-decoration: none;
+    }
+
+    .found-detail {
+        margin: 15px 0 15px 0;
+        float: left;
+    }
+
+    .found-detail h3 {
+        font-size: 18px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    #mytd td {
+        padding: 15px 8px;
+        border: 1px solid #e2e2e2;
+        font-size: 14px
+    }
+
+    #mytd td .p-l {
+    }
+
+    #mytd .td_r {
+        background-color: #f6f6f6;
+        text-align: right
+    }
+
+    #mytd .td_t {
+        background-color: #f6f6f6;
+        text-align: center
+    }
+
+    p.lh-24 {
+        line-height: 24px
+    }
+
+    .mg-l10 {
+        margin-left: 10px
+    }
+
+    .xubox_title em {
+        height: 20px;
+        line-height: 20px;
+        width: 60%;
+        top: 7px;
+        left: 10px;
+        font-style: normal;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+        /*层内表单*/
+    .layer_form_box {
+        padding-left: 20px
+    }
+
+    .layer_form_box h3 {
+        line-height: 40px;
+        font-size: 16px;
+        color: #333;
+        padding: 0;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 20px;
+        width: 600px;
+    }
+
+    .layer_form_box dl {
+        float: left;
+        clear: both;
+        width: 900px;
+        margin-bottom: 10px;
+    }
+
+    .layer_form_box dt {
+        font-size: 14px;
+        font-weight: 300;
+        color: #666;
+        line-height: 38px;
+        padding-right: 4px;
+        float: left;
+    }
+
+    .layer_form_box dd {
+        float: left;
+        overflow: hidden;
+        width: 600px;
+    }
+
+    .layer_form_box dd .inp {
+        border: 1px solid #ccc;
+        font-size: 14px;
+        height: 20px;
+        padding: 8px;
+        width: 160px;
+        border-radius: 3px;
+        display: inline-block;
+    }
+
+    .layer_form_box dd .inp-100 {
+        width: 100px;
+    }
+
+    .layer_form_box dd .inp-red {
+        border: 1px solid #F00;
+    }
+
+    .layer_form_box .select {
+        border: 1px solid #ccc;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 3px;
+        width: 200px;
+        color: #666;
+    }
+
+    .layer_form_box dd span {
+        padding-left: 10px;
+        *vertical-align: 10px;
+    }
+
+    .layer_form_box dd span.red {
+        color: #F00;
+        padding-left: 10px;
+    }
+
+    .layer_form_box dd .yzm {
+        height: 33px;
+        vertical-align: top;
+        display: inline-block;
+    }
+
+    .layer_form_box .btn-box {
+        margin-left: 130px;
+        padding: 10px 0;
+        *padding: 0;
+        clear: both;
+    }
+
+    .layer_form_box .btn-box p {
+        color: #666;
+        line-height: 26px;
+        padding: 10px 0;
+    }
+
+    .layer_form_box .btn-box p .checkbox {
+        vertical-align: -1px;
+        margin-right: 5px;
+    }
+
+    .norton, .save-360, .faith {
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+    }
+
+    .xubox_botton a:hover {
+        color: #fff;
+    }
+
+</style>
+
+<div class="doNotDoThat"></div>
+
+<!--投资详情开始-->
+<section class="content">
+    <div class="center1000">
+        <div class="seeYouAgain">
+            <a href="http://www.658.com/">658首页</a>&nbsp;&gt;&nbsp;
+            <a href="https://user.658.com/investercenter">我的账户</a>&nbsp;&gt;&nbsp;
+            <a href="/userTrade">我的配资</a>&nbsp;&gt;&nbsp;
+            配资详情
+        </div>
+        <!--投资进度-->
+        <div class="steps steps-3" style="width:1000px">
+            <ol>
+                <li class="active"><i>1</i><span>申请配资</span></li>
+                <li><i>2</i><span>审核信息</span></li>
+                <li><i>3</i><span>募集资金</span></li>
+                <li><i>4</i><span>领取账号</span></li>
+            </ol>
+        </div>
+        <!--投资状态-->
+        <div class="box-yellow clear">
+            <h2 id='finance-status'>
+                <div style="display:inline;">当前状态：待支付
+                </div>
+            </h2>
+
+
+            <p id='leftTimeId'>71小时55分5秒后,配资申请将自动取消，请尽快完成支付</p>
+
+            <div class="btnRed"><a href="http://www.658.com/UserTrade/Pay/80150506010492">立即支付</a>
+
+            </div>
+        </div>
+        <div class="clear found-detail">
+            <h3>配资信息[股票]</h3>
+            <table width="1005" border="0" align="left" cellpadding="0" cellspacing="1" style="background:#e2e2e2;"
+                   id="mytd">
+                <tbody>
+                <tr>
+                    <td width="150" bgcolor="#f6f6f6" class="td_r">配资单编号</td>
+                    <td width="350" align="left" bgcolor="#FFFFFF">80150506010492 <a target="_blank"</td>
+                    <td width="150" bgcolor="#f6f6f6" class="td_r">申请时间</td>
+                    <td width="350" align="left" bgcolor="#FFFFFF">2015-05-06 06:41:19
+                        <!--a href="#" class="link-blue" target="_blank">合同下载</a--></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f6f6f6" class="td_r">保证金</td>
+                    <td align="left" bgcolor="#FFFFFF">20000.00元</td>
+                    <td bgcolor="#f6f6f6" class="td_r">配资金额</td>
+                    <td align="left" bgcolor="#FFFFFF">100000.00元</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f6f6f6" class="td_r">每月利息</td>
+                    <td align="left" bgcolor="#FFFFFF"><p><span class="cd22">1000.00</span>元 (月息1.00分) </p></td>
+                    <td bgcolor="#f6f6f6" class="td_r">配资比例</td>
+                    <td align="left" bgcolor="#FFFFFF"><p>1:5</p></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f6f6f6" class="td_r">下次付息</td>
+                    <td align="left" bgcolor="#FFFFFF">--</td>
+                    <td bgcolor="#f6f6f6" class="td_r">借款期限</td>
+                    <td align="left" bgcolor="#FFFFFF">
+                        1个月
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f6f6f6" class="td_r">每月服务费</td>
+                    <td align="left" bgcolor="#FFFFFF">
+                        <p>
+                <span class="cd22">
+                600.00                </span>元，
+                            借款金额 x 0.4% + 账户管理费200元
+                        </p>
+                    </td>
+                    <td bgcolor="#f6f6f6" class="td_r">开始时间</td>
+                    <td align="left" bgcolor="#FFFFFF">--</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f6f6f6" class="td_r">下次付服务费</td>
+                    <td align="left" bgcolor="#FFFFFF">--</td>
+                    <td bgcolor="#f6f6f6" class="td_r">结束时间</td>
+                    <td align="left" bgcolor="#FFFFFF">--</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+        <!--投资详情结束-->
+    </div>
+</section>
+
+<script src="https://static.658.com/user/build/1.00/js/layer.js"></script>
+
+<script type="text/javascript">
+
+var t;
+var leftTime = parseInt(258905);
+lefttime(leftTime);
+function lefttime(leftTime) {
+    if (leftTime <= 0) return false;
+    leftTime--;
+    if (leftTime) {
+        var hour = parseInt(leftTime / 3600);
+        var seconds = leftTime % 60;
+        if (seconds < 10) seconds = '0' + seconds;
+        var temp = leftTime - 3600 * hour;
+        var minute = parseInt(temp / 60);
+        if (minute < 10) minute = '0' + minute;
+
+        $("#leftTimeId").html('<span class="cd22">' + hour + '小时' + minute + '分' + seconds + '秒</span>后,配资申请将自动取消，请尽快完成支付');
+
+        t = setTimeout(function () {
+            lefttime(leftTime);
+        }, 1000);
+
+    } else {
+        $("#leftTimeId").html('取消原因：超时未支付');
+        $('#finance-status').html('当前状态：取消');
+        clearTimeout(t);
+    }
+
+}
+
+/*保证金*/
+$('#alert_bzj').on('click', function () {
+
+
+});
+/*配资续约*/
+$('#alert_pzxy').on('click', function () {
+    $.layer({
+        area: ['480', '290'],
+        dialog: {
+            title: '提取盈利',
+            msg: '<div class="layer_form_box">'
+                    + '<h1>配资续约</h1>'
+                    + '<div class="form show">'
+                    + '<form id="mobileReg" action="#" method="POST">'
+                    + '<input type="hidden" name="type" value="mobile"/>'
+                    + '<dl>'
+                    + '<dt><label>配资金额：</label></dt>'
+                    + '<dd>'
+                    + '<div class="f18" style="line-height:38px">500万</div>'
+                    + '</dd>'
+                    + '<dl>'
+                    + '<dt><label>配资期限：</label></dt>'
+                    + '<dd>'
+                    + '<div class="f18" style="line-height:38px">1个月</div>'
+                    + '</dd>'
+                    + '</dl>'
+                    + '<dl>'
+                    + '<dt><label>借款利率：</label></dt>'
+                    + '<dd><input type="text" name="brokerId" id="id_broker_id" class="inp" style="width:120px" value="10.00"/>'
+                    + '<span class="f-gray">%</span>'
+                    + '<span class="f12 cd22">请输入1.00~20.00之间的数字</span>'
+                    + '</dd>'
+                    + '</dl>'
+                    + '</form>'
+                    + '</div>'
+                    + '</div>',
+            btns: 2,
+            type: -1,
+            btn: ['确定', '取消'],
+            yes: function () {
+
+            }, no: function () {
+                layer.close;
+            }
+        }
+    });
+});
+/*提取盈利*/
+$('#alert_tqyl_ok').on('click', function () {
+
+});
+/*配资续约成功*/
+$('#alert_pzxy_ok').on('click', function () {
+    $.layer({
+        area: ['480', 'auto'],
+        dialog: {
+            msg: '<h1>配资续约的申请已提交</h1>我们将尽快处理您的申请，任何疑问请拨打服务热线<font class=cd22>400 7111 658</font>',
+            btns: 1,
+            type: 2,
+        }
+    });
+});
+
+/*续约提示*/
+$('#alert_tqyl_false').on('click', function () {
+    $.layer({
+        area: ['480', 'auto'],
+        dialog: {
+            msg: '<h1>今天您申请过盈利提取了！</h1>一个账号一天最多可申请一次，任何疑问请拨打服务热线<font class=cd22>400 7111 658</font>',
+            btns: 1,
+            type: 8,
+        }
+    });
+});
+/*密码已发送至您的手机*/
+$('#alert_mima_ok').on('click', function () {
+    $.layer({
+        area: ['480', 'auto'],
+        dialog: {
+            msg: '<h1>证券密码已发送！</h1>请及时查看手机短信，任何疑问请拨打服务热线<font class=cd22>400 7111 658</font>',
+            btns: 1,
+            type: 2,
+        }
+    });
+});
+
+
+/*调整利息*/
+
+var errordata = {'1': '参数不能为空',
+    '2': '没有登录',
+    '3': '无此融资单',
+    '4': '非法操作',
+    '5': '以往的融资单不允许调息',
+    '6': '调整的后的利息必须大于当前利息',
+    '7': '用户的可用余额小于支付金额',
+    '8': '调息失败',
+    '9': '只有正在招标的融资单才能调息',
+    '10': '上调后的年利率不能大于30%',
+    '11': '新增支付订单失败',
+    '12': '下调的年利率差值不能大于2%',
+    '13': '今天已经下调过一次利息，当天只能下调一次利息',
+    '100': '调息成功'};
+
+
+$('#alert_tzll').on('click', function () {
+    var financeStatus = 0;
+    if (financeStatus != 2) {
+        layer.alert('只有正在招标的融资单才能调息', '8');
+        return false;
+    }
+    $.layer({
+        area: ['480', '290'],
+        dialog: {
+            title: '调整借款利率',
+            msg: '<div class="layer_form_box">'
+                    + '<h1>调整借款利率</h1>'
+                    + '<div class="form show">'
+                    + '<form id="mobileReg" action="#" method="POST">'
+                    + '<input type="hidden" name="type" value="mobile"/>'
+                    + '<dl>'
+                    + '<dt><label>借款利率：</label></dt>'
+                    + '<dd><input type="text" name="brokerId" id="id_annualrate_id" class="inp" style="width:120px" onkeyup="calpay(this)" value="12.00"/>'
+                    + '<span class="f-gray">%</span>'
+                    + '<span class="f12 cd22" id="annual_error" style="display:none;">请输入1.00~30.00之间的数字</span>'
+                    + '</dd>'
+                    + '</dl>'
+                    + '<dl>'
+                    + '<dt><label>还需支付利息：</label></dt>'
+                    + '<dd>'
+                    + '<div class="f-gray" style="line-height:38px" id="should_pay">0.00元</div>'
+                    + '</dd>'
+                    + '<dl>'
+                    + '<dt><label>可用余额：</label></dt>'
+                    + '<dd>'
+                    + '<div class="f-gray" style="line-height:38px">0.00元</divn>'
+                    + '<span><a href="https://user.658.com/torecharge" target="_blank" class="link-blue mg-l10">充值</a></span>'
+                    + '<!--span class="f12 cd22 mg-l10">当前余额不够支付利息，请先充值</span-->'
+                    + '</dd>'
+                    + '</dl>'
+                    + '</form>'
+                    + '</div>'
+                    + '</div>',
+            btns: 2,
+            type: -1,
+            btn: ['确定', '取消'],
+            yes: function () {
+                var annual_rate = $('#id_annualrate_id').val();
+                if (!/^\d+\.?\d*$/.test(annual_rate) || annual_rate < 1 || annual_rate > 30) {
+
+                    $("#annual_error").html('请输入1.00~30.00之间的数字').show();
+                    return false;
+                }
+                var old_annual_rate = "";
+                old_annual_rate = parseFloat(old_annual_rate);
+                if (old_annual_rate == parseFloat(annual_rate)) {
+                    return false;
+                }
+                $.post("/userTrade/modifyRate", {finance_id: 80150506010492, annual_rate: annual_rate}, function (rs) {
+                    var msg = errordata[$.trim(rs)];
+                    if ($.trim(rs) == 100) {
+                        /*调整利率限制*/
+                        $.layer({
+                            area: ['480', 'auto'],
+                            dialog: {
+                                msg: '<h1 style="font-size: 23px;">' + msg + '</h1>任何疑问请拨打服务热线<font class=cd22>400 7111 658</font>',
+                                btns: 1,
+                                type: 2,
+                            }
+                        });
+
+
+                        // window.location.reload();
+                    }
+                    else {
+                        $.layer({
+                            area: ['480', 'auto'],
+                            dialog: {
+                                msg: '<h1 style="font-size: 23px;">' + msg + '</h1>任何疑问请拨打服务热线<font class=cd22>400 7111 658</font>',
+                                btns: 1,
+                                type: 8,
+                            }
+                        });
+                    }
+
+                });
+            }, no: function () {
+                layer.close;
+            }
+        }
+    });
+});
+
+$('#confirmCollect').on('click', function () {
+    $.layer({
+        area: ['auto', 'auto'],
+        dialog: {
+            msg: '<h1>确定上线募集么？</h1>',
+            btns: 2,
+            type: 8
+        },
+        btn: ['取消', '确定'],
+        yes: function () {
+            window.location.reload();
+        },
+        no: function () {
+            $.ajax({
+                type: "POST",
+                url: "/UserTrade/ConfirmCollect",
+                data: "financeID=" + 80150506010492,
+                success: function (data) {
+                    if (data == -1 || data == -2) {
+                        layer.alert('异常错误，请稍后再试');
+                    } else if (data == -3) {
+                        $.layer({
+                            area: ['auto', 'auto'],
+                            dialog: {
+                                msg: '<h1>完成实名认证即可上线募集</h1>',
+                                btns: 2,
+                                type: 8,
+                            },
+                            btn: ['取消', '去实名认证'],
+                            yes: function () {
+                                window.location.reload();
+                            },
+                            no: function () {
+                                window.location.href = "https://user.658.com/doindentityFirst";
+                            }
+                        });
+                        $('.xubox_botton a').css({'background': '#DBDBDB', 'color': '#555'});
+                        $('.xubox_botton3').css({'background': '#ff3b3b', 'color': '#fff'});
+                    } else if (data == 1) {
+                        // layer.alert('当前标正在募集中');
+                        $.layer({
+                            area: ['auto', 'auto'],
+                            dialog: {
+                                msg: '当前项目已发布！',
+                                btns: 1,
+                                type: 2,
+                                btn: ['确定'],
+                                yes: function () {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    } else {
+                        layer.alert('募集失败，请稍后重试');
+                    }
+                }
+            });
+        }
+    });
+
+    $('.xubox_botton a').css({'background': '#DBDBDB', 'color': '#555'});
+    $('.xubox_botton3').css({'background': '#ff3b3b', 'color': '#fff'});
+});
+
+function calpay(obj) {
+    var annual_rate = $.trim($(obj).val());
+    if (!annual_rate || !/^\d+\.?\d*$/.test(annual_rate)) return false;
+    var origin_rate = 12.00;
+    if (parseFloat(annual_rate) < parseFloat(origin_rate)) return false;
+    var totalMoney = 100000;
+    var financeDeadline = 1;
+
+    $("#should_pay").html((totalMoney * (annual_rate - origin_rate) / 100 / 12).toFixed(2) + '元');
+}
+</script>
+#parse("./common/footer.html")

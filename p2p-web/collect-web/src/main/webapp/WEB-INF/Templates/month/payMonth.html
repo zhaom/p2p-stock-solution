@@ -1,0 +1,824 @@
+#parse("./common/header.html")
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/base.css">
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/jquery.ui.slider.min.css">
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/cool.css">
+
+<style>
+    .h-left {
+        width: 395px;
+    }
+
+    #content {
+        background: #ededed;
+        height: 100%;
+    }
+
+    .c1000 .framework {
+        border-bottom: none;
+    }
+
+    .framework .main {
+        background-color: #fff;
+        width: 100%
+    }
+
+    .framework .main .form {
+        padding: 45px 0;
+        border-bottom: none;
+    }
+
+    .framework .main .form .left b {
+        font-size: 18px;
+        color: #262626
+    }
+
+    .framework .main .form li {
+        margin-bottom: 20px
+    }
+
+    .framework .main .questions {
+        padding-bottom: 45px;
+    }
+
+    .framework .hr {
+        clear: both;
+        height: 1px;
+        border-bottom: dashed 1px #eee;
+        width: 650px;
+        margin: 10px auto 20px;
+    }
+
+    .framework .sidebar {
+        border: solid 1px #e3e3e3;
+        border-left: none;
+        width: 254px
+    }
+
+    .c1000 ul.step {
+        height: 45px;
+        margin: 10px 0;
+    }
+
+    .c1000 ul.step li {
+        line-height: 50px;
+    }
+
+    .c1000 ul.step .on {
+        border-bottom: none;
+    }
+
+    .c1000 .right span {
+        color: #444;
+        margin-right: 8px;
+    }
+
+    .c1000 .right span input {
+        margin-top: 11px;
+    }
+
+    .c1000 .right .pledge {
+        background: url(./images/fb_bg.jpg) no-repeat;
+        padding-left: 50px;
+        width: 50px;
+        font-size: 18px;
+    }
+
+    .c1000 .right .pledge.yuexi {
+        background: url(./images/fb_bg1.jpg) no-repeat right;
+        padding-left: 5px;
+        padding-right: 50px
+    }
+
+    .sidebar .ti {
+        height: 30px;
+        display: block;
+        line-height: 30px;
+        padding: 10px 0 10px 35px;
+        font-size: 16px;
+        border-bottom: solid 1px #eee;
+    }
+
+    .framework .sidebar .badges {
+        padding-left: 25px;
+        margin-top: 20px;
+    }
+
+    .framework .sidebar {
+        height: 1455px;
+    }
+
+    .sidebar .badges p {
+        width: 150px;
+        line-height: 16px
+    }
+
+    .framework .sidebar .badges .anquan b {
+        background-position: 0 -345px;
+    }
+
+    .framework .sidebar .badges .gongkai b {
+        background-position: 0 -103px;
+    }
+
+    .framework .sidebar .badges .tiqu b {
+        background-position: 0 -52px;
+    }
+
+    .framework .main table.info {
+        border-left: solid 1px #ddd;
+        border-bottom: solid 1px #ddd;
+        margin: 15px 0 0 0px;
+        box-shadow: 0px 2px 0px #f1f1f1;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .framework .main table.info td {
+        border-top: solid 1px #ddd;
+        border-right: solid 1px #ddd;
+        padding: 15px 10px;
+        text-align: center;
+        line-height: 27px;
+        color: #666;
+        font-size: 14px;
+    }
+
+    .framework .main table.info.y {
+        background-color: #fffff4;
+    }
+
+    .price-info {
+        padding-top: 10px;
+        margin-right: 5%
+    }
+
+    .price-info ul {
+        float: right;
+        width: 272px;
+        overflow: hidden;
+    }
+
+    .price-info ul li {
+        float: left;
+        width: 100%;
+        line-height: 35px;
+        color: #666;
+        text-align: right;
+        font-size: 14px;
+    }
+
+    .price-info ul li .price {
+        text-indent: 0;
+    }
+
+    .price-info  .big-size {
+        font-size: 30px;
+    }
+
+    .price-info   strong.price {
+        text-indent: 0px;
+        color: #b30303;
+        font-family: arial;
+        float: right;
+    }
+
+    .price-info ul li .back {
+        float: left;
+        line-height: 60px;
+        color: #06c;
+        text-decoration: underline;
+    }
+
+    .price-info ul li .pay-btn, .price-info ul li .pay-disabled {
+        _float: left;
+        width: 200px;
+        height: 60px;
+        line-height: 60px;
+        margin-left: 15px;
+        color: #fff;
+        font-size: 28px;
+        font-family: "微软雅黑";
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .price-info ul li .pay-btn {
+        display: inline-block;
+        background: url('http://static.658.com/common/build/1.00/images/ico_common.png') no-repeat;
+        background-position: -25px -40px;
+    }
+
+    .price-info ul li .pay-btn:hover {
+        background-position: -240px -40px;
+    }
+
+    .xieyi {
+        margin: 20px auto;
+        width: 90%
+    }
+
+    .xieyi h5 {
+        font-size: 14px;
+        color: #444;
+        line-height: 32px;
+        font-weight: bold;
+    }
+
+    .xieyi p {
+        line-height: 25px;
+        font-size: 12 p;
+        color: #444;
+    }
+
+    .webox .ddcp {
+        width: auto;
+        padding: 0;
+        background-color: #fff;
+    }
+
+    .webox .ddcp table {
+        border-top: solid 1px #dfdfdf;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .webox .ddcp table th {
+        border-bottom: solid 1px #dfdfdf;
+        background-color: #fafafa;
+        color: #333;
+        font-weight: normal;
+        padding: 10px 10px;
+        text-align: center;
+    }
+
+    .webox .ddcp table td {
+        border-bottom: solid 1px #dfdfdf;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .webox .ddcp table td a.ljzf {
+        display: block;
+        width: 70px;
+        height: 25px;
+        line-height: 25px;
+        background-color: #ff8b17;
+        text-align: center;
+        color: #fff;
+        border: solid 1px #dd6f00;
+        border-radius: 3px;
+        font-size: 12px;
+        text-shadow: 1px 1px 0 #e27214;
+        margin: 0 auto;
+    }
+
+    .webox .ddcp table td a.ljzf:hover {
+        background-color: #f47f0b;
+    }
+
+    .background {
+        position: fixed;
+        _position: absolute;
+        z-index: 998;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        _width: expression(document.documentElement.clientWidth);
+        height: 100%;
+        _height: expression(document.documentElement.clientHeight);
+        background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .webox {
+        position: fixed;
+        _position: absolute;
+        z-index: 999;
+        _background: #777;
+        border-radius: 5px;
+        border: solid 15px #fff;
+    }
+
+    .webox #inside {
+        background-color: #FFFFFF;
+        height: 240px;
+    }
+
+    .webox #inside h1 {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 0;
+        font-size: 13px;
+        line-height: 30px;
+        height: 30px;
+        padding-bottom: 8px;
+        border-bottom: solid 1px #ddd;
+        cursor: move;
+        font-weight: normal;
+        color: #666;
+    }
+
+    .zhuijiabzj .close span {
+        width: 13px;
+        height: 13px;
+        float: right;
+        margin: 21px 2px 0 0;
+        background: url(../images/pop-icon.png) no-repeat -47px -211px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .zhuijiabzj .close span:hover {
+        background-position: -47px -235px;
+    }
+
+    .webox #inside h1 a {
+        position: absolute;
+        display: block;
+        right: 6px;
+        margin-top: 6px;
+        top: 0px;
+        font-size: 14px;
+        background: url(../images/pop-icon.png) no-repeat -47px -211px;
+        width: 13px;
+        height: 13px;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .webox #inside h1 a:hover {
+        background-position: -47px -235px;
+    }
+
+    .webox .ddcp .xieyi a.btn {
+        display: block;
+        width: 160px;
+        height: 45px;
+        line-height: 45px;
+        background-color: #ff8b17;
+        text-align: center;
+        color: #fff;
+        border: solid 1px #dd6f00;
+        border-radius: 3px;
+        font-size: 16px;
+        text-shadow: 1px 1px 0 #e27214;
+        margin: 20px auto;
+    }
+
+        /*v2新增样式*/
+    .gpqh {
+        border-bottom: solid 2px #CCC;
+        height: 35px;
+        margin: 30px 0 0;
+    }
+
+    .gpqh a {
+        height: 35px;
+        line-height: 35px;
+        font-size: 18px;
+        color: #666;
+        margin: 0 30px 0 0;
+        display: block;
+        float: left;
+        width: 110px;
+        text-align: center;
+    }
+
+    .gpqh a.h {
+        border-bottom: solid 2px #b20000;
+        color: #b20000
+    }
+
+    .huanxi {
+        border: dashed 1px #d8d6d9;
+        background-color: #fff9e3;
+        padding: 10px;
+        width: 690px
+    }
+
+    .framework .hr {
+        border-bottom: none;
+    }
+
+    .c1000  .huanxi .right {
+        width: 60px
+    }
+
+    .sidebar .badges b {
+        display: inline-block;
+        background: url(http://static.658.com/common/build/1.00/images/2_03.jpg) no-repeat;
+        width: 41px;
+        height: 41px;
+        position: absolute;
+        top: 5px;
+        left: 10px;
+    }
+
+    .sidebar .badges li {
+        padding-left: 40px;
+    }
+
+    .sidebar .cgal {
+        width: 190px;
+        margin: 20px 32px;
+    }
+
+    .sidebar .cgal dl dt {
+        line-height: 27px
+    }
+
+    .sidebar .cgal dl dd {
+        line-height: 27px
+    }
+
+    .sidebar .cgal dl dd span {
+        margin: 0 10px
+    }
+
+    .sidebar .cgal dl dd a {
+        color: #666;
+    }
+
+    .sidebar ul.xts {
+        width: 191px;
+        margin: 20px 30px;
+    }
+
+    .sidebar ul.xts li {
+        list-style: inside;
+        padding-left: 5px;
+        margin-bottom: 1px;
+        line-height: 27px;
+    }
+</style>
+
+<script type="text/javascript" src="/js/form1.js"></script>
+
+
+<style>
+    .userData {
+        behavior: url(#default#userdata);
+    }
+
+        /*保证金支付方式*/
+    .pay_bail_choice {
+        width: 899px;
+        float: left;
+        margin-left: 46px;
+        margin-top: 30px;
+        position: relative
+    }
+
+    .pay_bail_choice_l {
+        margin-left: 90px;
+    }
+
+    .pay_bail_choice li {
+        width: 385px;
+        height: 75px;
+        border: 2px solid #e8e8e8;
+        float: left;
+        text-align: left;
+        cursor: pointer;
+        padding-left: 15px
+    }
+
+    .pay_bail_choice li.curr {
+        border: 2px solid #ff3d3d;
+        background: url(http://image02.658.com/v2/658/www/images/icon-curr.png) no-repeat right bottom;
+    }
+
+    .pay_bail_choice li p {
+        line-height: 100%;
+        padding-top: 5px;
+        color: #888;
+    }
+
+    .pay_bail_choice li p.m {
+        padding: 20px 0 4px 0;
+    }
+
+    .pay_bail_choice li em {
+        color: #999;
+        font-size: 22px;
+    }
+
+    .pay_bail_choice .curr em {
+        color: #ff3d3d;
+        font-size: 22px;
+    }
+
+    .pay_bail_choice h3, .ddw_r h3 {
+        line-height: 100%;
+        font-size: 24px;
+        padding: 30px 0px 20px 0px;
+        color: #555;
+    }
+
+    .pay_bail_choice h3 a {
+        font-size: 14px;
+        font-weight: normal;
+        margin-left: 20px;
+    }
+
+    .pay_bail_or {
+        position: absolute;
+        top: 30px;
+        left: 442px;
+    }
+
+    .pay_bail_total {
+        text-align: center;
+        width: 100%;
+        padding: 30px 0
+    }
+
+    .pay_bail_total span {
+        padding: 0 5px
+    }
+
+    .price-info ul {
+        width: 620px;
+        padding-left: 249px
+    }
+
+    .price-info ul li {
+        width: 200px; /* line-height: 35px; */
+        color: #666;
+        text-align: center;
+    }
+
+    .goback {
+        height: 60px;
+        width: 80px;
+        display: inline-block;
+        line-height: 60px
+    }
+
+        /*保证金支付方式结束*/
+</style>
+
+<div class="c1000">
+    <ul class="step">
+        <li><i>1</i>填写融资需求</li>
+        <li class="on"><i>2</i>支付费用</li>
+        <li><i>3</i>开始募集资金</li>
+        <li><i>4</i>领取证券账户</li>
+    </ul>
+    <div class="gpqh"><a href="javascript:;" class="h">股票投资</a></div>
+    <!--framework-->
+    <div class="framework" style="margin-bottom: 15px;">
+        <form action="/financing/apply" method="post" enctype="multipart/form-data" id="financing_apply_form">
+            <!-- a form -->
+            <!-- main body -->
+            <!--保证金选项-->
+            <div class="pay_bail_choice">
+                <ul>
+                    <li class="curr" id="choose_ownmoney_1">
+                        <p class="m"><em>现在付保证金</em></p>
+
+                        <p class="f14">（支付保证金，募资进度更快）</p>
+                    </li>
+                    <li class="pay_bail_choice_l" id="choose_ownmoney_2">
+                        <p class="m"><em>募资成功后付保证金</em></p>
+
+                        <p class="f14">（募资成功后，需支付完保证金才可领取证券账号）</p>
+                    </li>
+                </ul>
+                <div class="pay_bail_or c888 f18">或</div>
+                <div class="clear"></div>
+                <div class="pay_bail_total f16 c666">
+                    <span id="baozhengjin">保证金<span class="cf3d f16">20000.00元</span>+</span>
+                    <span>首月利息</span><span class="cf3d f16">1000.00元</span>+
+                    <span>首月服务费</span><span class="cf3d f16">600.00元</span><span>=</span>
+                    应付款:<span class="cf3d f30" id="yingfukuan">21600.00元</span>
+                </div>
+            </div>
+            <div class="clear"></div>
+
+            <div class="price-info clearfix">
+                <ul>
+                    <li>
+                        <a class="pay-btn" href="javascript:" id="financing-apply-go-pay">我要配资</a>
+                    </li>
+                    <li><a href="/financing/apply?step=1" class="link-black goback">返回修改</a></li>
+                </ul>
+            </div>
+            <!--保证金选项结束-->
+            <div class="main">
+
+
+                <ul class="form" style="height:300px;">
+
+
+                    <li style="display: none;">
+                        <div class="left">
+                            融资类型
+                        </div>
+                        <div class="right">
+                            <select name="Finance[financeType]" id="Finance_financeType">
+                                <option value="1">股票投资</option>
+                                <option value="2">期货投资</option>
+                            </select></div>
+                    </li>
+
+
+                    <div style="font-size:14px; margin-left:5%">融资信息</div>
+
+                    <table class="info" width="660" border="0" cellspacing="0" cellpadding="0">
+
+
+                        <thead>
+                        <tr>
+                            <td>借款用途</td>
+                            <td>借款总额</td>
+                            <td>保证金</td>
+                            <td>借款期限</td>
+                            <td>月息</td>
+                            <td>每月服务费<em class="pop_tip" title="是在股票操盘时，向盈操盘支付的费用"></em></td>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>股票配资</td>
+                            <td>¥100000元</td>
+                            <td>¥20000元</td>
+                            <td>1个月</td>
+                            <td>1.00%</td>
+                            <td>¥600元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="font-size:14px; margin-left:5%; margin-top:20px;">风险控制</div>
+
+                    <table class="info y" width="660" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                        <tr>
+                            <td>单股比例</td>
+                            <td>警戒金额</td>
+                            <td>平仓金额</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>不限</td>
+                            <td>￥110000元</td>
+                            <td>￥106000元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <div style="clear:both; height:5px;"></div>
+
+
+                    <div class="price-info clearfix">
+                        <input type="hidden" value="true" name="save"/>
+                        <input type="hidden" value="1" name="Finance[financeType]"/><input type="hidden" value="20000"
+                                                                                           name="Finance[ownMoney]"/><input
+                            type="hidden" value="5" name="Finance[financeLever]"/><input type="hidden" value="1"
+                                                                                         name="Finance[financeDeadline]"/><input
+                            type="hidden" value="72" name="Finance[raiseDeadline]"/><input type="hidden" value="12"
+                                                                                           name="Finance[annualRate]"/><input
+                            type="hidden" value="" name="Finance[agentID]"/><input type="hidden" value=""
+                                                                                   name="Finance[authInfo]"/><input
+                            type="hidden" value="2" name="Finance[isBeforePay]"/><input type="hidden" value="1"
+                                                                                        name="Finance[isDeadlineMonth]"/>
+                        <input type="hidden" value="2" name="is_pay_cash_deposit">
+                        <input type="hidden" value="600.00" name="monthly_service_fee_kefu"/>
+                        <input type="hidden" value="1" name="Finance[isActivityStatus]"/>
+                        <input type="hidden" value="0.00" name="Finance[gainRate]"/>
+                        <input type="hidden" value="3" name="step" id="step"/></div>
+
+
+                </ul>
+
+
+        </form>
+
+
+        <!-- form -->
+        <script>
+            $(function ($) {
+
+                $.finance_form.init();
+                $.finance_form.exec();
+
+        </script>
+
+        <!-- question coming-->
+
+    </div>
+
+    <!-- sidebar -->
+
+</div>
+<div class="xieyi" style="margin:20px 10px;">
+    <h5>为了控制风险，借款人承诺遵守如下限制性规定：</h5>
+
+    <p>（1）不得购买权证、ST、*ST、S*ST、SST、分级基金以及被交易所特别处理的股票；</p>
+
+    <p>（2）不得投资首日上市新股、复牌首日股票等当日不设涨、跌停板限制的股票；</p>
+
+    <p>（3）不得投资跌停、连续跌停、连续跌停后首次打开跌停板的股票；</p>
+
+    <p>（4）不得买上一年亏损和近半年亏损的创业板股票；</p>
+
+    <p>
+        （5）除经事先同意外，账户内的资金用于购买单个证券品种的比例不得超过50%(沪深300ETF基金除外)；或用于购买创业板单个证券品种的比例不得超过30%。因市值下降导致单个证券品种的比例超过规定的，借款人应该在超过比例的第二个交易日上午10:00前卖出该支股票降低至规定比例之下；</p>
+
+    <p>（6）单只股票的市值不得超过流通总市值的0.5%；</p>
+
+    <p>（7）单只股票持仓总市值不得超过该股前5个交易日日均成交额的20%。</p>
+
+    <p>（8）相关法律法规禁止从事的其他投资。</p>
+
+    <p>
+        （9）如按照收盘价计算，借款人在某一交易日违反上述任一约定，则借款人须在下一个交易日上午10:00前自行调整至约定比例，借款人特别授权658金融网有权以任何可以成交的价格完全卖出违反本条约定之类别股票。如某一股票在借款人买入后，该股票或者发行该股票的公司发生上述限制性规定的任一情形，除非经658金融网另行书面同意，借款人应在该等情形发生后的下一交易日内卖出该股票。若借款人不遵守上述规定，借款人特别授权658金融网可以卖出不符合规定的股票，由此造成的一切损失均由借款人承担。
+    </p>
+
+    <p>（10）若借款人持有的股票当天出现跌幅达到9.5%（即：距离跌停板为0.5%）时，借款人特别授权658金融网有权卖出该股票。</p>
+
+    <p>（11）若借款人违反本限制性规定之任一且不按照本条第二款的规定操作将构成根本性违约，为控制风险，658金融网有权卖出证券账户中的所有股票并结清借款本金和利息等。</p>
+
+    <p>（12）以上仅为重要限制性规定提示，全部内容详见借款协议。</p>
+</div>
+
+</div>
+
+<div class="cp_box" style="display:none">
+    <div class="ddcp">
+        <div class="xieyi">
+            <p>（1）不得购买权证、ST、*ST、S*ST、SST、分级基金以及被交易所特别处理的股票；</p>
+
+            <p>（2）不得投资首日上市新股、复牌首日股票等当日不设涨、跌停板限制的股票；</p>
+
+            <p>（3）不得投资跌停、连续跌停、连续跌停后首次打开跌停板的股票；</p>
+
+            <p>（4）不得买上一年亏损和近半年亏损的创业板股票；</p>
+
+            <p>
+                （5）除经事先同意外，账户内的资金用于购买单个证券品种的比例不得超过50%(沪深300ETF基金除外)；或用于购买创业板单个证券品种的比例不得超过30%。因市值下降导致单个证券品种的比例超过规定的，借款人应该在超过比例的第二个交易日上午10:00前卖出该支股票降低至规定比例之下；</p>
+
+            <p>（6）单只股票的市值不得超过流通总市值的0.5%；</p>
+
+            <p>（7）单只股票持仓总市值不得超过该股前5个交易日日均成交额的20%。</p>
+
+            <p>（8）相关法律法规禁止从事的其他投资。</p>
+
+            <p>
+                （9）如按照收盘价计算，借款人在某一交易日违反上述任一约定，则借款人须在下一个交易日上午10:00前自行调整至约定比例，借款人特别授权658金融网有权以任何可以成交的价格完全卖出违反本条约定之类别股票。如某一股票在借款人买入后，该股票或者发行该股票的公司发生上述限制性规定的任一情形，除非经658金融网另行书面同意，借款人应在该等情形发生后的下一交易日内卖出该股票。若借款人不遵守上述规定，借款人特别授权658金融网有权可以卖出不符合规定的股票，由此造成的一切损失均由借款人承担。
+
+            <p>（10）若借款人持有的股票当天出现跌幅达到9.5%（即：距离跌停板为0.5%）时，借款人特别授权658金融网有权卖出该股票。</p>
+
+            <p>（11）若借款人违反本限制性规定之任一且不按照本条第二款的规定操作将构成根本性违约，为控制风险，658金融网有权卖出证券账户中的所有股票并结清借款本金和利息等。</p>
+
+            <p>（12）以上仅为重要限制性规定提示，全部内容详见借款协议。</p>
+            <a href="javascript:;" class="btn">同意并遵守该规定</a>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="http://static.658.com/common/build/1.00/css/webox.css">
+<script src="http://static.658.com/common/build/1.00/js/webox.js"></script>
+<script>
+    $('.scroll_banner').hide();
+
+    $(function () {
+        agreestats = true;
+
+        $('#choose_ownmoney_1').click(function () {
+            $(this).addClass('curr');
+            $('#choose_ownmoney_2').removeClass('curr');
+            $('#baozhengjin').show();
+            $('#yingfukuan').html('21600.00' + '元');
+            $("input[name=is_pay_cash_deposit]").val(2);
+        });
+
+        $('#choose_ownmoney_2').click(function () {
+            $(this).addClass('curr');
+            $('#choose_ownmoney_1').removeClass('curr');
+            $('#baozhengjin').hide();
+            $('#yingfukuan').html('1600.00' + '元');
+            $("input[name=is_pay_cash_deposit]").val(1);
+        })
+
+        $('#financing-apply-go-pay').bind('click', function () {
+            if (agreestats == true) {
+                $('#financing_apply_form').submit();
+            }
+
+        })
+    });
+</script>
+<script>
+    function submitQuestion(type) {
+        $("#question_type").val(type);
+        $("#form1").submit();
+    }
+</script>
+#parse("./common/footer.html")

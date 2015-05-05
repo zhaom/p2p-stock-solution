@@ -1,0 +1,42 @@
+#if($pagination.totalPages > 1)
+<div class="pagination mar_t_15 clearfix">
+	<ul class="f_r">
+		#if($pagination.previousPage > 1)<li><a href="${pageUrl}${pagination.previousPage}" class="previous">&lt;&lt;上一页</a></li>#end
+		#if($pagination.totalPages <= 10)
+			#foreach($i in [1..$pagination.totalPages])<li><a href="${pageUrl}${i}"#if($i == $pagination.page) class="current"#end>$i</a></li>#end
+		#else
+			#if($pagination.startPage > $pagination.headQuantity)
+				#foreach($i in [1..$pagination.headQuantity])
+				<li><a href="${pageUrl}${i}"#if($i == $pagination.page) class="current"#end>$i</a></li>
+				#end
+				#if($pagination.ellipseQuantity > 0)
+				<li>#foreach($i in [1..$$pagination.ellipseQuantity]).#end</li>
+				#end
+			#end
+			#foreach($i in [$pagination.startPage..$pagination.endPage])
+				<li><a href="${pageUrl}${i}"#if($i == $pagination.page) class="current"#end>$i</a></li>
+			#end
+			#if($pagination.endPage < $pagination.totalPages - $pagination.tailQuantity)
+				#set($temp_page = $pagination.totalPages - $pagination.tailQuantity + 1)
+				#if($pagination.ellipseQuantity > 0)
+					<li>#foreach($i in [1..$$pagination.ellipseQuantity]).#end</li>
+				#end
+				#foreach($i in [$temp_page..$pagination.totalPages])
+					<li><a href="${pageUrl}${i}"#if($i == $pagination.page) class="current"#end>$i</a></li>
+				#end
+			#end
+		#end
+		#if($pagination.nextPage < $pagination.totalPages)<li><a href="${pageUrl}${pagination.nextPage}" class="next">下一页&gt;&gt;</a></li>#end
+		<li>跳转到</li>
+		<li class="go-page"><input id="go_page_number" type="text" class="search_txt txt" /><input id="go_page_btn" type="button" value="GO" class="go_btn btn" /></li>
+	</ul>
+</div>
+<script type="text/javascript">
+	$("#go_page_btn").click(function(){
+		var page = $("#go_page_number").val();
+		if(/^\d+$/.test(page)){
+			window.location.href = "${pageUrl}"+page;
+		}
+	});
+</script>
+#end

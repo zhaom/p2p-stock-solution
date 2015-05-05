@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>658金融网</title>
+
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="https://static.658.com/common_ssl/build/1.00/images/favicon.ico" type="image/icon"/>
+    <link rel="stylesheet"
+          href="https://img658.b0.upaiyun.com/v2/static2/css/base.css">
+
+    <!--[if lte IE 9]>
+    <script src="https://img658.b0.upaiyun.com/v2/static2/js/html5.js"></script><![endif]-->
+    <link rel="stylesheet"
+          href="https://img658.b0.upaiyun.com/v2/static2/css/pay.css">
+
+    <script
+            src="https://img658.b0.upaiyun.com/v2/static2/js/jquery-1.8.3.min.js"></script>
+    <script src="https://img658.b0.upaiyun.com/v2/static2/js/mask.js"></script>
+    <script src="https://img658.b0.upaiyun.com/v2/static2/js/pay_center.js"></script>
+
+    <script type="text/javascript"
+            src="https://img658.b0.upaiyun.com/v2/static2/js/jquery.form.js"></script>
+    <!-- <script type="text/javascript" src="https://img658.b0.upaiyun.com/v2/static2/js/pay.js"></script> -->
+
+    <script type="text/javascript" src="https://topay.658.com/js/pay.js"></script>
+
+
+</head>
+<body>
+
+<header class="header">
+    <ul class="center1000">
+        <li class="logined"><b class="hi">您好，</b><a class="redlink"
+                                                    href="https://user.658.com/investercenter"> 139****3711</a> [<a
+                href="http://list.658.com/logout">退出</a>] | <b class="letter"></b>
+        <li class="logo"><a href="http://www.658.com"><img
+                src="https://static.658.com/common_ssl/build/1.00/images/logo2.png"
+                alt="网站logo"></a></li>
+        <li class="soldier"></li>
+        <li><h1>支付中心</h1>
+        </li>
+    </ul>
+</header>
+<div class="dontdothat"></div>
+
+
+<section class="center1000 pay-wrap clearfix">
+<div class="ui-item clearfix">
+    <!-- 订单号类型不同，显示不同数据 -->
+
+    <!-- 融资支付 -->
+    <p><strong>
+        股票配资
+
+
+        项目</strong>（订单号：80150506010492） </p>
+
+
+    <!-- end 订单号类型不同，显示不同 -->
+
+    <div class="detail"><a href="javascript:void(0);">详情</a>
+
+        <div class="d-layer" style="display:none;"><em class="tip"></em>
+            <ul class="clearfix">
+                <li>
+                    <label>配资类型：</label>
+                    股票配资
+
+
+                </li>
+                <li>
+                    <label>配资单号：</label>
+                    80150506010492
+                </li>
+                <li>
+                    <label>配资金额：</label>
+                    100000.00元
+                </li>
+
+                <li>
+                    <label>配资杠杆：</label>
+                    1&nbsp;:
+                    5
+                </li>
+
+                <li>
+                    <label>年化利率：</label>
+                    12.00
+                    %
+                </li>
+                <li>
+                    <label>期限：</label>
+
+                    <td class="w100"> 1个月</td>
+
+
+                </li>
+
+
+                <li>
+                    <label>投资额：</label>
+                    20000.00元
+                </li>
+                <li>
+                    <label>服务费：</label>
+                    600.00元
+                </li>
+                <li>
+
+
+                    <label>月还利息：</label>
+
+
+                    1000.00元
+                </li>
+
+            </ul>
+        </div>
+    </div>
+  <span class="m-price"><b>
+      21600.00
+  </b>元</span></div>
+
+
+<style>
+    <!--
+
+    -->
+    li.border_color:hover {
+
+        border: 2px solid red;
+    }
+
+    li.border_color {
+        width: 996px;
+        border: 2px solid #CCC;
+    }
+</style>
+
+
+<form action="paying" method="post" name="doingpay" id="doingpay">
+    <input type="hidden" name="balanceState" value="without" id="balanceState"/>
+    <input type="hidden" name="orderNumber" value="80150506010492" id="orderNumber"/>
+    <input type="hidden" name="transactionType" value="FINANCE" id="transactionType"/>
+    <input type="hidden" name="payId" value="" id="payId"/>
+    <ul class="ui-info clearfix">
+
+
+        <!-- 余额为0 -->
+        <li class="select border_color">
+            <label>
+                <input type="radio" checked="checked" value="without"/>
+	      <span>
+	      	可用余额
+		      <strong class="price">
+                  0.00
+              </strong>元
+	      </span>
+            </label>
+        </li>
+
+
+    </ul>
+
+
+    <div class="select-bank clearfix">
+        <h2>请选择付款方式</h2>
+        <ul class="bank-list">
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="ICBC_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/icbc.png"
+                               alt="工商银行" title="工商银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="ABC_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/abc.png"
+                               alt="农业银行" title="农业银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="CCB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/ccb.png"
+                               alt="建设银行" title="建设银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="POSTGC_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/psbc.png"
+                               alt="邮政储蓄银行" title="邮政储蓄银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="BOCSH_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/boc.png"
+                               alt="中国银行" title="中国银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="COMM_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/bcs.png"
+                               alt="交通银行" title="交通银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="CMB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/cmb.png"
+                               alt="招商银行" title="招商银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="GDB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/cgb.png"
+                               alt="广发银行" title="广发银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="CEB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/ceb.png"
+                               alt="光大银行" title="光大银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="CIB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/cib.png"
+                               alt="兴业银行" title="兴业银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="BOB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/bob.png"
+                               alt="北京银行" title="北京银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="SPDB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/spdb.png"
+                               alt="浦发银行" title="浦发银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="CMBCD_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/cmbc.png"
+                               alt="民生银行" title="民生银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="CNCB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/ecitic.png"
+                               alt="中信银行" title="中信银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="HXB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/hx-2.png"
+                               alt="华夏银行" title="华夏银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="PINGAN_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/pa.png"
+                               alt="平安银行" title="平安银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="HZCB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/hzyh.png"
+                               alt="杭州银行" title="杭州银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="NBCB_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/nbcb.png"
+                               alt="宁波银行" title="宁波银行"/> </span> </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="radio" name="bankValue" value="BOS_B2C"/>
+                    <span><img width="168" height="38" src="https://static.658.com/pay/build/1.00/images/bos.png"
+                               alt="上海银行" title="上海银行"/> </span> </label>
+            </li>
+
+        </ul>
+    </div>
+
+
+    <!-- added by wzhp in 2015-04-14 begin-->
+    <div style="text-align:right;height:30px;line-height:30px;padding-right:20px;font-size:20px;margin-top:20px;">
+        实付总额:<span class="willPay" style="color:red;font-size:26px;"></span>
+        <span style="font-size:14px;">元</span>
+    </div>
+    <script language="javascript" type="text/javascript">
+        //渲染实际支付
+        function renderWillPay(money) {
+            var moneyStr = String(parseFloat(money, 10).toFixed(2));
+            $("span.willPay").html(moneyStr.split("\.")[0] + ".<strong style=\"font-size:14px;\">" + moneyStr.split("\.")[1] + "</strong>");
+        }
+        $(document).ready(function () {
+            renderWillPay(21600.0);
+        });
+    </script>
+
+
+    <!-- end -->
+
+
+    <div class="ui-btn" style="border-top:0;text-align:right;margin-top:10px;">
+        <a class="nor-btn" href="javascript:void(0);" id="nextStep">下一步</a>
+    </div>
+</form>
+
+
+<div class="ui-faq clearfix">
+    <div class="faq-hd">
+        <h3>
+            <i></i>常见问题
+        </h3>
+    </div>
+    <dl class="faq-list">
+        <dt>1.支付风险保证金遇到问题？</dt>
+        <dd>答：您可以联系您的专属理财顾问（还没有专属顾问？立即选择），拨打客服电话0571-86551789</dd>
+        <dt>2.账户中有余额，但为什么不可用使用呢？</dt>
+        <dd>答：账户余额包括可用余额、被冻结资金，被冻结的资金暂不可用。而可用余额是指账户中可自由使用的金额，可以被支付、提现。</dd>
+
+    </dl>
+</div>
+</section>
+
+
+<script type="text/javascript">
+    $(function () {
+        $.PayChoseBank.init();
+    });
+
+
+    $(function () {
+        var a = $(".bank-list").find("label"),
+                b = a.find("input"),
+                c = a.find("span");
+        a.click(function () {
+            var d = $(this),
+                    e = d.find("span");
+            d = d.find("input");
+            b.removeAttr("checked");
+            d.attr("checked", true);
+            c.removeClass("focusin");
+            e.addClass("focusin")
+        });
+        $(a[0]).click()
+    });
+
+
+    $(document).ready(function () {
+        $("div.select-bank,ul.ui-info").bind("click", function (e) {
+            if ($("div.select-bank").find(":checked").length > 0) {
+                $("div.select-bank").css("border", "2px solid red");
+            } else {
+                $("div.select-bank").css("border", "2px solid #CCC");
+            }
+
+            if ($("ul.ui-info").find(":checked").length > 0) {
+                $("ul.ui-info").find("li.select").css("border", "2px solid red");
+            } else {
+                $("ul.ui-info").find("li.select").css("border", "2px solid #CCC");
+            }
+        });
+    });
+
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="/css/kefu.css">
+<!--新加的修改 /*新的改动 首页客服*/-->
+
+
+<div class="zhuanshu_kefu">
+    <div class="zhushu_p">
+        我的专属客服 <span class="fix_xx">X</span>
+    </div>
+    <div class="kefu_mns" style="padding-top:10px;">
+        <img class="zhuanshu_img" width="94" height="94"
+             src="http://image01.658.com/files/150415/1429091584479857d4baefad3745401364017bc764337b.jpg.png">
+    </div>
+
+    <div class="kefu_mns clearfix">
+        <strong class="kefu_name">章家诚</strong>
+
+        <div class="kefu_imgs">
+            <a class="shouji" href="javascript:void(0)"></a>
+
+            <div class="shou_alts m-tel" style="display: none;">
+                手机<em class="tel">15068021727</em>
+            </div>
+        </div>
+        <div class="kefu_imgs">
+            <a class="weixing" href="javascript:void(0)"></a>
+
+            <div class="wei_alts" style="display: none;">
+                <img width="78" height="78"
+                     src="http://image01.658.com/files/150415/14290911988250b0f8c9f924a4469537bbad62e63a6a26.jpg.png">
+
+                <p>微信号</p>
+                <strong>674442682</strong>
+            </div>
+        </div>
+
+
+        <!--2015.4.16 改动-->
+    </div>
+    <div class="kefu_mns">
+
+    </div>
+
+    <div class="kefu_mns">
+        <a class="kefu_qq" target="blank" href="tencent://message/?uin=2690786273&Menu=yes"> </a>
+    </div>
+
+
+    <div class="kefu_geng">
+        <a target="blank" href="http://www.658.com/userTrade/changeConsultant">更换专属客服</a>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        var $fix_xx = $("span.fix_xx");
+        $fix_xx.click(function () {
+            $(".zhuanshu_kefu").hide();
+        })
+    })
+</script>
+<script type="text/javascript">
+    $(function () {
+        var $shouji = $(".shouji");
+        $shouji.mouseover(function () {
+            $(this).next().show();
+        });
+        $shouji.mouseout(function () {
+            $(this).next().hide();
+        });
+        var $weixing = $(".weixing");
+        $weixing.mouseover(function () {
+            $(this).next().show();
+        });
+        $weixing.mouseout(function () {
+            $(this).next().hide();
+        });
+    })
+</script>
+<link rel="stylesheet" type="text/css" href="/css/kefu.css">
+<script type="text/javascript">
+    $(function () {
+        var $fix_xx = $("span.fix_xx");
+        $fix_xx.click(function () {
+            $(".zhuanshu_kefu").hide();
+        })
+    })
+</script>
+<script type="text/javascript">
+    $(function () {
+        var $shouji = $(".shouji");
+        $shouji.mouseover(function () {
+            $(this).next().show();
+        });
+        $shouji.mouseout(function () {
+            $(this).next().hide();
+        });
+        var $weixing = $(".weixing");
+        $weixing.mouseover(function () {
+            $(this).next().show();
+        });
+        $weixing.mouseout(function () {
+            $(this).next().hide();
+        });
+    });
+</script>
+<!--新加的修改 /*新的改动 首页客服*/ end-->
+<footer class="footer foot">
+    <div class="center1000">
+        <div class="lucky">
+            <a href="http://www.658.com/help?c=about&id=2">关于我们</a> | <a
+                href="http://www.658.com/help?c=about&id=101">合作联系</a> | <a
+                href="http://www.658.com/help?c=about&id=110">隐私保密</a> | <a
+                href="http://www.658.com/help?c=about&id=105">网站申明</a> | <a
+                href="http://www.658.com/help?c=about&id=103">诚聘英才</a><br>
+            版权所有 © 杭州恒牛技术有限公司 2013-2014<br> Copyright Reserved
+            2013-2014©658（www.658.com） | 浙ICP备1400226
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

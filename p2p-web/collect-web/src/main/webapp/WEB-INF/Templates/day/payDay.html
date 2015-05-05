@@ -1,0 +1,228 @@
+#parse("./common/header.html")
+
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/daywin_2015.css">
+<script type="text/javascript" src="http://static.658.com/common/build/1.00/js/jquery-1.8.3.min.js"></script>
+
+<div class="clear scroll_banner" style="background:#f43d3d">
+    <a href="http://y.658.com/help/active" target="_blank"><img
+            src="http://image02.658.com/v2/658/www/images/banner/banner_daywin_free2.png"></a>
+</div>
+<div id="container" class="daywin" style="margin-top:0px;">
+    <div class="c1000">
+        <div class="clear daywin_title">
+            <a name="ttf"></a>
+
+            <h1 class="fl c444">按天配资</h1><span>短线炒股、最高30万、利润放大10倍</span>
+
+            <div class="daywin_guideBtn">
+                <ul>
+                    <li class="ghostBtn"><a href="http://www.658.com/help/guide" target="_blank">新手指引</a></li>
+                    <li class="ghostBtn"><a href="http://www.658.com/help?c=help&id=631" target="_blank">软件下载</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box">
+            <div style="padding:0px 49px;">
+                <div class="steps steps-3">
+                    <ol>
+                        <li><i>1</i><span>选择炒股资金</span></li>
+                        <li class="active"><i>2</i><span>支付保证金</span></li>
+                        <li><i>3</i><span>领取账号开始赚钱</span></li>
+                    </ol>
+                </div>
+                <div class="clearfix">
+                    <div class="ddw_pay">
+                        <table class="pay_confirm" width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="228" class="title">风险保证金</td>
+                                <td width="253"><h3>10000.00</h3>元</td>
+                                <td width="417">&nbsp;</td>
+                            </tr>
+
+                            <tr>
+                                <td class="title">预存账户管理费</td>
+                                <td style="position:relative" id="changeManageFee">
+                                    <h3>398.00</h3>元
+                                    <div class="daywin_select">
+                                        <select name="select_day" id="select">
+                                            <option value="2">2天</option>
+                                            <option value="3">3天</option>
+                                            <option value="4">4天</option>
+                                            <option value="5">5天</option>
+                                            <option value="6">6天</option>
+                                            <option value="7">7天</option>
+                                            <option value="8">8天</option>
+                                            <option value="9">9天</option>
+                                            <option value="10">10天</option>
+                                            <option value="11">11天</option>
+                                            <option value="12">12天</option>
+                                            <option value="13">13天</option>
+                                            <option value="14">14天</option>
+                                            <option value="15">15天</option>
+                                            <option value="16">16天</option>
+                                            <option value="17">17天</option>
+                                            <option value="18">18天</option>
+                                            <option value="19">19天</option>
+                                            <option value="20">20天</option>
+                                        </select></div>
+                                </td>
+                                <td class="c888"><p>账户管理费,使用一天扣一天。如账户余额充足，<br>默认每天自动延期，扣除当天管理费，否则自动终止。</p></td>
+                            </tr>
+                            <tr>
+                                <td class="title">合计需支付</td>
+                                <td><h3><font class="cd22" id="payMoney">10398.00</font></h3>元</td>
+                                <td>账户余额：<font class="cd22 f16 mymoney">0.00</font>元 <a
+                                        href="https://user.658.com/torecharge" target="_blank" class="link-blue f16"
+                                        style="padding-left:10px">马上充值</a></td>
+                                <input type="hidden" name="token" value="keys1045952429"/>
+                            </tr>
+                        </table>
+                        <div class="pd20 txt-c">
+                            <input type="button" id="toPay" class="btn btn-l" value="立即支付"><input type="button"
+                                                                                                  class="btn btn-txt"
+                                                                                                  value="返回修改"
+                                                                                                  onClick="javascript:history.go(-1);">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="box daywin_help clear">
+            <div class="daywin_faq fl">
+                <h2>常见问题</h2>
+                <ul>
+                    <li><a href="http://www.658.com/help?c=help&amp;id=634#jinzhi" target="_blank">哪些股票是不能买的？</a></li>
+                    <li><a href="http://www.658.com/help?c=help&amp;id=634#fengxian" target="_blank">操盘止损的规则？</a></li>
+                    <li><a href="http://www.658.com/help?c=help&id=634#fuwufei" target="_blank">服务费是怎么算的？</a></li>
+                    <li><a href="http://www.658.com/help?c=help&id=634#shijian" target="_blank">可以操盘时间多长？</a></li>
+                    <li><a href="http://www.658.com/help?c=help&id=634#tiqu  " target="_blank">盈利要怎么提取？</a></li>
+                </ul>
+                <a href="http://www.658.com/help?c=help&amp;id=634" target="_blank" class="daywin_more">更多&gt;</a>
+            </div>
+            <div class="daywin_v fl">
+                <h2>视频演示</h2>
+                <img src="http://image02.658.com/v2/658/www/images/daywin/daywin_video.jpg">
+            </div>
+            <div class="daywin_news fl">
+                <h2>最新公告</h2>
+                <ul>
+                    <li><a href="http://y.658.com/help/active" target="_blank" class="link-red">免费炒股活动隆重上线</a></li>
+                    <li><a href="http://www.658.com/help?c=notice&amp;id=639" target="_blank">盈操盘正式更名为按天配资</a></li>
+                    <li><a href="http://www.658.com/help?c=notice&amp;id=519" target="_blank">绑定银行卡后短信提醒功能开通</a></li>
+                    <li><a href="http://www.658.com/help?c=notice&amp;id=554" target="_blank">增加投资指南栏目</a></li>
+                    <li><a href="http://www.658.com/help?c=notice&amp;id=436" target="_blank">新增工商银行打款操作</a></li>
+                </ul>
+                <a href="http://www.658.com/help?c=notice" target="_blank" class="daywin_more">更多&gt;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+<script type="text/javascript" src="http://image02.658.com/v2/static2/js/layer/layer.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var manageFeeJson = [
+            {"id": "181", "apply_money": "100000.0000", "hour": "24", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "182", "apply_money": "100000.0000", "hour": "48", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "183", "apply_money": "100000.0000", "hour": "72", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "184", "apply_money": "100000.0000", "hour": "96", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "185", "apply_money": "100000.0000", "hour": "120", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "186", "apply_money": "100000.0000", "hour": "144", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "187", "apply_money": "100000.0000", "hour": "168", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "188", "apply_money": "100000.0000", "hour": "192", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "189", "apply_money": "100000.0000", "hour": "216", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "190", "apply_money": "100000.0000", "hour": "240", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "191", "apply_money": "100000.0000", "hour": "264", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "192", "apply_money": "100000.0000", "hour": "288", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "193", "apply_money": "100000.0000", "hour": "312", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "194", "apply_money": "100000.0000", "hour": "336", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "195", "apply_money": "100000.0000", "hour": "360", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "196", "apply_money": "100000.0000", "hour": "384", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "197", "apply_money": "100000.0000", "hour": "408", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "198", "apply_money": "100000.0000", "hour": "432", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "199", "apply_money": "100000.0000", "hour": "456", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"},
+            {"id": "200", "apply_money": "100000.0000", "hour": "480", "warning_rate": "96", "loss_rate": "94", "cash_deposit": "10000.0000", "manage_money": "199.0000", "manage_money1": "199.0000", "manage_money2": "100.0000", "manage_money3": "239.0000", "manage_money_lev_2": "79.00", "manage_money_lev_3": "99.00", "manage_money_lev_4": "119.00", "manage_money_lev_5": "139.00", "manage_money_lev_6": "159.00", "manage_money_lev_7": "179.00", "manage_money_lev_8": "199.00", "manage_money_lev_9": "219.00", "manage_money_lev_10": "239.00"}
+        ];
+        //#####预存账户管理费效果
+        $('#select').on('change', function () {
+            var days = $(this).val();
+            console.log(days);
+
+            $.each(manageFeeJson, function (i, item) {
+                if (item.hour == days * 24) {
+                    var manageFee = Number(item.manage_money * parseInt(days)).toFixed(2),
+                            cashDeposit = 10000.00,
+                            payMoney = Number(manageFee) + Number(cashDeposit);
+                    $('#changeManageFee h3').text(manageFee);
+                    $('#payMoney').text(payMoney.toFixed(2));
+                    return false;
+                }
+            });
+        });
+
+        $('#toPay').on('click', function () {
+            //按钮特效变灰不可点
+            var $this = $(this),
+                    days = $('#select option:selected').val(),
+                    m = $('#changeManageFee h3').text();
+            $this.removeClass('btn-l');
+            $this.addClass('btn-l-disable');
+            $this.attr('id', 'toPay-disable');
+            var availabelMoney = "0.00",
+                    payMoney = $('#payMoney').text(),
+                    balanceMoney = Number(payMoney) - Number(availabelMoney),
+                    balanceMoney = balanceMoney.toFixed(2);
+            if (balanceMoney > 0) { //账户余额不足
+                $.layer({ area: ['450', 'auto'], dialog: {
+                    msg: '<h1>抱歉  您的账号余额不足</h1>还差<font class=cd22>' + balanceMoney + '</font>元就能申请操盘了', btns: 2, type: 8, btn: ['充值', '放弃'],
+                    yes: function () {
+                        window.open('https://user.658.com/torecharge?rechargeMoney=' + balanceMoney);
+                        $.layer({ area: ['450', 'auto'], dialog: { msg: '<h1>账户充值成功？</h1>', btns: 2, type: 8, btn: ['充值成功', '充值失败'],
+                            yes: function () {
+                                window.location.href = "http://www.658.com/daywin/pay/id/92150506011138/d/" + days + "/m/" + m + '/t/' + payMoney + '#ttf';
+                            },
+                            no: function () {
+                                layer.close;
+                            }
+                        }
+                        });
+                    },
+                    no: function () {
+                        layer.close;
+                    }
+                }
+                });
+                $this.removeClass('btn-l-disable');
+                $this.addClass('btn-l');
+                $this.attr('id', 'toPay');
+            } else {
+                $.ajax({ type: 'POST', url: "/daywin/BeforeStart",
+                    data: getFormData(),
+                    success: function (data) {
+                        var data = eval("(" + data + ")");
+                        if (data.status == 9) {
+                            window.location.href = "http://www.658.com/daywin/start/id/" + data.financeNo + '#ttf';
+                        } else {
+                            layer.alert(data.errorMsg);
+                        }
+                        $this.removeClass('btn-l-disable');
+                        $this.addClass('btn-l');
+                        $this.attr('id', 'toPay');
+                    }
+                });
+            }
+        });
+    });
+    function getFormData() {
+        var config = {};
+        config.token = $('input[name=token]').val();
+        config.days = $('#select option:selected').val();
+        config.id = 92150506011138;
+        config.payMoney = $('#payMoney').text();
+        return config;
+    }
+</script>
+#parse("./common/footer.html")

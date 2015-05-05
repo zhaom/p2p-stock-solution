@@ -1,0 +1,44 @@
+#parse("./common/head.html")
+<!-- 第一行 -->
+<div class="head1 minwidthbox">
+    <div class="c1000">
+        <div class="left">
+           </i><b class="hot">客服热线</b><i class="line">400-4000-400</i>
+        </div>
+        <div class="right logined haveLogined">
+            #if($shiro.isGuest())
+            <a href="#PASSPORT_ROOT_URL()register" class="register" rel="nofollow"> 注册</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#PASSPORT_ROOT_URL()login" class="login" rel="nofollow">立即登录</a>
+            #end
+            #if($shiro.isUser())
+            <b class="hi">您好，</b>
+            <a class="redlink" href="#I_ROOT_URL()" class="redlink">【$shiro.getPrincipal()】</a> [<a class="quit" href="#PASSPORT_ROOT_URL()logout">退出</a>] &nbsp;&nbsp;|&nbsp;&nbsp;
+            <b class="img-msg"></b><a class="redlink" href="https://user.658.com/msgInfo.action" style="color: #666;"> 您有 <em style="color:#bb2121;">6</em>条未读消息</a></span>
+            #end
+            <a href="http://www.658.com/app/download" class="help app-down">手机版下载</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="#HELP_ROOT_URL()" class="help">帮助中心</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a class="fee" href="#ABOUT_ROOT_URL()">关于我们</a>
+        </div>
+    </div>
+</div>
+<div class="c1000 head2">
+    <div class="h-left">
+        <h1> <a class="vip-logo" href="#WWW_HOME_URL()">牛牛网</a>
+        </h1>
+        <i class="bl-cut"></i>
+        <div class="imp-txt">
+            <img src="http://image02.658.com/v2/658/www/images/banner/banner_picc.png" width="280px;"/>
+        </div>
+    </div>
+    <div class="right">
+        <a href="#COLLECT_ROOT_URL()">我要配资</a>
+        <a href="#P2P_ROOT_URL()">我要投资</a>
+        #if($shiro.isGuest())
+        <a href="#PASSPORT_ROOT_URL()login?backUrl=#I_ROOT_URL()">我的账户</a>
+        #end
+        #if($shiro.isUser())
+        <a href="#I_ROOT_URL()">我的账户</a>
+        #end
+        <a href="#ABOUT_ROOT_URL()">关于我们</a>
+    </div>
+</div>
