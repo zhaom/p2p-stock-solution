@@ -14,9 +14,9 @@
         <module>user-client-common</module>
         <module>home-web</module>
         <module>my-web</module>
-        <module>prod-web</module>
         <module>cashier-web</module>
         <module>invest-web</module>
+        <module>collect-web</module>
     </modules>
 
     <dependencyManagement>

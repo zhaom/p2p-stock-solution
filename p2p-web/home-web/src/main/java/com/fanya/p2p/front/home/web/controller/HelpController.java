@@ -21,4 +21,5 @@ public class HelpController extends AbstractController {
     public String helpCenter(HttpServletRequest httpServletRequest, Model model){
         return "help/index";
     }
+
 }

@@ -1,0 +1,2640 @@
+#parse("./common/header.html")
+<link rel="stylesheet" href="http://image02.658.com/v2/static/css/daywin_2015.css">
+<style type="text/css">
+    .ddw_r form table.nth_1 tr {
+        height: 40px !important;
+    }
+
+    .ddw_r form table.nth_1 tr td {
+        line-height: 42px !important;
+    }
+</style>
+<!--<div class="clear scroll_banner" style="background:#f43d3d">-->
+<!--	<a href="http://y.658.com/help/active"  target="_blank"><img src="http://image02.658.com/v2/658/www/images/banner/banner_daywin_free2.png"></a>-->
+<!--</div>-->
+<div id="container" class="daywin" style="margin-top:0px;">
+    <div class="c1000">
+        <div class="clear daywin_title">
+            <a name="ttf"></a>
+
+            <h1 class="fl c444">按天配资</h1><span>资金秒到，无需等待</span>
+
+            <div class="daywin_guideBtn">
+                <ul>
+                    <li class="ghostBtn"><a href="http://www.658.com/help/guide" target="_blank">新手指引</a></li>
+                    <li class="ghostBtn"><a href="http://www.658.com/help?c=help&id=631" target="_blank">软件下载</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box">
+            <div style="padding:0px 49px;">
+                <div class="steps steps-3">
+                    <ol>
+                        <li class="active"><i>1</i><span>选择炒股资金</span></li>
+                        <li><i>2</i><span>支付保证金</span></li>
+                        <li><i>3</i><span>领取账号开始赚钱</span></li>
+                    </ol>
+                </div>
+                <div class="clearfix">
+                    <div class="ddw_l">
+                        <h3>选择资金</h3>
+                        <ul id="ddw_sel" class="clearfix" style="_margin-right:-20px;">
+                            <li data="10000">
+                                <p class="m"><em>1万</em>元</p>
+
+                                <p class="f14">炒股资金</p>
+                            </li>
+                            <li data="20000">
+                                <p class="m"><em>2万</em>元</p>
+
+                                <p class="f14">炒股资金</p>
+                            </li>
+                            <li data="30000">
+                                <p class="m"><em>3万</em>元</p>
+
+                                <p class="f14">炒股资金</p>
+                            </li>
+                            <li data="50000">
+                                <p class="m"><em>5万</em>元</p>
+
+                                <p class="f14">炒股资金</p>
+                            </li>
+                            <li data="100000">
+                                <p class="m"><em>10万</em>元</p>
+
+                                <p class="f14">炒股资金</p>
+                            </li>
+                            <li data="150000">
+                                <p class="m"><em>15万</em>元</p>
+
+                                <p class="f14">炒股资金</p>
+                            </li>
+                            <li data="200000">
+                                <p class="m"><em>20万</em>元</p>
+
+                                <p class="f14">炒股资金</p>
+                            </li>
+                            <li data="300000">
+                                <p class="m"><em>30万</em>元</p>
+
+                                <p class="f14">炒股资金</p>
+                            </li>
+                            <a href="javascript:void(0);" dt="ddw_sel" id="tttt">
+                                <li>
+                                    <p class="m"><font class="cd22 f20">其他金额</font></p>
+
+                                    <p class="f14">手动输入</p>
+                                </li>
+                            </a>
+                        </ul>
+                        <div id="ddw_inp" class="ddw_inp" style="display:none;">
+                            <p>请输入您的操盘金额</p>
+
+                            <div style="position:relative;">
+                                <input id="tm" type="text" class="ui-input"
+                                       style="height:37px; line-height:37px; width:346px; text-align:center;">
+
+                                <div class="set-money-back pd20">
+                                    <a href="javascript:void(0);" class="link-blue f16" id="reback">返回</a>
+                                </div>
+                                <div style="width:20px; line-height:42px; height:42px; position:absolute; right:8px; _right:28px; top:0px; _top:3px;">
+                                    元
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ddw_r">
+                        <h3>
+                            确认信息
+                        </h3>
+
+                        <form action="/ttf/pay" name="payForm" method="post">
+                            <table class="sure nth_1" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="title">操盘须知</td>
+                                    <td>
+                                        <div style="line-height:130%;">投资沪深A股，仓位不限制，盈利全归您</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="title">总操盘资金</td>
+                                    <td><em id="totalMoney">0</em>元</td>
+                                </tr>
+                                <tr>
+                                    <td class="title">杠杆倍数</td>
+                                    <td>
+                                        <select name="lever" style="width:76px; height:24px; border:1px solid #ddd;">
+                                            <option value="2">2倍</option>
+                                            <option value="3">3倍</option>
+                                            <option value="4">4倍</option>
+                                            <option value="5">5倍</option>
+                                            <option value="6">6倍</option>
+                                            <option value="7">7倍</option>
+                                            <option value="8">8倍</option>
+                                            <option value="9">9倍</option>
+                                            <option value="10" selected="selected">10倍</option>
+                                        </select>
+                                        <span class="info_tips"><img id="pop_tip_lever"
+                                                                     src="http://image02.658.com/v2/658/www/images/home/icon_qa.png"
+                                                                     style="cursor:pointer"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="title">风险保证金</td>
+                                    <td>
+                                        <em id="cash">0</em>元
+                                        <span class="info_tips"><img id="pop_tip_cash"
+                                                                     src="http://image02.658.com/v2/658/www/images/home/icon_qa.png"
+                                                                     style="cursor:pointer"/></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="title">亏损警戒线</td>
+                                    <td><em id="warningLine">0</em>元<span class="info_tips"><img id="pop_tip_warn"
+                                                                                                 src="http://image02.658.com/v2/658/www/images/home/icon_qa.png"
+                                                                                                 style="cursor:pointer"/></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="title">亏损止损线</td>
+                                    <td><em id="openLine" style="color:#FF0000;">0</em>元<span class="info_tips"><img
+                                            id="pop_tip_open"
+                                            src="http://image02.658.com/v2/658/www/images/home/icon_qa.png"
+                                            style="cursor:pointer"/></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="title">账户管理费</td>
+                                    <td>
+                                        <i id="fee" class="fs20">0</i>元 / 每天　<i class="cd22">按天收取，周末节假日免费</i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="title">操盘帐号</td>
+                                    <td>
+                                        <label class="mr10">
+                                            <input type="radio" id="ax" name="account" value="2"
+                                                   style="vertical-align:0px;">安信
+                                        </label>
+                                        <label class="mr10" vb="true">
+                                            <input type="radio" id="hs" name="account" value="1"
+                                                   style="vertical-align:0px;">恒生
+                                        </label>
+                                        <label class="mr10">
+                                            <input type="radio" id="qh" name="account" value="3"
+                                                   style="vertical-align:0px;">期货
+                                        </label>
+                                        <label class="mr10">
+                                            <input type="radio" id="fz" name="account" value="4"
+                                                   style="vertical-align:0px;">方正中期
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <div class="pd25 txt-c w790">
+                    <label>
+                        <input id="agree" type="checkbox" checked="checked">我已阅读并同意
+                    </label>
+                    <a target="_blank" href="http://www.658.com/help?c=help&id=634" class="link-blue">《按天配资操盘规则》</a>
+
+                    <div class="pd20 txt-c">
+                        <input type="button" class="btn btn-l" value="我要操盘" id="subBtn">
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="box daywin_help clear">
+            <div class="daywin_faq fl">
+                <h2>常见问题</h2>
+                <ul>
+                    <li><a href="http://www.658.com/help?c=help&amp;id=634#jinzhi" target="_blank">哪些股票是不能买的？</a></li>
+                    <li><a href="http://www.658.com/help?c=help&amp;id=634#fengxian" target="_blank">操盘止损的规则？</a></li>
+                    <li><a href="http://www.658.com/help?c=help&id=634#fuwufei" target="_blank">服务费是怎么算的？</a></li>
+                    <li><a href="http://www.658.com/help?c=help&id=634#shijian" target="_blank">可以操盘时间多长？</a></li>
+                    <li><a href="http://www.658.com/help?c=help&id=634#tiqu  " target="_blank">盈利要怎么提取？</a></li>
+                </ul>
+                <a href="http://www.658.com/help?c=help&amp;id=634" target="_blank" class="daywin_more">更多&gt;</a>
+            </div>
+            <div class="daywin_v fl">
+                <h2>视频演示</h2>
+                <img src="http://image02.658.com/v2/658/www/images/daywin/daywin_video.jpg">
+            </div>
+            <div class="daywin_news fl">
+                <h2>最新公告</h2>
+                <ul>
+                    <li><a href="http://y.658.com/help/active" target="_blank" class="link-red">免费炒股活动隆重上线</a></li>
+                    <li><a href="http://www.658.com/help?c=notice&amp;id=639" target="_blank">盈操盘正式更名为按天配资</a></li>
+                    <li><a href="http://www.658.com/help?c=notice&amp;id=519" target="_blank">绑定银行卡后短信提醒功能开通</a></li>
+                    <li><a href="http://www.658.com/help?c=notice&amp;id=554" target="_blank">增加投资指南栏目</a></li>
+                    <li><a href="http://www.658.com/help?c=notice&amp;id=436" target="_blank">新增工商银行打款操作</a></li>
+                </ul>
+                <a href="http://www.658.com/help?c=notice" target="_blank" class="daywin_more">更多&gt;</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<div id="limitstockdetail" style="display:none;">
+    <div style="width:498px; height:260px; padding:0 20px 20px 40px ; border:1px solid #fff; background-color:#fff;">
+        <h1 class="f18">今日限制买入股票</h1>
+
+        <div class="limitstock">
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------------>
+<script type="text/javascript" src="http://image02.658.com/v2/static2/js/layer/layer.min.js"></script>
+
+<script type="text/javascript">
+    $.extend({
+        //数值四舍五入
+        round: function (n, mantissa) {
+            if (!mantissa)mantissa = 0;
+            if (mantissa <= 0)return Math.round(n);
+            var v = 1;
+            for (var i = 0; i < mantissa; i++)v *= 10;
+            return Math.round(n * v) / v;
+        },
+        //金额格式化
+        formatMoney: function (num, n) {
+            num = String(num.toFixed(n ? n : 2));
+            var re = /(-?\d+)(\d{3})/;
+            while (re.test(num)) num = num.replace(re, "$1,$2")
+            return n ? num : num.replace(/^([0-9,]+\.[1-9])0$/, "$1").replace(/^([0-9,]+)\.00$/, "$1");
+            ;
+        },
+        isN: function (o) {
+            return typeof o == "number"
+        },
+        isInt: function (o) {
+            return $.isN(o) && Math.round(o) == o
+        },
+        replace: function (s, s1, s2) {
+            return s.replace(new RegExp(s1, 'g'), s2);
+        }
+    });
+</script>
+<script type="text/javascript">
+    var B = {
+        init: {
+            minLimitMoney: 10000, //最低额度
+            maxLimitMoney: 300000, //最大额度
+            manageFeeJson: [{
+                "id": "1",
+                "apply_money": "10000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "1000.0000",
+                "manage_money": "23.90",
+                "manage_money1": "19.9000",
+                "manage_money2": "10.0000",
+                "manage_money3": "23.9000",
+                "manage_money_lev_2": "7.90",
+                "manage_money_lev_3": "9.90",
+                "manage_money_lev_4": "11.90",
+                "manage_money_lev_5": "13.90",
+                "manage_money_lev_6": "15.90",
+                "manage_money_lev_7": "17.90",
+                "manage_money_lev_8": "19.90",
+                "manage_money_lev_9": "21.90",
+                "manage_money_lev_10": "23.90"
+            }, {
+                "id": "21",
+                "apply_money": "20000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "2000.0000",
+                "manage_money": "47.80",
+                "manage_money1": "39.8000",
+                "manage_money2": "20.0000",
+                "manage_money3": "47.8000",
+                "manage_money_lev_2": "15.80",
+                "manage_money_lev_3": "19.80",
+                "manage_money_lev_4": "23.80",
+                "manage_money_lev_5": "27.80",
+                "manage_money_lev_6": "31.80",
+                "manage_money_lev_7": "35.80",
+                "manage_money_lev_8": "39.80",
+                "manage_money_lev_9": "43.80",
+                "manage_money_lev_10": "47.80"
+            }, {
+                "id": "41",
+                "apply_money": "30000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "3000.0000",
+                "manage_money": "71.70",
+                "manage_money1": "59.7000",
+                "manage_money2": "30.0000",
+                "manage_money3": "71.7000",
+                "manage_money_lev_2": "23.70",
+                "manage_money_lev_3": "29.70",
+                "manage_money_lev_4": "35.70",
+                "manage_money_lev_5": "41.70",
+                "manage_money_lev_6": "47.70",
+                "manage_money_lev_7": "53.70",
+                "manage_money_lev_8": "59.70",
+                "manage_money_lev_9": "65.70",
+                "manage_money_lev_10": "71.70"
+            }, {
+                "id": "61",
+                "apply_money": "40000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "4000.0000",
+                "manage_money": "95.60",
+                "manage_money1": "79.6000",
+                "manage_money2": "40.0000",
+                "manage_money3": "95.6000",
+                "manage_money_lev_2": "31.60",
+                "manage_money_lev_3": "39.60",
+                "manage_money_lev_4": "47.60",
+                "manage_money_lev_5": "55.60",
+                "manage_money_lev_6": "63.60",
+                "manage_money_lev_7": "71.60",
+                "manage_money_lev_8": "79.60",
+                "manage_money_lev_9": "87.60",
+                "manage_money_lev_10": "95.60"
+            }, {
+                "id": "81",
+                "apply_money": "50000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "5000.0000",
+                "manage_money": "119.50",
+                "manage_money1": "99.5000",
+                "manage_money2": "50.0000",
+                "manage_money3": "119.5000",
+                "manage_money_lev_2": "39.50",
+                "manage_money_lev_3": "49.50",
+                "manage_money_lev_4": "59.50",
+                "manage_money_lev_5": "69.50",
+                "manage_money_lev_6": "79.50",
+                "manage_money_lev_7": "89.50",
+                "manage_money_lev_8": "99.50",
+                "manage_money_lev_9": "109.50",
+                "manage_money_lev_10": "119.50"
+            }, {
+                "id": "101",
+                "apply_money": "60000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "6000.0000",
+                "manage_money": "143.40",
+                "manage_money1": "119.4000",
+                "manage_money2": "60.0000",
+                "manage_money3": "143.4000",
+                "manage_money_lev_2": "47.40",
+                "manage_money_lev_3": "59.40",
+                "manage_money_lev_4": "71.40",
+                "manage_money_lev_5": "83.40",
+                "manage_money_lev_6": "95.40",
+                "manage_money_lev_7": "107.40",
+                "manage_money_lev_8": "119.40",
+                "manage_money_lev_9": "131.40",
+                "manage_money_lev_10": "143.40"
+            }, {
+                "id": "121",
+                "apply_money": "70000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "7000.0000",
+                "manage_money": "167.30",
+                "manage_money1": "139.3000",
+                "manage_money2": "70.0000",
+                "manage_money3": "167.3000",
+                "manage_money_lev_2": "55.30",
+                "manage_money_lev_3": "69.30",
+                "manage_money_lev_4": "83.30",
+                "manage_money_lev_5": "97.30",
+                "manage_money_lev_6": "111.30",
+                "manage_money_lev_7": "125.30",
+                "manage_money_lev_8": "139.30",
+                "manage_money_lev_9": "153.30",
+                "manage_money_lev_10": "167.30"
+            }, {
+                "id": "141",
+                "apply_money": "80000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "8000.0000",
+                "manage_money": "191.20",
+                "manage_money1": "159.2000",
+                "manage_money2": "80.0000",
+                "manage_money3": "191.2000",
+                "manage_money_lev_2": "63.20",
+                "manage_money_lev_3": "79.20",
+                "manage_money_lev_4": "95.20",
+                "manage_money_lev_5": "111.20",
+                "manage_money_lev_6": "127.20",
+                "manage_money_lev_7": "143.20",
+                "manage_money_lev_8": "159.20",
+                "manage_money_lev_9": "175.20",
+                "manage_money_lev_10": "191.20"
+            }, {
+                "id": "161",
+                "apply_money": "90000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "9000.0000",
+                "manage_money": "215.10",
+                "manage_money1": "179.1000",
+                "manage_money2": "90.0000",
+                "manage_money3": "215.1000",
+                "manage_money_lev_2": "71.10",
+                "manage_money_lev_3": "89.10",
+                "manage_money_lev_4": "107.10",
+                "manage_money_lev_5": "125.10",
+                "manage_money_lev_6": "143.10",
+                "manage_money_lev_7": "161.10",
+                "manage_money_lev_8": "179.10",
+                "manage_money_lev_9": "197.10",
+                "manage_money_lev_10": "215.10"
+            }, {
+                "id": "181",
+                "apply_money": "100000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "10000.0000",
+                "manage_money": "239.00",
+                "manage_money1": "199.0000",
+                "manage_money2": "100.0000",
+                "manage_money3": "239.0000",
+                "manage_money_lev_2": "79.00",
+                "manage_money_lev_3": "99.00",
+                "manage_money_lev_4": "119.00",
+                "manage_money_lev_5": "139.00",
+                "manage_money_lev_6": "159.00",
+                "manage_money_lev_7": "179.00",
+                "manage_money_lev_8": "199.00",
+                "manage_money_lev_9": "219.00",
+                "manage_money_lev_10": "239.00"
+            }, {
+                "id": "201",
+                "apply_money": "110000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "11000.0000",
+                "manage_money": "262.90",
+                "manage_money1": "218.9000",
+                "manage_money2": "110.0000",
+                "manage_money3": "262.9000",
+                "manage_money_lev_2": "86.90",
+                "manage_money_lev_3": "108.90",
+                "manage_money_lev_4": "130.90",
+                "manage_money_lev_5": "152.90",
+                "manage_money_lev_6": "174.90",
+                "manage_money_lev_7": "196.90",
+                "manage_money_lev_8": "218.90",
+                "manage_money_lev_9": "240.90",
+                "manage_money_lev_10": "262.90"
+            }, {
+                "id": "221",
+                "apply_money": "120000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "12000.0000",
+                "manage_money": "286.80",
+                "manage_money1": "238.8000",
+                "manage_money2": "120.0000",
+                "manage_money3": "286.8000",
+                "manage_money_lev_2": "94.80",
+                "manage_money_lev_3": "118.80",
+                "manage_money_lev_4": "142.80",
+                "manage_money_lev_5": "166.80",
+                "manage_money_lev_6": "190.80",
+                "manage_money_lev_7": "214.80",
+                "manage_money_lev_8": "238.80",
+                "manage_money_lev_9": "262.80",
+                "manage_money_lev_10": "286.80"
+            }, {
+                "id": "241",
+                "apply_money": "130000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "13000.0000",
+                "manage_money": "310.70",
+                "manage_money1": "258.7000",
+                "manage_money2": "130.0000",
+                "manage_money3": "310.7000",
+                "manage_money_lev_2": "102.70",
+                "manage_money_lev_3": "128.70",
+                "manage_money_lev_4": "154.70",
+                "manage_money_lev_5": "180.70",
+                "manage_money_lev_6": "206.70",
+                "manage_money_lev_7": "232.70",
+                "manage_money_lev_8": "258.70",
+                "manage_money_lev_9": "284.70",
+                "manage_money_lev_10": "310.70"
+            }, {
+                "id": "261",
+                "apply_money": "140000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "14000.0000",
+                "manage_money": "334.60",
+                "manage_money1": "278.6000",
+                "manage_money2": "140.0000",
+                "manage_money3": "334.6000",
+                "manage_money_lev_2": "110.60",
+                "manage_money_lev_3": "138.60",
+                "manage_money_lev_4": "166.60",
+                "manage_money_lev_5": "194.60",
+                "manage_money_lev_6": "222.60",
+                "manage_money_lev_7": "250.60",
+                "manage_money_lev_8": "278.60",
+                "manage_money_lev_9": "306.60",
+                "manage_money_lev_10": "334.60"
+            }, {
+                "id": "281",
+                "apply_money": "150000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "15000.0000",
+                "manage_money": "358.50",
+                "manage_money1": "298.5000",
+                "manage_money2": "150.0000",
+                "manage_money3": "358.5000",
+                "manage_money_lev_2": "118.50",
+                "manage_money_lev_3": "148.50",
+                "manage_money_lev_4": "178.50",
+                "manage_money_lev_5": "208.50",
+                "manage_money_lev_6": "238.50",
+                "manage_money_lev_7": "268.50",
+                "manage_money_lev_8": "298.50",
+                "manage_money_lev_9": "328.50",
+                "manage_money_lev_10": "358.50"
+            }, {
+                "id": "301",
+                "apply_money": "160000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "16000.0000",
+                "manage_money": "382.40",
+                "manage_money1": "318.4000",
+                "manage_money2": "160.0000",
+                "manage_money3": "382.4000",
+                "manage_money_lev_2": "126.40",
+                "manage_money_lev_3": "158.40",
+                "manage_money_lev_4": "190.40",
+                "manage_money_lev_5": "222.40",
+                "manage_money_lev_6": "254.40",
+                "manage_money_lev_7": "286.40",
+                "manage_money_lev_8": "318.40",
+                "manage_money_lev_9": "350.40",
+                "manage_money_lev_10": "382.40"
+            }, {
+                "id": "321",
+                "apply_money": "170000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "17000.0000",
+                "manage_money": "406.30",
+                "manage_money1": "338.3000",
+                "manage_money2": "170.0000",
+                "manage_money3": "406.3000",
+                "manage_money_lev_2": "134.30",
+                "manage_money_lev_3": "168.30",
+                "manage_money_lev_4": "202.30",
+                "manage_money_lev_5": "236.30",
+                "manage_money_lev_6": "270.30",
+                "manage_money_lev_7": "304.30",
+                "manage_money_lev_8": "338.30",
+                "manage_money_lev_9": "372.30",
+                "manage_money_lev_10": "406.30"
+            }, {
+                "id": "341",
+                "apply_money": "180000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "18000.0000",
+                "manage_money": "430.20",
+                "manage_money1": "358.2000",
+                "manage_money2": "180.0000",
+                "manage_money3": "430.2000",
+                "manage_money_lev_2": "142.20",
+                "manage_money_lev_3": "178.20",
+                "manage_money_lev_4": "214.20",
+                "manage_money_lev_5": "250.20",
+                "manage_money_lev_6": "286.20",
+                "manage_money_lev_7": "322.20",
+                "manage_money_lev_8": "358.20",
+                "manage_money_lev_9": "394.20",
+                "manage_money_lev_10": "430.20"
+            }, {
+                "id": "361",
+                "apply_money": "190000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "19000.0000",
+                "manage_money": "454.10",
+                "manage_money1": "378.1000",
+                "manage_money2": "190.0000",
+                "manage_money3": "454.1000",
+                "manage_money_lev_2": "150.10",
+                "manage_money_lev_3": "188.10",
+                "manage_money_lev_4": "226.10",
+                "manage_money_lev_5": "264.10",
+                "manage_money_lev_6": "302.10",
+                "manage_money_lev_7": "340.10",
+                "manage_money_lev_8": "378.10",
+                "manage_money_lev_9": "416.10",
+                "manage_money_lev_10": "454.10"
+            }, {
+                "id": "381",
+                "apply_money": "200000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "20000.0000",
+                "manage_money": "478.00",
+                "manage_money1": "398.0000",
+                "manage_money2": "200.0000",
+                "manage_money3": "478.0000",
+                "manage_money_lev_2": "158.00",
+                "manage_money_lev_3": "198.00",
+                "manage_money_lev_4": "238.00",
+                "manage_money_lev_5": "278.00",
+                "manage_money_lev_6": "318.00",
+                "manage_money_lev_7": "358.00",
+                "manage_money_lev_8": "398.00",
+                "manage_money_lev_9": "438.00",
+                "manage_money_lev_10": "478.00"
+            }, {
+                "id": "401",
+                "apply_money": "210000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "21000.0000",
+                "manage_money": "501.90",
+                "manage_money1": "417.9000",
+                "manage_money2": "210.0000",
+                "manage_money3": "501.9000",
+                "manage_money_lev_2": "165.90",
+                "manage_money_lev_3": "207.90",
+                "manage_money_lev_4": "249.90",
+                "manage_money_lev_5": "291.90",
+                "manage_money_lev_6": "333.90",
+                "manage_money_lev_7": "375.90",
+                "manage_money_lev_8": "417.90",
+                "manage_money_lev_9": "459.90",
+                "manage_money_lev_10": "501.90"
+            }, {
+                "id": "421",
+                "apply_money": "220000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "22000.0000",
+                "manage_money": "525.80",
+                "manage_money1": "437.8000",
+                "manage_money2": "220.0000",
+                "manage_money3": "525.8000",
+                "manage_money_lev_2": "173.80",
+                "manage_money_lev_3": "217.80",
+                "manage_money_lev_4": "261.80",
+                "manage_money_lev_5": "305.80",
+                "manage_money_lev_6": "349.80",
+                "manage_money_lev_7": "393.80",
+                "manage_money_lev_8": "437.80",
+                "manage_money_lev_9": "481.80",
+                "manage_money_lev_10": "525.80"
+            }, {
+                "id": "441",
+                "apply_money": "230000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "23000.0000",
+                "manage_money": "549.70",
+                "manage_money1": "457.7000",
+                "manage_money2": "230.0000",
+                "manage_money3": "549.7000",
+                "manage_money_lev_2": "181.70",
+                "manage_money_lev_3": "227.70",
+                "manage_money_lev_4": "273.70",
+                "manage_money_lev_5": "319.70",
+                "manage_money_lev_6": "365.70",
+                "manage_money_lev_7": "411.70",
+                "manage_money_lev_8": "457.70",
+                "manage_money_lev_9": "503.70",
+                "manage_money_lev_10": "549.70"
+            }, {
+                "id": "461",
+                "apply_money": "240000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "24000.0000",
+                "manage_money": "573.60",
+                "manage_money1": "477.6000",
+                "manage_money2": "240.0000",
+                "manage_money3": "573.6000",
+                "manage_money_lev_2": "189.60",
+                "manage_money_lev_3": "237.60",
+                "manage_money_lev_4": "285.60",
+                "manage_money_lev_5": "333.60",
+                "manage_money_lev_6": "381.60",
+                "manage_money_lev_7": "429.60",
+                "manage_money_lev_8": "477.60",
+                "manage_money_lev_9": "525.60",
+                "manage_money_lev_10": "573.60"
+            }, {
+                "id": "481",
+                "apply_money": "250000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "25000.0000",
+                "manage_money": "597.50",
+                "manage_money1": "497.5000",
+                "manage_money2": "250.0000",
+                "manage_money3": "597.5000",
+                "manage_money_lev_2": "197.50",
+                "manage_money_lev_3": "247.50",
+                "manage_money_lev_4": "297.50",
+                "manage_money_lev_5": "347.50",
+                "manage_money_lev_6": "397.50",
+                "manage_money_lev_7": "447.50",
+                "manage_money_lev_8": "497.50",
+                "manage_money_lev_9": "547.50",
+                "manage_money_lev_10": "597.50"
+            }, {
+                "id": "501",
+                "apply_money": "260000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "26000.0000",
+                "manage_money": "621.40",
+                "manage_money1": "517.4000",
+                "manage_money2": "260.0000",
+                "manage_money3": "621.4000",
+                "manage_money_lev_2": "205.40",
+                "manage_money_lev_3": "257.40",
+                "manage_money_lev_4": "309.40",
+                "manage_money_lev_5": "361.40",
+                "manage_money_lev_6": "413.40",
+                "manage_money_lev_7": "465.40",
+                "manage_money_lev_8": "517.40",
+                "manage_money_lev_9": "569.40",
+                "manage_money_lev_10": "621.40"
+            }, {
+                "id": "521",
+                "apply_money": "270000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "27000.0000",
+                "manage_money": "645.30",
+                "manage_money1": "537.3000",
+                "manage_money2": "270.0000",
+                "manage_money3": "645.3000",
+                "manage_money_lev_2": "213.30",
+                "manage_money_lev_3": "267.30",
+                "manage_money_lev_4": "321.30",
+                "manage_money_lev_5": "375.30",
+                "manage_money_lev_6": "429.30",
+                "manage_money_lev_7": "483.30",
+                "manage_money_lev_8": "537.30",
+                "manage_money_lev_9": "591.30",
+                "manage_money_lev_10": "645.30"
+            }, {
+                "id": "541",
+                "apply_money": "280000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "28000.0000",
+                "manage_money": "669.20",
+                "manage_money1": "557.2000",
+                "manage_money2": "280.0000",
+                "manage_money3": "669.2000",
+                "manage_money_lev_2": "221.20",
+                "manage_money_lev_3": "277.20",
+                "manage_money_lev_4": "333.20",
+                "manage_money_lev_5": "389.20",
+                "manage_money_lev_6": "445.20",
+                "manage_money_lev_7": "501.20",
+                "manage_money_lev_8": "557.20",
+                "manage_money_lev_9": "613.20",
+                "manage_money_lev_10": "669.20"
+            }, {
+                "id": "561",
+                "apply_money": "290000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "29000.0000",
+                "manage_money": "693.10",
+                "manage_money1": "577.1000",
+                "manage_money2": "290.0000",
+                "manage_money3": "693.1000",
+                "manage_money_lev_2": "229.10",
+                "manage_money_lev_3": "287.10",
+                "manage_money_lev_4": "345.10",
+                "manage_money_lev_5": "403.10",
+                "manage_money_lev_6": "461.10",
+                "manage_money_lev_7": "519.10",
+                "manage_money_lev_8": "577.10",
+                "manage_money_lev_9": "635.10",
+                "manage_money_lev_10": "693.10"
+            }, {
+                "id": "581",
+                "apply_money": "300000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "30000.0000",
+                "manage_money": "717.00",
+                "manage_money1": "597.0000",
+                "manage_money2": "300.0000",
+                "manage_money3": "717.0000",
+                "manage_money_lev_2": "237.00",
+                "manage_money_lev_3": "297.00",
+                "manage_money_lev_4": "357.00",
+                "manage_money_lev_5": "417.00",
+                "manage_money_lev_6": "477.00",
+                "manage_money_lev_7": "537.00",
+                "manage_money_lev_8": "597.00",
+                "manage_money_lev_9": "657.00",
+                "manage_money_lev_10": "717.00"
+            }, {
+                "id": "601",
+                "apply_money": "310000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "31000.0000",
+                "manage_money": "740.90",
+                "manage_money1": "616.9000",
+                "manage_money2": "616.9000",
+                "manage_money3": "740.9000",
+                "manage_money_lev_2": "244.90",
+                "manage_money_lev_3": "306.90",
+                "manage_money_lev_4": "368.90",
+                "manage_money_lev_5": "430.90",
+                "manage_money_lev_6": "492.90",
+                "manage_money_lev_7": "554.90",
+                "manage_money_lev_8": "616.90",
+                "manage_money_lev_9": "678.90",
+                "manage_money_lev_10": "740.90"
+            }, {
+                "id": "621",
+                "apply_money": "320000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "32000.0000",
+                "manage_money": "764.80",
+                "manage_money1": "636.8000",
+                "manage_money2": "636.8000",
+                "manage_money3": "764.8000",
+                "manage_money_lev_2": "252.80",
+                "manage_money_lev_3": "316.80",
+                "manage_money_lev_4": "380.80",
+                "manage_money_lev_5": "444.80",
+                "manage_money_lev_6": "508.80",
+                "manage_money_lev_7": "572.80",
+                "manage_money_lev_8": "636.80",
+                "manage_money_lev_9": "700.80",
+                "manage_money_lev_10": "764.80"
+            }, {
+                "id": "641",
+                "apply_money": "330000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "33000.0000",
+                "manage_money": "788.70",
+                "manage_money1": "656.7000",
+                "manage_money2": "656.7000",
+                "manage_money3": "788.7000",
+                "manage_money_lev_2": "260.70",
+                "manage_money_lev_3": "326.70",
+                "manage_money_lev_4": "392.70",
+                "manage_money_lev_5": "458.70",
+                "manage_money_lev_6": "524.70",
+                "manage_money_lev_7": "590.70",
+                "manage_money_lev_8": "656.70",
+                "manage_money_lev_9": "722.70",
+                "manage_money_lev_10": "788.70"
+            }, {
+                "id": "661",
+                "apply_money": "340000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "34000.0000",
+                "manage_money": "812.60",
+                "manage_money1": "676.6000",
+                "manage_money2": "676.6000",
+                "manage_money3": "812.6000",
+                "manage_money_lev_2": "268.60",
+                "manage_money_lev_3": "336.60",
+                "manage_money_lev_4": "404.60",
+                "manage_money_lev_5": "472.60",
+                "manage_money_lev_6": "540.60",
+                "manage_money_lev_7": "608.60",
+                "manage_money_lev_8": "676.60",
+                "manage_money_lev_9": "744.60",
+                "manage_money_lev_10": "812.60"
+            }, {
+                "id": "681",
+                "apply_money": "350000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "35000.0000",
+                "manage_money": "836.50",
+                "manage_money1": "696.5000",
+                "manage_money2": "696.5000",
+                "manage_money3": "836.5000",
+                "manage_money_lev_2": "276.50",
+                "manage_money_lev_3": "346.50",
+                "manage_money_lev_4": "416.50",
+                "manage_money_lev_5": "486.50",
+                "manage_money_lev_6": "556.50",
+                "manage_money_lev_7": "626.50",
+                "manage_money_lev_8": "696.50",
+                "manage_money_lev_9": "766.50",
+                "manage_money_lev_10": "836.50"
+            }, {
+                "id": "701",
+                "apply_money": "360000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "36000.0000",
+                "manage_money": "860.40",
+                "manage_money1": "716.4000",
+                "manage_money2": "716.4000",
+                "manage_money3": "860.4000",
+                "manage_money_lev_2": "284.40",
+                "manage_money_lev_3": "356.40",
+                "manage_money_lev_4": "428.40",
+                "manage_money_lev_5": "500.40",
+                "manage_money_lev_6": "572.40",
+                "manage_money_lev_7": "644.40",
+                "manage_money_lev_8": "716.40",
+                "manage_money_lev_9": "788.40",
+                "manage_money_lev_10": "860.40"
+            }, {
+                "id": "721",
+                "apply_money": "370000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "37000.0000",
+                "manage_money": "884.30",
+                "manage_money1": "736.3000",
+                "manage_money2": "736.3000",
+                "manage_money3": "884.3000",
+                "manage_money_lev_2": "292.30",
+                "manage_money_lev_3": "366.30",
+                "manage_money_lev_4": "440.30",
+                "manage_money_lev_5": "514.30",
+                "manage_money_lev_6": "588.30",
+                "manage_money_lev_7": "662.30",
+                "manage_money_lev_8": "736.30",
+                "manage_money_lev_9": "810.30",
+                "manage_money_lev_10": "884.30"
+            }, {
+                "id": "741",
+                "apply_money": "380000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "38000.0000",
+                "manage_money": "908.20",
+                "manage_money1": "756.2000",
+                "manage_money2": "756.2000",
+                "manage_money3": "908.2000",
+                "manage_money_lev_2": "300.20",
+                "manage_money_lev_3": "376.20",
+                "manage_money_lev_4": "452.20",
+                "manage_money_lev_5": "528.20",
+                "manage_money_lev_6": "604.20",
+                "manage_money_lev_7": "680.20",
+                "manage_money_lev_8": "756.20",
+                "manage_money_lev_9": "832.20",
+                "manage_money_lev_10": "908.20"
+            }, {
+                "id": "761",
+                "apply_money": "390000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "39000.0000",
+                "manage_money": "932.10",
+                "manage_money1": "776.1000",
+                "manage_money2": "776.1000",
+                "manage_money3": "932.1000",
+                "manage_money_lev_2": "308.10",
+                "manage_money_lev_3": "386.10",
+                "manage_money_lev_4": "464.10",
+                "manage_money_lev_5": "542.10",
+                "manage_money_lev_6": "620.10",
+                "manage_money_lev_7": "698.10",
+                "manage_money_lev_8": "776.10",
+                "manage_money_lev_9": "854.10",
+                "manage_money_lev_10": "932.10"
+            }, {
+                "id": "781",
+                "apply_money": "400000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "40000.0000",
+                "manage_money": "956.00",
+                "manage_money1": "796.0000",
+                "manage_money2": "796.0000",
+                "manage_money3": "956.0000",
+                "manage_money_lev_2": "316.00",
+                "manage_money_lev_3": "396.00",
+                "manage_money_lev_4": "476.00",
+                "manage_money_lev_5": "556.00",
+                "manage_money_lev_6": "636.00",
+                "manage_money_lev_7": "716.00",
+                "manage_money_lev_8": "796.00",
+                "manage_money_lev_9": "876.00",
+                "manage_money_lev_10": "956.00"
+            }, {
+                "id": "801",
+                "apply_money": "410000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "41000.0000",
+                "manage_money": "979.90",
+                "manage_money1": "815.9000",
+                "manage_money2": "815.9000",
+                "manage_money3": "979.9000",
+                "manage_money_lev_2": "323.90",
+                "manage_money_lev_3": "405.90",
+                "manage_money_lev_4": "487.90",
+                "manage_money_lev_5": "569.90",
+                "manage_money_lev_6": "651.90",
+                "manage_money_lev_7": "733.90",
+                "manage_money_lev_8": "815.90",
+                "manage_money_lev_9": "897.90",
+                "manage_money_lev_10": "979.90"
+            }, {
+                "id": "821",
+                "apply_money": "420000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "42000.0000",
+                "manage_money": "1003.80",
+                "manage_money1": "835.8000",
+                "manage_money2": "835.8000",
+                "manage_money3": "1003.8000",
+                "manage_money_lev_2": "331.80",
+                "manage_money_lev_3": "415.80",
+                "manage_money_lev_4": "499.80",
+                "manage_money_lev_5": "583.80",
+                "manage_money_lev_6": "667.80",
+                "manage_money_lev_7": "751.80",
+                "manage_money_lev_8": "835.80",
+                "manage_money_lev_9": "919.80",
+                "manage_money_lev_10": "1003.80"
+            }, {
+                "id": "841",
+                "apply_money": "430000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "43000.0000",
+                "manage_money": "1027.70",
+                "manage_money1": "855.7000",
+                "manage_money2": "855.7000",
+                "manage_money3": "1027.7000",
+                "manage_money_lev_2": "339.70",
+                "manage_money_lev_3": "425.70",
+                "manage_money_lev_4": "511.70",
+                "manage_money_lev_5": "597.70",
+                "manage_money_lev_6": "683.70",
+                "manage_money_lev_7": "769.70",
+                "manage_money_lev_8": "855.70",
+                "manage_money_lev_9": "941.70",
+                "manage_money_lev_10": "1027.70"
+            }, {
+                "id": "861",
+                "apply_money": "440000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "44000.0000",
+                "manage_money": "1051.60",
+                "manage_money1": "875.6000",
+                "manage_money2": "875.6000",
+                "manage_money3": "1051.6000",
+                "manage_money_lev_2": "347.60",
+                "manage_money_lev_3": "435.60",
+                "manage_money_lev_4": "523.60",
+                "manage_money_lev_5": "611.60",
+                "manage_money_lev_6": "699.60",
+                "manage_money_lev_7": "787.60",
+                "manage_money_lev_8": "875.60",
+                "manage_money_lev_9": "963.60",
+                "manage_money_lev_10": "1051.60"
+            }, {
+                "id": "881",
+                "apply_money": "450000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "45000.0000",
+                "manage_money": "1075.50",
+                "manage_money1": "895.5000",
+                "manage_money2": "895.5000",
+                "manage_money3": "1075.5000",
+                "manage_money_lev_2": "355.50",
+                "manage_money_lev_3": "445.50",
+                "manage_money_lev_4": "535.50",
+                "manage_money_lev_5": "625.50",
+                "manage_money_lev_6": "715.50",
+                "manage_money_lev_7": "805.50",
+                "manage_money_lev_8": "895.50",
+                "manage_money_lev_9": "985.50",
+                "manage_money_lev_10": "1075.50"
+            }, {
+                "id": "901",
+                "apply_money": "460000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "46000.0000",
+                "manage_money": "1099.40",
+                "manage_money1": "915.4000",
+                "manage_money2": "915.4000",
+                "manage_money3": "1099.4000",
+                "manage_money_lev_2": "363.40",
+                "manage_money_lev_3": "455.40",
+                "manage_money_lev_4": "547.40",
+                "manage_money_lev_5": "639.40",
+                "manage_money_lev_6": "731.40",
+                "manage_money_lev_7": "823.40",
+                "manage_money_lev_8": "915.40",
+                "manage_money_lev_9": "1007.40",
+                "manage_money_lev_10": "1099.40"
+            }, {
+                "id": "921",
+                "apply_money": "470000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "47000.0000",
+                "manage_money": "1123.30",
+                "manage_money1": "935.3000",
+                "manage_money2": "935.3000",
+                "manage_money3": "1123.3000",
+                "manage_money_lev_2": "371.30",
+                "manage_money_lev_3": "465.30",
+                "manage_money_lev_4": "559.30",
+                "manage_money_lev_5": "653.30",
+                "manage_money_lev_6": "747.30",
+                "manage_money_lev_7": "841.30",
+                "manage_money_lev_8": "935.30",
+                "manage_money_lev_9": "1029.30",
+                "manage_money_lev_10": "1123.30"
+            }, {
+                "id": "941",
+                "apply_money": "480000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "48000.0000",
+                "manage_money": "1147.20",
+                "manage_money1": "955.2000",
+                "manage_money2": "955.2000",
+                "manage_money3": "1147.2000",
+                "manage_money_lev_2": "379.20",
+                "manage_money_lev_3": "475.20",
+                "manage_money_lev_4": "571.20",
+                "manage_money_lev_5": "667.20",
+                "manage_money_lev_6": "763.20",
+                "manage_money_lev_7": "859.20",
+                "manage_money_lev_8": "955.20",
+                "manage_money_lev_9": "1051.20",
+                "manage_money_lev_10": "1147.20"
+            }, {
+                "id": "961",
+                "apply_money": "490000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "49000.0000",
+                "manage_money": "1171.10",
+                "manage_money1": "975.1000",
+                "manage_money2": "975.1000",
+                "manage_money3": "1171.1000",
+                "manage_money_lev_2": "387.10",
+                "manage_money_lev_3": "485.10",
+                "manage_money_lev_4": "583.10",
+                "manage_money_lev_5": "681.10",
+                "manage_money_lev_6": "779.10",
+                "manage_money_lev_7": "877.10",
+                "manage_money_lev_8": "975.10",
+                "manage_money_lev_9": "1073.10",
+                "manage_money_lev_10": "1171.10"
+            }, {
+                "id": "981",
+                "apply_money": "500000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "50000.0000",
+                "manage_money": "1195.00",
+                "manage_money1": "995.0000",
+                "manage_money2": "995.0000",
+                "manage_money3": "1195.0000",
+                "manage_money_lev_2": "395.00",
+                "manage_money_lev_3": "495.00",
+                "manage_money_lev_4": "595.00",
+                "manage_money_lev_5": "695.00",
+                "manage_money_lev_6": "795.00",
+                "manage_money_lev_7": "895.00",
+                "manage_money_lev_8": "995.00",
+                "manage_money_lev_9": "1095.00",
+                "manage_money_lev_10": "1195.00"
+            }, {
+                "id": "1001",
+                "apply_money": "510000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "51000.0000",
+                "manage_money": "1218.90",
+                "manage_money1": "1014.9000",
+                "manage_money2": "1014.9000",
+                "manage_money3": "1218.9000",
+                "manage_money_lev_2": "402.90",
+                "manage_money_lev_3": "504.90",
+                "manage_money_lev_4": "606.90",
+                "manage_money_lev_5": "708.90",
+                "manage_money_lev_6": "810.90",
+                "manage_money_lev_7": "912.90",
+                "manage_money_lev_8": "1014.90",
+                "manage_money_lev_9": "1116.90",
+                "manage_money_lev_10": "1218.90"
+            }, {
+                "id": "1021",
+                "apply_money": "520000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "52000.0000",
+                "manage_money": "1242.80",
+                "manage_money1": "1034.8000",
+                "manage_money2": "1034.8000",
+                "manage_money3": "1242.8000",
+                "manage_money_lev_2": "410.80",
+                "manage_money_lev_3": "514.80",
+                "manage_money_lev_4": "618.80",
+                "manage_money_lev_5": "722.80",
+                "manage_money_lev_6": "826.80",
+                "manage_money_lev_7": "930.80",
+                "manage_money_lev_8": "1034.80",
+                "manage_money_lev_9": "1138.80",
+                "manage_money_lev_10": "1242.80"
+            }, {
+                "id": "1041",
+                "apply_money": "530000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "53000.0000",
+                "manage_money": "1266.70",
+                "manage_money1": "1054.7000",
+                "manage_money2": "1054.7000",
+                "manage_money3": "1266.7000",
+                "manage_money_lev_2": "418.70",
+                "manage_money_lev_3": "524.70",
+                "manage_money_lev_4": "630.70",
+                "manage_money_lev_5": "736.70",
+                "manage_money_lev_6": "842.70",
+                "manage_money_lev_7": "948.70",
+                "manage_money_lev_8": "1054.70",
+                "manage_money_lev_9": "1160.70",
+                "manage_money_lev_10": "1266.70"
+            }, {
+                "id": "1061",
+                "apply_money": "540000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "54000.0000",
+                "manage_money": "1290.60",
+                "manage_money1": "1074.6000",
+                "manage_money2": "1074.6000",
+                "manage_money3": "1290.6000",
+                "manage_money_lev_2": "426.60",
+                "manage_money_lev_3": "534.60",
+                "manage_money_lev_4": "642.60",
+                "manage_money_lev_5": "750.60",
+                "manage_money_lev_6": "858.60",
+                "manage_money_lev_7": "966.60",
+                "manage_money_lev_8": "1074.60",
+                "manage_money_lev_9": "1182.60",
+                "manage_money_lev_10": "1290.60"
+            }, {
+                "id": "1081",
+                "apply_money": "550000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "55000.0000",
+                "manage_money": "1314.50",
+                "manage_money1": "1094.5000",
+                "manage_money2": "1094.5000",
+                "manage_money3": "1314.5000",
+                "manage_money_lev_2": "434.50",
+                "manage_money_lev_3": "544.50",
+                "manage_money_lev_4": "654.50",
+                "manage_money_lev_5": "764.50",
+                "manage_money_lev_6": "874.50",
+                "manage_money_lev_7": "984.50",
+                "manage_money_lev_8": "1094.50",
+                "manage_money_lev_9": "1204.50",
+                "manage_money_lev_10": "1314.50"
+            }, {
+                "id": "1101",
+                "apply_money": "560000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "56000.0000",
+                "manage_money": "1338.40",
+                "manage_money1": "1114.4000",
+                "manage_money2": "1114.4000",
+                "manage_money3": "1338.4000",
+                "manage_money_lev_2": "442.40",
+                "manage_money_lev_3": "554.40",
+                "manage_money_lev_4": "666.40",
+                "manage_money_lev_5": "778.40",
+                "manage_money_lev_6": "890.40",
+                "manage_money_lev_7": "1002.40",
+                "manage_money_lev_8": "1114.40",
+                "manage_money_lev_9": "1226.40",
+                "manage_money_lev_10": "1338.40"
+            }, {
+                "id": "1121",
+                "apply_money": "570000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "57000.0000",
+                "manage_money": "1362.30",
+                "manage_money1": "1134.3000",
+                "manage_money2": "1134.3000",
+                "manage_money3": "1362.3000",
+                "manage_money_lev_2": "450.30",
+                "manage_money_lev_3": "564.30",
+                "manage_money_lev_4": "678.30",
+                "manage_money_lev_5": "792.30",
+                "manage_money_lev_6": "906.30",
+                "manage_money_lev_7": "1020.30",
+                "manage_money_lev_8": "1134.30",
+                "manage_money_lev_9": "1248.30",
+                "manage_money_lev_10": "1362.30"
+            }, {
+                "id": "1141",
+                "apply_money": "580000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "58000.0000",
+                "manage_money": "1386.20",
+                "manage_money1": "1154.2000",
+                "manage_money2": "1154.2000",
+                "manage_money3": "1386.2000",
+                "manage_money_lev_2": "458.20",
+                "manage_money_lev_3": "574.20",
+                "manage_money_lev_4": "690.20",
+                "manage_money_lev_5": "806.20",
+                "manage_money_lev_6": "922.20",
+                "manage_money_lev_7": "1038.20",
+                "manage_money_lev_8": "1154.20",
+                "manage_money_lev_9": "1270.20",
+                "manage_money_lev_10": "1386.20"
+            }, {
+                "id": "1161",
+                "apply_money": "590000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "59000.0000",
+                "manage_money": "1410.10",
+                "manage_money1": "1174.1000",
+                "manage_money2": "1174.1000",
+                "manage_money3": "1410.1000",
+                "manage_money_lev_2": "466.10",
+                "manage_money_lev_3": "584.10",
+                "manage_money_lev_4": "702.10",
+                "manage_money_lev_5": "820.10",
+                "manage_money_lev_6": "938.10",
+                "manage_money_lev_7": "1056.10",
+                "manage_money_lev_8": "1174.10",
+                "manage_money_lev_9": "1292.10",
+                "manage_money_lev_10": "1410.10"
+            }, {
+                "id": "1181",
+                "apply_money": "600000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "60000.0000",
+                "manage_money": "1434.00",
+                "manage_money1": "1194.0000",
+                "manage_money2": "1194.0000",
+                "manage_money3": "1434.0000",
+                "manage_money_lev_2": "474.00",
+                "manage_money_lev_3": "594.00",
+                "manage_money_lev_4": "714.00",
+                "manage_money_lev_5": "834.00",
+                "manage_money_lev_6": "954.00",
+                "manage_money_lev_7": "1074.00",
+                "manage_money_lev_8": "1194.00",
+                "manage_money_lev_9": "1314.00",
+                "manage_money_lev_10": "1434.00"
+            }, {
+                "id": "1201",
+                "apply_money": "610000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "61000.0000",
+                "manage_money": "1457.90",
+                "manage_money1": "1213.9000",
+                "manage_money2": "1213.9000",
+                "manage_money3": "1457.9000",
+                "manage_money_lev_2": "481.90",
+                "manage_money_lev_3": "603.90",
+                "manage_money_lev_4": "725.90",
+                "manage_money_lev_5": "847.90",
+                "manage_money_lev_6": "969.90",
+                "manage_money_lev_7": "1091.90",
+                "manage_money_lev_8": "1213.90",
+                "manage_money_lev_9": "1335.90",
+                "manage_money_lev_10": "1457.90"
+            }, {
+                "id": "1221",
+                "apply_money": "620000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "62000.0000",
+                "manage_money": "1481.80",
+                "manage_money1": "1233.8000",
+                "manage_money2": "1233.8000",
+                "manage_money3": "1481.8000",
+                "manage_money_lev_2": "489.80",
+                "manage_money_lev_3": "613.80",
+                "manage_money_lev_4": "737.80",
+                "manage_money_lev_5": "861.80",
+                "manage_money_lev_6": "985.80",
+                "manage_money_lev_7": "1109.80",
+                "manage_money_lev_8": "1233.80",
+                "manage_money_lev_9": "1357.80",
+                "manage_money_lev_10": "1481.80"
+            }, {
+                "id": "1241",
+                "apply_money": "630000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "63000.0000",
+                "manage_money": "1505.70",
+                "manage_money1": "1253.7000",
+                "manage_money2": "1253.7000",
+                "manage_money3": "1505.7000",
+                "manage_money_lev_2": "497.70",
+                "manage_money_lev_3": "623.70",
+                "manage_money_lev_4": "749.70",
+                "manage_money_lev_5": "875.70",
+                "manage_money_lev_6": "1001.70",
+                "manage_money_lev_7": "1127.70",
+                "manage_money_lev_8": "1253.70",
+                "manage_money_lev_9": "1379.70",
+                "manage_money_lev_10": "1505.70"
+            }, {
+                "id": "1261",
+                "apply_money": "640000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "64000.0000",
+                "manage_money": "1529.60",
+                "manage_money1": "1273.6000",
+                "manage_money2": "1273.6000",
+                "manage_money3": "1529.6000",
+                "manage_money_lev_2": "505.60",
+                "manage_money_lev_3": "633.60",
+                "manage_money_lev_4": "761.60",
+                "manage_money_lev_5": "889.60",
+                "manage_money_lev_6": "1017.60",
+                "manage_money_lev_7": "1145.60",
+                "manage_money_lev_8": "1273.60",
+                "manage_money_lev_9": "1401.60",
+                "manage_money_lev_10": "1529.60"
+            }, {
+                "id": "1281",
+                "apply_money": "650000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "65000.0000",
+                "manage_money": "1553.50",
+                "manage_money1": "1293.5000",
+                "manage_money2": "1293.5000",
+                "manage_money3": "1553.5000",
+                "manage_money_lev_2": "513.50",
+                "manage_money_lev_3": "643.50",
+                "manage_money_lev_4": "773.50",
+                "manage_money_lev_5": "903.50",
+                "manage_money_lev_6": "1033.50",
+                "manage_money_lev_7": "1163.50",
+                "manage_money_lev_8": "1293.50",
+                "manage_money_lev_9": "1423.50",
+                "manage_money_lev_10": "1553.50"
+            }, {
+                "id": "1301",
+                "apply_money": "660000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "66000.0000",
+                "manage_money": "1577.40",
+                "manage_money1": "1313.4000",
+                "manage_money2": "1313.4000",
+                "manage_money3": "1577.4000",
+                "manage_money_lev_2": "521.40",
+                "manage_money_lev_3": "653.40",
+                "manage_money_lev_4": "785.40",
+                "manage_money_lev_5": "917.40",
+                "manage_money_lev_6": "1049.40",
+                "manage_money_lev_7": "1181.40",
+                "manage_money_lev_8": "1313.40",
+                "manage_money_lev_9": "1445.40",
+                "manage_money_lev_10": "1577.40"
+            }, {
+                "id": "1321",
+                "apply_money": "670000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "67000.0000",
+                "manage_money": "1601.30",
+                "manage_money1": "1333.3000",
+                "manage_money2": "1333.3000",
+                "manage_money3": "1601.3000",
+                "manage_money_lev_2": "529.30",
+                "manage_money_lev_3": "663.30",
+                "manage_money_lev_4": "797.30",
+                "manage_money_lev_5": "931.30",
+                "manage_money_lev_6": "1065.30",
+                "manage_money_lev_7": "1199.30",
+                "manage_money_lev_8": "1333.30",
+                "manage_money_lev_9": "1467.30",
+                "manage_money_lev_10": "1601.30"
+            }, {
+                "id": "1341",
+                "apply_money": "680000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "68000.0000",
+                "manage_money": "1625.20",
+                "manage_money1": "1353.2000",
+                "manage_money2": "1353.2000",
+                "manage_money3": "1625.2000",
+                "manage_money_lev_2": "537.20",
+                "manage_money_lev_3": "673.20",
+                "manage_money_lev_4": "809.20",
+                "manage_money_lev_5": "945.20",
+                "manage_money_lev_6": "1081.20",
+                "manage_money_lev_7": "1217.20",
+                "manage_money_lev_8": "1353.20",
+                "manage_money_lev_9": "1489.20",
+                "manage_money_lev_10": "1625.20"
+            }, {
+                "id": "1361",
+                "apply_money": "690000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "69000.0000",
+                "manage_money": "1649.10",
+                "manage_money1": "1373.1000",
+                "manage_money2": "1373.1000",
+                "manage_money3": "1649.1000",
+                "manage_money_lev_2": "545.10",
+                "manage_money_lev_3": "683.10",
+                "manage_money_lev_4": "821.10",
+                "manage_money_lev_5": "959.10",
+                "manage_money_lev_6": "1097.10",
+                "manage_money_lev_7": "1235.10",
+                "manage_money_lev_8": "1373.10",
+                "manage_money_lev_9": "1511.10",
+                "manage_money_lev_10": "1649.10"
+            }, {
+                "id": "1381",
+                "apply_money": "700000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "70000.0000",
+                "manage_money": "1673.00",
+                "manage_money1": "1393.0000",
+                "manage_money2": "1393.0000",
+                "manage_money3": "1673.0000",
+                "manage_money_lev_2": "553.00",
+                "manage_money_lev_3": "693.00",
+                "manage_money_lev_4": "833.00",
+                "manage_money_lev_5": "973.00",
+                "manage_money_lev_6": "1113.00",
+                "manage_money_lev_7": "1253.00",
+                "manage_money_lev_8": "1393.00",
+                "manage_money_lev_9": "1533.00",
+                "manage_money_lev_10": "1673.00"
+            }, {
+                "id": "1401",
+                "apply_money": "710000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "71000.0000",
+                "manage_money": "1696.90",
+                "manage_money1": "1412.9000",
+                "manage_money2": "1412.9000",
+                "manage_money3": "1696.9000",
+                "manage_money_lev_2": "560.90",
+                "manage_money_lev_3": "702.90",
+                "manage_money_lev_4": "844.90",
+                "manage_money_lev_5": "986.90",
+                "manage_money_lev_6": "1128.90",
+                "manage_money_lev_7": "1270.90",
+                "manage_money_lev_8": "1412.90",
+                "manage_money_lev_9": "1554.90",
+                "manage_money_lev_10": "1696.90"
+            }, {
+                "id": "1421",
+                "apply_money": "720000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "72000.0000",
+                "manage_money": "1720.80",
+                "manage_money1": "1432.8000",
+                "manage_money2": "1432.8000",
+                "manage_money3": "1720.8000",
+                "manage_money_lev_2": "568.80",
+                "manage_money_lev_3": "712.80",
+                "manage_money_lev_4": "856.80",
+                "manage_money_lev_5": "1000.80",
+                "manage_money_lev_6": "1144.80",
+                "manage_money_lev_7": "1288.80",
+                "manage_money_lev_8": "1432.80",
+                "manage_money_lev_9": "1576.80",
+                "manage_money_lev_10": "1720.80"
+            }, {
+                "id": "1441",
+                "apply_money": "730000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "73000.0000",
+                "manage_money": "1744.70",
+                "manage_money1": "1452.7000",
+                "manage_money2": "1452.7000",
+                "manage_money3": "1744.7000",
+                "manage_money_lev_2": "576.70",
+                "manage_money_lev_3": "722.70",
+                "manage_money_lev_4": "868.70",
+                "manage_money_lev_5": "1014.70",
+                "manage_money_lev_6": "1160.70",
+                "manage_money_lev_7": "1306.70",
+                "manage_money_lev_8": "1452.70",
+                "manage_money_lev_9": "1598.70",
+                "manage_money_lev_10": "1744.70"
+            }, {
+                "id": "1461",
+                "apply_money": "740000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "74000.0000",
+                "manage_money": "1768.60",
+                "manage_money1": "1472.6000",
+                "manage_money2": "1472.6000",
+                "manage_money3": "1768.6000",
+                "manage_money_lev_2": "584.60",
+                "manage_money_lev_3": "732.60",
+                "manage_money_lev_4": "880.60",
+                "manage_money_lev_5": "1028.60",
+                "manage_money_lev_6": "1176.60",
+                "manage_money_lev_7": "1324.60",
+                "manage_money_lev_8": "1472.60",
+                "manage_money_lev_9": "1620.60",
+                "manage_money_lev_10": "1768.60"
+            }, {
+                "id": "1481",
+                "apply_money": "750000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "75000.0000",
+                "manage_money": "1792.50",
+                "manage_money1": "1492.5000",
+                "manage_money2": "1492.5000",
+                "manage_money3": "1792.5000",
+                "manage_money_lev_2": "592.50",
+                "manage_money_lev_3": "742.50",
+                "manage_money_lev_4": "892.50",
+                "manage_money_lev_5": "1042.50",
+                "manage_money_lev_6": "1192.50",
+                "manage_money_lev_7": "1342.50",
+                "manage_money_lev_8": "1492.50",
+                "manage_money_lev_9": "1642.50",
+                "manage_money_lev_10": "1792.50"
+            }, {
+                "id": "1501",
+                "apply_money": "760000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "76000.0000",
+                "manage_money": "1816.40",
+                "manage_money1": "1512.4000",
+                "manage_money2": "1512.4000",
+                "manage_money3": "1816.4000",
+                "manage_money_lev_2": "600.40",
+                "manage_money_lev_3": "752.40",
+                "manage_money_lev_4": "904.40",
+                "manage_money_lev_5": "1056.40",
+                "manage_money_lev_6": "1208.40",
+                "manage_money_lev_7": "1360.40",
+                "manage_money_lev_8": "1512.40",
+                "manage_money_lev_9": "1664.40",
+                "manage_money_lev_10": "1816.40"
+            }, {
+                "id": "1521",
+                "apply_money": "770000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "77000.0000",
+                "manage_money": "1840.30",
+                "manage_money1": "1532.3000",
+                "manage_money2": "1532.3000",
+                "manage_money3": "1840.3000",
+                "manage_money_lev_2": "608.30",
+                "manage_money_lev_3": "762.30",
+                "manage_money_lev_4": "916.30",
+                "manage_money_lev_5": "1070.30",
+                "manage_money_lev_6": "1224.30",
+                "manage_money_lev_7": "1378.30",
+                "manage_money_lev_8": "1532.30",
+                "manage_money_lev_9": "1686.30",
+                "manage_money_lev_10": "1840.30"
+            }, {
+                "id": "1541",
+                "apply_money": "780000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "78000.0000",
+                "manage_money": "1864.20",
+                "manage_money1": "1552.2000",
+                "manage_money2": "1552.2000",
+                "manage_money3": "1864.2000",
+                "manage_money_lev_2": "616.20",
+                "manage_money_lev_3": "772.20",
+                "manage_money_lev_4": "928.20",
+                "manage_money_lev_5": "1084.20",
+                "manage_money_lev_6": "1240.20",
+                "manage_money_lev_7": "1396.20",
+                "manage_money_lev_8": "1552.20",
+                "manage_money_lev_9": "1708.20",
+                "manage_money_lev_10": "1864.20"
+            }, {
+                "id": "1561",
+                "apply_money": "790000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "79000.0000",
+                "manage_money": "1888.10",
+                "manage_money1": "1572.1000",
+                "manage_money2": "1572.1000",
+                "manage_money3": "1888.1000",
+                "manage_money_lev_2": "624.10",
+                "manage_money_lev_3": "782.10",
+                "manage_money_lev_4": "940.10",
+                "manage_money_lev_5": "1098.10",
+                "manage_money_lev_6": "1256.10",
+                "manage_money_lev_7": "1414.10",
+                "manage_money_lev_8": "1572.10",
+                "manage_money_lev_9": "1730.10",
+                "manage_money_lev_10": "1888.10"
+            }, {
+                "id": "1581",
+                "apply_money": "800000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "80000.0000",
+                "manage_money": "1912.00",
+                "manage_money1": "1592.0000",
+                "manage_money2": "1592.0000",
+                "manage_money3": "1912.0000",
+                "manage_money_lev_2": "632.00",
+                "manage_money_lev_3": "792.00",
+                "manage_money_lev_4": "952.00",
+                "manage_money_lev_5": "1112.00",
+                "manage_money_lev_6": "1272.00",
+                "manage_money_lev_7": "1432.00",
+                "manage_money_lev_8": "1592.00",
+                "manage_money_lev_9": "1752.00",
+                "manage_money_lev_10": "1912.00"
+            }, {
+                "id": "1601",
+                "apply_money": "810000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "81000.0000",
+                "manage_money": "1935.90",
+                "manage_money1": "1611.9000",
+                "manage_money2": "1611.9000",
+                "manage_money3": "1935.9000",
+                "manage_money_lev_2": "639.90",
+                "manage_money_lev_3": "801.90",
+                "manage_money_lev_4": "963.90",
+                "manage_money_lev_5": "1125.90",
+                "manage_money_lev_6": "1287.90",
+                "manage_money_lev_7": "1449.90",
+                "manage_money_lev_8": "1611.90",
+                "manage_money_lev_9": "1773.90",
+                "manage_money_lev_10": "1935.90"
+            }, {
+                "id": "1621",
+                "apply_money": "820000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "82000.0000",
+                "manage_money": "1959.80",
+                "manage_money1": "1631.8000",
+                "manage_money2": "1631.8000",
+                "manage_money3": "1959.8000",
+                "manage_money_lev_2": "647.80",
+                "manage_money_lev_3": "811.80",
+                "manage_money_lev_4": "975.80",
+                "manage_money_lev_5": "1139.80",
+                "manage_money_lev_6": "1303.80",
+                "manage_money_lev_7": "1467.80",
+                "manage_money_lev_8": "1631.80",
+                "manage_money_lev_9": "1795.80",
+                "manage_money_lev_10": "1959.80"
+            }, {
+                "id": "1641",
+                "apply_money": "830000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "83000.0000",
+                "manage_money": "1983.70",
+                "manage_money1": "1651.7000",
+                "manage_money2": "1651.7000",
+                "manage_money3": "1983.7000",
+                "manage_money_lev_2": "655.70",
+                "manage_money_lev_3": "821.70",
+                "manage_money_lev_4": "987.70",
+                "manage_money_lev_5": "1153.70",
+                "manage_money_lev_6": "1319.70",
+                "manage_money_lev_7": "1485.70",
+                "manage_money_lev_8": "1651.70",
+                "manage_money_lev_9": "1817.70",
+                "manage_money_lev_10": "1983.70"
+            }, {
+                "id": "1661",
+                "apply_money": "840000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "84000.0000",
+                "manage_money": "2007.60",
+                "manage_money1": "1671.6000",
+                "manage_money2": "1671.6000",
+                "manage_money3": "2007.6000",
+                "manage_money_lev_2": "663.60",
+                "manage_money_lev_3": "831.60",
+                "manage_money_lev_4": "999.60",
+                "manage_money_lev_5": "1167.60",
+                "manage_money_lev_6": "1335.60",
+                "manage_money_lev_7": "1503.60",
+                "manage_money_lev_8": "1671.60",
+                "manage_money_lev_9": "1839.60",
+                "manage_money_lev_10": "2007.60"
+            }, {
+                "id": "1681",
+                "apply_money": "850000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "85000.0000",
+                "manage_money": "2031.50",
+                "manage_money1": "1691.5000",
+                "manage_money2": "1691.5000",
+                "manage_money3": "2031.5000",
+                "manage_money_lev_2": "671.50",
+                "manage_money_lev_3": "841.50",
+                "manage_money_lev_4": "1011.50",
+                "manage_money_lev_5": "1181.50",
+                "manage_money_lev_6": "1351.50",
+                "manage_money_lev_7": "1521.50",
+                "manage_money_lev_8": "1691.50",
+                "manage_money_lev_9": "1861.50",
+                "manage_money_lev_10": "2031.50"
+            }, {
+                "id": "1701",
+                "apply_money": "860000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "86000.0000",
+                "manage_money": "2055.40",
+                "manage_money1": "1711.4000",
+                "manage_money2": "1711.4000",
+                "manage_money3": "2055.4000",
+                "manage_money_lev_2": "679.40",
+                "manage_money_lev_3": "851.40",
+                "manage_money_lev_4": "1023.40",
+                "manage_money_lev_5": "1195.40",
+                "manage_money_lev_6": "1367.40",
+                "manage_money_lev_7": "1539.40",
+                "manage_money_lev_8": "1711.40",
+                "manage_money_lev_9": "1883.40",
+                "manage_money_lev_10": "2055.40"
+            }, {
+                "id": "1721",
+                "apply_money": "870000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "87000.0000",
+                "manage_money": "2079.30",
+                "manage_money1": "1731.3000",
+                "manage_money2": "1731.3000",
+                "manage_money3": "2079.3000",
+                "manage_money_lev_2": "687.30",
+                "manage_money_lev_3": "861.30",
+                "manage_money_lev_4": "1035.30",
+                "manage_money_lev_5": "1209.30",
+                "manage_money_lev_6": "1383.30",
+                "manage_money_lev_7": "1557.30",
+                "manage_money_lev_8": "1731.30",
+                "manage_money_lev_9": "1905.30",
+                "manage_money_lev_10": "2079.30"
+            }, {
+                "id": "1741",
+                "apply_money": "880000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "88000.0000",
+                "manage_money": "2103.20",
+                "manage_money1": "1751.2000",
+                "manage_money2": "1751.2000",
+                "manage_money3": "2103.2000",
+                "manage_money_lev_2": "695.20",
+                "manage_money_lev_3": "871.20",
+                "manage_money_lev_4": "1047.20",
+                "manage_money_lev_5": "1223.20",
+                "manage_money_lev_6": "1399.20",
+                "manage_money_lev_7": "1575.20",
+                "manage_money_lev_8": "1751.20",
+                "manage_money_lev_9": "1927.20",
+                "manage_money_lev_10": "2103.20"
+            }, {
+                "id": "1761",
+                "apply_money": "890000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "89000.0000",
+                "manage_money": "2127.10",
+                "manage_money1": "1771.1000",
+                "manage_money2": "1771.1000",
+                "manage_money3": "2127.1000",
+                "manage_money_lev_2": "703.10",
+                "manage_money_lev_3": "881.10",
+                "manage_money_lev_4": "1059.10",
+                "manage_money_lev_5": "1237.10",
+                "manage_money_lev_6": "1415.10",
+                "manage_money_lev_7": "1593.10",
+                "manage_money_lev_8": "1771.10",
+                "manage_money_lev_9": "1949.10",
+                "manage_money_lev_10": "2127.10"
+            }, {
+                "id": "1781",
+                "apply_money": "900000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "90000.0000",
+                "manage_money": "2151.00",
+                "manage_money1": "1791.0000",
+                "manage_money2": "1791.0000",
+                "manage_money3": "2151.0000",
+                "manage_money_lev_2": "711.00",
+                "manage_money_lev_3": "891.00",
+                "manage_money_lev_4": "1071.00",
+                "manage_money_lev_5": "1251.00",
+                "manage_money_lev_6": "1431.00",
+                "manage_money_lev_7": "1611.00",
+                "manage_money_lev_8": "1791.00",
+                "manage_money_lev_9": "1971.00",
+                "manage_money_lev_10": "2151.00"
+            }, {
+                "id": "1801",
+                "apply_money": "910000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "91000.0000",
+                "manage_money": "2174.90",
+                "manage_money1": "1810.9000",
+                "manage_money2": "1810.9000",
+                "manage_money3": "2174.9000",
+                "manage_money_lev_2": "718.90",
+                "manage_money_lev_3": "900.90",
+                "manage_money_lev_4": "1082.90",
+                "manage_money_lev_5": "1264.90",
+                "manage_money_lev_6": "1446.90",
+                "manage_money_lev_7": "1628.90",
+                "manage_money_lev_8": "1810.90",
+                "manage_money_lev_9": "1992.90",
+                "manage_money_lev_10": "2174.90"
+            }, {
+                "id": "1821",
+                "apply_money": "920000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "92000.0000",
+                "manage_money": "2198.80",
+                "manage_money1": "1830.8000",
+                "manage_money2": "1830.8000",
+                "manage_money3": "2198.8000",
+                "manage_money_lev_2": "726.80",
+                "manage_money_lev_3": "910.80",
+                "manage_money_lev_4": "1094.80",
+                "manage_money_lev_5": "1278.80",
+                "manage_money_lev_6": "1462.80",
+                "manage_money_lev_7": "1646.80",
+                "manage_money_lev_8": "1830.80",
+                "manage_money_lev_9": "2014.80",
+                "manage_money_lev_10": "2198.80"
+            }, {
+                "id": "1841",
+                "apply_money": "930000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "93000.0000",
+                "manage_money": "2222.70",
+                "manage_money1": "1850.7000",
+                "manage_money2": "1850.7000",
+                "manage_money3": "2222.7000",
+                "manage_money_lev_2": "734.70",
+                "manage_money_lev_3": "920.70",
+                "manage_money_lev_4": "1106.70",
+                "manage_money_lev_5": "1292.70",
+                "manage_money_lev_6": "1478.70",
+                "manage_money_lev_7": "1664.70",
+                "manage_money_lev_8": "1850.70",
+                "manage_money_lev_9": "2036.70",
+                "manage_money_lev_10": "2222.70"
+            }, {
+                "id": "1861",
+                "apply_money": "940000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "94000.0000",
+                "manage_money": "2246.60",
+                "manage_money1": "1870.6000",
+                "manage_money2": "1870.6000",
+                "manage_money3": "2246.6000",
+                "manage_money_lev_2": "742.60",
+                "manage_money_lev_3": "930.60",
+                "manage_money_lev_4": "1118.60",
+                "manage_money_lev_5": "1306.60",
+                "manage_money_lev_6": "1494.60",
+                "manage_money_lev_7": "1682.60",
+                "manage_money_lev_8": "1870.60",
+                "manage_money_lev_9": "2058.60",
+                "manage_money_lev_10": "2246.60"
+            }, {
+                "id": "1881",
+                "apply_money": "950000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "95000.0000",
+                "manage_money": "2270.50",
+                "manage_money1": "1890.5000",
+                "manage_money2": "1890.5000",
+                "manage_money3": "2270.5000",
+                "manage_money_lev_2": "750.50",
+                "manage_money_lev_3": "940.50",
+                "manage_money_lev_4": "1130.50",
+                "manage_money_lev_5": "1320.50",
+                "manage_money_lev_6": "1510.50",
+                "manage_money_lev_7": "1700.50",
+                "manage_money_lev_8": "1890.50",
+                "manage_money_lev_9": "2080.50",
+                "manage_money_lev_10": "2270.50"
+            }, {
+                "id": "1901",
+                "apply_money": "960000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "96000.0000",
+                "manage_money": "2294.40",
+                "manage_money1": "1910.4000",
+                "manage_money2": "1910.4000",
+                "manage_money3": "2294.4000",
+                "manage_money_lev_2": "758.40",
+                "manage_money_lev_3": "950.40",
+                "manage_money_lev_4": "1142.40",
+                "manage_money_lev_5": "1334.40",
+                "manage_money_lev_6": "1526.40",
+                "manage_money_lev_7": "1718.40",
+                "manage_money_lev_8": "1910.40",
+                "manage_money_lev_9": "2102.40",
+                "manage_money_lev_10": "2294.40"
+            }, {
+                "id": "1921",
+                "apply_money": "970000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "97000.0000",
+                "manage_money": "2318.30",
+                "manage_money1": "1930.3000",
+                "manage_money2": "1930.3000",
+                "manage_money3": "2318.3000",
+                "manage_money_lev_2": "766.30",
+                "manage_money_lev_3": "960.30",
+                "manage_money_lev_4": "1154.30",
+                "manage_money_lev_5": "1348.30",
+                "manage_money_lev_6": "1542.30",
+                "manage_money_lev_7": "1736.30",
+                "manage_money_lev_8": "1930.30",
+                "manage_money_lev_9": "2124.30",
+                "manage_money_lev_10": "2318.30"
+            }, {
+                "id": "1941",
+                "apply_money": "980000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "98000.0000",
+                "manage_money": "2342.20",
+                "manage_money1": "1950.2000",
+                "manage_money2": "1950.2000",
+                "manage_money3": "2342.2000",
+                "manage_money_lev_2": "774.20",
+                "manage_money_lev_3": "970.20",
+                "manage_money_lev_4": "1166.20",
+                "manage_money_lev_5": "1362.20",
+                "manage_money_lev_6": "1558.20",
+                "manage_money_lev_7": "1754.20",
+                "manage_money_lev_8": "1950.20",
+                "manage_money_lev_9": "2146.20",
+                "manage_money_lev_10": "2342.20"
+            }, {
+                "id": "1961",
+                "apply_money": "990000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "99000.0000",
+                "manage_money": "2366.10",
+                "manage_money1": "1970.1000",
+                "manage_money2": "1970.1000",
+                "manage_money3": "2366.1000",
+                "manage_money_lev_2": "782.10",
+                "manage_money_lev_3": "980.10",
+                "manage_money_lev_4": "1178.10",
+                "manage_money_lev_5": "1376.10",
+                "manage_money_lev_6": "1574.10",
+                "manage_money_lev_7": "1772.10",
+                "manage_money_lev_8": "1970.10",
+                "manage_money_lev_9": "2168.10",
+                "manage_money_lev_10": "2366.10"
+            }, {
+                "id": "1981",
+                "apply_money": "1000000.0000",
+                "hour": "24",
+                "warning_rate": "96",
+                "loss_rate": "94",
+                "cash_deposit": "100000.0000",
+                "manage_money": "2390.00",
+                "manage_money1": "1990.0000",
+                "manage_money2": "1990.0000",
+                "manage_money3": "2390.0000",
+                "manage_money_lev_2": "790.00",
+                "manage_money_lev_3": "990.00",
+                "manage_money_lev_4": "1190.00",
+                "manage_money_lev_5": "1390.00",
+                "manage_money_lev_6": "1590.00",
+                "manage_money_lev_7": "1790.00",
+                "manage_money_lev_8": "1990.00",
+                "manage_money_lev_9": "2190.00",
+                "manage_money_lev_10": "2390.00"
+            }],
+            yFinanceConfig: {
+                "2": {"warn": 58, "open": 55},
+                "3": {"warn": 75, "open": 71},
+                "4": {"warn": 84, "open": 80},
+                "5": {"warn": 88, "open": 85},
+                "6": {"warn": 92, "open": 88},
+                "7": {"warn": 93, "open": 90},
+                "8": {"warn": 95, "open": 92},
+                "9": {"warn": 95, "open": 92},
+                "10": {"warn": 96, "open": 94}
+            },
+            baseMoney: 10000, //整数倍
+            cashDeposit: 1,
+            cashDepositTemp: 1,
+            warnScale: 1,
+            openScale: 1,
+            dayFee: 1,
+            fee: 23.9,
+        },
+        keypress: {
+            numKeyPress: function (e) {
+                var k = e.keyCode || e.which;
+                if (k >= 48 && k <= 57 || k == 8) {
+                    return true;
+                }
+                return false;
+            }
+        }
+    };
+    B.Base = {
+        init: {
+            putTips: "申请资金必须在" + $.formatMoney(B.init.minLimitMoney / 10000) + "万元至" + $.formatMoney(B.init.maxLimitMoney / 10000) + "万元之间"
+        },
+        changeMoney: function () {
+            var init = B.init;
+            money = this.getIntMoney(),
+                    isMoney = $.isInt(money);
+
+            if (!isMoney || money < init.minLimitMoney || money > init.maxLimitMoney || money % init.baseMoney != 0) {
+                return false;
+            }
+            return true;
+        },
+        beforeConfirm: function (obj) {
+            if (!obj) obj = false;
+            var init = B.init,
+                    $this = this,
+                    money = this.getIntMoney();
+            if (money < init.minLimitMoney) {
+                money = 0;
+            }
+            if (money % init.baseMoney == 0) {
+                var lever = obj ? $(obj).val() : $('select[name=lever]').val();
+                $.each(init.yFinanceConfig, function (i, item) {
+                    if (lever == i) {
+                        init.warnScale = item.warn / 100;
+                        init.openScale = item.open / 100;
+                        return false;
+                    }
+                });
+                $.each(init.manageFeeJson, function (i, item) {
+                    if (money == this.apply_money) {
+                        init.cashDeposit = $this.format((this.apply_money / lever), 0);
+                        init.cashDepositTemp = init.cashDeposit; //this.cash_deposit;
+                        // init.warnScale = this.warning_rate/100;
+                        // init.openScale = this.loss_rate/100;
+                        if (lever == 10) {
+                            init.fee = this.manage_money;
+                        } else {
+                            var feeStr = 'manage_money_lev_' + lever;
+                            init.fee = item[feeStr];
+                        }
+
+                        var index = init.fee.toString().indexOf('.'); //this.manage_money.toString().indexOf('.');
+                        if (index >= 0) {
+                            index = index + 3;
+                            init.dayFee = init.fee.toString().substring(0, index);//this.manage_money.toString().substring(0, index);
+                        } else {
+                            init.dayFee = init.fee;//this.manage_money;
+                        }
+
+                        // init.dayFee = this.manage_money.substring();//$this.format(this.manage_money, 2);
+                        return false;
+                    }
+                });
+            } else { //非10000的整数倍
+                init.cashDeposit = $this.format(money / 10, 0);
+                init.cashDepositTemp = money / 10;
+                init.warnScale = 96 / 100;
+                init.openScale = 94 / 100;
+                init.dayFee = $this.format($this.manageFee(money), 2);
+            }
+            return;
+        },
+        manageFee: function (money) { //此方法仅为显示错误数据
+            var init = B.init;
+            if (money < init.minLimitMoney) {
+                return 0;
+            }
+            if (money >= 10000 && money <= 50000) {
+                return '19.9';
+            } else if (money > 50000 && money <= 200000) {
+                return '18.9';
+            } else if (money > 200000 && money <= 300000) {
+                return '17.9';
+            }
+            return 0;
+        },
+        confirmInfo: function () {
+            this.beforeConfirm();
+            var init = B.init,
+                    money = this.getIntMoney();
+            if (money < init.minLimitMoney) {
+                money = 0;
+            }
+            var totalMoney = this.format(money, 0),
+                    warningLine = this.format(money * init.warnScale, 0),
+                    cashDeposit = money ? init.cashDeposit : 0,
+                    dayFee = money ? init.dayFee : 0,
+                    openLine = this.format(money * init.openScale, 0);
+
+            $("#totalMoney").text(totalMoney);
+            $('#cash').text(cashDeposit);
+            $("#warningLine").text(warningLine);
+            $("#openLine").text(openLine);
+            $('#fee').text(dayFee);
+
+        },
+        otherMoney: function () {
+            $("#ddw_inp").show();
+            $("#ddw_sel").hide();
+            $('#tm').attr('placeholder', this.init.putTips);
+        },
+        reback: function () {
+            $("#ddw_inp").hide();
+            $("#ddw_sel").show();
+            $('#tttt li').removeClass('curr');
+        },
+        otherMoneyChange: function () {
+            var money = this.getIntMoney(),
+                    init = B.init;
+            if (/^\d+$/.test(money)) {
+                if (money > init.maxLimitMoney) {
+                    $("#tm").val($.formatMoney(init.maxLimitMoney));
+                } else {
+                    $("#tm").val($.formatMoney(money));
+                }
+            } else {
+                $("#tm").val("");
+            }
+            this.changeMoney();
+            this.confirmInfo();
+            return true;
+        },
+        format: function (param, decimal) {
+            return $.formatMoney($.round(param, decimal));
+        },
+        getIntMoney: function () {
+            var money = this.getMoney();
+            return /^\d+$/.test($.trim(money)) ? parseInt(money, 10) : 0;
+        },
+        getMoney: function () {
+            return $("#tttt").attr('dt') == 'ddw_sel' ? $("#ddw_sel .curr").attr("data") : $.trim($("#tm").val()).replace(/\,/g, "");
+        },
+        InitiateCheck: function () {
+            if (this.Guest()) {
+                window.location.href = "http://www.658.com/site/login";
+                return false;
+            }
+            if (!$("#agree").get(0).checked) {
+                this.alert("请先阅读并同意《按天配资操盘协议》");
+                return false;
+            }
+            var money = this.getMoney(),
+                    init = B.init;
+            if (!$.trim(money)) {
+                this.alert("请输入操盘金额");
+                return false;
+            }
+            money = parseInt(money, 10);
+            if (money < init.minLimitMoney || money > init.maxLimitMoney) {
+                this.alert(this.init.putTips);
+                return false;
+            }
+            if (!/^\d+$/.test(money) || money % 10000 != 0 || money == 0) {
+                this.alert("操盘金额必须是10000的整数倍");
+                return false;
+            }
+
+            // var cash = $('#cash').text();
+            // if(!cash || this.format(money/10, 0) != cash){
+            // 	this.alert("风险保证金错误");
+            // 	return false;
+            // }
+            if ($("input[name=account]:checked").length != 1) {
+                this.alert("抱歉  申请用户太多，请稍候再来。");
+                return false;
+            }
+            return true;
+        },
+        getFormData: function () {
+            var init = B.init,
+                    money = this.getMoney(),
+                    config = {};
+            config.money = money;
+            config.cashDeposit = init.cashDepositTemp;
+            config.warnMoney = money * init.warnScale;
+            config.openMoney = money * init.openScale;
+            config.dayFee = init.dayFee;
+            config.account = $("input[name=account]:checked").val();
+            config.lever = $('select[name=lever]').val();
+            return config;
+        },
+        Guest: function () {
+            return 1;
+        },
+        alert: function (message) {
+            layer.alert(message);
+        },
+        tipsEnter: function (obj, title) {
+            layer.tips(title, obj, {
+                style: ['background-color:#FFFFDB; color:#000;border:1px solid #D1C183; margin-top:-20px'],
+                guide: 1,
+                maxWidth: 250,
+                time: 1000
+            });
+        },
+        tipsLeave: function () {
+            layer.closeTips();
+        }
+    };
+
+    //#####-选择资金------------------------------------------------------------------------------------------
+    $(".ddw_l li").on('click', function () {
+        $(this).addClass("curr").siblings().removeClass("curr");
+        B.Base.changeMoney();
+        B.Base.confirmInfo();
+    });
+
+    //#####初始化--------------------------------------------------------------------------------------------
+    $(".ddw_l").find("li").first().click();
+
+    //#####其他金额--------------------------------------------------------------------------------------------
+    $("#tttt").on('click', function () {
+        $(this).attr('dt', 'ddw_inp');
+        B.Base.otherMoney();
+        B.Base.confirmInfo();
+    });
+    $('#reback').on('click', function () {
+        $('#tttt').attr('dt', 'ddw_sel');
+        B.Base.reback();
+        B.Base.confirmInfo();
+    });
+    $("#tm").keypress(B.keypress.numKeyPress).keyup(function () {
+        B.Base.otherMoneyChange();
+        $(this).focus();
+    });
+    //#####文字提示--------------------------------------------------------------------------------------------
+    $('#pop_tip_cash').on('mouseenter', function () {
+        B.Base.tipsEnter(this, '在您操盘出现亏损后用于支付亏损金，结束时如无亏损全额退还，保证金越低收益越大，同时风险也越大');
+    });
+    $('#pop_tip_warn').on('mouseenter', function () {
+        B.Base.tipsEnter(this, '当总操盘资金低于警戒线以下时，只能平仓不能建仓，需要尽快补充风险保证金，以免低于亏损止损线被平仓');
+    });
+    $('#pop_tip_open').on('mouseenter', function () {
+        B.Base.tipsEnter(this, '当总操盘资金低于止损线以下时，我们将有权把您的股票进行平仓，为避免平仓发生，请时刻关注风险保证金是否充足');
+    });
+    $('#pop_tip_lever').on('mouseenter', function () {
+        B.Base.tipsEnter(this, '杠杆倍数越高，所需风险保证金越少，但预警线、止损线和费用都会随比例增加而增加');
+    });
+    $('#pop_tip_cash, #pop_tip_warn, #pop_tip_open, #pop_tip_lever').on('mouseleave', function () {
+        B.Base.tipsLeave();
+    })
+    //#####操盘账号选择----------------------------------------------------------------------------------------
+    var hsAccount = 54, axAccount = 0, qhAccount = 0, fzAccount = 1,
+            hsAccountI = $('#hs'), axAccountI = $('#ax'), qhAccountI = $('#qh'), fzAccountI = $('#fz');
+    if (fzAccount) {
+        fzAccountI.prop('checked', true);
+    }
+    else {
+        fzAccountI.prop('checked', false);
+        fzAccountI.prop('disabled', true);
+        fzAccountI.parent('.mr10').css({'color': '#ccc'});
+    }
+    if (qhAccount) {
+        qhAccountI.prop('checked', true);
+    }
+    else {
+        qhAccountI.prop('checked', false);
+        qhAccountI.prop('disabled', true);
+        qhAccountI.parent('.mr10').css({'color': '#ccc'});
+    }
+    if (hsAccount) {
+        hsAccountI.prop('checked', true);
+    }
+    else {
+        hsAccountI.prop('checked', false);
+        hsAccountI.prop('disabled', true);
+        hsAccountI.parent('.mr10').css({'color': '#ccc'});
+    }
+    if (axAccount) {
+        axAccountI.prop('checked', true);
+    }
+    else {
+        axAccountI.prop('checked', false);
+        axAccountI.prop('disabled', true);
+        axAccountI.parent('.mr10').css({'color': '#ccc'});
+    }
+
+    //#####------------------------------------------------------------------------------------------------------
+    $(function () {
+        $('#subBtn').on('click', function () {
+            if (B.Base.InitiateCheck()) {
+                $.ajax({
+                    type: 'POST', url: "/daywin/BeforePay",
+                    data: B.Base.getFormData(),
+                    success: function (data) {
+                        var data = eval("(" + data + ")");
+                        if (data.status == 9) {
+                            window.location.href = "http://www.658.com/daywin/pay/id/" + data.financeNo + "#ttf";
+                        } else {
+                            B.Base.alert(data.errorMsg);
+                        }
+                    }
+                });
+            }
+            ;
+            return false;
+        });
+        /*禁止买入股票*/
+        $('#limitstock').on('click', function () {
+            var pageii = $.layer({
+                type: 1,
+                shadeClose: true,
+                area: ['560', 'auto'],
+                border: [0], //去掉默认边框
+                shade: [0.7, '#000'], //去掉遮罩
+                closeBtn: [0, true], //去掉默认关闭按钮
+                shift: 'top', //从左动画弹出
+                page: {
+                    html: $('#limitstockdetail').html()
+                }
+            });
+        });
+        /*杠杆倍数*/
+        $('select[name=lever]').on('change', function () {
+            B.Base.beforeConfirm(this);
+            B.Base.confirmInfo();
+        });
+    });
+
+</script>
+#parse("./common/footer.html")

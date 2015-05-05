@@ -24,6 +24,7 @@ public class EdeliveryController extends AbstractController {
     }
 
     @RequestMapping("/download/{id}")
+    // TODO:资源管理待添加
     public String doDownload(HttpServletRequest httpServletRequest, @PathVariable("id")String id){
         // record donwload
         return "redirect:";
