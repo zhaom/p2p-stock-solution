@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-public class IndexController extends AbstractController{
+public class IndexController extends AbstractController {
 
 
     private AccountServiceLocal accountServiceLocal;
@@ -28,15 +28,16 @@ public class IndexController extends AbstractController{
 
     /**
      * 账户总览 == 账户设置
+     *
      * @param httpServletRequest
      * @param model
      * @return
      */
     @RequestMapping("/summary")
     public String summary(HttpServletRequest httpServletRequest, Model model) {
-        logger.debug("request account summary, user [{}]",httpServletRequest.getAttribute(Constants.CURRENT_USER));
+        logger.debug("request account summary, user [{}]", httpServletRequest.getAttribute(Constants.CURRENT_USER));
         Member sysUser = getLoginMember();
 
-        return "index";
+        return "myInvest";
     }
 }

@@ -1,0 +1,800 @@
+#parse("./common/header.html")
+
+<section class="content">
+<div class="center1000">
+<style>
+    .acount-sub-nav {
+        margin: 26px 0px 0px;
+    }
+</style>
+<!--
+<div class="hy_banner pt20">
+  	<a href="http://www.658.com/activity/WeChatPromotion" target="_blank">
+  	<img src="https://img658.b0.upaiyun.com/v2/658/www/images/banner/banner_showprofit_user.png" alt="" style="display:block; margin:0 auto; width:1000px; height:67px;">
+  	</a>
+  </div> -->
+<link rel="stylesheet" type="text/css"
+      href="https://img658.b0.upaiyun.com/v2/static2/css/left_menu.css"/>
+<link rel="stylesheet" href="https://img658.b0.upaiyun.com/v2/static/css/cool.css">
+
+<style>
+.house, .pay, .fund, .money, .letter, .person, .link, .myaccount, .memberRankmenu {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    position: relative;
+    top: 4px;
+    _top: 0;
+    _background-color: red;
+}
+
+<!--
+.app-down {
+    width: 60px;
+    position: relative;
+    display: inline-block; /*height: 21px;*/
+    margin: 0 1px;
+    color: #666;
+    z-index: 93;
+    -webkit-backface-visibility: hidden;
+    background: url(https://img658.b0.upaiyun.com/v2/658/common/images/xiazai_iphone.png) no-repeat;
+    background-position: 0 7px;
+    text-align: 33px;
+    padding-left: 20px;
+}
+
+-->
+.kefu_box {
+    width: 144px;
+    height: 226px;
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/zhuangsubj_kefu.png) no-repeat;
+    overflow: hidden;
+    margin: 30px 21px;
+}
+
+.image_kefu {
+    width: 120px;
+    height: 65px;
+    margin: 42px auto 10px 17px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image_kefu img {
+    width: 65px;
+    height: 65px;
+    display: inline-block;
+}
+
+.wechat, .mobile {
+    z-index: 222;
+}
+
+.image_kefu .kefu_name {
+    font-size: 14px;
+    color: #000;
+    position: absolute;
+    top: 0px;
+    left: 70px;
+}
+
+.qu_text {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    color: #000;
+    margin-top: 100px;
+}
+
+.lianxi_kefu {
+    position: absolute;
+    top: 35px;
+    left: 70px;
+    width: 50px;
+    height: 20px;
+}
+
+.kefu_cte {
+    width: 100%;
+    margin-top: -2px;
+}
+
+.kefu_box .kefu_cte a {
+    display: inline-block;
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/Icon_kefu.png) no-repeat;
+    background-position: 32px -32px;
+    width: 116px !important;
+    margin-left: 10px;
+    height: 20px;
+    margin-top: 10px;
+    padding-left: 0px !important;
+}
+
+.btn_imgkefu {
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/anner_huankefu.png) no-repeat;
+    margin: 0 auto;
+    background-size: 118px 30px;
+    width: 118px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.right_kefu {
+    float: left;
+    width: 200px;
+    height: 500px;
+}
+
+.right {
+    overflow: hidden;
+}
+
+.title_kefu1 {
+    width: 100%;
+    margin: 0px auto 20px 0px;
+}
+
+.title_kefu1 i {
+    width: 3px;
+    height: 13px;
+    background: #e0e0e0;
+    margin: 7px 7px auto 0px;
+    display: inline-block;
+    *display: inline-block;
+    *zoom: 1;
+    vertical-align: top;
+}
+
+.box_kefunb {
+    width: 100%;
+    overflow: hidden;
+}
+
+.box_kefunb li {
+    float: left;
+    width: 244px;
+    height: 256px;
+    border: 1px solid #e0e0e0;
+    margin-right: 21px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.on-chat-box .alt {
+    bottom: -72px !important;
+}
+
+.kefu_none {
+    margin-right: 0px !important;
+}
+
+.box_kefunb li img.img1_kefu {
+    width: 104px;
+    height: 104px;
+    display: inline-block;
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/zhongyang_kefu.jpg) no-repeat;
+    background-size: 104px 104px;
+}
+
+.box_kefunb li img.img2_kefu {
+    width: 104px;
+    height: 104px;
+    display: inline-block;
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/zhouyongbin_kefu.jpg) no-repeat;
+    background-size: 104px 104px;
+}
+
+.box_kefunb li img.img3_kefu {
+    width: 104px;
+    height: 104px;
+    display: inline-block;
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/zhangxiaofeng_kefu.jpg) no-repeat;
+    background-size: 104px 104px;
+}
+
+.box_kefunb li img.img4_kefu {
+    width: 104px;
+    height: 104px;
+    display: inline-block;
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/shaogouxing_kefu.jpg) no-repeat;
+    background-size: 104px 104px;
+}
+
+.box_kefunb li img.img5_kefu {
+    width: 104px;
+    height: 104px;
+    display: inline-block;
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/louchong__kefu.jpg) no-repeat;
+    background-size: 104px 104px;
+}
+
+.box_kefunb li img.img6_kefu {
+    width: 104px;
+    height: 104px;
+    display: inline-block;
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/renyanli_kefu.jpg) no-repeat;
+    background-size: 104px 104px;
+}
+
+.btn_genghuan {
+    width: 268px;
+    height: 46px;
+    background: #ff3b3b;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    margin: 40px auto 42px auto;
+}
+
+.box_kefunb li .img_kfa {
+    height: 70px;
+    position: absolute;
+    top: 20px;
+    left: 127px;
+    width: 100px;
+}
+
+.box_kefunb li p.img_kfa3 span {
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/Icon_kefu.png) no-repeat;
+    background-position: 0px -128px;
+    display: inline-block;
+    *display: inline-block;
+    width: 100px;
+    height: 20px;
+}
+
+.box_kefunb li p.img_kfa4 span {
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/Icon_kefu.png) no-repeat;
+    background-position: 0px -88px;
+    display: inline-block;
+    *display: inline-block;
+    width: 100px;
+    height: 20px;
+}
+
+.box_kefunb li .img_kfa label {
+    margin-bottom: 18px;
+    line-height: 18px;
+    height: 18px;
+    color: #000;
+    font-family: "微软雅黑";
+    display: inline-block;
+    *display: inline-block;
+    *zoom: 1;
+    font-size: 18px;
+}
+
+.box_kefunb li .img_kfa span {
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/Icon_kefu.png) no-repeat;
+    background-position: 10px 10px;
+    display: inline-block;
+    *display: inline-block;
+    width: 100px;
+    height: 20px;
+}
+
+.box_kefunb li .text_kefu {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 14px;
+    padding-left: 14px;
+}
+
+.box_kefunb li  h3 {
+    font-size: 12px;
+    color: #606060;
+    font-family: "宋体";
+    margin-bottom: 14px;
+    padding-left: 14px;
+}
+
+.box_kefunb li  span {
+    font-size: 12px;
+    color: #9a9a9a;
+    font-family: "宋体";
+    display: inline-block;
+    *display: inline-block;
+    padding-left: 14px;
+}
+
+#genghuan {
+    display: block;
+    width: 118px;
+    height: 30px;
+}
+
+.xingxing1 {
+    background: url(https://img658.b0.upaiyun.com/v2/658/help/images/Icon_kefu.png) no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+}
+
+.image_kefu img {
+    width: 65px;
+    height: 65px;
+    display: inline-block;
+    background: url(http://static.658.com/common/build/1.00/images/kf7.jpg) no-repeat;
+    background-size: 65px 65px;
+}
+</style>
+
+<div class="acount-sub-nav clearfix"></div>
+<div class="fullBox container act-box">
+<div id="leftmenu" class="left lMenu">
+    <dl>
+        <dt>
+            <a id="investercenter" href="/investercenter">我的投资</a>
+        </dt>
+        <dt>
+            <a href="http://www.658.com/userTrade">我的配资</a>
+        </dt>
+        <dt>
+            <a href="http://y.658.com/user/allcp">按天配资</a>
+        </dt>
+
+        <dt>
+            <a href="fund">资金管理</a>
+        </dt>
+        <dt>
+            <a href="myaccount" id="myaccount">账号设置</a>
+        </dt>
+        <!--
+        <dt>
+            <a id="memberRankmenu" href="grewLevel">会员特权</a>
+        </dt>
+         -->
+        <dt>
+            <a id="messagecenter" href="msgInfo">消息中心</a>
+        </dt>
+        <dt>
+            <a id="myLink" href="http://www.658.com/userTrade/MyLink">我的推广</a>
+        </dt>
+        <dt>
+            <a href="http://www.658.com/userTrade/RedMoney">我的红包</a>
+        </dt>
+    </dl>
+</div>
+<div class="right rCon clearfix">
+<!--我的投资开始-->
+<div class="data_frame">
+    <div class="total_found">
+        <h3>累计投资</h3><span class="info_tips"><!-- <img class="pop_tip" title="累计投资=已收本金+待收本金。" src="https://img658.b0.upaiyun.com/v2/658/www/images/home/icon_qa.png"> --></span>
+
+        <div class="clear data-margin">
+            <div class="f30 cd22">54020<span class="f18 c888">元</span></div>
+        </div>
+        <div class="data-sub clear">
+            <ul>
+                <li><h4>已收本金</h4>1000<font class="c888 f14">元</font></li>
+                <li><h4>待收本金</h4>53020<font class="c888 f14">元</font></li>
+            </ul>
+        </div>
+    </div>
+    <div class="total_get">
+        <h3>累计收益</h3><span class="info_tips"><!-- <img class="pop_tip" title="总收益=已收利息+待收利息。" src="https://img658.b0.upaiyun.com/v2/658/www/images/home/icon_qa.png"> --></span>
+
+        <div class="clear data-margin">
+            <div class="f30 cd22">849.11<span class="f18 c888">元</span></div>
+        </div>
+        <div class="data-sub clear">
+            <ul>
+                <li><h4>已收利息</h4>20<font class="c888 f14">元</font></li>
+                <li><h4>待收利息</h4>829.11<font class="c888 f14">元</font></li>
+            </ul>
+        </div>
+    </div>
+    <div class="total_money">
+        <h3>可用余额</h3><span class="money_detail f12"><a href="https://user.658.com/fund"
+                                                       class="link-gray">查看明细</a></span>
+
+        <div class="clear data-margin">
+            <div class="f30 cd22">0<span class="f18 c888">元</span></div>
+        </div>
+        <div class="data-sub clear">
+            <ul>
+                <li id="btnRed"><a href="https://user.658.com/torecharge">充值</a></li>
+                <li id="btnGray"><a href="https://user.658.com/withdrawlFirst">提现</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="clear f12 m-all-20 fl txt-r w790"><a href="http://www.658.com/help?c=about&amp;id=109" class="link-888"
+                                                 target="_blank">资金由贝付科技全程托管</a></div>
+<!--列表开始-->
+<div class="clear"></div>
+<!--//列表开始-->
+<div class="tab-div">
+    <div id="tabbar-div">
+        <p>
+            <a href="/investercenter?fr=1"><span class='tab-front' id="all-tab">全部投资</span></a>
+            <a href="/investercenter?fr=2"><span class='tab-back' id="wait-tab">待回款</span> </a>
+            <a href="/investercenter?fr=3"><span class='tab-back' id="over-tab">已回款</span></a>
+        </p>
+    </div>
+    <div class="lazy-btn"><a href="/autoBidConfig">懒人投资</a></div>
+
+</div>
+<div class="time-filer f12 clear fl " style="position:relative">
+    <div class="fl">投资时间：<select class="sel" name="dateLabel" id="dateLabel" onchange="changePage()">
+        <option value="2">三天以内</option>
+        <option value="3">一周以内</option>
+        <option value="4">一个月以内</option>
+        <option value="5">三个月以内</option>
+        <option value="6">一年以内</option>
+        <option value="1" selected>全部</option>
+    </select></div>
+    <div class="fl lazy-filter"><input type="checkbox" name="isAutoBid" id="isAutoBid" onclick="changePage()">懒人投资</div>
+
+
+</div>
+<div class="list-box fl">
+<img id="waitgif" src="https://img658.b0.upaiyun.com/v2/658/www/images/account/data_loading.gif" style="display:none;">
+
+<!--全部-->
+<table width="790" cellpadding="3" cellspacing="0" id="all-table">
+<tbody>
+<tr>
+    <th width="11%"><h5>借款金额(元)</h5></th>
+    <th width="8%"><h5>年息收益</h5></th>
+    <th width="8%"><h5>盈利分成</h5></th>
+    <th width="11%"><h5>投资本金(元)</h5></th>
+    <th width="14%"><h5>利息收益(元)</h5></th>
+    <th width="14%"><h5>投资时间</h5></th>
+    <th width="13%"><h5>到期时间</h5></th>
+    <th width="11%"><h5>状态</h5></th>
+    <th width="13%"><h5>操作</h5></th>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150506010698" title="查看项目信息" target="_blank"> 10万</a></td>
+    <td style="">19%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        3000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							47.5
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-05-08<span>09:48:32</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-06-09
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余31天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150508122152" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150506010670" title="查看项目信息" target="_blank"> 5万</a></td>
+    <td style="">19%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        1020
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							16.15
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-05-08<span>09:28:30</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-06-09
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余31天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150508122078" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150428009344" title="查看项目信息" target="_blank"> 150万</a></td>
+    <td style="">19%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        7000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							110.83
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-04-30<span>07:17:34</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-05-30
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余21天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150430099416" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150429009594" title="查看项目信息" target="_blank"> 50万</a></td>
+    <td style="">19.1%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        1000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							15.91
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-04-29<span>14:20:24</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-05-30
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余21天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150429098387" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150427009183" title="查看项目信息" target="_blank"> 100万</a></td>
+    <td style="">19.01%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        13000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							205.94
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-04-29<span>14:03:41</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-05-30
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余21天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150429098344" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150423008561" title="查看项目信息" target="_blank"> 250万</a></td>
+    <td style="">19.6%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        3000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							49
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-04-28<span>09:34:30</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-05-26
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余17天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150428095179" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150427009202" title="查看项目信息" target="_blank"> 490万</a></td>
+    <td style="">19.6%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        1000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							16.32
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-04-28<span>08:25:05</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-05-28
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余19天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150428094831" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150427009208" title="查看项目信息" target="_blank"> 140万</a></td>
+    <td style="">19.65%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        6000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							98.25
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-04-28<span>07:50:28</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-05-28
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余19天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150428094799" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150427009208" title="查看项目信息" target="_blank"> 140万</a></td>
+    <td style="">19.65%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        4000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							65.5
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-04-28<span>07:15:32</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-05-28
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余19天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150428094753" target="_blank">详情</a></td>
+</tr>
+<tr class="txt-c">
+    <td><a href="http://list.658.com/financeDetail/80150423008602" title="查看项目信息" target="_blank"> 300万</a></td>
+    <td style="">18.21%</td>
+    <td style="">无</td>
+    <td class="first-cell">
+        2000
+    </td>
+    <td><span class="cd22">
+		               <!-- 利息收益(元) -->
+							30.35
+	                </span>
+    </td>
+    <td>
+        <!-- 开始时间 -->
+        <!-- 转让单 -->
+        2015-04-27<span>10:29:24</span>
+    </td>
+    <td>
+        <!-- 结束时间 -->
+        2015-05-25
+        <!-- 剩余天数 -->
+        <span class="cd22">剩余16天</span>
+    </td>
+    <td>
+        待回款
+    </td>
+    <td>
+        <a class="link-blue openAlert" href="/investDetail?investId=60150427092153" target="_blank">详情</a></td>
+</tr>
+</tbody>
+</table>
+<div class="pageBar"><a href="?page=1">1</a><a href="?page=2">2</a><a href="?page=2"> 下一页&nbsp;&gt;&gt;</a><select
+        id="currpage" onchange="changePagePageBarUtil()">
+    <option value="1" selected>第1页</option>
+    <option value="2">第2页</option>
+</select>
+    <script type="text/javascript">    function changePagePageBarUtil() {
+        var pageSelector = document.getElementById("currpage");
+        var currPage = 1;
+        if (pageSelector != null) {
+            currPage = document.getElementById("currpage").value;
+        }
+        var url = "?page=" + currPage + "";
+        window.self.location = url;
+    }</script>
+</div>
+<!--结束-->
+
+</div>
+<!--列表结束-->
+<!--我的投资结束-->
+</div>
+</div>
+</div>
+</section>
+<script type="text/javascript" src="/scripts/tab.js"></script>
+<script type="text/javascript" src="/scripts/utils.js"></script>
+<!--提示-->
+<script>
+    $(function () {
+        $("#investercenter").attr("class", "selected");
+    });
+</script>
+<script type="text/javascript">
+    function changePage() {
+        var pageSelector = document.getElementById("currpage");
+        var currPage = 1;
+        if (pageSelector != null) {
+            currPage = document.getElementById("currpage").value;
+        }
+        var dateLabel = document.getElementById("dateLabel").value;
+        var checkbox = document.getElementById("isAutoBid");
+        var isAutoBid = "";
+        if (checkbox.checked)
+            isAutoBid = "1";
+        var url = "investercenter?currPage=" + currPage + "&dateLabel=" + dateLabel + "&isAutoBid=" + isAutoBid + "&fr=";
+        window.self.location = url;
+
+    }
+</script>
+<style>
+    .norton, .save-360, .faith {
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+    }
+</style>
+#parse("./common/footer.html")

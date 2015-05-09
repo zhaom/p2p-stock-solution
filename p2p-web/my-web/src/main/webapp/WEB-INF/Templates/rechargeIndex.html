@@ -1,0 +1,341 @@
+#parse("./common/header.html")
+<section class="content">
+<div class="center1000">
+
+
+<link rel="stylesheet" type="text/css" href="https://img658.b0.upaiyun.com/v2/static2/css/left_menu.css"/>
+<style>
+    .house, .pay, .fund, .money, .letter, .person, .link, .myaccount, .memberRankmenu {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+        position: relative;
+        top: 4px;
+        _top: 0;
+        _background-color: red;
+    }
+</style>
+<div class="acount-sub-nav clearfix">
+</div>
+
+<div class="fullBox container act-box">
+<div id="leftmenu" class="left lMenu">
+    <dl>
+        <dt>
+            <a href="/investercenter">我的投资</a>
+        </dt>
+        <dt>
+            <a id="financercenter" href="http://www.658.com/userTrade">我的配资</a>
+        </dt>
+        <dt>
+            <a href="http://y.658.com/user/allcp">按天配资</a>
+        </dt>
+        <dt>
+            <a href="fund">资金管理</a>
+        </dt>
+        <dd>
+            <a id="funds_recode" href="fund">资金记录</a>
+        </dd>
+        <dd>
+            <a id="recharge" href="torecharge">充值</a>
+        </dd>
+        <dd>
+            <a id="withdrawl" href="withdrawlFirst">提现</a>
+        </dd>
+        <dt>
+            <a href="myaccount" id="myaccount">账号设置</a>
+        </dt>
+        <!--
+        <dt>
+            <a id="memberRankmenu" href="grewLevel">会员特权</a>
+        </dt>
+         -->
+        <dt>
+            <a id="messagecenter" href="msgInfo">消息中心</a>
+        </dt>
+        <dt>
+            <a id="myLink" href="http://www.658.com/userTrade/MyLink">我的推广</a>
+        </dt>
+        <dt>
+            <a href="http://www.658.com/userTrade/RedMoney">我的红包</a>
+        </dt>
+    </dl>
+</div>
+
+<form action="dorecharge" name="doRecharge" method="post"
+      id="doRecharge">
+<div class="right rCon">
+<div class="subtitle">
+    <b class="anyWhere"></b>充值
+</div>
+<div class="fund-cont clearfix">
+<div class="ui-price">
+    <label>充值金额</label>
+
+    <div class="price-box pr-connect">
+        <input type="text" name="rechargeMoney" value=""
+               id="rechargeMoney"/> <em>元</em>
+
+        <div class="upcase-money"></div>
+    </div>
+    <!--报错提示-->
+    <div class="ui-Error">
+        <em class="Err"></em> <span></span>
+    </div>
+</div>
+<div class="select-bank clearfix">
+    <label class="l">请选择充值方式</label>
+    <ul class="bank-list">
+
+        <li><label> <input type="radio" name="bankValue"
+
+                           checked='checked'
+                           value="ICBC_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/icbc.png"
+                alt="工商银行" title="工商银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="ABC_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/abc.png"
+                alt="农业银行" title="农业银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="CCB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/ccb.png"
+                alt="建设银行" title="建设银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="POSTGC_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/psbc.png"
+                alt="邮政储蓄银行" title="邮政储蓄银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="BOCSH_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/boc.png"
+                alt="中国银行" title="中国银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="COMM_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/bcs.png"
+                alt="交通银行" title="交通银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="CMB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/cmb.png"
+                alt="招商银行" title="招商银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="GDB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/cgb.png"
+                alt="广发银行" title="广发银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="CEB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/ceb.png"
+                alt="光大银行" title="光大银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="CIB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/cib.png"
+                alt="兴业银行" title="兴业银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="BOB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/bob.png"
+                alt="北京银行" title="北京银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="SPDB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/spdb.png"
+                alt="浦发银行" title="浦发银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="CMBCD_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/cmbc.png"
+                alt="民生银行" title="民生银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="CNCB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/ecitic.png"
+                alt="中信银行" title="中信银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="HXB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/hx-2.png"
+                alt="华夏银行" title="华夏银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="PINGAN_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/pa.png"
+                alt="平安银行" title="平安银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="HZCB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/hzyh.png"
+                alt="杭州银行" title="杭州银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="NBCB_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/nbcb.png"
+                alt="宁波银行" title="宁波银行"> </span> </label>
+        </li>
+
+        <li><label> <input type="radio" name="bankValue"
+
+
+                           value="BOS_B2C"> <span class="focusin"><img
+                width="168" height="38" src="https://static.658.com/pay/build/1.00/images/bos.png"
+                alt="上海银行" title="上海银行"> </span> </label>
+        </li>
+
+    </ul>
+</div>
+<div class="ui-line">
+    <a class="button" href="javascript:void(0);" id="nextstep">下一步</a>
+    <a href="http://www.658.com/help?c=help&amp;id=131"
+       style="color: #06c;text-decoration: underline;display:inline-block;margin: 40px 0px 0px 10px;">充值遇到问题？</a>
+</div>
+<div class="ui-line">
+    <p class="append">
+        请确保您的卡已经开通了网上支付功能，否则将无法支付成功。<a class="how" href="#">如何开通？</a> <a
+            class="check" href="javascript:void(0);">查看限额<i></i> </a>
+    </p>
+
+    <div>
+        </br>
+        <b class="append" style="font-weight:bold;color:black;">银行转帐</b>
+
+        <p class="append">您也可以通过网上银行或银行柜台向658转账</p>
+        <img src="https://img658.b0.upaiyun.com/v2/658/www/images/account/zhuanzhang.png" width="402px" height="106px"
+             border="0px"/></div>
+</div>
+<div class="ui-line l-table" style="display:none;">
+    <table class="limit-tb">
+        <caption>
+            <i></i>充值限额
+        </caption>
+        <tr class="hd">
+            <th class="w80" rowspan="2"></th>
+            <th rowspan="2" colspan="2">U盾客户</th>
+            <th class="w90">柜面注册存量</th>
+            <th class="w170" rowspan="2" colspan="2">已开通手机短信认证的电子银行口令卡客户</th>
+            <th class="w170 last" rowspan="2" colspan="2">未开通手机短信认证的电子银行口令卡客户</th>
+        </tr>
+        <tr class="hd">
+            <th class="w90" style="border-top:1px solid #e9edf2;">静态密码客户</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="w30">单笔限额</td>
+            <td class="w30">每日限额</td>
+            <td>总累计限额</td>
+            <td>单笔限额</td>
+            <td>每日限额</td>
+            <td>单笔限额</td>
+            <td class="last">每日限额</td>
+        </tr>
+        <tr>
+            <td>普通信用卡</td>
+            <td class="w30">信用卡本身透支限额</td>
+            <td class="w30">信用卡本身透支限额</td>
+            <td>300元与信用卡本身限额孰低</td>
+            <td>2000元与信用卡本身限额孰低</td>
+            <td>5000元与信用卡本身限额孰低</td>
+            <td>500元与信用卡本身限额孰低</td>
+            <td class="last">1000元与信用卡本身限额孰低</td>
+        </tr>
+        <tr>
+            <td>普通信用卡</td>
+            <td class="w30">无限额</td>
+            <td class="w30">无限额</td>
+            <td>300.00</td>
+            <td>2000.00</td>
+            <td>5000.00</td>
+            <td>500.00</td>
+            <td class="last">1000.00</td>
+        </tr>
+    </table>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- 与fund_menu.jsp配对 -->
+</div>
+<!-- 与nav.jsp配对 -->
+</section><!-- 与nav.jsp配对 -->
+
+<script
+        src="https://img658.b0.upaiyun.com/v2/static2/js/jquery-1.8.3.min.js"></script>
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/fund.js"></script>
+
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/myself.js"></script>
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/money.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.Recharge.init();
+    });
+</script>
+
+
+<style>
+    .norton, .save-360, .faith {
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+    }
+</style>
+<div class="clear"></div>
+#parse("./common/footer.html")

@@ -1,0 +1,973 @@
+#parse("./common/header.html")
+<section class="content">
+<div class="center1000">
+
+
+<link rel="stylesheet" type="text/css" href="https://img658.b0.upaiyun.com/v2/static2/css/left_menu.css"/>
+<style>
+    .house, .pay, .fund, .money, .letter, .person, .link, .myaccount, .memberRankmenu {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+        position: relative;
+        top: 4px;
+        _top: 0;
+        _background-color: red;
+    }
+</style>
+<div class="acount-sub-nav clearfix">
+</div>
+
+<div class="fullBox container act-box">
+<div id="leftmenu" class="left lMenu">
+    <dl>
+        <dt>
+            <a href="/investercenter">我的投资</a>
+        </dt>
+        <dt>
+            <a id="financercenter" href="http://www.658.com/userTrade">我的配资</a>
+        </dt>
+        <dt>
+            <a href="http://y.658.com/user/allcp">按天配资</a>
+        </dt>
+        <dt>
+            <a href="fund">资金管理</a>
+        </dt>
+        <dd>
+            <a id="funds_recode" href="fund">资金记录</a>
+        </dd>
+        <dd>
+            <a id="recharge" href="torecharge">充值</a>
+        </dd>
+        <dd>
+            <a id="withdrawl" href="withdrawlFirst">提现</a>
+        </dd>
+        <dt>
+            <a href="myaccount" id="myaccount">账号设置</a>
+        </dt>
+        <!--
+        <dt>
+            <a id="memberRankmenu" href="grewLevel">会员特权</a>
+        </dt>
+         -->
+        <dt>
+            <a id="messagecenter" href="msgInfo">消息中心</a>
+        </dt>
+        <dt>
+            <a id="myLink" href="http://www.658.com/userTrade/MyLink">我的推广</a>
+        </dt>
+        <dt>
+            <a href="http://www.658.com/userTrade/RedMoney">我的红包</a>
+        </dt>
+    </dl>
+</div>
+<!--[if lte IE 9]>
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/html5.js"></script><![endif]-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#funds_recode").attr("class", "selected");
+    });
+    function changePage() {
+        var currPage = document.getElementById("currpage").value;
+        window.self.location = "fund?fundsType=" + $("#fundstype").val() + "&dateinterval=" + $("#dateselect").val() + "&currPage=" + currPage;
+    }
+</script>
+<div class="right rCon">
+<div class="subtitle">
+    <b class="anyWhere"></b>资金记录
+</div>
+<div class="top-box-bg">
+    <div class="top-box clearfix">
+        <div class="ele">
+            <p>账户净资产</p>
+            <strong>53020.00</strong>元
+        </div>
+        <b class="sign">=</b>
+
+        <div class="ele">
+            <p>冻结资金</p>
+            <strong> 0.00</strong>元
+        </div>
+        <b class="sign">+</b>
+
+        <div class="ele">
+            <p>借款负债</p>
+            <strong>0.00</strong>元
+        </div>
+        <b class="sign">+</b>
+
+        <div class="ele">
+            <p>投资债权</p>
+            <strong>53020.00</strong>元
+        </div>
+        <b class="sign">+</b>
+
+        <div class="ele">
+            <p>可用余额</p>
+            <strong class="dull-red">0.00</strong>元
+        </div>
+    </div>
+</div>
+<form id="formID" name="formID" action="fund" method="post">
+    <div class="select-form clearfix">
+        <div class="ui-select">
+            <label>类型：</label>
+
+            <div class="select-box">
+                <select class="sel" name="fundsType" id="fundstype">
+                    <option selected value="1">全部</option>
+                    <option value="2">充值</option>
+                    <option value="3">提现</option>
+                    <option value="4">投资收益</option>
+                    <option value="6">补交保证金</option>
+                    <option value="7">盈利提取</option>
+                </select>
+            </div>
+        </div>
+        <div class="ui-select">
+            <label>时间：</label>
+
+            <div class="select-box">
+                <select class="sel" name="dateinterval" id="dateselect">
+                    <option value="1">一个月以内</option>
+                    <option value="2">三天以内</option>
+                    <option value="3">一周以内</option>
+                    <option selected value="4">三个月以内</option>
+                    <option value="5">一年以内</option>
+                </select>
+            </div>
+        </div>
+        <a class="s-btn" href="javascript:void(0)" id="confirm">确&nbsp;定</a>
+
+        <div class="ui-button">
+            <a class="cz" href="torecharge">充&nbsp;值</a> <a class="tx" href="withdrawlFirst">提&nbsp;现</a>
+        </div>
+    </div>
+</form>
+<div class="fund-tb">
+<table>
+<tr class="hd">
+    <th class="w200">名称/编号/时间</th>
+    <th class="w120">交易金额</th>
+    <th class="w120">可用余额</th>
+    <th class="w100">冻结资金</th>
+    <th class="w110">债权</th>
+    <th class="w110">负债</th>
+    <th class="w120">净资产</th>
+</tr>
+
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">借出、借入－股票配资-投资者本金</p>
+
+        <p class="main-txt">80150506010698</p>
+
+        <p class="sub-txt">2015.05.08 09:54</p>
+    </td>
+    <td class="w120"><span>
+					 -3000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 53020.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 53020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">冻结、解冻-投资-股票配资</p>
+
+        <p class="main-txt">60150508122152</p>
+
+        <p class="sub-txt">2015.05.08 09:54</p>
+    </td>
+    <td class="w120"><span>
+					 3000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 3000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 50020.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 53020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">冻结、解冻-投资-股票配资</p>
+
+        <p class="main-txt">10150508126406</p>
+
+        <p class="sub-txt">2015.05.08 09:48</p>
+    </td>
+    <td class="w120"><span>
+					 -3000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 3000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 50020.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 53020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">借出、借入－股票配资-投资者本金</p>
+
+        <p class="main-txt">80150506010670</p>
+
+        <p class="sub-txt">2015.05.08 09:47</p>
+    </td>
+    <td class="w120"><span>
+					 -1020.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 3000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 50020.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 53020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">冻结、解冻-投资-股票配资</p>
+
+        <p class="main-txt">60150508122078</p>
+
+        <p class="sub-txt">2015.05.08 09:47</p>
+    </td>
+    <td class="w120"><span>
+					 1020.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 4020.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 49000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 53020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150508212972</p>
+
+        <p class="sub-txt">2015.05.08 09:42</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 3000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 1020.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 49000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 53020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150508212962</p>
+
+        <p class="sub-txt">2015.05.08 09:41</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 2000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 1020.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 49000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 52020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150508212952</p>
+
+        <p class="sub-txt">2015.05.08 09:40</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 1020.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 49000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 51020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">冻结、解冻-投资-股票配资</p>
+
+        <p class="main-txt">10150508126332</p>
+
+        <p class="sub-txt">2015.05.08 09:28</p>
+    </td>
+    <td class="w120"><span>
+					 -1020.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 1020.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 49000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 50020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">收到投资本金</p>
+
+        <p class="main-txt">61150408049703</p>
+
+        <p class="sub-txt">2015.05.08 08:43</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 1020.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 49000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 50020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">投资利息收益</p>
+
+        <p class="main-txt">61150408049703</p>
+
+        <p class="sub-txt">2015.05.08 08:43</p>
+    </td>
+    <td class="w120"><span>
+					 20.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 20.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 50000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 50020.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">借出、借入－股票配资-投资者本金</p>
+
+        <p class="main-txt">80150428009344</p>
+
+        <p class="sub-txt">2015.04.30 08:27</p>
+    </td>
+    <td class="w120"><span>
+					 -7000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 50000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 50000.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">冻结、解冻-投资-股票配资</p>
+
+        <p class="main-txt">60150430099416</p>
+
+        <p class="sub-txt">2015.04.30 08:27</p>
+    </td>
+    <td class="w120"><span>
+					 7000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 7000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 43000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 50000.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">冻结、解冻-投资-股票配资</p>
+
+        <p class="main-txt">10150430105701</p>
+
+        <p class="sub-txt">2015.04.30 07:17</p>
+    </td>
+    <td class="w120"><span>
+					 -7000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 7000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 43000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 50000.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150430181830</p>
+
+        <p class="sub-txt">2015.04.30 07:16</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 7000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 43000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 50000.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150430181828</p>
+
+        <p class="sub-txt">2015.04.30 07:15</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 6000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 43000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 49000.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150430181821</p>
+
+        <p class="sub-txt">2015.04.30 07:13</p>
+    </td>
+    <td class="w120"><span>
+					 2000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 5000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 43000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 48000.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150430181817</p>
+
+        <p class="sub-txt">2015.04.30 07:13</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 3000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 43000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 46000.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150430181815</p>
+
+        <p class="sub-txt">2015.04.30 07:11</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 2000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 43000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 45000.00
+					</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="w200">
+
+
+        <p class="main-txt">充值</p>
+
+        <p class="main-txt">20150430181813</p>
+
+        <p class="sub-txt">2015.04.30 07:10</p>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 1000.00
+					</span>
+    </td>
+    <td class="w100"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 43000.00
+					</span>
+    </td>
+    <td class="w110"><span>
+					 0.00
+					</span>
+    </td>
+    <td class="w120"><span>
+					 44000.00
+					</span>
+    </td>
+</tr>
+
+
+</table>
+</div>
+
+<div class="pageBar">
+
+
+    <a href="fund?fundsType=1&dateinterval=4&currPage=1"> 1</a>
+
+    <a href="fund?fundsType=1&dateinterval=4&currPage=2"> 2</a>
+
+    <a href="fund?fundsType=1&dateinterval=4&currPage=3"> 3</a>
+
+    <a href="fund?fundsType=1&dateinterval=4&currPage=4"> 4</a>
+
+    <a href="fund?fundsType=1&dateinterval=4&currPage=5"> 5</a>
+
+    <a href="fund?fundsType=1&dateinterval=4&currPage=6"> 6</a>
+
+
+    <a href="fund?fundsType=1&dateinterval=4&currPage=2"> 下一页</a>&nbsp;&gt;&gt;<select id="currpage"
+                                                                                       onchange="changePage()">
+
+
+    <option value="1" selected="selected">
+        第1页
+    </option>
+
+
+    <option value="2">第2页</option>
+
+
+    <option value="3">第3页</option>
+
+
+    <option value="4">第4页</option>
+
+
+    <option value="5">第5页</option>
+
+
+    <option value="6">第6页</option>
+
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+<script
+        src="https://img658.b0.upaiyun.com/v2/static2/js/jquery-1.8.3.min.js"></script>
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/acount.js"></script>
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/fund.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#dateselect").change(function () {
+        });
+
+    });
+
+    $("#confirm").click(function () {
+        $("#formID").submit();
+        $.ajax({
+            url: "fund",
+            type: "POST",
+            dataType: "text",
+            data: {
+                dateinterval: test
+            },
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#funds_recode").attr("class", "selected");
+    });
+</script>
+
+
+<style>
+    .norton, .save-360, .faith {
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+    }
+</style>
+<div class="clear"></div>
+#parse("./common/footer.html")

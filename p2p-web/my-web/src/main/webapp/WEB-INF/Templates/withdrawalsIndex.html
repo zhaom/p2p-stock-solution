@@ -1,0 +1,376 @@
+#parse("./common/header.html")
+<section class="content">
+<div class="center1000">
+
+
+<link rel="stylesheet" type="text/css" href="https://img658.b0.upaiyun.com/v2/static2/css/left_menu.css"/>
+<style>
+    .house, .pay, .fund, .money, .letter, .person, .link, .myaccount, .memberRankmenu {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+        position: relative;
+        top: 4px;
+        _top: 0;
+        _background-color: red;
+    }
+</style>
+<div class="acount-sub-nav clearfix">
+</div>
+
+<div class="fullBox container act-box">
+<div id="leftmenu" class="left lMenu">
+    <dl>
+        <dt>
+            <a href="/investercenter">我的投资</a>
+        </dt>
+        <dt>
+            <a id="financercenter" href="http://www.658.com/userTrade">我的配资</a>
+        </dt>
+        <dt>
+            <a href="http://y.658.com/user/allcp">按天配资</a>
+        </dt>
+        <dt>
+            <a href="fund">资金管理</a>
+        </dt>
+        <dd>
+            <a id="funds_recode" href="fund">资金记录</a>
+        </dd>
+        <dd>
+            <a id="recharge" href="torecharge">充值</a>
+        </dd>
+        <dd>
+            <a id="withdrawl" href="withdrawlFirst">提现</a>
+        </dd>
+        <dt>
+            <a href="myaccount" id="myaccount">账号设置</a>
+        </dt>
+        <!--
+        <dt>
+            <a id="memberRankmenu" href="grewLevel">会员特权</a>
+        </dt>
+         -->
+        <dt>
+            <a id="messagecenter" href="msgInfo">消息中心</a>
+        </dt>
+        <dt>
+            <a id="myLink" href="http://www.658.com/userTrade/MyLink">我的推广</a>
+        </dt>
+        <dt>
+            <a href="http://www.658.com/userTrade/RedMoney">我的红包</a>
+        </dt>
+    </dl>
+</div>
+
+<style>
+    .feetip {
+        margin-left: 46px;
+        padding-left: 5px;
+        background-color: #FFF9F3;
+        border: 1px solid #FDE9D5;
+        font-size: 11px;
+    }
+
+    #notice {
+        color: #969696;
+        font-size: 12px;
+        float: left;
+        margin-left: 20px;
+    }
+
+    table.dakuanTip {
+        width: 300px;
+        border: 1px solid #f5f5f5;
+    }
+
+    table.dakuanTip th, table.dakuanTip td {
+        border: 1px solid #f5f5f5;
+        padding: 0 20px 0 20px;
+    }
+
+    #fund_mains {
+        width: 650px;
+        padding-left: 145px;
+        position: relative;
+    }
+
+    #fund_mains label {
+        position: absolute;
+        left: 15px;
+        top: 0;
+    }
+
+    .zhankai a {
+        display: inline-block;
+        width: 140px;
+        height: 18px;
+        color: #08c;
+    }
+
+    .zhankai span {
+        width: 10px;
+        height: 10px;
+        padding: 2px;
+        display: inline-block;
+        border-radius: 2px;
+        border: 1px solid #08c;
+        margin-right: 10px;
+        vertical-align: -12px;
+        background-color: #ECF3F8;
+    }
+
+    .zhankai i {
+        border-color: #0066cc #fff transparent;
+        border-style: solid solid none;
+        border-width: 5px 5px 0;
+        display: inline-block;
+        line-height: 0;
+        vertical-align: 15px;
+    }
+
+    .add_card1 {
+        width: 648px;
+        padding: 4px 0;
+        height: 38px;
+        line-height: 38px;
+        border: 1px solid #ececec;
+        margin-bottom: 10px;
+        cursor: pointer;
+        border-radius: 3px 3px;
+    }
+
+    .add_card1 input {
+        vertical-align: 12px;
+        margin-left: 12px;
+    }
+
+    .add_card1 span {
+        display: inline-block;
+        vertical-align: 12px;
+    }
+</style>
+<div class="right rCon">
+    <div class="subtitle">
+        <b class="anyWhere"></b>提现
+    </div>
+    <div class="fund-cont clearfix">
+        <form id="withdrwal" action="withdrawalsMoneyFirst" method="post"
+              onload="recalulate()">
+            <ul class="ui-fund-item clearfix">
+                <li id="fund_mains"><label>选择提现银行卡</label>
+
+
+                    <div class="add_card1" style="display: block;">
+                        <input type="radio" class="add_card1_input" name="cardId"
+                               value="9968" checked="checked"> <img
+                            class="cards_img" src="https://static.658.com/pay/build/1.00/images/spdb.png"><span
+                            class="card_weihao">尾号：<em style="font-weight:bold;">8309</em></span>
+
+                        <span style="vertical-align: 12px;margin-left: 213px;color: #75a6c9;">默认</span>
+                        <a href="banklist" style="vertical-align: 12px;margin-left: 5px;color: #75a6c9;">管理</a>
+                    </div>
+
+
+                    <script type="text/javascript">
+                        $(function () {
+                            var $add = $(".add_card1");
+                            $add.click(function () {
+                                $(this).find("input.add_card1_input").prop(
+                                        "checked", true);
+                                $(this).siblings(".add_card1").slideUp();
+                                $(".zhankai").show();
+                            });
+                            $(".zhankai").click(function () {
+                                $add.slideDown();
+                                $(".zhankai").hide();
+                            })
+                        })
+                    </script>
+
+                </li>
+
+                <li><label>可用余额</label> <span><b> 0.00</b>元</span>
+                    <input type="hidden" id="aviableMoney" value="0.00">
+                </li>
+
+
+                <!-- 未支付保证金 -->
+
+
+                <li><label>提现金额</label> <input class="ipt" type="text"
+                                               name="withdrawal.withdrawalMoney"
+                                               value="" id="WithdrawalsMoney12"/>
+                    <em class="y">元</em>
+
+                    <p class="ui-error">
+                        <span id="span1"></span>
+                    </p></li>
+                <li><label>实际到账</label> <span class="pri"> <em
+                        id="realMoney"></em>元</span>
+
+                <li><a class="button" href="javascript:void(0);"
+                       id="nextstep">下一步</a>
+                </li>
+
+
+            </ul>
+            <input type="hidden" name="extract_one_min" id="extract_one_min" value="2"/>
+            <input type="hidden" name="extract_one_max" id="extract_one_max" value="50000"/>
+            <input type="hidden" name="extract_one_min" id="extract__factorage_max" value="50"/>
+            <input type="hidden" name="extract_one_min" id="extract__factorage_ratio" value="0"/>
+            <input type="hidden" name="realMoney" id="realMoney1"/>
+            <input type="hidden" name="serviceFee" id="serviceFee1"/>
+            <input type="hidden" name="bankCardTail" value="8309"/>
+        </form>
+        <div class="right rCon" id="notice">
+            <div style="border-bottom:1px solid #eee">提现说明:</div>
+            <ol>
+                <li style="list-style: decimal;margin-left: 20px;">您账户中未使用的充值资金可于15天后申请提现。</li>
+                <li style="list-style: decimal;margin-left: 20px;">658的资金由第三方支付平台:贝付科技托管，每日提现打款操作时间请查阅：</li>
+                <li style="margin-left: 40px;">
+                    <table class="dakuanTip">
+                        <tr style="background:#f5f5f5">
+                            <th>打款时间</th>
+                            <th>预计到帐时间</th>
+                        </tr>
+                        <tr>
+                            <td>10：00之前</td>
+                            <td>14：00到账</td>
+                        </tr>
+                        <tr>
+                            <td>12：00之前</td>
+                            <td>16：00到账</td>
+                        </tr>
+                        <tr>
+                            <td>15：30之前</td>
+                            <td>19：30到账</td>
+                        </tr>
+                        <tr>
+                            <td>21：00仅限工行</td>
+                            <td>次日01：00</td>
+                        </tr>
+                    </table>
+                </li>
+                <li>为了您的提现能及时到帐，请您在打款时间点前申请提现，晚上21：00打款仅限工商银行，如您使用其他银行，建议您在15：30前申请提现。</li>
+                <li>感谢您对658金融网的支持，祝您财运亨通，钱景无限！</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/fund.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#WithdrawalsMoney12").change(function () {
+            validate($.trim($(this).val()));
+        });
+        //validate
+        $("#WithdrawalsMoney12").keyup(function () {
+            validate($.trim($(this).val()));
+        });
+
+        $("#WithdrawalsMoney12").blur(function () {
+            if (validate($.trim($(this).val()))) {
+                $(this).val(new Number(this.value).toFixed(2));
+            }
+        });
+
+        $("#nextstep").click(function () {
+            if (parseFloat($("#WithdrawalsMoney12").val()) > parseFloat($("#aviableMoney").val())) {
+                $("#span1").text("您最多可提现" + $("#aviableMoney").val() + "元").append('<em class="err"></em>');
+                $("#realMoney").text(0);
+                return false;
+            } else if ($.trim($("#WithdrawalsMoney12").val()).length == 0) {
+                $("#span1").text("输入 提现金额").append('<em class="err"></em>');
+                return false;
+            } else if ($.trim($("#span1").text()).length != 0) {
+                return false;
+            } else {
+                $("#withdrwal").submit();
+            }
+        });
+        var refreshRealMoney = function () {
+            var WithdrawalsMoney12 = $.trim($("#WithdrawalsMoney12").val());
+            $("#WithdrawalsMoney12").val(WithdrawalsMoney12);
+
+            var extract__factorage_ratio = $("#extract__factorage_ratio").val();
+            var servicefee = WithdrawalsMoney12 * extract__factorage_ratio * 0.01;
+            if (servicefee > 50) {
+                servicefee = 50;
+            }
+            $("#serviceFee").text(servicefee);
+            $("#serviceFee1").val(servicefee);
+            var realMoney = WithdrawalsMoney12 - servicefee;
+            $("#realMoney").text(new Number(realMoney).toFixed(2));
+            $("#realMoney1").val(realMoney);
+        };
+
+
+        function validate(data) {
+            //var WithdrawalsMoney12 = $.trim($("#WithdrawalsMoney12").val());
+            var pattern = /^([1-9]\d*|0)(\.?\d+)?$/;
+            var state = pattern.test(data);
+            if (!state) {
+                $("#span1").text("请输入数字").append('<em class="err"></em>');
+                return false;
+            }
+            if (!/^\d{1,10}\.\d{2}?$/.test(data) && data.indexOf(".") != -1) {//只取小数点后两位
+                $("#WithdrawalsMoney12").val(data.substr(0, data.indexOf(".") + 3));
+            }
+
+            if (parseFloat(data) > parseFloat($("#aviableMoney").val())) {
+                $("#span1").text("您最多可提现" + $("#aviableMoney").val() + "元").append('<em class="err"></em>');
+                $("#realMoney").text(0);
+                return false;
+            }
+
+            if (parseFloat(data) > parseFloat($("#extract_one_max").val())) {
+                $("#span1").text("您最多可提现" + $("#extract_one_max").val() + "元").append('<em class="err"></em>');
+                $("#realMoney").text(0);
+                return false;
+            }
+
+            if (parseFloat(data) < parseFloat($("#extract_one_min").val())) {
+                $("#span1").text("您最小能提现" + $("#extract_one_min").val() + "元").append('<em class="err"></em>');
+                $("#realMoney").text(0);
+                return false;
+            }
+
+            if (parseFloat(data) <= parseFloat($("#aviableMoney").val())
+                    && parseFloat($("#WithdrawalsMoney12").val()) >= parseFloat($("#extract_one_min").val())
+                    && parseFloat($("#WithdrawalsMoney12").val()) <= parseFloat($("#extract_one_max").val())
+                    ) {
+                $("#span1").text("");
+                refreshRealMoney();
+                return true;
+            }
+        }
+
+
+    });
+</script>
+<script
+        src="https://img658.b0.upaiyun.com/v2/static2/js/jquery-1.8.3.min.js"></script>
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/acount.js"></script>
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/fund.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $("#withdrawl").attr("class", "selected");
+    });
+</script>
+</div>
+</div>
+</section>
+
+
+<style>
+    .norton, .save-360, .faith {
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+    }
+</style>
+<div class="clear"></div>
+#parse("./common/footer.html")

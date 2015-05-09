@@ -1,0 +1,379 @@
+#parse("./common/header.html")
+<section class="content">
+<div class="center1000">
+
+
+<link rel="stylesheet" type="text/css" href="https://img658.b0.upaiyun.com/v2/static2/css/left_menu.css"/>
+<style>
+    .house, .pay, .fund, .money, .letter, .person, .link, .myaccount, .memberRankmenu {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+        position: relative;
+        top: 4px;
+        _top: 0;
+        _background-color: red;
+    }
+</style>
+<div class="acount-sub-nav clearfix">
+</div>
+
+<div class="fullBox container act-box">
+<div id="leftmenu" class="left lMenu">
+    <dl>
+        <dt>
+            <a href="/investercenter">我的投资</a>
+        </dt>
+        <dt>
+            <a id="financercenter" href="http://www.658.com/userTrade">我的配资</a>
+        </dt>
+        <dt>
+            <a href="http://y.658.com/user/allcp">按天配资</a>
+        </dt>
+        <dt>
+            <a href="fund">资金管理</a>
+        </dt>
+        <dt>
+            <a href="myaccount" id="myaccount">账号设置</a>
+        </dt>
+        <!--
+        <dt>
+            <a id="memberRankmenu" href="grewLevel">会员特权</a>
+        </dt>
+         -->
+        <dt>
+            <a id="messagecenter" href="msgInfo">消息中心</a>
+        </dt>
+        <dt>
+            <a id="myLink" href="http://www.658.com/userTrade/MyLink">我的推广</a>
+        </dt>
+        <dt>
+            <a href="http://www.658.com/userTrade/RedMoney">我的红包</a>
+        </dt>
+    </dl>
+</div>
+
+
+<div class="right">
+<dl>
+<dt>
+    <b class="anyWhere"></b>消息中心
+    <b class="kid">仅显示最近三个月的消息，共17条，其中&nbsp;
+        <b class="red">0</b>&nbsp;条未读</b>
+</dt>
+<dd class="paged">
+    <label class="readAll">
+        <input type="checkbox" id="CheckedAll" id="CheckedAll">全选
+    </label>
+    <a class="readAll" href="javascript:del();">标记为已读</a>
+    <!-- <input type="button" name="delete" id="delete" class="readAll" value="标记为已读" onclick="del()" /> -->
+    <div class="pageBar"><a href="?page=1">1</a><a href="?page=2">2</a><a href="?page=2"> 下一页&nbsp;&gt;&gt;</a><select
+            id="currpage" onchange="changePagePageBarUtil()">
+        <option value="1" selected>第1页</option>
+        <option value="2">第2页</option>
+    </select>
+        <script type="text/javascript">    function changePagePageBarUtil() {
+            var pageSelector = document.getElementById("currpage");
+            var currPage = 1;
+            if (pageSelector != null) {
+                currPage = document.getElementById("currpage").value;
+            }
+            var url = "?page=" + currPage + "";
+            window.self.location = url;
+        }</script>
+    </div>
+
+</dd>
+<dd>
+<table>
+<thead>
+<tr>
+    <th>&nbsp;</th>
+    <th class="textLeft">标题</th>
+    <th>时间</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="156070"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=156070">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-5-8 9:48:38
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="156005"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=156005">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-5-8 9:28:32
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="140129"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=140129">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-30 7:17:35
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="139426"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=139426">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-29 14:20:27
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="139400"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=139400">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-29 14:03:43
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="137166"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=137166">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-28 9:34:32
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="136895"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=136895">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-28 8:25:07
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="136869"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=136869">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-28 7:50:30
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="136834"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=136834">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-28 7:15:34
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="135019"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=135019">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-27 10:29:26
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="133390"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=133390">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-26 9:57:00
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="130964"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=130964">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-24 9:53:33
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="129208"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=129208">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-23 9:36:33
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="127939"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=127939">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-22 13:34:58
+    </td>
+</tr>
+
+<!-- 已读信息  -->
+<tr>
+    <td class="td1"><input type="checkbox" name="items" value="126077"></td>
+    <td class="td2">
+        <em class="mail"></em>
+        <a href="recordInsert.action?msgInfoID=126077">
+            投资成功消息
+        </a>
+    </td>
+    <td class="td3">
+        2015-4-21 9:56:04
+    </td>
+</tr>
+
+</tbody>
+</table>
+</dd>
+<dd class="paged">
+    <div class="pageBar"><a href="?page=1">1</a><a href="?page=2">2</a><a href="?page=2"> 下一页&nbsp;&gt;&gt;</a><select
+            id="currpage" onchange="changePagePageBarUtil()">
+        <option value="1" selected>第1页</option>
+        <option value="2">第2页</option>
+    </select>
+        <script type="text/javascript">    function changePagePageBarUtil() {
+            var pageSelector = document.getElementById("currpage");
+            var currPage = 1;
+            if (pageSelector != null) {
+                currPage = document.getElementById("currpage").value;
+            }
+            var url = "?page=" + currPage + "";
+            window.self.location = url;
+        }</script>
+    </div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</section>
+<script src="https://img658.b0.upaiyun.com/v2/static2/js/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //选中对应的导航栏
+        $("#messagecenter").attr("class", "selected");
+
+    });
+
+    //判断全选或全不选
+    $("#CheckedAll").click(function () {
+        $("[name=items]:checkbox").attr("checked", this.checked);
+    });
+
+
+    //消息中心 全选逻辑删除
+    function del() {
+        var str = "";
+        var sel = document.getElementsByName("items");   //获取checkbox的值
+
+        for (var i = 0; i < sel.length; i++)
+            if (sel[i].checked == true)
+                str += sel[i].value + ",";
+        if (str == "") {
+            alert("请至少选中一项！")
+        }
+        else {
+            if (window.confirm("确定将勾选项标记为已读吗？")) {
+                window.location = "recordDel.action?val=" + str;
+            }  //后台标记为已读
+        }
+
+
+    }
+</script>
+
+
+<style>
+    .norton, .save-360, .faith {
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+    }
+</style>
+<div class="clear"></div>
+#parse("./common/footer.html")
