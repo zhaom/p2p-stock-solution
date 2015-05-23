@@ -6,7 +6,20 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:shiro-client-default.properties,classpath:shiro-client.properties"/>
+    <context:property-placeholder location="classpath:shiro-client-default.properties,classpath:shiro-client.properties,classpath:memcached.properties"/>
+
+    <bean id="memcachedClient" class="net.spy.memcached.MemcachedClient">
+        <constructor-arg index="0">
+            <list>
+                <bean class="java.net.InetSocketAddress">
+                    <constructor-arg index="0" value="${memcached.0.host}"/>
+                    <constructor-arg index="1" value="${memcached.0.port}"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
 
     <import resource="spring-client-remote-service.xml"/>
     <import resource="spring-client-shiro.xml"/>

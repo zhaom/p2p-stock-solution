@@ -13,5 +13,6 @@
     <context:property-placeholder location="classpath:resources.properties,classpath:memcached.properties"/>
 
 
+
     <import resource="classpath:spring-config-dubbo-consumer.xml"/>
 </beans>

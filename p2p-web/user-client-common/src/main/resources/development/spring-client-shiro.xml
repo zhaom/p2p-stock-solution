@@ -12,7 +12,7 @@
     <bean id="remoteRealm" class="com.fanya.p2p.front.user.client.ClientRealm">
         <property name="cachingEnabled" value="false"/>
         <property name="appKey" value="${client.app.key}"/>
-        <property name="remoteService" ref="remoteService"/>
+        <property name="authorizationService" ref="authorizationService"/>
     </bean>
 
     <!-- 会话ID生成器 -->
@@ -47,7 +47,8 @@
     <bean id="sessionDAO" class="com.fanya.p2p.front.user.client.ClientSessionDAO">
         <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
         <property name="appKey" value="${client.app.key}"/>
-        <property name="remoteService" ref="remoteService"/>
+        <property name="memcachedClient" ref="memcachedClient"/>
+        <property name="timeout" value="${client.session.timeout}"/>
     </bean>
 
     <!-- 会话管理器 -->

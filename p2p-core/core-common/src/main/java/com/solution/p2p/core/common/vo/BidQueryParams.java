@@ -50,12 +50,6 @@ public class BidQueryParams {
         if(lifeDuration > 0){
             criteria.andLifeDurationEqualTo(lifeDuration).andLifeDurationUnitEqualTo(lifeDurationUnit);
         }
-        if(bidStatus>0){
-            criteria.andStatusEqualTo(bidStatus);
-        }
-        if(collectPayStatus > 0){
-            criteria.andStatusEqualTo(collectPayStatus);
-        }
 
         return bidExample;
     }

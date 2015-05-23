@@ -19,6 +19,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.solution.p2p.core</groupId>
+            <artifactId>core-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.solution.p2p.web</groupId>
             <artifactId>user-client-common</artifactId>
             <version>${project.version}</version>
@@ -121,12 +126,30 @@
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>8.1.8.v20121106</version>
+                <configuration>
+                    <!--
+                    <webAppConfig>
+                            <contextPath>/${project.build.finalName}</contextPath>
+                    </webAppConfig>
+                    -->
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>10090</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
+                <configuration>
+
+                    <path>/${project.build.finalName}</path>
+                    <httpPort>10090</httpPort>
+                </configuration>
             </plugin>
         </plugins>
 

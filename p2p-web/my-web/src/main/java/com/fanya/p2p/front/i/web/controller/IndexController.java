@@ -1,6 +1,5 @@
 package com.fanya.p2p.front.i.web.controller;
 
-import com.fanya.p2p.front.i.web.service.AccountServiceLocal;
 import com.solution.p2p.core.common.entity.Member;
 import com.solution.p2p.core.common.utils.Constants;
 import org.springframework.stereotype.Controller;
@@ -20,11 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 public class IndexController extends AbstractController {
 
 
-    private AccountServiceLocal accountServiceLocal;
-
-    public void setAccountServiceLocal(AccountServiceLocal accountServiceLocal) {
-        this.accountServiceLocal = accountServiceLocal;
-    }
 
     /**
      * 账户总览 == 账户设置

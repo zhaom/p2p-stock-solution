@@ -75,9 +75,10 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/password-reset",method = RequestMethod.POST)
-    public String doPasswordReset(String mobile, String smsCode, String newPassword, RedirectAttributes redirectAttributes){
+    public String doPasswordReset(HttpServletRequest request,String mobile, String smsCode, String oldPassword, String newPassword, RedirectAttributes redirectAttributes){
         logger.debug("do password reset for mobile:[{}]", mobile);
-        memberService.resetPassword(mobile, newPassword, Constants.APP_KEY, "changqianmingyuguang");
+        Member member = (Member)request.getSession().getAttribute(Constants.CURRENT_USER);
+        memberService.resetPassword(member.getId(), oldPassword, newPassword, Constants.APP_KEY, "changqianmingyuguang");
         return "redirect:/logout";
     }
 

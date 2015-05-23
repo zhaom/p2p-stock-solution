@@ -8,9 +8,6 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="remoteService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
-        <property name="serviceUrl" value="${client.remote.service.url}"/>
-        <property name="serviceInterface" value="com.fanya.p2p.common.remote.RemoteServiceInterface"/>
-    </bean>
+
 
 </beans>
