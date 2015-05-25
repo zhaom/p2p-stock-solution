@@ -10,4 +10,5 @@
  -->
     <bean id="authorizationService" class="com.solution.p2p.core.service.AuthorizationServiceImpl"/>
 
+    <dubbo:reference id="bidService" interface="com.solution.p2p.core.common.service.BidService" />
 </beans>

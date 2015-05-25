@@ -1,7 +1,12 @@
 package com.solution.p2p.core.common.vo;
 
 import com.solution.p2p.core.common.entity.BidExample;
+import org.apache.commons.lang3.time.DateUtils;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,9 +29,13 @@ public class BidQueryParams {
 
     private Integer lifeDurationUnit;
 
-    private Integer bidStatus;
+    private List<Integer> bidStatusList;
 
     private Integer collectPayStatus;
+
+    private Date bidSuccessTimeBegin;
+
+    private Date bidSuccessTimeEnd;
 
     private String orderBy = "request_interest_rate desc";
 
@@ -49,6 +58,12 @@ public class BidQueryParams {
         //TODO:modify refer example
         if(lifeDuration > 0){
             criteria.andLifeDurationEqualTo(lifeDuration).andLifeDurationUnitEqualTo(lifeDurationUnit);
+        }
+        if(!CollectionUtils.isEmpty(bidStatusList)){
+            criteria.andBidStatusIn(bidStatusList);
+        }
+        if(bidSuccessTimeBegin != null && bidSuccessTimeEnd != null){
+            criteria.andBidSuccessTimeBetween(bidSuccessTimeBegin, bidSuccessTimeEnd);
         }
 
         return bidExample;
@@ -102,12 +117,12 @@ public class BidQueryParams {
         this.lifeDurationUnit = lifeDurationUnit;
     }
 
-    public Integer getBidStatus() {
-        return bidStatus;
+    public List<Integer> getBidStatusList() {
+        return bidStatusList;
     }
 
-    public void setBidStatus(Integer bidStatus) {
-        this.bidStatus = bidStatus;
+    public void setBidStatusList(List<Integer> bidStatusList) {
+        this.bidStatusList = bidStatusList;
     }
 
     public Integer getCollectPayStatus() {
@@ -116,6 +131,22 @@ public class BidQueryParams {
 
     public void setCollectPayStatus(Integer collectPayStatus) {
         this.collectPayStatus = collectPayStatus;
+    }
+
+    public Date getBidSuccessTimeBegin() {
+        return bidSuccessTimeBegin;
+    }
+
+    public void setBidSuccessTimeBegin(Date bidSuccessTimeBegin) {
+        this.bidSuccessTimeBegin = bidSuccessTimeBegin;
+    }
+
+    public Date getBidSuccessTimeEnd() {
+        return bidSuccessTimeEnd;
+    }
+
+    public void setBidSuccessTimeEnd(Date bidSuccessTimeEnd) {
+        this.bidSuccessTimeEnd = bidSuccessTimeEnd;
     }
 
     public String getOrderBy() {

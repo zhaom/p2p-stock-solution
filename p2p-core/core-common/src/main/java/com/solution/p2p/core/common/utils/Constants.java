@@ -169,7 +169,7 @@ public class Constants {
     // public static final int MEMBER_ACCOUNT_DATA_VERSION_DEFAULT = 10000;
 
 
-    // 标状态【初始|募集中|已满额|还款中|已还清|已强制平仓还清|已流标】
+    // 标状态【初始|待发布|募集中|已满额|还款中|已还清|已强制平仓还清|已流标】
     public static final int BID_STATUS_INIT = 30000;
     public static final int BID_STATUS_WAIT_RELEASE = 30001;
     public static final int BID_STATUS_ONLINE = 30002;
