@@ -150,8 +150,9 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-
+                    <!--
                     <path>/${project.build.finalName}</path>
+                    -->
                     <httpPort>10090</httpPort>
                 </configuration>
             </plugin>

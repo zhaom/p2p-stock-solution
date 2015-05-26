@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.IDN;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -39,12 +40,18 @@ public class IndexController extends AbstractController {
     @RequestMapping({"/",""})
     public String index(HttpServletRequest httpServletRequest, Model model) {
         Member member = getLoginMember();
-        logger.debug("request home page, user [{}]",member);
-        //TODO: 查询banner
-        //TODO: queey statistic data
 
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        logger.debug("request home page, user [{}]",member);
+        //TODO: query banner
+        //TODO: query statistic data
+        /**
         BidQueryParams bidQueryParams = new BidQueryParams();
-        List<Integer> bidStatusList = ListUtils.EMPTY_LIST;
+        List<Integer> bidStatusList = new ArrayList();
         bidStatusList.add(Constants.BID_STATUS_ONLINE);
         bidQueryParams.setBidStatusList(bidStatusList);
         ServiceResult<Pagination<Bid>> doingServiceResult = bidService.listBid(bidQueryParams,
@@ -73,7 +80,12 @@ public class IndexController extends AbstractController {
                 IndexConstants.HOMEPAGE_PAGE_SIZE_DOING,
                 IndexConstants.APP_KEY,
                 IndexConstants.APP_SECURITY);
-
+        */
+        //TODO: query pt notice
+        //TODO: query consultation,suggestion,complaint
+        //TODO: query top invest, top collect
+        //TODO: query media,about,guide
+        logger.info("can do something");
         return "index";
     }
 
