@@ -7,7 +7,10 @@ public class Constants {
     // 通用是否
     public static final int COMMON_YES = 1;
     public static final int COMMON_NO = 0;
-    // insert into sys_dict(value,name,category,category_name,sort) values(1,'是','common_yes_or_no','是否',1),(0,'否','common_yes_or_no','是否',2);
+
+    // 通用排序
+    public static final int COMMON_DESC = 5;
+    public static final int COMMON_ASEC = 6;
     // 会员类型【个人|企业】
     public static final int MEMBER_TYEP_PERSON = 10;
     public static final int MEMBER_TYEP_ENTERPRISE = 30;
@@ -66,6 +69,14 @@ public class Constants {
     public static final int MEMBER_ACCOUNT_STATE_FROZEN = 203;
     public static final int MEMBER_ACCOUNT_STATE_CLOSED = 204;
     // insert into sys_dict(value,name,category,category_name,sort) values(200,'创建','member_account_status','账户状态',10),(201,'可用','member_account_status','账户状态',20),(202,'止付','member_account_status','账户状态',30),(203,'冻结','member_account_status','账户状态',40),(204,'销户','member_account_status','账户状态',50);
+
+    // 留言分类（271咨询、272建议、273投诉、274其它）
+    public static final int GUESTBOOK_TYPE_CONSULT = 271;
+    public static final int GUESTBOOK_TYPE_SUGGEST = 272;
+    public static final int GUESTBOOK_TYPE_COMPLAINT = 273;
+    public static final int GUESTBOOK_TYPE_OTHERS = 274;
+   // insert into sys_dict(value,name,category,category_name,sort) values(271,'咨询','guestbook_type','留言分类',10),(272,'建议','guestbook_type','留言分类',20),(273,'投诉','guestbook_type','留言分类',30),(274,'其它','guestbook_type','留言分类',40);
+
     // 成分类型[本金|利息|收费|盈亏]
     public static final int MEMBER_ACCOUNT_ITEM_TYPE_PRINCIPAL = 300;
     public static final int MEMBER_ACCOUNT_ITEM_TYPE_INTEREST = 301;

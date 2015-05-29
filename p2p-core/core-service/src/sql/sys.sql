@@ -21,6 +21,11 @@ create table if not exists sys_dict (
   key(value)
 ) charset=utf8 ENGINE=InnoDB comment '系统字典表';
 
+insert into sys_dict(value,name,category,category_name,sort) values(1,'是','common_yes_or_no','是否',1),(0,'否','common_yes_or_no','是否',2);
+insert into sys_dict(value,name,category,category_name,sort) values(5,'降序','orderBy','排序',1),(6,'升序','orderBy','排序',2);
+
+
+
 create table if not exists sys_user (
   id bigint auto_increment not null comment 'id',
   org_id bigint not null comment '部门编码',
