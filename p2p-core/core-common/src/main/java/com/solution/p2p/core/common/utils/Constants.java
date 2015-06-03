@@ -169,10 +169,6 @@ public class Constants {
     public static final int SYS_MSG_TYPE_PRIVATE_MSG = 6103;
     public static final int SYS_MSG_TYPE_NEWS = 6104;
 
-    // DATA_VERSION 数据版本
-    // public static final int MEMBER_ACCOUNT_DATA_VERSION_DEFAULT = 10000;
-
-
     // 标状态【初始|待发布|募集中|已满额|还款中|已还清|已强制平仓还清|已流标】
     public static final int BID_STATUS_INIT = 30000;
     public static final int BID_STATUS_WAIT_RELEASE = 30001;
@@ -197,10 +193,10 @@ public class Constants {
     public static final int BID_REFUND_STATUS_PRE_BAD_DEBT = 40006;
 
     // 投标状态【未支付|已支付|成功|失败】
-    public static final int MBR_REQUEST_STATUS_NOPAY = 40100;
-    public static final int MBR_REQUEST_STATUS_PAYED = 40101;
-    public static final int MBR_REQUEST_STATUS_SUCCESS = 40102;
-    public static final int MBR_REQUEST_STATUS_FAILED = 40103;
+    public static final int MBR_STATUS_NOPAY = 40100;
+    public static final int MBR_STATUS_PAYED = 40101;
+    public static final int MBR_STATUS_SUCCESS = 40102;
+    public static final int MBR_STATUS_FAILED = 40103;
 
     // 分发状态【待分发50000|已逾期|已分发|提前分发|坏账已补偿50004】
     public static final int MEMBER_BID_DISTRIBUTE_STATUS_WAITING = 50000;
@@ -211,17 +207,13 @@ public class Constants {
 
     // 记账响应码[成功|失败]
     public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_SUCCESS = 100000;
-    public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_FAILED = 200000;
+    public static final int MEMBER_ACCOUNT_TRANSACTION_REP_CODE_FAILED = 100100;
 
 
 
     //应用里边的错误码
     public static final int ERROR_CODE_SERVICE_DATA_NOT_FOUND = 500404;
     public static final int ERROR_CODE_SERVICE_DATA_DEPULATE = 500405;
-
-
-
-
 
     public static final int ERROR_CODE_SERVICE_PASSWD_INCORRECT = 500601;
 
